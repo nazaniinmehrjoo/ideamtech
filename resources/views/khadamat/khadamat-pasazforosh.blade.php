@@ -74,7 +74,7 @@
                                     </div>
                                 </div>
                             </div>
-                                
+
                             <!--Portfolio Block-->
                             <div class="portfolio-block mix all mockup application col-xl-4 col-lg-4 col-md-6 col-sm-12">
                                 <div class="inner-box">
