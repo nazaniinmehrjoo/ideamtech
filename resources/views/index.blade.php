@@ -2,7 +2,7 @@
 @section('content')
 <div class="body-bg-layer" style="background-color: #1a1a23;"></div>
  <!-- Banner Two -->
- <section class="banner-two" id="to-top-div">
+        <section class="banner-two" id="to-top-div">
                 <div class="auto-container">
                     <div class="banner-slider owl-theme owl-carousel">
                         <!--Slide Item-->
@@ -57,7 +57,7 @@
                                         <h5>تجهیزات نوآورانه</h5>
                                         <div class="text">طراح و سازنده ماشین آلات
                                             و تجهیزات نو آورانه</div>
-                                        <div class="link-box"><a href="blog-single.html"><span class="far fa-angle-right"></span></a></div>
+                                        <div class="link-box"><a href="/ماشین آلات و تجهیزات/محصولات"><span class="far fa-angle-right"></span></a></div>
                                     </div>
                                 </div>
                             </div>
@@ -69,7 +69,7 @@
                                         <h5>خشک کن های سریع</h5>
                                         <div class="text">سازنده انواع خشک های سریع
                                             با تکنولوژی روز دنیا</div>
-                                        <div class="link-box"><a href="blog-single.html"><span class="far fa-angle-right"></span></a></div>
+                                        <div class="link-box"><a href="/خشک-کن/محصولات"><span class="far fa-angle-right"></span></a></div>
                                     </div>
                                 </div>
                             </div>
@@ -81,7 +81,7 @@
                                         <h5>تامین قطعات و تعمیرات</h5>
                                         <div class="text" style=" margin-left: 39px;">تامین کننده قطعات تولید آجر
                                             و تعمیرات آنها</div>
-                                        <div class="link-box"><a href="blog-single.html"><span class="far fa-angle-right"></span></a></div>
+                                        <div class="link-box"><a href="/تامین قطعات/خدمات"><span class="far fa-angle-right"></span></a></div>
                                     </div>
                                 </div>
                             </div>
