@@ -549,10 +549,6 @@
 		left: 80px;
 	}
 
-	.main-header-bar .social-links {
-		display: none;
-	}
-
 	.main-header-bar .copyright {
 		width: 140px;
 		left: 25px;
@@ -790,10 +786,6 @@
 
 	.banner-eight .slide-item h1 {
 		font-size: 36px;
-	}
-
-	.banner-nine .slide-item .text-content {
-		/* display: none; */
 	}
 
 	.banner-nine .slide-item h1 {
