@@ -3,7 +3,9 @@
 		overflow: hidden;
 	}
 }
+@media only screen and (max-width: 1920px) {
 
+}
 @media only screen and (max-width: 1699px) {}
 
 @media only screen and (max-width: 1439px) {
@@ -259,6 +261,9 @@
 }
 
 @media only screen and (max-width: 1199px) {
+	.banner-nine .slide-item .image-box {
+		margin-left: 200px;
+	}
 	.banner-section .slide-item .slide-count {
 		right: 30px;
 		top: 30px;
@@ -517,11 +522,25 @@
 		visibility: hidden;
 		opacity: 0;
 	}
+	
 }
 
 @media only screen and (max-width: 991px) {
-
-
+	.main-responsive-container{
+		padding-left: 0px !important;
+	}
+	.banner-nine .slide-item .text-content {
+		left: 22%;
+	}
+	.banner-nine .slide-item .text-content {
+		bottom: 250px ;
+	}
+	.banner-nine .slide-item .slide-count {
+		top: 360px;
+	}
+	.banner-nine .slide-item .image-box {
+		top: 25px;
+	}
 	.main-header-bar {
 		width: 80px;
 	}
@@ -774,7 +793,7 @@
 	}
 
 	.banner-nine .slide-item .text-content {
-		display: none;
+		/* display: none; */
 	}
 
 	.banner-nine .slide-item h1 {
@@ -782,7 +801,7 @@
 	}
 
 	.banner-nine .slide-item .image-box {
-		margin-left: 220px;
+		margin-left: 250px;
 	}
 
 	.banner-seven .slide-item h1 {
@@ -804,6 +823,17 @@
 }
 
 @media only screen and (max-width: 767px) {
+	.banner-nine .slide-item .text-content {
+		left: 30%;
+    	font-size: 14px;
+		bottom: 250px;
+	}
+	.banner-nine .slide-item .text-content .ttl strong {
+		font-size: 16px;
+	}
+	.main-responsive-container{
+		padding-left: 0px !important;
+	}
 	.banner-section .slide-item h1 {
 		font-size: 28px;
 	}
@@ -968,11 +998,12 @@
 	}
 
 	.banner-nine .slide-item .slide-count {
-		top: 150px;
+		top: 400px;
 	}
 
 	.banner-nine .slide-item .image-box {
 		margin-left: 150px;
+		top: 50px;
 	}
 
 	.banner-seven .slide-item h1 {
@@ -982,6 +1013,25 @@
 }
 
 @media only screen and (max-width: 599px) {
+	
+	.banner-nine .slide-item .image-box {
+		margin-left: 5px;
+	}
+	.banner-nine .slide-item .text-content {
+		left: 42%;
+	}
+	.banner-nine .slide-item .text-content {
+		width: 320px;
+		font-size: 14px;
+		bottom: 300px;
+	}
+	.banner-nine .slide-item .text-content .inner-box {
+		padding: 20px 20px;
+		/* margin-left: 65px; */
+	}
+	.banner-nine .slide-item .slide-count {
+		top:440px;
+	}
 	.main-nav-outer {
 		left: 0;
 	}
@@ -1214,8 +1264,31 @@
 }
 
 @media only screen and (max-width: 430px) {
+	
+	.banner-nine .slide-item .slide-count {
+		top: 130px !important;
+	}
+	.banner-nine .slide-item .text-content {
+		left: 32%;
+		bottom: 95px !important;
+	}
+	.banner-nine .slide-item .text-content {
+		width: 320px;
+		font-size: 12px;
+		bottom: 120px;
+	}
+	.banner-nine .slide-item .text-content .inner-box {
+		padding: 20px 20px;
+		margin-left: 65px;
+	}
 	.banner-two .slide-item .inner {
 		margin-right: 25px;
+	}
+	.banner-nine .slide-item .image-box {
+		top:85px !important;
+	}
+	.banner-nine .slide-item .text-content .ttl strong {
+		font-size: 16px;
 	}
 	.banner-two .slide-item .content-box {
 		margin-left: 5% !important;
@@ -1224,9 +1297,38 @@
 		font-size: 20px;
 	}
 }
+@media only screen and (max-width: 367px) {
+	.banner-nine .slide-item .text-content {
+		font-size: 12px !important;
+		bottom: 70px !important;
 
+	}
+	.banner-nine .slide-item .text-content .ttl {
+		font-size: 14px;
+	}
+	.banner-nine .slide-item .image-box {
+		top: 100px;
+	}
+}
 @media only screen and (max-width: 479px) {
-
+	.banner-nine .slide-item .image-box {
+		margin-left: 5px;
+	}
+	.banner-nine .slide-item .text-content {
+		left: 32%;
+	}
+	.banner-nine .slide-item .text-content {
+		width: 320px;
+		font-size: 14px;
+		bottom: 150px;
+	}
+	.banner-nine .slide-item .text-content .inner-box {
+		padding: 20px 20px;
+		margin-left: 65px;
+	}
+	.banner-nine .slide-item .slide-count {
+		top:360px;
+	}
 	.def-title-box h3 {
 		font-size: 20px;
 	}
@@ -1381,10 +1483,13 @@
 		font-size: 20px;
 	}
 
-	.banner-nine .slide-item .image-box {
+	/* .banner-nine .slide-item .image-box {
 		display: none;
+	} */
+	.banner-nine .slide-item .image-box {
+		margin-left: 10px;
+		top: 60px;
 	}
-
 	.banner-nine .slide-item .subtitle {
 		position: relative;
 		top: 0;
@@ -1402,6 +1507,7 @@
 		position: relative;
 		top: 0;
 		font-size: 20px;
+		top:85px
 	}
 
 	.banner-section .owl-theme .owl-nav {

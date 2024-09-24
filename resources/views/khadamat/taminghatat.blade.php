@@ -1,7 +1,7 @@
 @extends('layouts.app', ['title' => 'تامین قطعات و تعمیرات'])
 @section('content')
 
-        <div class="main-content-container">
+        <div class="main-content-container main-responsive-container">
 
             <!-- Banner Section -->
             <section class="banner-three">
@@ -25,7 +25,7 @@
 
                         <!--Slide Item-->
                         <div class="slide-item">
-                            <div class="image-layer" style="background-image: url(/assets/images/main-slider/image-5.jpg);"></div>
+                            <div class="image-layer" style="background-image: url(/assets/images/main-slider/image-4.jpg);"></div>
                             
                             <div class="slide-count"><span>02</span></div>
                             <div class="content-box">
@@ -40,7 +40,7 @@
 
                         <!--Slide Item-->
                         <div class="slide-item">
-                            <div class="image-layer" style="background-image: url(/assets/images/main-slider/image-6.jpg);"></div>
+                            <div class="image-layer" style="background-image: url(/assets/images/main-slider/image-4.jpg);"></div>
                             
                             <div class="slide-count"><span>03</span></div>
                             <div class="content-box">
@@ -70,7 +70,7 @@
 
                         <!--Slide Item-->
                         <div class="slide-item">
-                            <div class="image-layer" style="background-image: url(/assets/images/main-slider/image-5.jpg);"></div>
+                            <div class="image-layer" style="background-image: url(/assets/images/main-slider/image-4.jpg);"></div>
                             
                             <div class="slide-count"><span>05</span></div>
                             <div class="content-box">
@@ -85,7 +85,7 @@
 
                         <!--Slide Item-->
                         <div class="slide-item">
-                            <div class="image-layer" style="background-image: url(/assets/images/main-slider/image-6.jpg);"></div>
+                            <div class="image-layer" style="background-image: url(/assets/images/main-slider/image-4.jpg);"></div>
                             
                             <div class="slide-count"><span>06</span></div>
                             <div class="content-box">
