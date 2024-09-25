@@ -2,7 +2,7 @@
 @section('content')
 
     <div class="scroll-container">
-        <div class="main-content-container">
+        <div class="main-content-container  main-responsive-container">
             <!-- Banner Section -->
             <section class="banner-nine">
                 <div class="banner-container">
