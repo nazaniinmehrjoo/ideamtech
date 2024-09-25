@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\CustomerFormController;
+
 
 
 use Illuminate\Support\Facades\Route;
@@ -65,3 +67,7 @@ Route::get('/درباره-ما',function(){
     return view('about');
 });
 Route::Post('/contact',[ContactController::class,'store']);
+
+
+Route::resource('customer_forms', CustomerFormController::class);
+
