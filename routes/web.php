@@ -69,5 +69,8 @@ Route::get('/درباره-ما',function(){
 Route::Post('/contact',[ContactController::class,'store']);
 
 
-Route::resource('customer_forms', CustomerFormController::class);
+// Resource route for customer forms (this will include index, create, store, show, edit, update, destroy)
+Route::resource('customer', CustomerFormController::class);
 
+// Separate route for export functionality
+Route::post('/customer/export', [CustomerFormController::class, 'export'])->name('customer.export');
