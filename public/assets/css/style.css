@@ -2501,6 +2501,97 @@ form label.error{
   margin-bottom: 30px;
 }
 
+
+/* accordion box for slider */
+
+.accordionslider-box{
+  position: relative;
+  margin: 0;
+}
+
+.accordionslider-box ::marker{
+  display: none;
+}
+
+.accordionslider-box .block{
+  position: relative;
+  list-style: none;
+  display: block;
+}
+
+.accordionslider-box .block:last-child{
+  border-bottom: none;
+}
+
+.accordionslider-box .block .accslide-btn{
+  position:relative;
+  top: 0;
+  width: 100%;
+  line-height:30px;
+  font-weight:400;
+  color: rgba(255, 255, 255, 0.50);
+  font-size: 16px;
+  font-family: 'IRANSans';
+  cursor:pointer;
+  border-bottom : 1px solid rgba(255, 255, 255, 0.10) ;
+}
+
+.accordionslider-box .block.active-block .accslide-btn{
+    color: rgba(255, 255, 255, 1);
+}
+
+.accordionslider-box .block .accslide-btn i{
+  position: initial;
+  left: -1px;
+  top: -1px;
+  height: 48px;
+  width: 48px;
+  line-height: 48px;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.07);
+  color: #292c30;
+  font-size: 30px;
+  border-radius: 20px;
+  cursor:pointer;
+  -webkit-transition:all 400ms ease;
+  -moz-transition:all 400ms ease;
+  -ms-transition:all 400ms ease;
+  -o-transition:all 400ms ease;
+  transition:all 400ms ease;
+
+}
+
+.accordionslider-box .block .accslide-btn.active i{
+    background : none  ;
+    color:#292c30
+}
+
+.accordionslider-box .block .accbox-content{
+  position:relative;
+  width: 100%;
+  margin-top: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  border-radius: 20px;
+  display: none;
+}
+
+.accordionslider-box .active-block .accbox-content{
+  display:block;
+}
+
+.accordionslider-box .block .content{
+  position:relative;
+  padding: 23px 30px;
+}
+
+.accordionslider-box .block .content .text{
+  display: block;
+  line-height: 1.60em;
+  margin: 0;
+  font-size: 15px;
+  font-family: 'IRANSans';
+}
+
 .accordion-box{
   position: relative;
   margin: 0;
@@ -3619,7 +3710,7 @@ form label.error{
     visibility: visible;
 }
 
-.portfolio-block .more-link a{
+.portfolio-block .more-link i{
   position: relative;
   display: block;
   width: 54px;
@@ -3633,7 +3724,7 @@ form label.error{
   border-radius: 50%;
 }
 
-.portfolio-block .more-link a:hover{
+.portfolio-block .more-link i:hover{
   color: #ffffff;
 }
 
@@ -6419,4 +6510,94 @@ form label.error{
 .expand {
   animation: cursorAnim3 0.5s forwards;
   border: 1px solid #f05928;
+}
+
+/* modal styles */
+.modal {
+  display: none; 
+  position: fixed; 
+  z-index: 1; 
+  left: 0;
+  top: 0;
+  width: 100%; 
+  height: 100%; 
+  background-color: rgba(0,0,0,0.5); 
+}
+
+.modal-content {
+  margin: 15% auto; 
+  padding: 20px;
+  width: 80%; 
+  max-width: 500px;
+  border-radius: 30px;
+  background-color:#292c30;
+  direction: rtl;
+}
+
+.modal .modal-content:hover .download-btn {
+  background: #f05928;
+  color: #292c30;
+}
+.modal-content p {
+  text-align: center;
+  font-size: 14px;
+}
+.modal-content h3 {
+  text-align: center;
+}
+.closeModal {
+  color: #aaa;
+  float: left;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.download-btn:hover {
+  color: #ffffff;
+} 
+.download-btn {
+  position: relative;
+  display: block;
+  width: 55px;
+  height: 55px;
+  line-height: 30px;
+  padding: 12px 5px;
+  text-align: center;
+  background: #303336;
+  color: rgba(255, 255, 255, 0.50);
+  font-size: 30px;
+  border-radius: 50%;
+}
+.download-btn i {
+  vertical-align: middle;
+}
+.spinner {
+  position: absolute;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #f05928; 
+  animation: spin 1s linear infinite;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) translateX(30px);
+  display: none; 
+}
+
+@keyframes spin {
+  0% {
+      transform: translate(-50%, -50%) rotate(0deg) translateX(30px);
+  }
+  100% {
+      transform: translate(-50%, -50%) rotate(360deg) translateX(30px);
+  }
+}
+.closeModal:hover,
+.closeModal:focus {
+  color: black;
+  cursor: pointer;
+}
+.closeModal img {
+  width: 30px;
+  height: 30px;
 }
