@@ -24,10 +24,10 @@ class customerForm extends Model
         'dryer_type',
         'dough_count',
         'messenger',
-        'instagram_id',
     ];
     protected $casts = [
         'products' => 'array',
         'messenger' => 'array',
     ];
+    
 }

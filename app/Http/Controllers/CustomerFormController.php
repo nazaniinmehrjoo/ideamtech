@@ -35,6 +35,7 @@ class CustomerFormController extends Controller
      */
     public function store(Request $request)
     {
+        // Validate your request data
         $validatedData = $request->validate([
             'factory_code' => 'required|string',
             'factory_name' => 'required|string',
@@ -45,18 +46,68 @@ class CustomerFormController extends Controller
             'province' => 'required|string',
             'city' => 'required|string',
             'address' => 'required|string',
-            'products' => 'required|array',
+            'products' => 'array|nullable',
             'kiln_type' => 'required|string',
             'dryer_type' => 'required|string',
             'dough_count' => 'required|integer',
-            'messenger' => 'nullable|array',
+            'messenger' => 'array|nullable',
+            'ita_id' => 'nullable|string',
+            'telegram_id' => 'nullable|string',
+            'rubika_id' => 'nullable|string',
+            'whatsApp_id' => 'nullable|string',
             'instagram_id' => 'nullable|string',
         ]);
-    
-        // Assuming you have a CustomerForm model to handle the data
-        CustomerForm::create($validatedData);
-    
-        return redirect()->route('customer.index'); // Redirect to index route
+
+        // Create a new instance of customerForm
+        $customer = new customerForm();
+
+        // Set other customer properties
+        $customer->factory_code = $request->factory_code;
+        $customer->factory_name = $request->factory_name;
+        $customer->first_name = $request->first_name;
+        $customer->last_name = $request->last_name;
+        $customer->factory_phone = $request->factory_phone;
+        $customer->mobile_phone = $request->mobile_phone;
+        $customer->province = $request->province;
+        $customer->city = $request->city;
+        $customer->address = $request->address;
+        $customer->products = $request->products; // This will be cast to array
+        $customer->kiln_type = $request->kiln_type;
+        $customer->dryer_type = $request->dryer_type;
+        $customer->dough_count = $request->dough_count;
+
+        // Initialize messenger as an empty array
+        $customer->messenger = []; // Initialize as an empty array
+        if ($request->has('messenger')) {
+            // Initialize an empty array to store unique messenger data
+            $messengerData = [];
+        
+            foreach ($request->messenger as $type) {
+                switch ($type) {
+                    case 'ایتا':
+                        $messengerData['ایتا'] = $request->ita_id ?? null;
+                        break;
+                    case 'تلگرام':
+                        $messengerData['تلگرام'] = $request->telegram_id ?? null; 
+                        break;
+                    case 'روبیکا':
+                        $messengerData['روبیکا'] = $request->rubika_id ?? null; 
+                        break;
+                    case 'واتس اپ':
+                        $messengerData['واتس اپ'] = $request->whatsapp_id ?? null; 
+                        break;
+                        case 'اینستاگرام': // Added case for Instagram
+                            $messengerData['اینستاگرام'] = $request->instagram_id ?? null; 
+                            break;
+                }
+            }
+        
+            // Assign the constructed messenger data back to the customer model
+            $customer->messenger = $messengerData;
+        }
+        
+        // Save the customer model
+        $customer->save();
     }
     /**
      * Display the specified resource.
@@ -89,6 +140,9 @@ class CustomerFormController extends Controller
      */
     public function update(Request $request, $id)
     {
+        // Log the incoming request
+        \Log::info($request->all());
+
         // Validate the incoming request data
         $request->validate([
             'factory_code' => 'required|string|max:255',
@@ -99,44 +153,46 @@ class CustomerFormController extends Controller
             'mobile_phone' => 'required|string|max:255',
             'province' => 'required|string|max:255',
             'city' => 'required|string|max:255',
-            'products' => 'nullable|string', // Optional
+            'products' => 'nullable|string',
             'kiln_type' => 'required|string|max:255',
             'dryer_type' => 'required|string|max:255',
             'dough_count' => 'required|integer',
-            'messenger' => 'nullable|string', // Optional
-            'instagram_id' => 'nullable|string|max:255', // Optional
+            'messenger' => 'nullable|array',
         ]);
-    
-        // Find the customer by ID
-        $customer = CustomerForm::findOrFail($id);
-    
-        // Update the customer data
-        $customer->factory_code = $request->input('factory_code');
-        $customer->factory_name = $request->input('factory_name');
-        $customer->first_name = $request->input('first_name');
-        $customer->last_name = $request->input('last_name');
-        $customer->factory_phone = $request->input('factory_phone');
-        $customer->mobile_phone = $request->input('mobile_phone');
-        $customer->province = $request->input('province');
-        $customer->city = $request->input('city');
+
+         // Find the customer by ID
+    $customer = CustomerForm::findOrFail($id);
+
+    // Update the customer data
+    $customer->factory_code = $request->input('factory_code');
+    $customer->factory_name = $request->input('factory_name');
+    $customer->first_name = $request->input('first_name');
+    $customer->last_name = $request->input('last_name');
+    $customer->factory_phone = $request->input('factory_phone');
+    $customer->mobile_phone = $request->input('mobile_phone');
+    $customer->province = $request->input('province');
+    $customer->city = $request->input('city');
+
+    // Handle products as an array
+    $customer->products = explode(',', $request->input('products'));
+    $customer->kiln_type = $request->input('kiln_type');
+    $customer->dryer_type = $request->input('dryer_type');
+    $customer->dough_count = $request->input('dough_count');
+
+    // Store messenger input directly, including Instagram
+    $messengerData = $request->input('messenger') ? $request->input('messenger') : [];
+    if (in_array('اینستاگرام', $messengerData)) {
+        $messengerData['اینستاگرام'] = $request->instagram_id ?? null; // Updated field name
+    }
         
-        // Handle products and messengers as arrays
-        $customer->products = explode(',', $request->input('products'));
-        $customer->kiln_type = $request->input('kiln_type');
-        $customer->dryer_type = $request->input('dryer_type');
-        $customer->dough_count = $request->input('dough_count');
-        
-        // Convert messenger input to array if it's a string
-        $customer->messenger = $request->input('messenger') ? explode(',', $request->input('messenger')) : [];
-        $customer->instagram_id = $request->input('instagram_id');
-    
+        $customer->messenger = $messengerData;
+
         // Save the updated customer
         $customer->save();
-    
+
         // Redirect back with a success message
         return redirect()->route('customer.index')->with('success', 'Customer updated successfully.');
     }
-    
 
     /**
      * Remove the specified resource from storage.
@@ -159,10 +215,10 @@ class CustomerFormController extends Controller
     {
         // Fetch all customer data from the database
         $customers = CustomerForm::all();
-
+    
         // Start output buffering to capture the output
         ob_start();
-
+    
         // Generate the HTML table for Excel
         $output = '<table border="1">';
         $output .= '<tr>
@@ -179,9 +235,8 @@ class CustomerFormController extends Controller
                         <th>نوع خشک کن</th>
                         <th>تعداد قمیر</th>
                         <th>پیام رسان‌ها</th>
-                        <th>آیدی اینستاگرام</th>
                     </tr>';
-
+    
         foreach ($customers as $customer) {
             $output .= '<tr>';
             $output .= '<td>' . $customer->factory_code . '</td>';
@@ -196,20 +251,27 @@ class CustomerFormController extends Controller
             $output .= '<td>' . $customer->kiln_type . '</td>';
             $output .= '<td>' . $customer->dryer_type . '</td>';
             $output .= '<td>' . $customer->dough_count . '</td>';
-            $output .= '<td>' . implode(', ', $customer->messenger ?? []) . '</td>'; 
-            $output .= '<td>' . ($customer->instagram_id ?? '-') . '</td>';
+    
+            // Separate messenger platforms and IDs
+            $messengerData = $customer->messenger ?? [];
+            $messengerOutput = [];
+            foreach ($messengerData as $platform => $id) {
+                $messengerOutput[] = $platform . ': ' . ($id ?? '-');
+            }
+            
+            $output .= '<td>' . implode('<br>', $messengerOutput) . '</td>';
             $output .= '</tr>';
         }
-
+    
         $output .= '</table>';
-
+    
         // Set headers to force download as an Excel file
         header("Content-Type: application/vnd.ms-excel");
         header("Content-Disposition: attachment; filename=customer_data.xls");
-
+    
         // Output the table
         echo $output;
-
+    
         // Clean the output buffer and exit
         ob_end_flush();
         exit;

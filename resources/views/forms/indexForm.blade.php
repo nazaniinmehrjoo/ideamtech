@@ -19,9 +19,17 @@
         <a href="{{ route('customer.create') }}" class="btn btn-primary">ایجاد فرم جدید</a>
     </div>
 
+    <!-- Search Box -->
+    <div class="mb-3">
+        <form action="{{ route('customer.index') }}" method="GET">
+            <input type="text" name="search" placeholder="جستجو..." class="form-control" style="width: 300px; display: inline-block;">
+            <button type="submit" class="btn btn-info">جستجو</button>
+        </form>
+    </div>
+
     <div class="table-responsive">
         <table class="table table-bordered table-hover table-striped align-middle">
-            <thead class="table-dark" style="white-">
+            <thead class="table-dark">
                 <tr>
                     <th>کد</th>
                     <th>نام کارخانه</th>
@@ -36,7 +44,6 @@
                     <th>نوع خشک کن</th>
                     <th>تعداد قمیر</th>
                     <th>پیام رسان‌ها</th>
-                    <th>آیدی اینستاگرام</th>
                     <th>عملیات</th>
                 </tr>
             </thead>
@@ -55,26 +62,43 @@
                     <td>{{ $customer->kiln_type }}</td>
                     <td>{{ $customer->dryer_type }}</td>
                     <td>{{ $customer->dough_count }}</td>
-                    <td>{{ is_array($customer->messenger) ? implode(', ', $customer->messenger) : $customer->messenger }}</td>
-                    <td>{{ $customer->instagram_id ?? '-' }}</td>
-                    <td > 
+                    <td>
+                        <div class="dropdown">
+                            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton{{ $customer->id }}" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                پیام رسان‌ها
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton{{ $customer->id }}">
+                                @if(isset($customer->messenger) && is_array($customer->messenger))
+                                    @foreach($customer->messenger as $type => $number)
+                                        <div class="dropdown-item">{{ $type }}: {{ $number }}</div>
+                                    @endforeach
+                                @else
+                                    <div class="dropdown-item">ندارد</div>
+                                @endif
+                            </div>
+                        </div>
+                    </td>
+
+                    <td>
                         <!-- Edit button -->
-                        <a href="{{ route('customer.edit', $customer->id) }}" class="btn btn-warning btn-sm">Edit</a>
+                        <a href="{{ route('customer.edit', $customer->id) }}" class="btn btn-warning btn-sm">ویرایش</a>
 
                         <!-- Delete form -->
                         <form action="{{ route('customer.destroy', $customer->id) }}" method="POST" style="display:inline;">
                             @csrf
                             @method('DELETE')
-                            <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('آیا مطمئن هستید که می‌خواهید حذف کنید؟')">Delete</button>
+                            <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('آیا مطمئن هستید که می‌خواهید حذف کنید؟')">حذف</button>
                         </form>
                     </td>
                 </tr>
                 @endforeach
             </tbody>
         </table>
+
+        <!-- Export button -->
         <form action="{{ route('customer.export') }}" method="POST">
             @csrf
-            <button type="submit" class="btn btn-success">Export to Excel</button>
+            <button type="submit" class="btn btn-success">تهیه گذارش</button>
         </form>
     </div>
 </div>
