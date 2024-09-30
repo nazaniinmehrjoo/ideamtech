@@ -6514,3 +6514,211 @@ form label.error{
   animation: cursorAnim3 0.5s forwards;
   border: 1px solid #f05928;
 }
+/* modal styles */
+.modal {
+  display: none; 
+  position: fixed; 
+  z-index: 1; 
+  left: 0;
+  top: 0;
+  width: 100%; 
+  height: 100%; 
+  background-color: rgba(0,0,0,0.5); 
+}
+
+.modal-content {
+  margin: 15% auto; 
+  padding: 20px;
+  width: 80%; 
+  max-width: 500px;
+  border-radius: 30px;
+  background-color:#292c30;
+  direction: rtl;
+}
+
+.modal .modal-content:hover .download-btn {
+  background: #f05928;
+  color: #292c30;
+}
+.modal-content p {
+  text-align: center;
+  font-size: 14px;
+}
+.modal-content h3 {
+  text-align: center;
+}
+.closeModal {
+  color: #aaa;
+  float: left;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.download-btn:hover {
+  color: #ffffff;
+} 
+.download-btn {
+  position: relative;
+  display: block;
+  width: 55px;
+  height: 55px;
+  line-height: 30px;
+  padding: 12px 5px;
+  text-align: center;
+  background: #303336;
+  color: rgba(255, 255, 255, 0.50);
+  font-size: 30px;
+  border-radius: 50%;
+}
+.download-btn i {
+  vertical-align: middle;
+}
+.spinner {
+  position: absolute;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #f05928; 
+  animation: spin 1s linear infinite;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) translateX(30px);
+  display: none; 
+}
+
+@keyframes spin {
+  0% {
+      transform: translate(-50%, -50%) rotate(0deg) translateX(30px);
+  }
+  100% {
+      transform: translate(-50%, -50%) rotate(360deg) translateX(30px);
+  }
+}
+.closeModal:hover,
+.closeModal:focus {
+  color: black;
+  cursor: pointer;
+}
+.closeModal img {
+  width: 30px;
+  height: 30px;
+}
+/* ============================================CustomerForm================== */
+#selected-products-section {
+  display: none;
+  margin-top: 20px;
+  border: 1px solid #ccc;
+  padding: 10px;
+}
+
+
+#selected-products-list {
+  list-style-type: none;
+  padding: 0;
+  direction:rtl;
+}
+
+
+.product-item {
+  margin: 5px 0;
+  padding: 5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+
+.remove-btn {
+  background-color: #f05928;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  font-size: 14px;
+  cursor: pointer;
+  border-radius: 50%;
+}
+
+.remove-btn:hover {
+  background-color: #d32f2f;
+}
+.form-container {
+padding: 30px;
+max-width: 900px;
+margin: 20px auto;
+
+backdrop-filter: blur(25px) saturate(200%);
+-webkit-backdrop-filter: blur(25px) saturate(200%);
+background-color: rgba(17, 25, 40, 0.87);
+border-radius: 12px;
+border: 1px solid rgba(255, 255, 255, 0.125);
+text-align: center;
+}
+
+.form-container h2 {
+text-align: center;
+color: #343a40;
+margin-bottom: 20px;
+}
+
+.form-control {
+border-radius: 4px;
+border: 1px solid #ced4da;
+padding: 10px;
+font-size: 16px;
+}
+
+.form-group label {
+font-weight: 500;
+color: white;
+}
+
+.form-check-label {
+font-weight: 400;
+}
+
+.btn-primary {
+background-color: #007bff;
+border: none;
+padding: 10px 20px;
+font-size: 18px;
+font-weight: 500;
+transition: background-color 0.3s ease;
+}
+
+.btn-primary:hover {
+background-color: #0056b3;
+}
+
+input[type="text"], input[type="number"], select, textarea {
+transition: box-shadow 0.2s ease;
+}
+
+input[type="text"]:focus, input[type="number"]:focus, select:focus, textarea:focus {
+box-shadow: 0px 0px 8px rgba(0, 123, 255, 0.3);
+}
+
+.invalid-feedback {
+color: #dc3545;
+}
+
+/* Messenger section */
+.form-check {
+margin-bottom: 15px;
+}
+
+.form-check-input {
+margin-right: 10px;
+}
+
+.form-check-label {
+margin-right: 10px;
+}
+
+@media (max-width: 768px) {
+.form-row .col {
+margin-bottom: 20px;
+}
+>>>>>>> 46d1325e4f945b853fe68a28900b2dfe71b54874
+}
