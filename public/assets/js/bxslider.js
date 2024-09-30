@@ -643,6 +643,7 @@
         }
         // var linkContent = slider.settings.buildPager && $.isFunction(slider.settings.buildPager) ? slider.settings.buildPager(i) : i + 1;
         // add the markup to the string
+
         pagerHtml += '<div class="bx-pager-item"><a href="" data-slide-index="' + i + '" class="bx-pager-link">' + linkContent + '</a></div>';
       }
       // populate the pager element with pager links
@@ -812,6 +813,7 @@
       if (pagerLink.attr('data-slide-index') !== undefined) {
         pagerIndex = parseInt(pagerLink.attr('data-slide-index'));
         // if clicked pager link is not active, continue with the goToSlide call
+
         if (pagerIndex !== slider.active.index) { el.goToSlide(pagerIndex); }
       }
     };
@@ -822,22 +824,50 @@
      * @param slideIndex (int)
      *  - index of slide to make active
      */
-    var updatePagerActive = function(slideIndex) {
-      // if "short" pager type
-      var len = slider.children.length; // nb of children
-      if (slider.settings.pagerType === 'short') {
-        if (slider.settings.maxSlides > 1) {
-          len = Math.ceil(slider.children.length / slider.settings.maxSlides);
-        }
-        slider.pagerEl.html((slideIndex + 1) + slider.settings.pagerShortSeparator + len);
-        return;
-      }
-      // remove all pager active classes
-      slider.pagerEl.find('a').removeClass('active');
-      // apply the active class for all pagers
-      slider.pagerEl.each(function(i, el) { $(el).find('a').eq(slideIndex).addClass('active'); });
-    };
 
+    
+    var updatePagerActive = function(slideIndex) {
+  
+      // Change accordion box  
+      var accordionBtn = $(".accordionBoxSlider .accslide-btn a[data-slide-index='" + slideIndex + "']");
+  
+      // Check if accordion button exists
+      if (accordionBtn.length) {
+          // Manage accordion state based on the active class
+          var parentAccordion = accordionBtn.parents('.accordionBoxSlider'); // Get the parent accordion
+  
+          // Remove active class from all accordion buttons
+          $(".accordionBoxSlider .accslide-btn").removeClass('active');
+          $(".accordionBoxSlider .accbox-content").stop(true, true).slideUp(300); // Hide all accordion content
+  
+          // Add active class to the current accordion button
+          accordionBtn.addClass('active');
+          parentAccordion.children('.accbox-content').stop(true, true).slideDown(300); // Show the associated content
+      }
+  
+      // If "short" pager type
+      var len = slider.children.length; // number of children
+      if (slider.settings.pagerType === 'short') {
+          if (slider.settings.maxSlides > 1) {
+              len = Math.ceil(slider.children.length / slider.settings.maxSlides);
+          }
+          slider.pagerEl.html((slideIndex + 1) + slider.settings.pagerShortSeparator + len);
+          return;
+      }
+  
+      // Remove all pager active classes
+      slider.pagerEl.find('a').removeClass('active');
+      // Apply the active class for the corresponding pager
+      slider.pagerEl.each(function(i, el) {
+          $(el).find('a').eq(slideIndex).addClass('active');
+      });
+  };
+  
+    $(document).ready(function() {
+      if (slider.children.length > 0) {
+        updatePagerActive(0); 
+        }
+    });
     /**
      * Performs needed actions after a slide transition
      */

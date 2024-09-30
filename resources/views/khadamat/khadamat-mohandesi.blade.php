@@ -1,6 +1,5 @@
 @extends('layouts.app', ['title' => 'خدمات مهندسی'])
 @section('content')
-
         <div class="main-content-container">
             <!-- Banner Section -->
             <section class="banner-four">
@@ -68,26 +67,142 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="pager-outer">
+                                <div class="pager-outer scrollbar ">
                                     <div class="pager-box">
                                         <div class="pager-one">
-                                            <a href="" class="pager-item active" data-slide-index="0"><div class="inner"><span class="icon"><i class="fa-light fa-plus"></i></span><span class="text">نقشه برداری</span></div></a>
-                                            <a href="" class="pager-item" data-slide-index="1"><div class="inner"><span class="icon"><i class="fa-light fa-plus"></i></span><span class="text">تهیه نقشه لیوت</span></div></a>
-                                            <a href="" class="pager-item" data-slide-index="2"><div class="inner"><span class="icon"><i class="fa-light fa-plus"></i></span><span class="text">سخت کاری</span></div></a>
-                                            <a href="" class="pager-item" data-slide-index="3"><div class="inner"><span class="icon"><i class="fa-light fa-plus"></i></span><span class="text">طراحی ماشین آلات</span></div></a>
-                                            <a href="" class="pager-item" data-slide-index="4"><div class="inner"><span class="icon"><i class="fa-light fa-plus"></i></span><span class="text">تراشکاری</span></div></a>
-                                            <a href="" class="pager-item" data-slide-index="5"><div class="inner"><span class="icon"><i class="fa-light fa-plus"></i></span><span class="text">برش پلاسما و فلیم کات</span></div></a>
-                                            <a href="" class="pager-item" data-slide-index="6"><div class="inner"><span class="icon"><i class="fa-light fa-plus"></i></span><span class="text">مهندسی معکوس</span></div></a>
-                                            <a href="" class="pager-item" data-slide-index="6"><div class="inner"><span class="icon"><i class="fa-light fa-plus"></i></span><span class="text"> تابلوبرق و کدنویسی</span></div></a>
+                                            <div class="accordionslider-box">
+                                                <!--AccordionBoxSlider Block 1-->
+                                                
+                                                <div class="accordionBoxSlider block">
+                                                    <div class="accslide-btn">
+                                                        <a href="#" class="pager-item slide active" data-slide-index="0">
+                                                            <div class="inner">
+                                                                <span class="icon"><i class="fa-light fa-plus"></i></span>
+                                                                <span class="text">نقشه برداری</span>
+                                                            </div>
+                                                        </a>
+                                                    </div>
+                                                    <div class="accbox-content">
+                                                        <div class="content">
+                                                            <div class="text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!--AccordionBoxSlider Block 2-->
+                                                <div class="accordionBoxSlider block">
+                                                    <div class="accslide-btn">
+                                                        <a href="#" class="pager-item slide" data-slide-index="1">
+                                                            <div class="inner">
+                                                                <span class="icon"><i class="fa-light fa-plus"></i></span>
+                                                                <span class="text">تهیه نقشه لیوت</span>
+                                                            </div>
+                                                        </a>
+                                                    </div>
+                                                    <div class="accbox-content">
+                                                        <div class="content">
+                                                            <div class="text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!--AccordionBoxSlider Block 3-->
+                                                <div class="accordionBoxSlider block">
+                                                    <div class="accslide-btn">
+                                                    <a href="" class="pager-item" data-slide-index="2">
+                                                        <div class="inner"><span class="icon">
+                                                            <i class="fa-light fa-plus"></i></span><span class="text">سخت کاری</span>
+                                                        </div>
+                                                    </a>
+                                                    </div>
+                                                    <div class="accbox-content">
+                                                        <div class="content">
+                                                            <div class="text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!--AccordionBoxSlider Block 4-->
+                                                <div class="accordionBoxSlider block">
+                                                    <div class="accslide-btn">
+                                                    <a href="" class="pager-item" data-slide-index="3">
+                                                        <div class="inner">
+                                                            <span class="icon"><i class="fa-light fa-plus"></i></span><span class="text">تراشکاری</span>
+                                                        </div>
+                                                    </a>
+                                                    </div>
+                                                    <div class="accbox-content">
+                                                        <div class="content">
+                                                            <div class="text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!--AccordionBoxSlider Block 5-->
+                                                <div class="accordionBoxSlider block">
+                                                    <div class="accslide-btn">
+                                                    <a href="" class="pager-item" data-slide-index="4">
+                                                        <div class="inner">
+                                                            <span class="icon"><i class="fa-light fa-plus"></i></span><span class="text">طراحی ماشین آلات</span>
+                                                        </div>
+                                                    </a>
+                                                    </div>
+                                                    <div class="accbox-content">
+                                                        <div class="content">
+                                                            <div class="text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!--AccordionBoxSlider Block 6-->
+                                                <div class="accordionBoxSlider block">
+                                                    <div class="accslide-btn">
+                                                    <a href="" class="pager-item" data-slide-index="5">
+                                                        <div class="inner"><span class="icon">
+                                                            <i class="fa-light fa-plus"></i></span><span class="text">برش پلاسما و فلیم کات</span>
+                                                        </div>
+                                                    </a>
+                                                    </div>
+                                                    <div class="accbox-content">
+                                                        <div class="content">
+                                                            <div class="text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!--AccordionBoxSlider Block 7-->
+                                                <div class="accordionBoxSlider block">
+                                                    <div class="accslide-btn">
+                                                    <a href="" class="pager-item" data-slide-index="6">
+                                                        <div class="inner"><span class="icon">
+                                                            <i class="fa-light fa-plus"></i></span><span class="text">مهندسی معکوس</span>
+                                                        </div>
+                                                    </a>
+                                                    </div>
+                                                    <div class="accbox-content">
+                                                        <div class="content">
+                                                            <div class="text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!--AccordionBoxSlider Block 8-->
+                                                   <div class="accordionBoxSlider block">
+                                                    <div class="accslide-btn">
+                                                    <a href="" class="pager-item slide" data-slide-index="7">
+                                                        <div class="inner"><span class="icon">
+                                                            <i class="fa-light fa-plus"></i></span><span class="text"> تابلوبرق و کدنویسی</span>
+                                                        </div>
+                                                    </a>
+                                                    </div>
+                                                    <div class="accbox-content">
+                                                        <div class="content">
+                                                            <div class="text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
+                                </div>                                            
                             </div>
                         </div>
                     </div>
                 </div>
             </section>
             <!--End Banner Section -->
-
         </div>
 @endsection

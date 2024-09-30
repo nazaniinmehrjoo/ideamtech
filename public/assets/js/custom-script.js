@@ -350,7 +350,28 @@
 			}
 		});
 	}
-
+    //AccordionBox For Slider
+	if($('.accordionslider-box').length){
+		$(".accordionslider-box").on('click', '.accslide-btn', function() {
+		
+			var outerBox = $(this).parents('.accordionslider-box');
+			var target = $(this).parents('.accordionBoxSlider');
+		
+			if ($(this).next('.accbox-content').is(':visible')){
+				//return false;
+				$(this).removeClass('active');
+				$(this).next('.accbox-content').slideUp(300);
+				$(outerBox).children('.accordionBoxSlider').removeClass('active-block');
+			}else{
+				$(outerBox).find('.accordionBoxSlider .accslide-btn').removeClass('active');
+				$(this).addClass('active');
+				$(outerBox).children('.accordionBoxSlider').removeClass('active-block');
+				$(outerBox).find('.accordionBoxSlider').children('.accbox-content').slideUp(300);
+				$(this).next('.accbox-content').slideDown(300);
+				$(this).parent('.accordionBoxSlider').addClass('active-block');
+			}
+		});
+	} 
 	//Tabs Box
 	if($('.tabs-box').length){
 		$('.tabs-box .tab-buttons .tab-btn').on('click', function(e) {

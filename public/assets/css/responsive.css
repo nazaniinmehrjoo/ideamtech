@@ -109,6 +109,11 @@
 }
 
 @media only screen and (max-width: 1339px) {
+	/* .accordionslider-box {
+		height: 450px;
+		overflow-y: scroll;
+		scrollbar-width: thin; 
+	} */
 	.banner-section .slide-item .slide-count {
 		right: 30px;
 		top: 30px;
@@ -261,6 +266,14 @@
 }
 
 @media only screen and (max-width: 1199px) {
+	.accordionslider-box {
+		height: 400px;
+		overflow-y: scroll;
+		scrollbar-width: thin; 
+	}
+	.banner-four .slider-box .slide-item {
+		width: 500px !important;
+	}
 	.banner-nine .slide-item .image-box {
 		margin-left: 200px;
 	}
@@ -526,6 +539,63 @@
 }
 
 @media only screen and (max-width: 991px) {
+	.banner-four .slider-box .slide-item {
+		width: 350px !important;
+	}
+	.accordionslider-box {
+		height: 300px;
+		overflow-y: scroll;
+		scrollbar-width: thin; 
+	}
+	.banner-four .pager-outer {
+		width: 350px;
+	}
+	.banner-four .banner-content {
+		padding-left: 351px;
+	}
+	.accordionslider-box .block .content .text {
+		font-size: 12px;
+	}
+	.accordionslider-box .block .content {
+		padding: 5px 10px;
+	}
+	.banner-four .pager-outer .pager-item .text {
+		font-size: 14px;
+	}
+	.banner-four .pager-outer .pager-item {
+		padding-top: 5px;
+    	padding-bottom: 5px;
+	}
+	
+	.banner-four .slider-box .slide-item {
+		width: 350px;
+	}
+	.auto-container {
+		padding: 0px 100px;
+	}
+	.banner-four .pager-outer .pager-item.active {
+		border-radius: 20px;
+	}
+	.accordionslider-box {
+		margin-top: 5px;
+	}
+	.banner-four .slider-box .image-box img {
+		border-radius: 20px;
+	}
+	.banner-four .slider-box .slide-item .slide-count {
+		border-radius: 0 20px 0 20px;
+	}
+	.main-content-container {
+		display: flex;
+		flex-direction: column; 
+		align-items: center;
+		padding-left: 45px ;
+	}
+	.banner-four .banner-content{
+		display: flex;
+		flex-direction: column; 
+		align-items: center;
+	}
 	.main-responsive-container{
 		padding-left: 0px !important;
 	}
@@ -569,10 +639,6 @@
 	}
 
 	.banner-section .slide-item .content {
-		padding-left: 80px;
-	}
-
-	.main-content-container {
 		padding-left: 80px;
 	}
 
@@ -703,13 +769,9 @@
 		padding-bottom: 40px;
 	}
 
-	.banner-four .banner-content {
-		padding-left: 0;
-	}
-
-	.banner-four .pager-outer {
+	/* .banner-four .pager-outer {
 		display: none;
-	}
+	} */
 
 	.banner-four .banner-slider-outer {
 		padding-bottom: 50px;
@@ -815,6 +877,81 @@
 }
 
 @media only screen and (max-width: 767px) {
+	
+	.banner-four .banner-content {
+		padding-left: 0;
+	}
+	.accordionslider-box {
+		height: 200px;
+		overflow-y: scroll;
+		scrollbar-width: thin; 
+	}
+	.slide-item {
+		width: 500px;
+	}
+	.accordionslider-box .block .content .text {
+		font-size: 12px;
+	}
+	.accordionslider-box .block .content {
+		padding: 5px 10px;
+	}
+	.banner-four .pager-outer .pager-item .text {
+		font-size: 14px;
+	}
+	.banner-four .pager-outer .pager-item {
+		padding-top: 5px;
+    	padding-bottom: 5px;
+	}
+	.banner-four .pager-outer {
+		position: initial;
+	}
+	.banner-four .slider-box .slide-item {
+		width: 350px;
+	}
+	.auto-container {
+		padding: 0px 100px;
+	}
+	.banner-four .pager-outer .pager-item.active {
+		border-radius: 20px;
+	}
+	.accordionslider-box {
+		margin-top: 5px;
+	}
+	.banner-four .slider-box .image-box img {
+		border-radius: 20px;
+	}
+	.banner-four .slider-box .slide-item .slide-count {
+		border-radius: 0 20px 0 20px;
+	}
+	.main-content-container {
+		display: flex;
+		flex-direction: column; 
+		align-items: center;
+		padding-left: 45px ;
+	}
+	.banner-four .banner-content{
+		display: flex;
+		flex-direction: column; 
+		align-items: center;
+	}
+	.banner-nine .slide-item .image-box {
+		margin-left: 5px;
+	}
+	.banner-nine .slide-item .text-content {
+		left: 42%;
+	}
+	.banner-nine .slide-item .text-content {
+		width: 320px;
+		font-size: 14px;
+		bottom: 300px;
+	}
+	.banner-nine .slide-item .text-content .inner-box {
+		padding: 20px 20px;
+		/* margin-left: 65px; */
+	}
+	.banner-nine .slide-item .slide-count {
+		top:440px;
+	}
 	.banner-nine .slide-item .text-content {
 		left: 30%;
     	font-size: 14px;
@@ -1005,7 +1142,60 @@
 }
 
 @media only screen and (max-width: 599px) {
-	
+	.banner-four .slider-box .slide-item {
+		width: 300px !important;
+	}
+	.accordionslider-box {
+		height: 200px;
+		overflow-y: scroll;
+		scrollbar-width: thin; 
+	}
+	.accordionslider-box .block .content .text {
+		font-size: 12px;
+	}
+	.accordionslider-box .block .content {
+		padding: 5px 10px;
+	}
+	.banner-four .pager-outer .pager-item .text {
+		font-size: 14px;
+	}
+	.banner-four .pager-outer .pager-item {
+		padding-top: 5px;
+    	padding-bottom: 5px;
+	}
+	.banner-four .pager-outer {
+		width: 300px;
+		position: initial;
+	}
+	.banner-four .slider-box .slide-item {
+		width: 350px;
+	}
+	.auto-container {
+		padding: 0px 100px;
+	}
+	.banner-four .pager-outer .pager-item.active {
+		border-radius: 20px;
+	}
+	.accordionslider-box {
+		margin-top: 5px;
+	}
+	.banner-four .slider-box .image-box img {
+		border-radius: 20px;
+	}
+	.banner-four .slider-box .slide-item .slide-count {
+		border-radius: 0 20px 0 20px;
+	}
+	.main-content-container {
+		display: flex;
+		flex-direction: column; 
+		align-items: center;
+		padding-left: 45px ;
+	}
+	.banner-four .banner-content{
+		display: flex;
+		flex-direction: column; 
+		align-items: center;
+	}
 	.banner-nine .slide-item .image-box {
 		margin-left: 5px;
 	}
@@ -1256,6 +1446,23 @@
 }
 
 @media only screen and (max-width: 430px) {
+
+	.accordionslider-box .block .content .text {
+		font-size: 10px;
+	}
+	.accordionslider-box {
+		width: 280px;
+	}
+	.banner-four .pager-outer .pager-item .text {
+		font-size: 12px;
+	}
+	.banner-four .pager-outer .pager-item {
+		padding-top: 2px;
+		padding-bottom: 2px;
+	}
+	.banner-four .slider-box .slide-item {
+		width: 280px !important;
+	}
 	
 	.banner-nine .slide-item .slide-count {
 		top: 130px !important;
@@ -1290,6 +1497,16 @@
 	}
 }
 @media only screen and (max-width: 367px) {
+	.banner-four .banner-content {
+		padding-left: 30px;
+	}
+	.accordionslider-box {
+		width: 240px;
+	}
+	.banner-four .slider-box .slide-item {
+		width: 220px !important;
+	}
+	
 	.banner-nine .slide-item .text-content {
 		font-size: 12px !important;
 		bottom: 70px !important;
@@ -1303,6 +1520,9 @@
 	}
 }
 @media only screen and (max-width: 479px) {
+	.banner-four .slider-box .slide-item {
+		width: 320px ;
+	}
 	.banner-nine .slide-item .image-box {
 		margin-left: 5px;
 	}

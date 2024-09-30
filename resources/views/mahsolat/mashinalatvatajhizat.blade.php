@@ -1,6 +1,5 @@
 @extends('layouts.app', ['title' => 'ماشین آلات و تجهیزات'])
 @section('content')
-        
             <!-- <div class="body-bg-layer" style="background-image: url(/assets/images/background/body-bg-1.jpg);"></div> -->
             <!-- Page Title -->
             <section class="page-title" id="to-top-div">
@@ -38,10 +37,10 @@
                                 <div class="inner-box">
                                     <div class="image"><img src="/assets/images/resource/image-24.jpg" alt=""></div>
                                     <div class="overlay">
-                                        <div class="more-link"><a href="portfolio-single.html" class="theme-btn"><i class="fa-solid fa-bars-staggered"></i></a></div>
+                                        <div class="more-link" onclick="openMoreBtn(this)"><i class="fa-solid fa-bars-staggered theme-btn"></i></div>
                                         <div class="inner">
                                             <div class="cat"><span>interior</span></div>
-                                            <h5><a href="portfolio-single.html">Influenced by Power</a></h5>
+                                            <h5 id="prodoctName"><a href="portfolio-single.html">Influenced by Power</a></h5>
                                         </div>
                                     </div>
                                 </div>
@@ -52,10 +51,10 @@
                                 <div class="inner-box">
                                     <div class="image"><img src="/assets/images/resource/image-25.jpg" alt=""></div>
                                     <div class="overlay">
-                                        <div class="more-link"><a href="portfolio-single.html" class="theme-btn"><i class="fa-solid fa-bars-staggered"></i></a></div>
+                                        <div class="more-link" onclick="openMoreBtn(this)"><i class="fa-solid fa-bars-staggered"></i></div>
                                         <div class="inner">
                                             <div class="cat"><span>cultural</span></div>
-                                            <h5><a href="portfolio-single.html">Influenced by Power</a></h5>
+                                            <h5 id="prodoctName"><a href="portfolio-single.html">Influenced by Power</a></h5>
                                         </div>
                                     </div>
                                 </div>
@@ -66,10 +65,10 @@
                                 <div class="inner-box">
                                     <div class="image"><img src="/assets/images/resource/image-26.jpg" alt=""></div>
                                     <div class="overlay">
-                                        <div class="more-link"><a href="portfolio-single.html" class="theme-btn"><i class="fa-solid fa-bars-staggered"></i></a></div>
+                                        <div class="more-link" onclick="openMoreBtn(this)"><i class="fa-solid fa-bars-staggered"></i></a></div>
                                         <div class="inner">
                                             <div class="cat"><span>interior</span></div>
-                                            <h5><a href="portfolio-single.html">Thoughtfully making Space</a></h5>
+                                            <h5 id="prodoctName"><a href="portfolio-single.html">Thoughtfully making Space</a></h5>
                                         </div>
                                     </div>
                                 </div>
@@ -80,10 +79,10 @@
                                 <div class="inner-box">
                                     <div class="image"><img src="/assets/images/resource/image-27.jpg" alt=""></div>
                                     <div class="overlay">
-                                        <div class="more-link"><a href="portfolio-single.html" class="theme-btn"><i class="fa-solid fa-bars-staggered"></i></a></div>
+                                        <div class="more-link" onclick="openMoreBtn(this)"><i class="fa-solid fa-bars-staggered"></i></a></div>
                                         <div class="inner">
                                             <div class="cat"><span>flats</span></div>
-                                            <h5><a href="portfolio-single.html">Unique Solution</a></h5>
+                                            <h5 id="prodoctName"><a href="portfolio-single.html">Unique Solution</a></h5>
                                         </div>
                                     </div>
                                 </div>
@@ -94,10 +93,10 @@
                                 <div class="inner-box">
                                     <div class="image"><img src="/assets/images/resource/image-28.jpg" alt=""></div>
                                     <div class="overlay">
-                                        <div class="more-link"><a href="portfolio-single.html" class="theme-btn"><i class="fa-solid fa-bars-staggered"></i></a></div>
+                                        <div class="more-link" onclick="openMoreBtn(this)"><i class="fa-solid fa-bars-staggered"></i></a></div>
                                         <div class="inner">
                                             <div class="cat"><span>wood</span></div>
-                                            <h5><a href="portfolio-single.html">Magnificent Assembled</a></h5>
+                                            <h5 id="prodoctName"><a href="portfolio-single.html">Magnificent Assembled</a></h5>
                                         </div>
                                     </div>
                                 </div>
@@ -108,10 +107,10 @@
                                 <div class="inner-box">
                                     <div class="image"><img src="/assets/images/resource/image-29.jpg" alt=""></div>
                                     <div class="overlay">
-                                        <div class="more-link"><a href="portfolio-single.html" class="theme-btn"><i class="fa-solid fa-bars-staggered"></i></a></div>
+                                        <div class="more-link" onclick="openMoreBtn(this)"><i class="fa-solid fa-bars-staggered"></i></a></div>
                                         <div class="inner">
                                             <div class="cat"><span>exterior</span></div>
-                                            <h5><a href="portfolio-single.html">Innovation in Craft</a></h5>
+                                            <h5 id="prodoctName"><a href="portfolio-single.html">Innovation in Craft</a></h5>
                                         </div>
                                     </div>
                                 </div>
@@ -122,10 +121,10 @@
                                 <div class="inner-box">
                                     <div class="image"><img src="/assets/images/resource/image-30.jpg" alt=""></div>
                                     <div class="overlay">
-                                        <div class="more-link"><a href="portfolio-single.html" class="theme-btn"><i class="fa-solid fa-bars-staggered"></i></a></div>
+                                        <div class="more-link" onclick="openMoreBtn(this)"><i class="fa-solid fa-bars-staggered"></i></a></div>
                                         <div class="inner">
                                             <div class="cat"><span>wood</span></div>
-                                            <h5><a href="portfolio-single.html">Well-simplified design</a></h5>
+                                            <h5 id="prodoctName"><a href="portfolio-single.html">Well-simplified design</a></h5>
                                         </div>
                                     </div>
                                 </div>
@@ -136,10 +135,10 @@
                                 <div class="inner-box">
                                     <div class="image"><img src="/assets/images/resource/image-31.jpg" alt=""></div>
                                     <div class="overlay">
-                                        <div class="more-link"><a href="portfolio-single.html" class="theme-btn"><i class="fa-solid fa-bars-staggered"></i></a></div>
+                                        <div class="more-link" onclick="openMoreBtn(this)"><i class="fa-solid fa-bars-staggered"></i></a></div>
                                         <div class="inner">
                                             <div class="cat"><span>metal</span></div>
-                                            <h5><a href="portfolio-single.html">Design your dreams with us</a></h5>
+                                            <h5 id="prodoctName"><a href="portfolio-single.html">Design your dreams with us</a></h5>
                                         </div>
                                     </div>
                                 </div>
@@ -150,10 +149,10 @@
                                 <div class="inner-box">
                                     <div class="image"><img src="/assets/images/resource/image-32.jpg" alt=""></div>
                                     <div class="overlay">
-                                        <div class="more-link"><a href="portfolio-single.html" class="theme-btn"><i class="fa-solid fa-bars-staggered"></i></a></div>
+                                        <div class="more-link" onclick="openMoreBtn(this)"><i class="fa-solid fa-bars-staggered"></i></a></div>
                                         <div class="inner">
                                             <div class="cat"><span>exterior</span></div>
-                                            <h5><a href="portfolio-single.html">Level of evolution</a></h5>
+                                            <h5 id="prodoctName"><a href="portfolio-single.html">Level of evolution</a></h5>
                                         </div>
                                     </div>
                                 </div>
@@ -164,10 +163,10 @@
                                 <div class="inner-box">
                                     <div class="image"><img src="/assets/images/resource/image-33.jpg" alt=""></div>
                                     <div class="overlay">
-                                        <div class="more-link"><a href="portfolio-single.html" class="theme-btn"><i class="fa-solid fa-bars-staggered"></i></a></div>
+                                        <div class="more-link" onclick="openMoreBtn(this)"><i class="fa-solid fa-bars-staggered"></i></a></div>
                                         <div class="inner">
                                             <div class="cat"><span>aluminium</span></div>
-                                            <h5><a href="portfolio-single.html">You bet it looks so good </a></h5>
+                                            <h5 id="prodoctName"><a href="portfolio-single.html">You bet it looks so good </a></h5>
                                         </div>
                                     </div>
                                 </div>
@@ -178,10 +177,10 @@
                                 <div class="inner-box">
                                     <div class="image"><img src="/assets/images/resource/image-34.jpg" alt=""></div>
                                     <div class="overlay">
-                                        <div class="more-link"><a href="portfolio-single.html" class="theme-btn"><i class="fa-solid fa-bars-staggered"></i></a></div>
+                                        <div class="more-link" onclick="openMoreBtn(this)"><i class="fa-solid fa-bars-staggered"></i></a></div>
                                         <div class="inner">
                                             <div class="cat"><span>high buildings</span></div>
-                                            <h5><a href="portfolio-single.html">The Joy of Living</a></h5>
+                                            <h5 id="prodoctName"><a href="portfolio-single.html">The Joy of Living</a></h5>
                                         </div>
                                     </div>
                                 </div>
@@ -192,10 +191,10 @@
                                 <div class="inner-box">
                                     <div class="image"><img src="/assets/images/resource/image-27.jpg" alt=""></div>
                                     <div class="overlay">
-                                        <div class="more-link"><a href="portfolio-single.html" class="theme-btn"><i class="fa-solid fa-bars-staggered"></i></a></div>
+                                        <div class="more-link" onclick="openMoreBtn(this)"><i class="fa-solid fa-bars-staggered"></i></a></div>
                                         <div class="inner">
                                             <div class="cat"><span>interior</span></div>
-                                            <h5><a href="portfolio-single.html">The Joy of Living</a></h5>
+                                            <h5 id="prodoctName"><a href="portfolio-single.html">The Joy of Living</a></h5>
                                         </div>
                                     </div>
                                 </div>
@@ -204,9 +203,21 @@
                         </div>
                     </div>
                 </div>
-            </section>
-    
-<!--End Site Container--> 
+             <!-- The Modal -->
+            <div id="moreProductDtl" class="modal">
+              <div class="modal-content">
+                    <span class="closeModal"><img src="/assets/images/icons/close-icon.png" alt=""></span>
+                    <button class="download-btn" onclick="startSpin(this)">
+                    <i class="fa-light fa-download download" id="download"></i>
+                    <div class="spinner"></div>
+                    </button>
+                    <h3 id="productNameModal"></h3>
+                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Non minima ea quos repudiandae molestias dicta a quod doloribus adipisci ut dolorum, voluptatibus quasi minus, aliquid labore. Veniam labore illum consequatur fuga quisquam sint dicta repellendus iusto. Velit ut optio illum.</p>
 
+                </div>
+            </div>  
+</section>
+
+<!--End Site Container--> 
 
 @endsection

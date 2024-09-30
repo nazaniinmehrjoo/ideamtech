@@ -54,5 +54,6 @@
     <script src="/assets/js/wow.js"></script>
     <script src="/assets/js/bxslider.js"></script>
     <script src="/assets/js/custom-script.js"></script>
+    <script src="/assets/js/modal.js"></script>
 </body>
 </html>
