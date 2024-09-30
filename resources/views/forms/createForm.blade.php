@@ -153,33 +153,33 @@
         <div class="form-group mb-4">
             <label>پیام رسان ها</label>
             <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="ایتا" id="messenger_ita" name="messenger[]" onclick="toggleInput('ita_id')">
-                <label class="form-check-label" for="messenger_ita">ایتا</label>
-                <input type="text" class="form-control mt-2 d-none" id="ita_id" name="ita_id" placeholder="ID/Number for ایتا">
-            </div>
-            <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="تلگرام" id="messenger_telegram" name="messenger[]" onclick="toggleInput('telegram_id')">
-                <label class="form-check-label" for="messenger_telegram">تلگرام</label>
-                <input type="text" class="form-control mt-2 d-none" id="telegram_id" name="telegram_id" placeholder="ID/Number for تلگرام">
-            </div>
-            <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="روبیکا" id="messenger_rubika" name="messenger[]" onclick="toggleInput('rubika_id')">
-                <label class="form-check-label" for="messenger_rubika">روبیکا</label>
-                <input type="text" class="form-control mt-2 d-none" id="rubika_id" name="rubika_id" placeholder="ID/Number for روبیکا">
-            </div>
-            <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="واتس اپ" id="messenger_whatsapp" name="messenger[]" onclick="toggleInput('whatsapp_id')">
-                <label class="form-check-label" for="messenger_whatsapp">واتس اپ</label>
-                <input type="text" class="form-control mt-2 d-none" id="whatsapp_id" name="whatsapp_id" placeholder="ID/Number for واتس اپ">
-            </div>
-            <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="اینستاگرام" id="messenger_instagram" name="messenger[]" onclick="toggleInput('instagram_id')">
-                <label class="form-check-label" for="messenger_instagram">اینستاگرام</label>
-                <input type="text" class="form-control mt-2 d-none" id="instagram_id" name="instagram_id" placeholder="ID/Number for اینستاگرام">
-            </div>
-        </div>
+                        <input class="form-check-input" type="checkbox" value="ایتا" id="messenger_ita" name="messenger[]" onclick="toggleInput('ita_id')">
+                        <label class="form-check-label" for="messenger_ita">ایتا</label>
+                        <input type="text" class="form-control mt-2 d-none" id="ita_id" name="ita_id" placeholder="ID/Number for ایتا">
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="تلگرام" id="messenger_telegram" name="messenger[]" onclick="toggleInput('telegram_id')">
+                        <label class="form-check-label" for="messenger_telegram">تلگرام</label>
+                        <input type="text" class="form-control mt-2 d-none" id="telegram_id" name="telegram_id" placeholder="ID/Number for تلگرام">
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="روبیکا" id="messenger_rubika" name="messenger[]" onclick="toggleInput('rubika_id')">
+                        <label class="form-check-label" for="messenger_rubika">روبیکا</label>
+                        <input type="text" class="form-control mt-2 d-none" id="rubika_id" name="rubika_id" placeholder="ID/Number for روبیکا">
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="واتس اپ" id="messenger_whatsapp" name="messenger[]" onclick="toggleInput('whatsapp_id')">
+                        <label class="form-check-label" for="messenger_whatsapp">واتس اپ</label>
+                        <input type="text" class="form-control mt-2 d-none" id="whatsapp_id" name="whatsapp_id" placeholder="ID/Number for واتس اپ">
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="اینستاگرام" id="messenger_instagram" name="messenger[]" onclick="toggleInput('instagram_id')">
+                        <label class="form-check-label" for="messenger_instagram">اینستاگرام</label>
+                        <input type="text" class="form-control mt-2 d-none" id="instagram_id" name="instagram_id" placeholder="ID/Number for اینستاگرام">
+                    </div>
+                </div>
 
-        <button type="submit" class="theme-btn btn-style-two">ثبت فرم</button>
+        <button type="submit" class="theme-btn btn-style-two">ثبت فرم</button> 
         
 
     </form>

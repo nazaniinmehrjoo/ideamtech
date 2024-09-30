@@ -16,6 +16,20 @@
             direction: rtl; /* Right-to-left for inputs */
         }
     </style>
+    <script>
+        // Function to show/hide input fields based on selected social media
+        function toggleMessengerInput(selectedValue) {
+            const platforms = ['تلگرام', 'واتساپ', 'اینستاگرام', 'روبیکا', 'ایتا'];
+            platforms.forEach(platform => {
+                const inputField = document.getElementById(`messenger_${platform}`);
+                if (platform === selectedValue) {
+                    inputField.style.display = 'block';
+                } else {
+                    inputField.style.display = 'none';
+                }
+            });
+        }
+    </script>
 </head>
 
 <div class="container my-5">
@@ -70,7 +84,7 @@
         </div>
 
         <div class="mb-3">
-            <label for="products" class="form-label">محصولات (جدا شده با کاما)</label>
+            <label for="products" class="form-label">محصولات</label>
             <input type="text" class="form-control" id="products" name="products" value="{{ is_array($customer->products) ? implode(', ', $customer->products) : ($customer->products ?? '') }}">
         </div>
 
@@ -90,14 +104,23 @@
         </div>
 
         <div class="mb-3">
-            <label for="messenger" class="form-label">پیام رسان‌ها (جدا شده با کاما)</label>
-            <input type="text" class="form-control" id="messenger" name="messenger" value="{{ is_array($customer->messenger) ? implode(', ', $customer->messenger) : ($customer->messenger ?? '') }}">
+            <label for="messenger" class="form-label">پیام رسان‌ها</label>
+            <select id="messenger" class="form-control" name="messenger_platform" onchange="toggleMessengerInput(this.value)">
+                <option value="">انتخاب کنید</option>
+                <option value="تلگرام" {{ isset($customer->messenger) && array_key_exists('تلگرام', $customer->messenger) ? 'selected' : '' }}>تلگرام</option>
+                <option value="واتساپ" {{ isset($customer->messenger) && array_key_exists('واتساپ', $customer->messenger) ? 'selected' : '' }}>واتساپ</option>
+                <option value="روبیکا" {{ isset($customer->messenger) && array_key_exists('روبیکا', $customer->messenger) ? 'selected' : '' }}>روبیکا</option>
+                <option value="ایتا" {{ isset($customer->messenger) && array_key_exists('ایتا', $customer->messenger) ? 'selected' : '' }}>ایتا</option>
+                <option value="اینستاگرام" {{ isset($customer->messenger) && array_key_exists('اینستاگرام', $customer->messenger) ? 'selected' : '' }}>اینستاگرام</option>
+            </select>
         </div>
 
-        <div class="mb-3">
-            <label for="instagram_id" class="form-label">آیدی اینستاگرام</label>
-            <input type="text" class="form-control" id="instagram_id" name="instagram_id" value="{{ $customer->instagram_id ?? '' }}">
-        </div>
+        @foreach (['تلگرام', 'واتساپ', 'اینستاگرام', 'روبیکا', 'ایتا',] as $platform)
+            <div class="mb-3" id="messenger_{{ $platform }}" style="display: {{ isset($customer->messenger) && array_key_exists($platform, $customer->messenger) ? 'block' : 'none' }};">
+                <label for="messenger_{{ $platform }}_number" class="form-label">{{ $platform }} شماره</label>
+                <input type="text" class="form-control" id="messenger_{{ $platform }}_number" name="messenger[{{ $platform }}]" value="{{ isset($customer->messenger[$platform]) ? $customer->messenger[$platform] : '' }}">
+            </div>
+        @endforeach
 
         <button type="submit" class="btn btn-primary">ذخیره تغییرات</button>
         <a href="{{ route('customer.index') }}" class="btn btn-secondary">برگشت</a>

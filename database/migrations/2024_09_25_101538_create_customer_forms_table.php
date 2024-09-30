@@ -24,7 +24,6 @@ class CreateCustomerFormsTable extends Migration
             $table->string('dryer_type');
             $table->integer('dough_count');
             $table->json('messenger')->nullable();
-            $table->string('instagram_id')->nullable(); 
             $table->timestamps();
         });
     }
