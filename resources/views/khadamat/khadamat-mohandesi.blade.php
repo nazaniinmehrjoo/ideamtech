@@ -1,6 +1,6 @@
 @extends('layouts.app', ['title' => 'خدمات مهندسی'])
 @section('content')
-        <div class="main-content-container">
+        <div class="main-content-container main-content-mohandesi" id="mainContent">
             <!-- Banner Section -->
             <section class="banner-four">
                 <div class="banner-container">

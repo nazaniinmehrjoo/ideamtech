@@ -114,6 +114,12 @@
 		overflow-y: scroll;
 		scrollbar-width: thin; 
 	} */
+	.banner-four .pager-outer {
+		width: 515px;
+	}
+	.banner-four .banner-content {
+		padding-left: 515px;
+	}
 	.banner-section .slide-item .slide-count {
 		right: 30px;
 		top: 30px;
@@ -266,6 +272,9 @@
 }
 
 @media only screen and (max-width: 1199px) {
+	.banner-four .auto-container {
+		padding: 0px 50px;
+	}
 	.accordionslider-box {
 		height: 400px;
 		overflow-y: scroll;
@@ -371,11 +380,11 @@
 	}
 
 	.banner-four .banner-content {
-		padding-left: 400px;
+		padding-left: 340px;
 	}
 
 	.banner-four .pager-outer {
-		width: 400px;
+		width: 340px;
 	}
 
 	.banner-four .pager-outer .pager-item {
@@ -548,10 +557,10 @@
 		scrollbar-width: thin; 
 	}
 	.banner-four .pager-outer {
-		width: 350px;
+		width: 300px;
 	}
 	.banner-four .banner-content {
-		padding-left: 351px;
+		padding-left: 300px;
 	}
 	.accordionslider-box .block .content .text {
 		font-size: 12px;
@@ -570,7 +579,7 @@
 	.banner-four .slider-box .slide-item {
 		width: 350px;
 	}
-	.auto-container {
+	.banner-four .auto-container {
 		padding: 0px 100px;
 	}
 	.banner-four .pager-outer .pager-item.active {
@@ -585,16 +594,19 @@
 	.banner-four .slider-box .slide-item .slide-count {
 		border-radius: 0 20px 0 20px;
 	}
-	.main-content-container {
+	.main-content-mohandesi {
 		display: flex;
 		flex-direction: column; 
-		align-items: center;
-		padding-left: 45px ;
+		align-items: center !important;
+	}
+	.main-content-container {
+		padding-left: 80px;
 	}
 	.banner-four .banner-content{
 		display: flex;
 		flex-direction: column; 
 		align-items: center;
+		padding-right: 45px !important;
 	}
 	.main-responsive-container{
 		padding-left: 0px !important;
@@ -886,9 +898,9 @@
 		overflow-y: scroll;
 		scrollbar-width: thin; 
 	}
-	.slide-item {
+	/* .slide-item {
 		width: 500px;
-	}
+	} */
 	.accordionslider-box .block .content .text {
 		font-size: 12px;
 	}
@@ -908,8 +920,8 @@
 	.banner-four .slider-box .slide-item {
 		width: 350px;
 	}
-	.auto-container {
-		padding: 0px 100px;
+	.banner-four .auto-container {
+		padding: 0px 140px;
 	}
 	.banner-four .pager-outer .pager-item.active {
 		border-radius: 20px;
@@ -923,11 +935,11 @@
 	.banner-four .slider-box .slide-item .slide-count {
 		border-radius: 0 20px 0 20px;
 	}
-	.main-content-container {
+	.main-content-mohandesi {
 		display: flex;
 		flex-direction: column; 
 		align-items: center;
-		padding-left: 45px ;
+		padding-right: 45px !important;
 	}
 	.banner-four .banner-content{
 		display: flex;
@@ -1170,7 +1182,7 @@
 	.banner-four .slider-box .slide-item {
 		width: 350px;
 	}
-	.auto-container {
+	.banner-four .auto-container {
 		padding: 0px 100px;
 	}
 	.banner-four .pager-outer .pager-item.active {
@@ -1185,16 +1197,18 @@
 	.banner-four .slider-box .slide-item .slide-count {
 		border-radius: 0 20px 0 20px;
 	}
-	.main-content-container {
+	.main-content-mohandesi {
 		display: flex;
 		flex-direction: column; 
 		align-items: center;
-		padding-left: 45px ;
+
 	}
+	
 	.banner-four .banner-content{
 		display: flex;
 		flex-direction: column; 
 		align-items: center;
+		padding-right: 45px !important;
 	}
 	.banner-nine .slide-item .image-box {
 		margin-left: 5px;
@@ -1446,7 +1460,9 @@
 }
 
 @media only screen and (max-width: 430px) {
-
+	.banner-four .banner-content {
+		padding-right: 20px !important;
+	}
 	.accordionslider-box .block .content .text {
 		font-size: 10px;
 	}
@@ -1498,10 +1514,10 @@
 }
 @media only screen and (max-width: 367px) {
 	.banner-four .banner-content {
-		padding-left: 30px;
+		padding-left: 90px;
 	}
 	.accordionslider-box {
-		width: 240px;
+		width: 220px;
 	}
 	.banner-four .slider-box .slide-item {
 		width: 220px !important;
