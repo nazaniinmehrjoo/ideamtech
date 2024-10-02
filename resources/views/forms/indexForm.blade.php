@@ -5,9 +5,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>لیست فرم های ارسال شده</title>
+    <style>
+        .table-responsive {
+            direction: rtl; /* Ensure the table follows RTL direction */
+        }
+        .dropdown-menu {
+            text-align: right; /* Align dropdown items to the right */
+            direction: rtl; /* Ensure RTL direction in the dropdown */
+        }
+        .bg-dark {
+            background-color: #343a40 !important; /* Use dark background */
+        }
+        .text-light {
+            color: #f8f9fa !important; /* Light text color */
+        }
+    </style>
 </head>
 
-<div class="container my-5">
+<div class="container my-5 bg-dark text-light p-4 rounded">
     <h1 class="text-center mb-4">لیست فرم های ارسال شده</h1>
 
     @if(session('success'))
@@ -22,7 +37,7 @@
     <!-- Search Box -->
     <div class="mb-3">
         <form action="{{ route('customer.index') }}" method="GET">
-            <input type="text" name="search" placeholder="جستجو..." class="form-control" style="width: 300px; display: inline-block;">
+            <input type="text" name="search" placeholder="جستجو..." class="form-control bg-secondary text-light" style="width: 300px; display: inline-block;">
             <button type="submit" class="btn btn-info">جستجو</button>
         </form>
     </div>
@@ -47,7 +62,7 @@
                     <th>عملیات</th>
                 </tr>
             </thead>
-            <tbody>
+            <tbody class="bg-secondary text-light">
                 @foreach($customers as $customer)
                 <tr>
                     <td>{{ $customer->factory_code }}</td>
