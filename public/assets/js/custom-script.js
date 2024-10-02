@@ -31,8 +31,8 @@
 	headerStyle();
 	
 	//Open / Hide Main Menu
-	if($('.main-header-bar .nav-toggler .toggler-btn').length){
-		$('.main-header-bar .nav-toggler .toggler-btn').on('click', function(e) {
+	if($('.main-header-bar .nav-toggler').length){
+		$('.main-header-bar .nav-toggler').on('click', function(e) {
 			e.preventDefault();
 			$(this).addClass('active');
 			$('.main-nav-outer').addClass('now-visible');
@@ -41,7 +41,7 @@
 		//Hide
 		$('.main-header-bar .nav-closer,.menu-backdrop').on('click', function(e) {
 			e.preventDefault();
-			$('.main-header-bar .nav-toggler .toggler-btn').removeClass('active');
+			$('.main-header-bar .nav-toggler').removeClass('active');
 			$('.main-nav-outer').removeClass('now-visible');
 			$('body').removeClass('navbar-visible');
 			$('.main-nav-box .navigation > li').removeClass('open');
@@ -50,7 +50,7 @@
 		$(document).keydown(function(e){
 	        if(e.keyCode == 27) {
 					$('body').removeClass('navbar-visible');
-					$('.main-header-bar .nav-toggler .toggler-btn').removeClass('active');
+					$('.main-header-bar .nav-toggler').removeClass('active');
 					$('.main-nav-outer').removeClass('now-visible');
 					$('.main-nav-box .navigation li ul').slideUp(0);
 					$('.main-nav-box .navigation > li').removeClass('open');
