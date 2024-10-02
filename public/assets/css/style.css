@@ -409,6 +409,7 @@ p{
   -ms-transition:all 0.3s ease;
   -o-transition:all 0.3s ease;
   transition:all 0.3s ease;
+  border-radius: 18px;
 }
 
 .btn-style-two span{
@@ -6629,20 +6630,6 @@ form label.error{
   border-radius: 5px;
 }
 
-
-.remove-btn {
-  background-color: #f05928;
-  color: white;
-  border: none;
-  padding: 5px 10px;
-  font-size: 14px;
-  cursor: pointer;
-  border-radius: 50%;
-}
-
-.remove-btn:hover {
-  background-color: #d32f2f;
-}
 .form-container {
 padding: 30px;
 max-width: 900px;
@@ -6720,4 +6707,30 @@ margin-right: 10px;
 .form-row .col {
 margin-bottom: 20px;
 }
+}
+.autentecationBox{
+  border: 1px solid red;
+  margin-bottom: 15px;
+  display: flex; 
+  justify-content: center;
+  align-items: center; 
+  text-align: center; 
+  padding: 10px; 
+}
+
+
+.card-header {
+  text-align: right;
+}
+
+.form-check-input {
+  float: right; 
+}
+
+.form-check-label {
+  margin-right: 25px; 
+}
+
+.btn-primary {
+  float: right; 
 }

@@ -42,7 +42,6 @@
         <div class="scroll-container">
             <div class="main-content-container" id="scroll-container">
                 @yield('content')
-                @include('partials.mainFooter')
             </div>
         </div>
     </div>
