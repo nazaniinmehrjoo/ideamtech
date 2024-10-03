@@ -1269,7 +1269,7 @@ form label.error{
 .main-nav-outer .main-nav-box .main-nav{
   position:relative;
   display: block;
-  padding: 100px 30px 0;
+  padding: 65px 30px 0;
 }
 
 .main-nav-outer .main-nav-box .main-nav .navigation{
@@ -1393,6 +1393,7 @@ form label.error{
   font-weight:500;
   text-transform:none;
   letter-spacing:1px;
+  text-align: right;
   opacity:1;
   transition:all 300ms ease;
   -moz-transition:all 300ms ease;
@@ -6708,16 +6709,95 @@ margin-right: 10px;
 margin-bottom: 20px;
 }
 }
-.autentecationBox{
-  border: 1px solid red;
-  margin-bottom: 15px;
-  display: flex; 
-  justify-content: center;
-  align-items: center; 
-  text-align: center; 
-  padding: 10px; 
+
+.auth-button {
+  padding: 8px 16px;
+  border-radius: 30px;
+  border: none;
+  background-color: #303336;
+  color: #FFF;
+  font-size: 14px;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  transition: all 0.3s ease; 
 }
 
+.auth-button i {
+  font-size: 16px;
+}
+
+.auth-button:hover {
+  background-color: #f05928;
+  color: #FFF;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2); 
+  transform: translateY(-3px); 
+}
+
+
+@keyframes fadeInSlide {
+  0% {
+    opacity: 0;
+    transform: translateY(10px); 
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.auth-button {
+  animation: fadeInSlide 0.5s ease;
+}
+
+.login-button {
+  background-color: rgba(255, 255, 255, 0.10); 
+  color: #ffffff;
+}
+
+.register-button {
+  background-color: rgba(255, 255, 255, 0.10); 
+  color: #ffffff;
+}
+
+.divider {
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #f05928, transparent);
+  margin: 20px 0;
+}
+
+.navigation {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  text-align: center;
+}
+
+.navigation li {
+  padding: 10px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.navigation li a {
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 18px;
+  transition: color 0.3s ease;
+}
+
+.navigation li a:hover {
+  color: #f05928;
+}
+
+.authentication-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 10px;
+  gap: 10px;
+}
 
 .card-header {
   text-align: right;
