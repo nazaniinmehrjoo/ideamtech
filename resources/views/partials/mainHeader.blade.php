@@ -35,81 +35,81 @@
         <div class="main-nav-outer">
             <div class="nav-closer"><img src="/assets/images/icons/close-icon.png" alt=""></div>
             <div class="outer-nav-box">
+            <div class="bottom-bg"></div>
+            <div class="top-bg"></div>
                 <div class="main-nav-box" data-scrollbar="">
                     <!--Logo Box-->
                     <div class="main-logo-box">
                         <a href="/"><img src="/assets/images/logotest2.png" alt=""></a>
                     </div>
-
-                    <!-- Main Nav -->
         <!-- Main Nav -->
-<div class="main-nav">
-    <ul class="navigation">
-        <!-- Authentication Links -->
-        <div class="authentication-header">
-            @guest
-                <a href="{{ route('login') }}" class="auth-button login-button"><i class="fas fa-sign-in-alt"></i> ورود</a>
-                @if (Route::has('register'))
-                    <a href="{{ route('register') }}" class="auth-button register-button"><i class="fas fa-user-plus"></i> ثبت نام</a>
-                @endif
-            @else
-                <a href="#" class="auth-button"><i class="fas fa-user"></i> {{ Auth::user()->name }}</a>
-                <a href="{{ route('logout') }}" class="auth-button logout-button"
-                   onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                   <i class="fas fa-sign-out-alt"></i> خروج
-                </a>
-                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                    @csrf
-                </form>
-            @endguest
-        </div>
-
-        <!-- Divider -->
-        <div class="divider"></div>
-
-        <!-- Main Navigation Links -->
-        <li><a href="/">خانه</a></li>
-        <li class="dropdown"><a href="#">خدمات</a>
-            <ul>
-                <li><a href="/مشاوره/خدمات">مشاوره</a></li>
-                <li><a href="/تامین_قطعات/خدمات">تامین قطعات و تعمیرات</a></li>
-                <li><a href="/خدمات_مهندسی/خدمات">خدمات مهندسی</a></li>
-                <li><a href="/نصب_و_راه_اندازی/خدمات">نصب و راه اندازی</a></li>
-                <li><a href="/خدمات_پس_از_فروش/خدمات">خدمات پس از فروش</a></li>
-            </ul>
-        </li>
-        <li class="dropdown"><a href="#">محصولات</a>
-            <ul>
-                <li><a href="/ماشین_آلات_فرآوری_و_شکل_دهی/محصولات">ماشین آلات فرآوری و شکل دهی</a></li>
-                <li><a href="/خشک-کن/محصولات">خشک کن</a></li>
-                <li><a href="/ماشین_آلات_و_تجهیزات/محصولات">ماشین آلات و تجهیزات</a></li>
-                <li><a href="/کوره_پخت/محصولات">کوره پخت</a></li>
-            </ul>
-        </li>
-        <li class="dropdown"><a href="#">فن آوری و نوآوری</a>
-            <ul>
-                <li><a href="#">فن آوری رباتیک و ستینگ</a></li>
-                <li><a href="#">فن آوری شبیه سازی و آزمایشگاهی</a></li>
-                <li><a href="#">فن آوری ساخت و اجرا</a></li>
-                <li><a href="#">تجهیزات نوآورانه</a></li>
-            </ul>
-        </li>
-        <li class="dropdown"><a href="#">برناگستر</a>
-            <ul>
-                <li><a href="/درباره-ما">درباره ما</a></li>
-                <li><a href="#">امکانات سخت افزاری و نرم افزاری</a></li>
-                <li><a href="#">چگونه یک پروژه را انجام میدهیم</a></li>
-                <li><a href="#">رفرنس لیست</a></li>
-                <li><a href="#">بیانه ی ارزش ها و ماموریت</a></li>
-                <li><a href="#">کاتالوگ و مقالات</a></li>
-            </ul>
-        </li>
-        <li class="dropdown"><a href="/contact">ارتباط با ما</a></li>
-    </ul>
-</div>
-
+        <div class="main-nav">
+            <ul class="navigation">
+                <!-- Authentication Links -->
+                <div class="authentication-header">
+                    @guest
+                        <a href="{{ route('login') }}" class="auth-button login-button"><i class="fas fa-sign-in-alt"></i> ورود</a>
+                        @if (Route::has('register'))
+                            <a href="{{ route('register') }}" class="auth-button register-button"><i class="fas fa-user-plus"></i> ثبت نام</a>
+                        @endif
+                    @else
+                        <a href="#" class="auth-button"><i class="fas fa-user"></i> {{ Auth::user()->name }}</a>
+                        <a href="{{ route('logout') }}" class="auth-button logout-button"
+                           onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                           <i class="fas fa-sign-out-alt"></i> خروج
+                        </a>
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                            @csrf
+                        </form>
+                    @endguest
                 </div>
-            </div>
+
+                <!-- Divider -->
+                <div class="divider"></div>
+
+                <!-- Main Navigation Links -->
+                <li><a href="/">خانه</a></li>
+                <li class="dropdown"><a href="#">خدمات</a>
+                    <ul>
+                        <li><a href="/مشاوره/خدمات">مشاوره</a></li>
+                        <li><a href="/تامین_قطعات/خدمات">تامین قطعات و تعمیرات</a></li>
+                        <li><a href="/خدمات_مهندسی/خدمات">خدمات مهندسی</a></li>
+                        <li><a href="/نصب_و_راه_اندازی/خدمات">نصب و راه اندازی</a></li>
+                        <li><a href="/خدمات_پس_از_فروش/خدمات">خدمات پس از فروش</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown"><a href="#">محصولات</a>
+                    <ul>
+                        <li><a href="/ماشین_آلات_فرآوری_و_شکل_دهی/محصولات">ماشین آلات فرآوری و شکل دهی</a></li>
+                        <li><a href="/خشک-کن/محصولات">خشک کن</a></li>
+                        <li><a href="/ماشین_آلات_و_تجهیزات/محصولات">ماشین آلات و تجهیزات</a></li>
+                        <li><a href="/کوره_پخت/محصولات">کوره پخت</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown"><a href="#">فن آوری و نوآوری</a>
+                    <ul>
+                        <li><a href="#">فن آوری رباتیک و ستینگ</a></li>
+                        <li><a href="#">فن آوری شبیه سازی و آزمایشگاهی</a></li>
+                        <li><a href="#">فن آوری ساخت و اجرا</a></li>
+                        <li><a href="#">تجهیزات نوآورانه</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown"><a href="#">برناگستر</a>
+                    <ul>
+                        <li><a href="/درباره-ما">درباره ما</a></li>
+                        <li><a href="#">امکانات سخت افزاری و نرم افزاری</a></li>
+                        <li><a href="#">چگونه یک پروژه را انجام میدهیم</a></li>
+                        <li><a href="#">رفرنس لیست</a></li>
+                        <li><a href="#">بیانه ی ارزش ها و ماموریت</a></li>
+                        <li><a href="#">کاتالوگ و مقالات</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown"><a href="/contact">ارتباط با ما</a></li>
+            </ul>
         </div>
+
+              </div>
+          </div>
+      </div>
     </div>
 </header>
