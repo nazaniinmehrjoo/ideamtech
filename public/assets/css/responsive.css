@@ -272,6 +272,9 @@
 }
 
 @media only screen and (max-width: 1199px) {
+	.modal-content {
+		margin: 60% 27% auto;
+	}
 	.banner-four .auto-container {
 		padding: 0px 50px;
 	}
@@ -548,6 +551,9 @@
 }
 
 @media only screen and (max-width: 991px) {
+	.modal-content {
+		margin: 60% 25% auto;
+	}
 	.banner-four .slider-box .slide-item {
 		width: 350px !important;
 	}
@@ -889,7 +895,11 @@
 }
 
 @media only screen and (max-width: 767px) {
-	
+	.modal-content {
+		margin: 40% 25% auto;
+		padding: 15px;
+		width: 75%;
+	}
 	.banner-four .banner-content {
 		padding-left: 0;
 	}
@@ -1154,6 +1164,9 @@
 }
 
 @media only screen and (max-width: 599px) {
+	.modal-content {
+		margin: 70% 20% auto;
+	}
 	.banner-four .slider-box .slide-item {
 		width: 300px !important;
 	}
@@ -1460,6 +1473,9 @@
 }
 
 @media only screen and (max-width: 430px) {
+	.modal-content {
+		margin: 50% 22% auto;
+	}
 	.banner-four .banner-content {
 		padding-right: 20px !important;
 	}
@@ -1513,6 +1529,9 @@
 	}
 }
 @media only screen and (max-width: 367px) {
+	.modal-content {
+		margin: 45% 24% auto;
+	}
 	.banner-four .banner-content {
 		padding-left: 90px;
 	}
