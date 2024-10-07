@@ -1,10 +1,13 @@
 <?php
 
-use App\Http\Controllers\ContactController;
+// use App\Http\Controllers\ContactController;
 use App\Http\Controllers\CustomerFormController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\ServiceController;
 use Illuminate\Support\Facades\Route;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -22,26 +25,26 @@ Route::get('/', function () {
 });
 
 Route::get('/مشاوره/خدمات', function () {
-    return view('khadamat.moshavere');
+    return view('services.moshavere');
 });
 
 Route::get('/تامین_قطعات/خدمات', function () {
-    return view('khadamat.taminghatat');
+    return view('services.taminghatat');
 });
 
 Route::get('/خدمات_مهندسی/خدمات', function () {
-    return view('khadamat.khadamat-mohandesi');
+    return view('services.khadamat-mohandesi');
 });
 
 Route::get('/نصب_و_راه_اندازی/خدمات', function () {
-    return view('khadamat.nasbvarahandazi');
+    return view('services.nasbvarahandazi');
 });
 
 Route::get('/خدمات_پس_از_فروش/خدمات', function () {
-    return view('khadamat.khadamat-pasazforosh');
+    return view('services.khadamat-pasazforosh');
 });
 
-// Update product-related routes to fetch products dynamically from the database
+// Publicly accessible routes for product listings
 Route::get('/ماشین_آلات_فرآوری_و_شکل_دهی/محصولات', [ProductController::class, 'mashinAlatShekldehi'])->name('products.mashinAlatShekldehi');
 Route::get('/ماشین_آلات_و_تجهیزات/محصولات', [ProductController::class, 'mashinalatvatajhizat'])->name('products.mashinalatvatajhizat');
 Route::get('/خشک-کن/محصولات', [ProductController::class, 'khoskkon'])->name('products.khoskkon');
@@ -55,17 +58,24 @@ Route::get('/درباره-ما', function () {
     return view('about');
 });
 
-Route::post('/contact', [ContactController::class, 'store']);
-
-// Customer routes
-Route::resource('customer', CustomerFormController::class);
-Route::post('/customer/export', [CustomerFormController::class, 'export'])->name('customer.export');
-
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-// Products resourceful routes
-Route::resource('products', ProductController::class);
+// Admin-only routes (Protected by isAdmin middleware)
+Route::middleware(['isAdmin'])->group(function () {
+    Route::resource('products', ProductController::class);
+    Route::resource('categories', CategoryController::class);
+    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+    Route::resource('services', ServiceController::class);
+    Route::resource('customer', CustomerFormController::class);
+    Route::post('/customer/export', [CustomerFormController::class, 'export'])->name('customer.export');
+});
 
-Route::resource('categories', CategoryController::class);
+Route::get('/no-access', function () {
+    return view('no-access');  
+})->name('no-access');
+
+
+
+

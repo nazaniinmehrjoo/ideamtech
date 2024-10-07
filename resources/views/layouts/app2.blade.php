@@ -37,7 +37,7 @@
         <div class="menu-backdrop"></div>
         
         <!-- Main Header -->
-        @include('partials.mainHeader')
+        @include('partials.mainheader')
 
         <div class="scroll-container">
             <div class="main-content-container" id="scroll-container">
