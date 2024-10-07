@@ -1,20 +1,20 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use App\Models\Category; 
 use Illuminate\Http\Request;
 use App\Models\Product;
+use App\Models\Service; 
 
 class DashboardController extends Controller
 {
     public function index()
     {
-        // Fetch all products
         $products = Product::all();
-    
-        // Fetch all categories
         $categories = Category::all();
-    
+        $services = Service::all();
+
         // Product headers
         $productHeaders = [
             'ریف',
@@ -25,7 +25,7 @@ class DashboardController extends Controller
             'نام صفحه',
             'عملیات'
         ];
-    
+
         // Category headers
         $categoryHeaders = [
             'ردیف',
@@ -34,7 +34,16 @@ class DashboardController extends Controller
             'عملیات'
         ];
 
-        // Pass products and headers to the view
-        return view('admin.dashboard', compact('products', 'categories', 'productHeaders', 'categoryHeaders'));
+        // Service headers
+        $serviceHeaders = [
+            'شناسه',
+            'نام خدمت',
+            'دسته‌بندی',
+            'توضیحات',
+            'تصاویر',
+            'عملیات'
+        ];
+
+        return view('admin.dashboard', compact('products', 'categories', 'services', 'productHeaders', 'categoryHeaders', 'serviceHeaders'));
     }
 }

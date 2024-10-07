@@ -5,26 +5,15 @@ namespace App\Http\Controllers;
 use App\Models\Product;
 use App\Models\Category; 
 use Illuminate\Http\Request;
-use App\Http\Controllers\CategoryController;
-use App\Http\Controllers\DashboardController;
-
 
 class ProductController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
-        // Fetch all products
         $products = Product::all();
-    
-        // Fetch all categories
         $categories = Category::all();
-    
-        // Product headers
+        
+        // Headers for Products and Categories
         $productHeaders = [
             'ریف',
             'نام محصول',
@@ -34,39 +23,38 @@ class ProductController extends Controller
             'نام صفحه',
             'عملیات'
         ];
-    
-        // Category headers
+        
         $categoryHeaders = [
             'ردیف',
             'نام دسته بندی',
             'نام صفحه',
             'عملیات'
         ];
-    
-        return view('admin.dashboard', compact('products', 'categories', 'productHeaders', 'categoryHeaders'));
+
+        // Headers for Services
+        $serviceHeaders = [
+            'شناسه',
+            'نام خدمت',
+            'دسته‌بندی',
+            'توضیحات',
+            'تصاویر',
+            'عملیات'
+        ];
+
+        // Return to the dashboard view
+        return view('admin.dashboard', compact('products', 'categories', 'productHeaders', 'categoryHeaders', 'serviceHeaders'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
+        // Fetch categories
         $categories = Category::all()->groupBy('page_name');
-        
+
         return view('products.create', compact('categories'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
-        
         $data = $request->validate([
             'name' => 'required|string|max:255',
             'description' => 'nullable|string',
@@ -74,54 +62,26 @@ class ProductController extends Controller
             'category_id' => 'nullable|integer',
             'image' => 'nullable|image',
         ]);
-    
-        
+
+        // Handle image upload
         if ($request->hasFile('image')) {
             $data['image'] = $request->file('image')->store('products', 'public');
         }
-    
-        
-        $product = Product::create($data);
-    
-        
-        return redirect()->route('products.index')->with('success', 'محصول با موفقیت ایجاد شد.');
+
+        // Create product
+        Product::create($data);
+
+        return redirect()->route('dashboard')->with('success', 'محصول با موفقیت ایجاد شد.');
     }
 
-
-    
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Product  $product
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Product $product)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Product  $product
-     * @return \Illuminate\Http\Response
-     */
     public function edit($id)
     {
         $product = Product::findOrFail($id);
         $categories = Category::all();
-        
+
         return view('products.edit', compact('product', 'categories'));
     }
 
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Product  $product
-     * @return \Illuminate\Http\Response
-     */
     public function update(Request $request, Product $product)
     {
         $data = $request->validate([
@@ -136,26 +96,33 @@ class ProductController extends Controller
             $data['image'] = $request->file('image')->store('products', 'public');
         }
 
+        // Update product
         $product->update($data);
 
-        return redirect()->route('products.index')->with('success', 'Product updated successfully.');
+        // Redirect to the dashboard
+        return redirect()->route('dashboard')->with('success', 'محصول با موفقیت ویرایش شد.');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Product  $product
-     * @return \Illuminate\Http\Response
-     */
     public function destroy(Product $product)
     {
-        // Delete the product image from storage
-        if ($product->image) {
-            \Storage::disk('public')->delete($product->image);
-        }
-    
         $product->delete();
-        return redirect()->route('products.index')->with('success', 'Product deleted successfully.');
+    
+        return response()->json([
+            'success' => true,
+            'message' => 'Product deleted successfully.'
+        ]);
+    }
+
+    private function getServiceHeaders()
+    {
+        return [
+            'شناسه',
+            'نام خدمت',
+            'دسته‌بندی',
+            'توضیحات',
+            'تصاویر',
+            'عملیات'
+        ];
     }
 
     public function khoskkon(Request $request)
