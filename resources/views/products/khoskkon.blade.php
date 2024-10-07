@@ -22,20 +22,19 @@
             <!-- Filter Section -->
             <div class="gallery-filters centered clearfix">
                 <ul class="filter-tabs filter-btns clearfix">
-                    <li class="filter" data-role="button">
-                        <a href="{{ route('products.khoskkon', ['category' => 'all']) }}" class="{{ $selectedCategory == 'all' ? 'active' : '' }}">نمایش همه</a>
-                    </li>
+                    <li class="filter" data-filter="all">نمایش همه</li>
                     @foreach($categories as $category)
-                        <li class="filter" data-role="button">
-                            <a href="{{ route('products.khoskkon', ['category' => $category->id]) }}" class="{{ $selectedCategory == $category->id ? 'active' : '' }}">{{ $category->name }}</a>
-                        </li>
+                    <li class="filter" data-filter=".category-{{ $category->id }}">
+                        {{ $category->name }}
+                    </li>
                     @endforeach
                 </ul>
             </div>
+
             <!-- Product List -->
-            <div class="filter-list row clearfix">
+            <div class="filter-list row clearfix" id="product-list">
                 @forelse($products as $product)
-                <div class="portfolio-block mix all {{ $product->category }} col-xl-4 col-lg-4 col-md-6 col-sm-12">
+                <div class="portfolio-block mix category-{{ $product->category_id }} col-xl-4 col-lg-4 col-md-6 col-sm-12" data-category="{{ $product->category_id }}">
                     <div class="inner-box">
                         <div class="image">
                             <img src="{{ asset('storage/' . $product->image) }}" alt="{{ $product->name }}">
@@ -45,16 +44,14 @@
                                 <i class="fa-solid fa-bars-staggered"></i>
                             </div>
                             <div class="inner">
-                                <div class="cat"><span>{{ $product->category }}</span></div>
-                                <h5 id="prodoctName">
-                                    <a href="#">{{ $product->name }}</a>
-                                </h5>
+                                <div class="cat"><span>{{ $product->category->name }}</span></div>
+                                <h5 id="prodoctName"><a href="#">{{ $product->name }}</a></h5>
                             </div>
                         </div>
                     </div>
                 </div>
                 @empty
-                    <p>No products found.</p>
+                <p>No products found.</p>
                 @endforelse
             </div>
         </div>
@@ -73,5 +70,8 @@
         </div>
     </div>
 </section>
+
+
+
 
 @endsection

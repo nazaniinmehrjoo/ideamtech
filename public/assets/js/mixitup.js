@@ -2094,5 +2094,21 @@
 			}
 		});
 	};
+	// for pruduct page filter 
+    $(document).ready(function(){
+        $('#product-list').mixItUp({
+            selectors: {
+                target: '.portfolio-block'
+            },
+            animation: {
+                effects: 'fade scale',
+                duration: 600
+            },
+            load: {
+                filter: 'all'  
+            }
+        });
+    });
+
 	
 })(jQuery);

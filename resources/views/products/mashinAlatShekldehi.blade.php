@@ -23,16 +23,11 @@
                 <!-- Dynamic Filter Categories -->
                 <div class="gallery-filters centered clearfix">
                     <ul class="filter-tabs filter-btns clearfix">
-                        <!-- "Show All" Option -->
-                        <li class="filter" data-role="button">
-                            <a href="{{ route('products.mashinAlatShekldehi', ['category' => 'all']) }}" class="{{ $selectedCategory == 'all' ? 'active' : '' }}">نمایش همه</a>
-                        </li>
-
-                        <!-- Loop through categories from the database -->
+                        <li class="filter" data-filter="all">نمایش همه</li>
                         @foreach($categories as $category)
-                            <li class="filter" data-role="button">
-                                <a href="{{ route('products.mashinAlatShekldehi', ['category' => $category->id]) }}" class="{{ $selectedCategory == $category->id ? 'active' : '' }}">{{ $category->name }}</a>
-                            </li>
+                        <li class="filter" data-filter=".category-{{ $category->id }}">
+                            {{ $category->name }}
+                        </li>
                         @endforeach
                     </ul>
                 </div>
@@ -40,9 +35,9 @@
                 <!-- Dynamic Product List -->
                 <div class="filter-list row clearfix">
                     @forelse ($products as $product)
-                    <div class="portfolio-block mix all {{ Str::slug($product->category->name) }} col-xl-4 col-lg-4 col-md-6 col-sm-12">
+                    <div class="portfolio-block mix category-{{ $product->category_id }} col-xl-4 col-lg-4 col-md-6 col-sm-12" data-category="{{ $product->category_id }}">
                         <div class="card bg-dark text-white">
-                            <div class="card-body p-0">
+                            <div class="card-body inner-box p-0">
                                 <div class="image">
                                     <img src="{{ asset('storage/' . $product->image) }}" class="img-fluid" alt="{{ $product->name }}">
                                 </div>
