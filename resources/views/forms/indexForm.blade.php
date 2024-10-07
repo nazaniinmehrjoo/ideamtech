@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.app2')
 
 @section('content')
 <head>
@@ -7,17 +7,17 @@
     <title>لیست فرم های ارسال شده</title>
     <style>
         .table-responsive {
-            direction: rtl; /* Ensure the table follows RTL direction */
+            direction: rtl; 
         }
         .dropdown-menu {
-            text-align: right; /* Align dropdown items to the right */
-            direction: rtl; /* Ensure RTL direction in the dropdown */
+            text-align: right;
+            direction: rtl; 
         }
         .bg-dark {
-            background-color: #343a40 !important; /* Use dark background */
+            background-color: #343a40 !important; 
         }
         .text-light {
-            color: #f8f9fa !important; /* Light text color */
+            color: #f8f9fa !important; 
         }
     </style>
 </head>

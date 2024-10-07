@@ -35,7 +35,7 @@ class CategoryController extends Controller
         
         Category::create($data);
 
-        return redirect()->route('categories.index')->with('success', 'Category created successfully.');
+        return redirect()->route('dashboard')->with('success', 'دسته بندی جدید با موفقیت ایجاد شد.');
     }
 
     public function edit($id)
@@ -58,25 +58,28 @@ class CategoryController extends Controller
         
         $category->update($data);
 
-        return redirect()->route('categories.index')->with('success', 'Category updated successfully.');
+        return redirect()->route('dashboard')->with('success', 'Category updated successfully.');
     }
 
     public function destroy($id)
     {
         $category = Category::findOrFail($id);
 
-        
+        // Check if the category is assigned to any products
         if (Product::where('category_id', $category->id)->exists()) {
-            
-            return redirect()->route('categories.index')
-                ->with('error', 'این دسته‌بندی به محصولی اختصاص داده شده است و نمی‌توانید آن را حذف کنید.');
+            // Return a JSON response if the category is assigned to a product
+            return response()->json([
+                'success' => false,
+                'message' => 'این دسته‌بندی به محصولی اختصاص داده شده است و نمی‌توانید آن را حذف کنید.'
+            ], 400); 
         }
 
-        
         $category->delete();
 
         
-        return redirect()->route('categories.index')
-            ->with('success', 'دسته‌بندی با موفقیت حذف شد.');
+        return response()->json([
+            'success' => true,
+            'message' => 'دسته‌بندی با موفقیت حذف شد.'
+        ]);
     }
 }
