@@ -6,6 +6,7 @@ use App\Models\Product;
 use App\Models\Category; 
 use Illuminate\Http\Request;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\DashboardController;
 
 
 class ProductController extends Controller
@@ -17,8 +18,32 @@ class ProductController extends Controller
      */
     public function index()
     {
+        // Fetch all products
         $products = Product::all();
-        return view('products.index', compact('products'));
+    
+        // Fetch all categories
+        $categories = Category::all();
+    
+        // Product headers
+        $productHeaders = [
+            'ریف',
+            'نام محصول',
+            'دسته‌بندی',
+            'توضیحات',
+            'تصویر',
+            'نام صفحه',
+            'عملیات'
+        ];
+    
+        // Category headers
+        $categoryHeaders = [
+            'ردیف',
+            'نام دسته بندی',
+            'نام صفحه',
+            'عملیات'
+        ];
+    
+        return view('admin.dashboard', compact('products', 'categories', 'productHeaders', 'categoryHeaders'));
     }
 
     /**
