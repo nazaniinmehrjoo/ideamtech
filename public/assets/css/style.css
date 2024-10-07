@@ -6832,3 +6832,32 @@ margin-bottom: 20px;
 .btn-primary {
   float: right; 
 }
+.productActions {
+  font-size: 20px;
+  border-radius: 20px;
+  padding: 6px;
+  width: 45px;
+  height: 45px;
+}
+
+.productActions i {
+  vertical-align: middle;
+;
+}
+.inner-box .image {
+  width: 100%;
+  height: 400px; 
+  overflow: hidden;
+  position: relative;
+}
+
+.inner-box .image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; 
+  display: block;
+}
+
+
+
+
