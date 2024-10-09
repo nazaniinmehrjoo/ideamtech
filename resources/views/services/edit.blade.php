@@ -25,8 +25,7 @@
                             <label for="title" class="col-md-4 col-form-label text-md-end">{{ __('عنوان خدمت') }}</label>
 
                             <div class="col-md-6">
-                                <input type="text" name="title" id="title" class="form-control bg-dark text-white @error('title') is-invalid @enderror" value="{{ $service->title ?? '' }}">
-
+                                <input type="text" name="title" id="title" class="form-control bg-dark text-white @error('title') is-invalid @enderror" value="{{ old('title', $service->title ?? '') }}">
                                 @error('title')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -40,8 +39,7 @@
                             <label for="content" class="col-md-4 col-form-label text-md-end">{{ __('توضیحات') }}</label>
 
                             <div class="col-md-6">
-                                <textarea name="content" id="content" class="form-control bg-dark text-white @error('content') is-invalid @enderror">{{ $service->content ?? '' }}</textarea>
-
+                                <textarea name="content" id="content" class="form-control bg-dark text-white @error('content') is-invalid @enderror">{{ old('content', $service->content ?? '') }}</textarea>
                                 @error('content')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -55,8 +53,7 @@
                             <label for="category" class="col-md-4 col-form-label text-md-end">{{ __('دسته‌بندی') }}</label>
 
                             <div class="col-md-6">
-                                <input type="text" name="category" id="category" class="form-control bg-dark text-white @error('category') is-invalid @enderror" value="{{ old('category', $service->category) }}"> <!-- Handle category input -->
-
+                                <input type="text" name="category" id="category" class="form-control bg-dark text-white @error('category') is-invalid @enderror" value="{{ old('category', $service->category) }}">
                                 @error('category')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -71,7 +68,6 @@
 
                             <div class="col-md-6">
                                 <input type="file" name="image" id="image" class="form-control bg-dark text-white @error('image') is-invalid @enderror">
-
                                 @error('image')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -87,13 +83,12 @@
                             <div class="col-md-6">
                                 <select name="page_name" id="page_name" class="form-control bg-dark text-white @error('page_name') is-invalid @enderror">
                                     <option value="">{{ __('-- Select Page --') }}</option>
-                                    <option value="consulting" {{ isset($service) && $service->page_name == 'consulting' ? 'selected' : '' }}>مشاوره</option>
-                                    <option value="parts_repairs" {{ isset($service) && $service->page_name == 'parts_repairs' ? 'selected' : '' }}>تامین قطعات و تعمیرات</option>
-                                    <option value="engineering" {{ isset($service) && $service->page_name == 'engineering' ? 'selected' : '' }}>خدمات مهندسی</option>
-                                    <option value="installation" {{ isset($service) && $service->page_name == 'installation' ? 'selected' : '' }}>نصب و راه اندازی</option>
-                                    <option value="after_sales" {{ isset($service) && $service->page_name == 'after_sales' ? 'selected' : '' }}>خدمات پس از فروش</option>
+                                    <option value="consulting" {{ (old('page_name', $service->page_name ?? '') == 'consulting') ? 'selected' : '' }}>مشاوره</option>
+                                    <option value="parts_repairs" {{ (old('page_name', $service->page_name ?? '') == 'parts_repairs') ? 'selected' : '' }}>تامین قطعات و تعمیرات</option>
+                                    <option value="engineering" {{ (old('page_name', $service->page_name ?? '') == 'engineering') ? 'selected' : '' }}>خدمات مهندسی</option>
+                                    <option value="installation" {{ (old('page_name', $service->page_name ?? '') == 'installation') ? 'selected' : '' }}>نصب و راه اندازی</option>
+                                    <option value="after_sales" {{ (old('page_name', $service->page_name ?? '') == 'after_sales') ? 'selected' : '' }}>خدمات پس از فروش</option>
                                 </select>
-
                                 @error('page_name')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>

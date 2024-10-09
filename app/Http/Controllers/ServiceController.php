@@ -38,6 +38,11 @@ class ServiceController extends Controller
                 'content' => $request->content,
                 'banner_images' => json_encode([$imagePath]),
                 'page_name' => $request->page_name,
+                'show_on_consulting' => $request->page_name == 'consulting' ? 1 : 0,
+                'show_on_parts_repairs' => $request->page_name == 'parts_repairs' ? 1 : 0,
+                'show_on_engineering' => $request->page_name == 'engineering' ? 1 : 0,
+                'show_on_installation' => $request->page_name == 'installation' ? 1 : 0,
+                'show_on_after_sales' => $request->page_name == 'after_sales' ? 1 : 0,
             ]);
     
             return redirect()->route('dashboard')->with('success', 'Service created successfully.');
@@ -52,25 +57,33 @@ class ServiceController extends Controller
         {
             $request->validate([
                 'title' => 'required',
-                'category' => 'nullable|string', 
+                'category' => 'nullable|string',
                 'content' => 'required',
                 'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
-                'page_name' => 'required'
+                'page_name' => 'required',
             ]);
-        
+            
+            // Handle the image upload if a new image is provided
             if ($request->hasFile('image')) {
                 $imagePath = $request->file('image')->store('services_images', 'public');
             } else {
-                $imagePath = $service->banner_images; 
+                // If no new image is uploaded, keep the existing one
+                $imagePath = json_decode($service->banner_images, true)[0]; // Decode JSON to get the existing image path
             }
         
-            
+            // Update the service with the new values
             $service->update([
                 'title' => $request->title,
                 'category' => $request->category,
                 'content' => $request->content,
-                'banner_images' => json_encode([$imagePath]),
+                'banner_images' => json_encode([$imagePath]), // Store the updated image path
                 'page_name' => $request->page_name,
+                // Set flags based on the selected page_name
+                'show_on_consulting' => $request->page_name == 'consulting' ? 1 : 0,
+                'show_on_parts_repairs' => $request->page_name == 'parts_repairs' ? 1 : 0,
+                'show_on_engineering' => $request->page_name == 'engineering' ? 1 : 0,
+                'show_on_installation' => $request->page_name == 'installation' ? 1 : 0,
+                'show_on_after_sales' => $request->page_name == 'after_sales' ? 1 : 0,
             ]);
         
             return redirect()->route('dashboard')->with('success', 'Service updated successfully.');
@@ -87,30 +100,34 @@ class ServiceController extends Controller
                 'message' => 'Service deleted successfully.'
             ]);
         }
+        public function consulting()
+        {
+            $services = Service::where('show_on_consulting', true)->get();
+            return view('services.moshavere', compact('services'));
+        }
+        
         public function partsRepairs()
         {
-            $services = Service::where('show_on_parts_repairs', true)->get();
-            return view('services.parts_repairs', compact('services'));
+            $services = Service::where('show_on_parts_repairs', true)->get(); 
+            return view('services.taminghatat', compact('services'));
         }
-
         
         public function engineering()
         {
             $services = Service::where('show_on_engineering', true)->get();
-            return view('services.engineering', compact('services'));
+            return view('services.khadamat-mohandesi', compact('services'));
         }
-
-        
+                
         public function installation()
         {
-            $services = Service::where('show_on_installation', true)->get();
-            return view('services.installation', compact('services'));
+            $services = Service::where('show_on_installation', true)->get(); 
+            return view('services.nasbvarahandazi', compact('services'));
         }
-
         
         public function afterSales()
         {
-            $services = Service::where('show_on_after_sales', true)->get();
-            return view('services.after_sales', compact('services'));
+            $services = Service::where('show_on_after_sales', true)->get(); // Adjust as needed
+            return view('services.khadamat-pasazforosh', compact('services'));
         }
+        
 }
