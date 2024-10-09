@@ -55,10 +55,7 @@
                 @endforelse
             </div>
         </div>
-    </div>
-
-    <!-- The Modal -->
-    <div id="moreProductDtl" class="modal">
+        <div id="moreProductDtl" class="modal">
         <div class="modal-content">
             <span class="closeModal"><img src="/assets/images/icons/close-icon.png" alt=""></span>
             <button class="download-btn" onclick="startSpin(this)">
