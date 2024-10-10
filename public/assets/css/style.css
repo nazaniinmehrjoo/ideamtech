@@ -1086,9 +1086,9 @@ form label.error{
   cursor:pointer; 
 }
 
-.main-header-bar .nav-toggler .toggler-btn.active{
+/* .main-header-bar .nav-toggler .toggler-btn.active{
 
-}
+} */
 
 .main-header-bar .nav-toggler .toggler-btn .bar{
   position:relative;
