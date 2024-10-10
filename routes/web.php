@@ -24,6 +24,10 @@ Route::get('/', function () {
     return view('index');
 });
 
+Route::get('/testPage', function () {
+    return view('custmer');
+});
+
 Route::get('/مشاوره/خدمات', [ServiceController::class, 'consulting'])->name('services.consulting');
 
 Route::get('/تامین_قطعات/خدمات', [ServiceController::class, 'partsRepairs'])->name('services.partsRepairs');
