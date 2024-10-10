@@ -6808,6 +6808,7 @@ margin-bottom: 20px;
   width: 100%;
   bottom: 35px;
   background: #15181b;
+  height: 100%;
 }
 .authentication-header {
   display: flex;
