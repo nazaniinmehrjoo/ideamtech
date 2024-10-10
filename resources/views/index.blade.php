@@ -39,12 +39,12 @@
 
 
             <!--Services Section-->
-            <section class="services-section" style="background-image:url(/assets/images/background/plans-lines.png) ;">
+            <section class="services-section">
                 <div class="auto-container">
                     <div class="def-title-box">
                         <div class="patt"><span></span></div>
-                        <div class="subtitle">creative services</div>
-                        <h3>Proffesional Services</h3>
+                        <div class="subtitle">سفر مشتریان و پروژه‌ها</div>
+                        <h3> داستان‌ها و دستاوردهای ما</h3>
                     </div>
 
                     <div class="services">
@@ -53,10 +53,9 @@
                             <div class="service-block col-xl-4 col-lg-6 col-md-6 col-sm-12">
                                 <div class="inner-box">
                                     <div class="inner">
-                                        <div class="icon-box"><span class="far fa-display"></span></div>
-                                        <h5>تجهیزات نوآورانه</h5>
-                                        <div class="text">طراح و سازنده ماشین آلات
-                                            و تجهیزات نو آورانه</div>
+                                        <div class="icon-box"><span class="fa-regular fa-users"></span></div>
+                                        <h5>رضایت مشتری</h5>
+                                        <div class="text">تمرکز ما بر ارائه خدماتی است که با نیازهای مشتریان همخوانی داشته باشد و به ایجاد تجربه‌ای مثبت و موثر برای آن‌ها منجر شود</div>
                                         <div class="link-box"><a href="/ماشین آلات و تجهیزات/محصولات"><span class="far fa-angle-right"></span></a></div>
                                     </div>
                                 </div>
@@ -65,10 +64,10 @@
                             <div class="service-block col-xl-4 col-lg-6 col-md-6 col-sm-12">
                                 <div class="inner-box">
                                     <div class="inner">
-                                        <div class="icon-box"><span class="far fa-flask"></span></div>
-                                        <h5>خشک کن های سریع</h5>
-                                        <div class="text">سازنده انواع خشک های سریع
-                                            با تکنولوژی روز دنیا</div>
+                                        <div class="icon-box"><span class="fa-light fa-block-brick-fire"></span></div>
+                                        <h5>اخبار و مقالات</h5>
+                                        <div class="text">
+                                        در بخش اخبار و مقالات برناگستر، جدیدترین رویدادها و مطالب تخصصی را دنبال کنید.</div>
                                         <div class="link-box"><a href="/خشک-کن/محصولات"><span class="far fa-angle-right"></span></a></div>
                                     </div>
                                 </div>
@@ -78,9 +77,8 @@
                                 <div class="inner-box">
                                     <div class="inner">
                                         <div class="icon-box"><span class="far fa-chart-column"></span></div>
-                                        <h5>تامین قطعات و تعمیرات</h5>
-                                        <div class="text" style=" margin-left: 39px;">تامین کننده قطعات تولید آجر
-                                            و تعمیرات آنها</div>
+                                        <h5>روند انجام پروژه‌ها</h5>
+                                        <div class="text" style=" margin-left: 39px;">چگونه ما یک پروژه را انجام می‌دهیم</div>
                                         <div class="link-box"><a href="/تامین قطعات/خدمات"><span class="far fa-angle-right"></span></a></div>
                                     </div>
                                 </div>
@@ -89,10 +87,7 @@
                         </div>
                     </div>
                 </div>
-            </section>
-
-
-            
+            </section>   
 
             <!--Services Section-->
             <section class="services-two">
@@ -107,7 +102,7 @@
                         <div class="tabs-col col-xl-6 col-lg-12 col-md-12 col-sm-12">
                             <div class="tabs-box def-tabs-box">
                                 <ul class="tab-buttons clearfix">
-                                    <li class="tab-btn active-btn" data-tab="#tab-1"><span>why choose us</span></li>
+                                    <li class="tab-btn active-btn" data-tab="#tab-1"><span>درباره‌ی برنا</span></li>
                                     <li class="tab-btn" data-tab="#tab-2"><span>our mission</span></li>
                                     <li class="tab-btn" data-tab="#tab-3"><span>our vision</span></li>
                                 </ul>
@@ -120,8 +115,18 @@
                                             </div>
                                             <div class="text-col col-lg-7 col-md-7 col-sm-6">
                                                 <div class="text">
-                                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                                                    <div></div>      
+                                                    
                                                     <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor.</p>
+                                                    <div class="container">
+                                                        <button class="btn">
+                                                          <svg width="180px" height="60px" viewBox="0 0 180 60">
+                                                            <polyline points="179,1 179,59 1,59 1,1 179,1" class="bg-line" />
+                                                            <polyline points="179,1 179,59 1,59 1,1 179,1" class="hl-line" />
+                                                          </svg>
+                                                          <span>پیوستن به خانواده‌ی برناگستر</span>
+                                                        </button>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
