@@ -1491,9 +1491,9 @@ form label.error{
   padding: 0 0;
 }
 
-.banner-section .auto-container{
+/* .banner-section .auto-container{
   
-}
+} */
 
 .banner-section .banner-container{
   position: relative;
@@ -2617,9 +2617,9 @@ form label.error{
   border-bottom: none;
 }
 
-.accordion-box .block.active-block{
+/* .accordion-box .block.active-block{
     
-}
+} */
 
 .accordion-box .block .acc-btn{
   position:relative;
@@ -3013,9 +3013,9 @@ form label.error{
   padding: 0 0;
 }
 
-.banner-section .auto-container{
+/* .banner-section .auto-container{
   
-}
+} */
 
 .banner-three .banner-container{
   position: relative;
@@ -4531,9 +4531,9 @@ form label.error{
   padding: 0 0;
 }
 
-.banner-four .auto-container{
+/* .banner-four .auto-container{
     
-}
+} */
 
 .banner-four .banner-container{
   position: relative;
@@ -5419,9 +5419,9 @@ form label.error{
   -moz-transition:all 500ms ease;
 }
 
-.banner-eight .pager-box .pager-item.active{
+/* .banner-eight .pager-box .pager-item.active{
   
-}
+} */
 
 .banner-eight .pager-box .pager-item.active .inner{
   border-bottom-color: #f05928;
