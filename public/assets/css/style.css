@@ -1948,7 +1948,7 @@ form label.error{
   position: relative;
   font-size: 14px;
   font-family: 'IRANSans';
-  letter-spacing: 4px;
+  /* letter-spacing: 4px; */
   color: rgba(255, 255, 255, 0.35);
   margin: 7px 0 3px;
 }
@@ -2026,7 +2026,9 @@ form label.error{
     -moz-transition: all 500ms ease;
     transition: all 500ms ease;
 }
-
+.service-block .icon-box span {
+  vertical-align: middle;
+}
 .service-block .inner-box:hover .icon-box{
   background: #f05928;
   color: #292c30;
@@ -2046,8 +2048,9 @@ form label.error{
   font-size: 15px;
   font-family: 'IRANSans';
   color: rgba(255, 255, 255, 0.40);
-  margin: 0 0 10px;
+  margin: 10px 0 10px;
   text-align: center;
+  height: 100px;
 }
 
 .service-block .link-box{
@@ -2392,6 +2395,7 @@ form label.error{
 
 .services-two .tabs-box{
   position: relative;
+  direction: rtl;
 }
 
 .services-two .services .parent-row{
@@ -6857,6 +6861,53 @@ margin-bottom: 20px;
   height: 100%;
   object-fit: cover; 
   display: block;
+}
+
+/* حذف absolute برای قرارگیری مناسب دکمه */
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px; /* فاصله از محتوای بالا */
+  margin-bottom: 20px;
+}
+
+.container .btn {
+  width: 180px;
+  height: 60px;
+  cursor: pointer;
+  background: transparent;
+  border: 1px solid #f05928;
+  outline: none;
+  transition: 1s ease-in-out;
+  position: relative;
+}
+.container .btn:focus{
+  box-shadow: none !important;
+}
+.container svg {
+  position: absolute;
+  left: 0;
+  top: 0;
+  fill: none;
+  stroke: #fff;
+  stroke-dasharray: 150 480;
+  stroke-dashoffset: 150;
+  transition: 1s ease-in-out;
+}
+
+.btn:hover {
+  background: #f05928;
+}
+
+.btn:hover svg {
+  stroke-dashoffset: -480;
+}
+
+.btn span {
+  color: white;
+  font-size: 16px;
+  font-weight: 100;
 }
 
 
