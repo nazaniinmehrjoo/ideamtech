@@ -3,11 +3,18 @@
 @section('content')
 <style>
     .image-box .image img {
-    width: 680px; /* Set the width */
-    height: 594px; /* Set the height */
-    object-fit: cover; /* Maintain aspect ratio */
-}
+        width: 681px; 
+        height: 595px; 
+        object-fit: cover; 
+    }
+
+    .image-box {
+        width: 681px; 
+        height: 595px; 
+        overflow: hidden; 
+    }
 </style>
+
 <div class="scroll-container">
     <div class="main-content-container main-responsive-container">
         <!-- Banner Section -->

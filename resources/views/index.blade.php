@@ -39,7 +39,7 @@
 
 
             <!--Services Section-->
-            <section class="services-section">
+            <section class="services-section" style="background-image:url(/assets/images/background/plans-lines.png) ;">
                 <div class="auto-container">
                     <div class="def-title-box">
                         <div class="patt"><span></span></div>
