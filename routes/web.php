@@ -6,6 +6,11 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ServiceController;
+use App\Http\Controllers\ProjectController;
+use App\Http\Controllers\BlogController;
+
+
+use App\Models\Project;
 use Illuminate\Support\Facades\Route;
 
 
@@ -23,10 +28,11 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('index');
 });
+Route::get('/مقالات', [BlogController::class, 'index'])->name('blog.index');
 
-Route::get('/testPage', function () {
-    return view('custmer');
-});
+
+Route::get('/مشتریان-ما', [ProjectController::class, 'customerView']);
+Route::resource('projects', ProjectController::class);
 
 Route::get('/مشاوره/خدمات', [ServiceController::class, 'consulting'])->name('services.consulting');
 
@@ -64,12 +70,10 @@ Route::middleware(['isAdmin'])->group(function () {
     Route::resource('services', ServiceController::class);
     Route::resource('customer', CustomerFormController::class);
     Route::post('/customer/export', [CustomerFormController::class, 'export'])->name('customer.export');
-});
+    Route::resource('blog', BlogController::class);
 
+
+});
 Route::get('/no-access', function () {
     return view('no-access');  
 })->name('no-access');
-
-
-
-
