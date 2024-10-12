@@ -64,22 +64,14 @@ class CategoryController extends Controller
     public function destroy($id)
     {
         $category = Category::findOrFail($id);
-
+    
         // Check if the category is assigned to any products
         if (Product::where('category_id', $category->id)->exists()) {
-            // Return a JSON response if the category is assigned to a product
-            return response()->json([
-                'success' => false,
-                'message' => 'این دسته‌بندی به محصولی اختصاص داده شده است و نمی‌توانید آن را حذف کنید.'
-            ], 400); 
+            return redirect()->back()->with('error', 'این دسته‌بندی به محصولی اختصاص داده شده است و نمی‌توانید آن را حذف کنید.');
         }
-
+    
         $category->delete();
-
-        
-        return response()->json([
-            'success' => true,
-            'message' => 'دسته‌بندی با موفقیت حذف شد.'
-        ]);
+    
+        return redirect()->route('dashboard')->with('success', 'دسته‌بندی با موفقیت حذف شد.');
     }
 }

@@ -106,11 +106,8 @@ class ProductController extends Controller
     public function destroy(Product $product)
     {
         $product->delete();
-    
-        return response()->json([
-            'success' => true,
-            'message' => 'Product deleted successfully.'
-        ]);
+        return redirect()->route('dashboard')->with('success', 'محصول با موفقیت حذف شد.');
+
     }
 
     private function getServiceHeaders()

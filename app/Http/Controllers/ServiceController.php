@@ -91,15 +91,12 @@ class ServiceController extends Controller
         
 
         
-        public function destroy(Service $service)
-        {
-            $service->delete();
-        
-            return response()->json([
-                'success' => true,
-                'message' => 'Service deleted successfully.'
-            ]);
-        }
+        public function destroy(Service $services)
+    {
+        $services->delete();
+        return redirect()->route('dashboard')->with('success', 'سرویس با موفقیت حذف شد.');
+
+    }
         public function consulting()
         {
             $services = Service::where('show_on_consulting', true)->get();
