@@ -98,5 +98,25 @@
             });
         }
     </script>
+    <script>
+    let pageLoadTime = performance.now(); 
+
+    // When the user leaves the page or closes the tab
+    window.addEventListener('beforeunload', function () {
+        let pageCloseTime = performance.now();
+        let timeSpent = (pageCloseTime - pageLoadTime) / 1000; // Time in seconds
+
+        // Send the time spent to the server using the Fetch API
+        fetch('/track-time-spent', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
+            },
+            body: JSON.stringify({ timeSpent: timeSpent }) 
+        });
+    });
+</script>
+
 </body>
 </html>

@@ -5,7 +5,9 @@
   <!-- Dashboard Header -->
   <div class="dashboard-header">
     <h2 class="text-light">داشبورد مدیریت</h2>
-    <p class="lead text-secondary">به پنل مدیریت خوش آمدید. اینجا می‌توانید محصولات، دسته‌بندی‌ها، خدمات، پروژه‌ها و بلاگ‌ها را مدیریت کنید.</p>
+    <p class="lead text-secondary">
+      به پنل مدیریت خوش آمدید. اینجا می‌توانید محصولات، دسته‌بندی‌ها، خدمات، پروژه‌ها و بلاگ‌ها را مدیریت کنید.
+    </p>
   </div>
 
   <!-- Dashboard Grid -->
@@ -84,7 +86,6 @@
       <h3>نمودار محصولات با بیشترین کلیک</h3>
       <p>نمایش محصولاتی که بیشترین کلیک را در طول ماه‌های مختلف داشته‌اند.</p>
 
-      <!-- Charts Section for Product Performance -->
       <div class="chart-container mt-4">
         <h5>بیشترین کلیک‌ها</h5>
         <canvas id="mostClickedProductsChart"></canvas>
@@ -94,21 +95,19 @@
       <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
       <script>
-        // Data for the most clicked products chart
-        var mostClickedProducts = @json($mostClickedProducts); // محصولات با بیشترین کلیک
+        var mostClickedProducts = @json($mostClickedProducts); // Get data from the controller
 
-        var productNames = mostClickedProducts.map(product => product.name); // نام محصولات
-        var productClicks = mostClickedProducts.map(product => product.clicks); // تعداد کلیک‌ها
+        var productNames = mostClickedProducts.map(product => product.name); // Extract product names
+        var productClicks = mostClickedProducts.map(product => product.clicks); // Extract click counts
 
-        // Chart for Most Clicked Products
         var ctx1 = document.getElementById('mostClickedProductsChart').getContext('2d');
         var mostClickedProductsChart = new Chart(ctx1, {
           type: 'bar',
           data: {
-            labels: productNames, // نمایش نام محصولات
+            labels: productNames, // Show product names
             datasets: [{
               label: 'تعداد کلیک',
-              data: productClicks, // نمایش تعداد کلیک‌ها
+              data: productClicks, // Show product click counts
               backgroundColor: 'rgba(75, 192, 192, 0.2)',
               borderColor: 'rgba(75, 192, 192, 1)',
               borderWidth: 1
@@ -133,6 +132,70 @@
           }
         });
       </script>
+    </div>
+
+    <!-- User Visits and Time Spent Chart Card -->
+    <div class="dashboard-card shadow-lg">
+      <div class="card-icon">
+        <i class="fas fa-globe"></i>
+      </div>
+      <h3>بازدیدها و زمان سپری‌شده به تفکیک کشور</h3>
+      <p>مشاهده تعداد بازدید و زمان سپری‌شده کاربران به تفکیک کشور.</p>
+
+      @if(isset($visitsData) && $visitsData->isNotEmpty())
+        <div class="chart-container mt-4">
+          <h5>بازدیدها به تفکیک کشور</h5>
+          <canvas id="countryVisitsChart"></canvas>
+        </div>
+
+        <script>
+          var visitsData = @json($visitsData); // Get visits data from the controller
+
+          var countries = visitsData.map(data => data.country); // Extract country names
+          var visitCounts = visitsData.map(data => data.visit_count); // Extract visit counts
+          var totalTimeSpent = visitsData.map(data => data.total_time); // Extract total time spent
+
+          var ctx2 = document.getElementById('countryVisitsChart').getContext('2d');
+          var countryVisitsChart = new Chart(ctx2, {
+            type: 'bar',
+            data: {
+              labels: countries,
+              datasets: [{
+                label: 'تعداد بازدید',
+                data: visitCounts,
+                backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                borderColor: 'rgba(54, 162, 235, 1)',
+                borderWidth: 1
+              }, {
+                label: 'زمان سپری‌شده (ثانیه)',
+                data: totalTimeSpent,
+                backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                borderColor: 'rgba(255, 99, 132, 1)',
+                borderWidth: 1
+              }]
+            },
+            options: {
+              scales: {
+                y: {
+                  beginAtZero: true,
+                  title: {
+                    display: true,
+                    text: 'تعداد بازدید / زمان سپری‌شده'
+                  }
+                },
+                x: {
+                  title: {
+                    display: true,
+                    text: 'کشورها'
+                  }
+                }
+              }
+            }
+          });
+        </script>
+      @else
+        <p>در حال حاضر اطلاعاتی برای نمایش وجود ندارد.</p>
+      @endif
     </div>
   </div>
 </div>

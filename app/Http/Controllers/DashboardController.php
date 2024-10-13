@@ -35,25 +35,22 @@ class DashboardController extends Controller
         ));
     }
 
-    // Function to get the most clicked and viewed products for each month
     public function getMostClickedAndViewedProducts()
     {
         $currentYear = Carbon::now()->year;
 
-        // Fetch the most clicked and viewed products for each month in the current year
         $products = Product::select(
             DB::raw('MONTH(created_at) as month'),
             DB::raw('SUM(clicks) as total_clicks'),
             DB::raw('SUM(views) as total_views')
         )
         ->whereYear('created_at', $currentYear)
-        ->where('clicks', '>', 0) // Ensure we only fetch products with clicks
-        ->where('views', '>', 0)  // Ensure we only fetch products with views
+        ->where('clicks', '>', 0) 
+        ->where('views', '>', 0)  
         ->groupBy(DB::raw('MONTH(created_at)'))
         ->orderBy(DB::raw('MONTH(created_at)'), 'asc')
         ->get();
 
-        // If no data is available, return an empty array
         if ($products->isEmpty()) {
             return [
                 'months' => [],
@@ -62,16 +59,15 @@ class DashboardController extends Controller
             ];
         }
 
-        // Prepare the chart data
         $chartData = [
             'months' => [],
             'clicks' => [],
             'views' => [],
         ];
 
-        // Map product data to Persian months
+
         foreach ($products as $product) {
-            $chartData['months'][] = $this->convertToPersianMonth($product->month); // Convert to Persian month
+            $chartData['months'][] = $this->convertToPersianMonth($product->month); 
             $chartData['clicks'][] = $product->total_clicks;
             $chartData['views'][] = $product->total_views;
         }
@@ -99,4 +95,23 @@ class DashboardController extends Controller
 
         return $persianMonths[$month];
     }
+    public function showDashboard()
+    {
+        $visitsData = DB::table('user_visits')
+            ->select(DB::raw('count(*) as visit_count'), DB::raw('SUM(time_spent) as total_time'), 'country')
+            ->groupBy('country')
+            ->get();
+
+        // Fetch the most clicked products
+        $mostClickedProducts = DB::table('products')
+            ->orderBy('clicks', 'desc')
+            ->take(5)
+            ->get();
+
+        // Pass data to the view
+        return view('admin.dashboard', compact('visitsData', 'mostClickedProducts'));
+    }
+
+    
+    
 }
