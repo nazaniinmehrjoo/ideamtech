@@ -30,6 +30,8 @@ Route::get('/', function () {
 });
 Route::get('/مقالات', [BlogController::class, 'index'])->name('blog.index');
 
+Route::post('/products/{product}/click', [ProductController::class, 'trackClick'])->name('products.trackClick');
+
 
 Route::get('/مشتریان-ما', [ProjectController::class, 'customerView']);
 Route::resource('projects', ProjectController::class);

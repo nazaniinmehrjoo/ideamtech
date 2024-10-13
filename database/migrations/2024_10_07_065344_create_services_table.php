@@ -19,6 +19,8 @@ class CreateServicesTable extends Migration
             $table->string('category')->nullable(); 
             $table->text('content')->nullable();
             $table->json('banner_images')->nullable(); 
+            $table->integer('views')->default(0);
+            $table->integer('clicks')->default(0);
             $table->boolean('show_on_consulting')->default(false); 
             $table->boolean('show_on_parts_repairs')->default(false); 
             $table->boolean('show_on_engineering')->default(false); 

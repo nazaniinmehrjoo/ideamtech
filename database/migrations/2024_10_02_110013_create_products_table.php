@@ -20,6 +20,8 @@ class CreateProductsTable extends Migration
             $table->text('description')->nullable();
             $table->string('image')->nullable();
             $table->string('page_name');
+            $table->integer('views')->default(0);
+            $table->integer('clicks')->default(0);
             $table->timestamps();
         });
     }

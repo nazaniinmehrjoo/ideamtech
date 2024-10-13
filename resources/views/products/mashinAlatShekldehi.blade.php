@@ -42,7 +42,7 @@
                                     <img src="{{ asset('storage/' . $product->image) }}" class="img-fluid" alt="{{ $product->name }}">
                                 </div>
                                 <div class="overlay">
-                                    <div class="more-link" onclick="openProductModal('{{ $product->name }}', '{{ $product->description }}')">
+                                    <div class="more-link" onclick="trackAndOpenModal({{ $product->id }}, '{{ $product->name }}', '{{ $product->description }}')">
                                         <i class="fa-solid fa-bars-staggered theme-btn"></i>
                                     </div>
                                     <div class="inner">
@@ -62,7 +62,7 @@
     </section>
 
     <!-- Modal to show product details -->
-    <div id="moreProductDtl" class="modal">
+    <div id="moreProductDtl" class="modal" style="display: none;">
         <div class="modal-content bg-dark text-white">
             <span class="closeModal" onclick="closeModal()"><img src="/assets/images/icons/close-icon.png" alt=""></span>
             <button class="download-btn" onclick="startSpin(this)">
@@ -76,22 +76,46 @@
 
 </div>
 
-<!--End Site Container-->
-
-
+<!-- Script for handling modal and tracking clicks -->
 <script>
-    function openProductModal(productName, productDescription) {
-        document.getElementById('productNameModal').textContent = productName;
-        document.getElementById('productDescriptionModal').textContent = productDescription;
-        document.getElementById('moreProductDtl').style.display = 'block';
+    // Function to track click and open the modal
+    function trackAndOpenModal(productId, productName, productDescription) {
+        // Track the click
+        fetch(`/products/${productId}/click`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'X-CSRF-TOKEN': '{{ csrf_token() }}' // Ensure CSRF token is included
+            },
+            body: JSON.stringify({})
+        })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.json(); // Ensure response is JSON
+        })
+        .then(data => {
+            console.log(data.message); // Success message
+
+            // Open the modal with the product information
+            document.getElementById('productNameModal').textContent = productName;
+            document.getElementById('productDescriptionModal').textContent = productDescription;
+            document.getElementById('moreProductDtl').style.display = 'block';
+        })
+        .catch(error => {
+            console.error('Error tracking click:', error);
+        });
     }
 
+    // Function to close the modal
     function closeModal() {
         document.getElementById('moreProductDtl').style.display = 'none';
     }
 
     function startSpin(button) {
-        
+        // Add your spinning logic here if needed
     }
 </script>
+
 @endsection

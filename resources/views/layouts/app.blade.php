@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>
         @isset($title)
             {{ $title }} | 
@@ -15,10 +16,8 @@
     <link rel="shortcut icon" href="/assets/images/favicon.png" type="image/x-icon">
     <link rel="icon" href="/assets/images/favicon.png" type="image/x-icon">
 
-
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-dark-5@1.1.3/dist/css/bootstrap-dark.min.css" rel="stylesheet">
-
 
     <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
 
@@ -73,5 +72,31 @@
 
     <!-- Laravel Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
+
+    <!-- Click Tracking Function -->
+    <script>
+        function trackClick(productId) {
+            fetch(`/products/${productId}/click`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRF-TOKEN': '{{ csrf_token() }}' 
+                },
+                body: JSON.stringify({})
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.json(); 
+            })
+            .then(data => {
+                console.log(data.message); 
+            })
+            .catch(error => {
+                console.error('Error tracking click:', error);
+            });
+        }
+    </script>
 </body>
 </html>

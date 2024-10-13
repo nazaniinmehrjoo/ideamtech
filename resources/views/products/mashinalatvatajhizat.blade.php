@@ -21,7 +21,7 @@
         <!-- Dynamic Filter Categories -->
         <div class="mixitup-gallery">
             <div class="gallery-filters centered clearfix">
-            <ul class="filter-tabs filter-btns clearfix">
+                <ul class="filter-tabs filter-btns clearfix">
                     <li class="filter" data-filter="all">نمایش همه</li>
                     @foreach($categories as $category)
                     <li class="filter" data-filter=".category-{{ $category->id }}">
@@ -40,12 +40,12 @@
                             <img src="{{ asset('storage/' . $product->image) }}" class="img-fluid" alt="{{ $product->name }}">
                         </div>
                         <div class="overlay">
-                            <div class="more-link" onclick="openProductModal('{{ $product->name }}', '{{ $product->description }}')">
+                            <div class="more-link" onclick="trackAndOpenModal({{ $product->id }}, '{{ $product->name }}', '{{ $product->description }}')">
                                 <i class="fa-solid fa-bars-staggered theme-btn"></i>
                             </div>
                             <div class="inner">
                                 <div class="cat"><span>{{ $product->category->name }}</span></div>
-                                <h5 id="prodoctName"><a href="#" class="text-light">{{ $product->name }}</a></h5>
+                                <h5 id="productName"><a href="#" class="text-light">{{ $product->name }}</a></h5>
                                 <p class="text-light">{{ Str::limit($product->description, 100) }}</p> 
                             </div>
                         </div>
@@ -60,7 +60,7 @@
 </section>
 
 <!-- The Modal -->
-<div id="moreProductDtl" class="modal">
+<div id="moreProductDtl" class="modal" style="display: none;">
     <div class="modal-content">
         <span class="closeModal" onclick="closeModal()"><img src="/assets/images/icons/close-icon.png" alt=""></span>
         <button class="download-btn" onclick="startSpin(this)">
@@ -72,23 +72,40 @@
     </div>
 </div>
 
-<!-- JavaScript for Modal Handling -->
+<!-- JavaScript for Modal Handling and Click Tracking -->
 <script>
-    // Open modal and set the product details dynamically
-    function openProductModal(productName, productDescription) {
-        document.getElementById('productNameModal').textContent = productName;
-        document.getElementById('productDescriptionModal').textContent = productDescription;
-        document.getElementById('moreProductDtl').style.display = 'block';
+    function trackAndOpenModal(productId, productName, productDescription) {
+        // Track the click
+        fetch(`/products/${productId}/click`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'X-CSRF-TOKEN': '{{ csrf_token() }}' // Ensure CSRF token is included
+            },
+            body: JSON.stringify({})
+        })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.json(); 
+        })
+        .then(data => {
+            console.log(data.message); 
+
+            document.getElementById('productNameModal').textContent = productName;
+            document.getElementById('productDescriptionModal').textContent = productDescription;
+            document.getElementById('moreProductDtl').style.display = 'block';
+        })
+        .catch(error => {
+            console.error('Error tracking click:', error);
+        });
     }
 
-    // Close modal
     function closeModal() {
         document.getElementById('moreProductDtl').style.display = 'none';
     }
 
-    function startSpin(button) {
-        
-    }
 </script>
 
 @endsection
