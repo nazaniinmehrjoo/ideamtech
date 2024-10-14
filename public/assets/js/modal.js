@@ -25,26 +25,40 @@ window.onclick = function (event) {
 }
 
 
-function startSpin(button) {
-  const spinner = button.querySelector('.spinner');
-  spinner.style.display = 'block';
-  spinner.classList.add('spin-animation');
+  async function startSpin(button, fileUrl) {
+    const spinner = button.querySelector('.spinner');
+    spinner.style.display = 'block';
+    spinner.classList.add('spin-animation');
 
-  setTimeout(() => {
-    const icon = document.getElementById("download") ;
-    spinner.style.display = 'none';
-    spinner.classList.remove('spin-animation');
+    try {
+      const response = await fetch(fileUrl); 
+      if (!response.ok) throw new Error('خطا در دانلود فایل');
 
-    icon.classList.remove('fa-light', 'fa-download');
-    icon.classList.add('fa-light', 'fa-file-check');
+      const blob = await response.blob();
+      const link = document.createElement('a');
+      link.href = URL.createObjectURL(blob);
+      link.download = fileUrl.split('/').pop(); 
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
 
+      setTimeout(() => {
+        const icon = document.getElementById("download");
+        spinner.style.display = 'none';
+        spinner.classList.remove('spin-animation');
 
+        icon.classList.remove('fa-light', 'fa-download');
+        icon.classList.add('fa-light', 'fa-file-check');
 
-    setTimeout(() => {
-      icon.classList.remove('fa-light', 'fa-file-check');
-      icon.classList.add('fa-light', 'fa-download');
-    }, 2000); // Back to download mode
-  }, 2000);
-}
-
+        setTimeout(() => {
+          icon.classList.remove('fa-light', 'fa-file-check');
+          icon.classList.add('fa-light', 'fa-download');
+        }, 2000); 
+      }, 1000);
+    } catch (error) {
+      console.error('Error downloading file:', error);
+      alert('خطایی در دانلود فایل رخ داده است');
+      spinner.style.display = 'none';
+    }
+  }
 

@@ -129,7 +129,7 @@
 			nav:true,
 			smartSpeed: 700,
 			autoplay: true,
-			autoplayTimeout:7500,
+			autoplayTimeout:27000,
 			navText: [ '<span class="prev-btn far fa-angle-left"></span>', '<span class="next-btn far fa-angle-right"></span>' ],
 			responsive:{
 				0:{
@@ -456,7 +456,6 @@
 	$(window).on('resize', function() {
 		
 	});
-	
-	
+
 
 })(window.jQuery);
