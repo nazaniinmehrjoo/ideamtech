@@ -1,5 +1,4 @@
-@extends('layouts.app')
-
+@extends('layouts.app2')
 @section('content')
 <div class="container main-content">
   <!-- Dashboard Header -->
@@ -136,67 +135,86 @@
 
     <!-- User Visits and Time Spent Chart Card -->
     <div class="dashboard-card shadow-lg">
-      <div class="card-icon">
-        <i class="fas fa-globe"></i>
-      </div>
-      <h3>بازدیدها و زمان سپری‌شده به تفکیک کشور</h3>
-      <p>مشاهده تعداد بازدید و زمان سپری‌شده کاربران به تفکیک کشور.</p>
-
-      @if(isset($visitsData) && $visitsData->isNotEmpty())
-        <div class="chart-container mt-4">
-          <h5>بازدیدها به تفکیک کشور</h5>
-          <canvas id="countryVisitsChart"></canvas>
+        <div class="card-icon">
+            <i class="fas fa-globe"></i>
         </div>
+        <h3>بازدیدها و زمان سپری‌شده به تفکیک کشور</h3>
+        <p>مشاهده تعداد بازدید و زمان سپری‌شده کاربران به تفکیک کشور.</p>
 
-        <script>
-          var visitsData = @json($visitsData); // Get visits data from the controller
+        @if(isset($visitsData) && $visitsData->isNotEmpty())
+            <div class="chart-container mt-4">
+                <h5>بازدیدها به تفکیک کشور</h5>
+                <canvas id="countryVisitsChart"></canvas>
+            </div>
 
-          var countries = visitsData.map(data => data.country); // Extract country names
-          var visitCounts = visitsData.map(data => data.visit_count); // Extract visit counts
-          var totalTimeSpent = visitsData.map(data => data.total_time); // Extract total time spent
+            <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
-          var ctx2 = document.getElementById('countryVisitsChart').getContext('2d');
-          var countryVisitsChart = new Chart(ctx2, {
-            type: 'bar',
-            data: {
-              labels: countries,
-              datasets: [{
-                label: 'تعداد بازدید',
-                data: visitCounts,
-                backgroundColor: 'rgba(54, 162, 235, 0.2)',
-                borderColor: 'rgba(54, 162, 235, 1)',
-                borderWidth: 1
-              }, {
-                label: 'زمان سپری‌شده (ثانیه)',
-                data: totalTimeSpent,
-                backgroundColor: 'rgba(255, 99, 132, 0.2)',
-                borderColor: 'rgba(255, 99, 132, 1)',
-                borderWidth: 1
-              }]
-            },
-            options: {
-              scales: {
-                y: {
-                  beginAtZero: true,
-                  title: {
-                    display: true,
-                    text: 'تعداد بازدید / زمان سپری‌شده'
-                  }
-                },
-                x: {
-                  title: {
-                    display: true,
-                    text: 'کشورها'
-                  }
-                }
-              }
-            }
-          });
-        </script>
-      @else
-        <p>در حال حاضر اطلاعاتی برای نمایش وجود ندارد.</p>
-      @endif
+            <script>
+                var visitsData = @json($visitsData);  // Get visits data from the controller
+
+                var countries = visitsData.map(data => data.country);  // Extract country names
+                var visitCounts = visitsData.map(data => data.visit_count);  // Extract visit counts
+                var totalTimeSpent = visitsData.map(data => data.total_time);  // Extract total time spent
+
+                var ctx2 = document.getElementById('countryVisitsChart').getContext('2d');
+                var countryVisitsChart = new Chart(ctx2, {
+                    type: 'bar',
+                    data: {
+                        labels: countries,
+                        datasets: [{
+                            label: 'تعداد بازدید',
+                            data: visitCounts,
+                            backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                            borderColor: 'rgba(54, 162, 235, 1)',
+                            borderWidth: 1
+                        }, {
+                            label: 'زمان سپری‌شده (ثانیه)',
+                            data: totalTimeSpent,
+                            backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                            borderColor: 'rgba(255, 99, 132, 1)',
+                            borderWidth: 1
+                        }]
+                    },
+                    options: {
+                        scales: {
+                            y: {
+                                beginAtZero: true,
+                                title: {
+                                    display: true,
+                                    text: 'تعداد بازدید / زمان سپری‌شده'
+                                }
+                            },
+                            x: {
+                                title: {
+                                    display: true,
+                                    text: 'کشورها'
+                                }
+                            }
+                        }
+                    }
+                });
+            </script>
+        @else
+            <p>در حال حاضر اطلاعاتی برای نمایش وجود ندارد.</p>
+        @endif
     </div>
-  </div>
-</div>
+<script>
+    let pageLoadTime = performance.now();  
+
+    window.addEventListener('beforeunload', function() {
+        let pageCloseTime = performance.now();
+        let timeSpent = (pageCloseTime - pageLoadTime) / 1000;  // Time spent in seconds
+
+        // Send this data to the server using fetch
+        fetch('/track-time-spent', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
+            },
+            body: JSON.stringify({ timeSpent: timeSpent }) 
+        });
+    });
+</script>
+
 @endsection

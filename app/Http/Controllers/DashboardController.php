@@ -97,21 +97,19 @@ class DashboardController extends Controller
     }
     public function showDashboard()
     {
+        // Fetch data for visits and time spent by country
         $visitsData = DB::table('user_visits')
             ->select(DB::raw('count(*) as visit_count'), DB::raw('SUM(time_spent) as total_time'), 'country')
             ->groupBy('country')
             ->get();
-
+    
         // Fetch the most clicked products
         $mostClickedProducts = DB::table('products')
             ->orderBy('clicks', 'desc')
             ->take(5)
             ->get();
-
+    
         // Pass data to the view
         return view('admin.dashboard', compact('visitsData', 'mostClickedProducts'));
     }
-
-    
-    
 }
