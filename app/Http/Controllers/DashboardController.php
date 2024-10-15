@@ -15,23 +15,25 @@ class DashboardController extends Controller
 {
     public function index()
     {
-        // Fetch all the needed data for the dashboard
+        // Fetch products, categories, services, projects, and posts
+        $products = Product::all();
         $categories = Category::all();
         $services = Service::all();
         $projects = Project::all();
         $posts = Post::all();
 
-        // Fetch the most clicked products
+        // Fetch the most clicked products for the chart
         $mostClickedProducts = Product::orderBy('clicks', 'desc')->take(5)->get(); // Get the top 5 clicked products
-
-        // Fetch data for the product charts with clicks and views
         $chartData = $this->getMostClickedAndViewedProducts();
+        // Fetch data for the user visits (if needed for other parts of the dashboard)
+        $visitsData = DB::table('user_visits')
+            ->select(DB::raw('count(*) as visit_count'), DB::raw('SUM(time_spent) as total_time'), 'country')
+            ->groupBy('country')
+            ->get();
 
-        // Pass all the data, including the most clicked products and chart data, to the view
+        // Pass all the data to the view
         return view('admin.dashboard', compact(
-            'categories', 'services', 'projects', 'posts', 
-            'mostClickedProducts', 
-            'chartData' // Include chart data for clicks and views
+            'products', 'categories', 'services', 'projects', 'posts', 'mostClickedProducts', 'visitsData','chartData'
         ));
     }
 

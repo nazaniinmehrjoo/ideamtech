@@ -1,0 +1,282 @@
+@extends('layouts.app')
+
+@section('content')
+<div class="container" style="padding: 3%;">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <!-- Logo Image Centered -->
+            <div class="text-center mb-4">
+                <img src="/assets/images/logotest2.png" alt="Logo">
+            </div>
+
+            <!-- Use Bootstrap Dark Card -->
+            <div class="card bg-dark text-white">
+                <div class="card-header text-center">{{ __('فرم استخدام') }}</div>
+
+                <div class="card-body">
+                    <form action="{{ route('employment-forms.store') }}" method="POST" enctype="multipart/form-data" style="direction: rtl;">
+                        @csrf
+
+                        <!-- First Name Input -->
+                        <div class="row mb-3">
+                            <label for="first_name" class="col-md-4 col-form-label text-md-end">{{ __('نام') }}</label>
+                            <div class="col-md-6">
+                                <input type="text" name="first_name" id="first_name" class="form-control bg-dark text-white @error('first_name') is-invalid @enderror" required>
+                                @error('first_name')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <!-- Last Name Input -->
+                        <div class="row mb-3">
+                            <label for="last_name" class="col-md-4 col-form-label text-md-end">{{ __('نام خانوادگی') }}</label>
+                            <div class="col-md-6">
+                                <input type="text" name="last_name" id="last_name" class="form-control bg-dark text-white @error('last_name') is-invalid @enderror" required>
+                                @error('last_name')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <!-- Gender Dropdown -->
+                        <div class="row mb-3">
+                            <label for="gender" class="col-md-4 col-form-label text-md-end">{{ __('جنسیت') }}</label>
+                            <div class="col-md-6">
+                                <select name="gender" id="gender" class="form-control bg-dark text-white @error('gender') is-invalid @enderror" required>
+                                    <option value="">{{ __('-- انتخاب جنسیت --') }}</option>
+                                    <option value="male">مرد</option>
+                                    <option value="female">زن</option>
+                                </select>
+                                @error('gender')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <!-- Marital Status Dropdown -->
+                        <div class="row mb-3">
+                            <label for="marital_status" class="col-md-4 col-form-label text-md-end">{{ __('وضعیت تعاهل') }}</label>
+                            <div class="col-md-6">
+                                <select name="marital_status" id="marital_status" class="form-control bg-dark text-white @error('marital_status') is-invalid @enderror" required>
+                                    <option value="">{{ __('-- انتخاب وضعیت تعاهل --') }}</option>
+                                    <option value="single">مجرد</option>
+                                    <option value="married">متاهل</option>
+                                </select>
+                                @error('marital_status')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <!-- Military Status Dropdown -->
+                        <div class="row mb-3">
+                            <label for="military_status" class="col-md-4 col-form-label text-md-end">{{ __('وضعیت سربازی') }}</label>
+                            <div class="col-md-6">
+                                <select name="military_status" id="military_status" class="form-control bg-dark text-white @error('military_status') is-invalid @enderror" required>
+                                    <option value="">{{ __('-- انتخاب وضعیت سربازی --') }}</option>
+                                    <option value="completed">پایان خدمت</option>
+                                    <option value="exempt">معافیت</option>
+                                    <option value="postponed">معافیت تحصیلی</option>
+                                </select>
+                                @error('military_status')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <!-- Phone Input -->
+                        <div class="row mb-3">
+                            <label for="phone" class="col-md-4 col-form-label text-md-end">{{ __('تلفن') }}</label>
+                            <div class="col-md-6">
+                                <input type="text" name="phone" id="phone" class="form-control bg-dark text-white @error('phone') is-invalid @enderror" required>
+                                @error('phone')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <!-- Email Input -->
+                        <div class="row mb-3">
+                            <label for="email" class="col-md-4 col-form-label text-md-end">{{ __('ایمیل') }}</label>
+                            <div class="col-md-6">
+                                <input type="email" name="email" id="email" class="form-control bg-dark text-white @error('email') is-invalid @enderror" required>
+                                @error('email')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <!-- Location Input -->
+                        <div class="row mb-3">
+                            <label for="location" class="col-md-4 col-form-label text-md-end">{{ __('محل سکونت') }}</label>
+                            <div class="col-md-6">
+                                <input type="text" name="location" id="location" class="form-control bg-dark text-white @error('location') is-invalid @enderror" required>
+                                @error('location')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <!-- Experience Input -->
+                        <div class="row mb-3">
+                            <label for="experience_years" class="col-md-4 col-form-label text-md-end">{{ __('میزان سابقه کار (سال)') }}</label>
+                            <div class="col-md-6">
+                                <input type="number" name="experience_years" id="experience_years" class="form-control bg-dark text-white @error('experience_years') is-invalid @enderror" required>
+                                @error('experience_years')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <!-- Education History -->
+                        <div class="row mb-3">
+                            <label for="education_history" class="col-md-4 col-form-label text-md-end">{{ __('سوابق تحصیلی') }}</label>
+                            <div class="col-md-6">
+                                <textarea name="education_history" id="education_history" class="form-control bg-dark text-white @error('education_history') is-invalid @enderror" required></textarea>
+                                @error('education_history')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <!-- Training Courses -->
+                        <div class="row mb-3">
+                            <label for="training_courses" class="col-md-4 col-form-label text-md-end">{{ __('دوره های آموزشی (اختیاری)') }}</label>
+                            <div class="col-md-6">
+                                <textarea name="training_courses" id="training_courses" class="form-control bg-dark text-white @error('training_courses') is-invalid @enderror"></textarea>
+                                @error('training_courses')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <!-- Training Certificate -->
+                        <div class="row mb-3">
+                            <label for="training_certificate" class="col-md-4 col-form-label text-md-end">{{ __('مدرک دوره آموزشی (اختیاری)') }}</label>
+                            <div class="col-md-6">
+                                <input type="file" name="training_certificate" id="training_certificate" class="form-control bg-dark text-white @error('training_certificate') is-invalid @enderror">
+                                @error('training_certificate')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <!-- Work Experience -->
+                        <div class="row mb-3">
+                            <label for="work_experience" class="col-md-4 col-form-label text-md-end">{{ __('سوابق کاری') }}</label>
+                            <div class="col-md-6">
+                                <textarea name="work_experience" id="work_experience" class="form-control bg-dark text-white @error('work_experience') is-invalid @enderror"></textarea>
+                                @error('work_experience')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <!-- Work Experience Photo -->
+                        <div class="row mb-3">
+                            <label for="work_experience_photo" class="col-md-4 col-form-label text-md-end">{{ __('مدرک سوابق کاری (اختیاری)') }}</label>
+                            <div class="col-md-6">
+                                <input type="file" name="work_experience_photo" id="work_experience_photo" class="form-control bg-dark text-white @error('work_experience_photo') is-invalid @enderror">
+                                @error('work_experience_photo')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <!-- Foreign Language -->
+                        <div class="row mb-3">
+                            <label for="foreign_language" class="col-md-4 col-form-label text-md-end">{{ __('زبان خارجی') }}</label>
+                            <div class="col-md-6">
+                                <input type="text" name="foreign_language" id="foreign_language" class="form-control bg-dark text-white @error('foreign_language') is-invalid @enderror" required>
+                                @error('foreign_language')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <!-- Language Proficiency -->
+                        <div class="row mb-3">
+                            <label for="language_proficiency" class="col-md-4 col-form-label text-md-end">{{ __('تسلط به زبان خارجی (1-5)') }}</label>
+                            <div class="col-md-6">
+                                <input type="number" name="language_proficiency" id="language_proficiency" class="form-control bg-dark text-white @error('language_proficiency') is-invalid @enderror" min="1" max="5" required>
+                                @error('language_proficiency')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <!-- Software Skills -->
+                        <div class="row mb-3">
+                            <label for="software_skills" class="col-md-4 col-form-label text-md-end">{{ __('آشنایی با نرم افزارها') }}</label>
+                            <div class="col-md-6">
+                                <textarea name="software_skills" id="software_skills" class="form-control bg-dark text-white @error('software_skills') is-invalid @enderror"></textarea>
+                                @error('software_skills')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <!-- About Me -->
+                        <div class="row mb-3">
+                            <label for="about_me" class="col-md-4 col-form-label text-md-end">{{ __('درباره من') }}</label>
+                            <div class="col-md-6">
+                                <textarea name="about_me" id="about_me" class="form-control bg-dark text-white @error('about_me') is-invalid @enderror"></textarea>
+                                @error('about_me')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <!-- Submit Button -->
+                        <div class="row mb-0">
+                            <div class="col-md-8 offset-md-4">
+                                <button type="submit" class="theme-btn btn-style-two">
+                                    {{ __('ارسال فرم') }}
+                                </button>
+                            </div>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@endsection

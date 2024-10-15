@@ -301,8 +301,15 @@ document.addEventListener('DOMContentLoaded', function () {
         if (project.lat && project.lng) {
             L.marker([project.lat, project.lng])
                 .addTo(map)
-                .bindPopup(`<strong>${project.name}</strong><br>وضعیت: ${project.status}`)
-                .openPopup();
+                .bindPopup(`
+                <strong>${project.name}</strong><br>
+                وضعیت: ${project.status}<br>
+                مشتری: ${project.client}<br>
+                ظرفیت: ${project.capacity}<br>
+                نوع پروژه: ${project.type}<br>
+                تاریخ شروع: ${project.start_date}<br>
+                تاریخ پایان: ${project.end_date || 'N/A'}
+            `)   .openPopup();
         }
     });
 

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CooperationController;
 use App\Http\Controllers\CustomerFormController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\DashboardController;
@@ -8,6 +9,7 @@ use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\TrackingController;
+use App\Http\Controllers\EmploymentFormController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -24,6 +26,15 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('index');
 });
+
+
+Route::resource('cooperations', CooperationController::class);
+Route::resource('employment-forms', EmploymentFormController::class);
+
+Route::get('/پیوستن-به-خانواده-برناگستر', function () {
+    return view('forms.form-selection');
+});
+
 
 // Blog Routes
 Route::get('/مقالات', [BlogController::class, 'index'])->name('blog.index');

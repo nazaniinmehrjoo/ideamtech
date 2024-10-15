@@ -10,7 +10,7 @@
 
             <div class="card bg-dark text-white">
                 <div class="card-header text-center">
-                    {{ isset($service) ? __('ویرایش خدمت') : __('ایجاد خدمت جدید') }}
+                    {{ isset($service) ? __('ویرایش سرویس') : __('ایجاد سرویس جدید') }}
                 </div>
 
                 <div class="card-body">
@@ -22,7 +22,7 @@
 
                         <!-- Service Title Input -->
                         <div class="row mb-3">
-                            <label for="title" class="col-md-4 col-form-label text-md-end">{{ __('عنوان خدمت') }}</label>
+                            <label for="title" class="col-md-4 col-form-label text-md-end">{{ __('عنوان سرویس') }}</label>
 
                             <div class="col-md-6">
                                 <input type="text" name="title" id="title" class="form-control bg-dark text-white @error('title') is-invalid @enderror" value="{{ old('title', $service->title ?? '') }}">
@@ -50,7 +50,7 @@
 
                         <!-- Category Input -->
                         <div class="row mb-3">
-                            <label for="category" class="col-md-4 col-form-label text-md-end">{{ __('دسته‌بندی') }}</label>
+                            <label for="category" class="col-md-4 col-form-label text-md-end">{{ __('کتگوری') }}</label>
 
                             <div class="col-md-6">
                                 <input type="text" name="category" id="category" class="form-control bg-dark text-white @error('category') is-invalid @enderror" value="{{ old('category', $service->category) }}">
@@ -78,7 +78,7 @@
 
                         <!-- Page Selection Dropdown -->
                         <div class="row mb-3">
-                            <label for="page_name" class="col-md-4 col-form-label text-md-end">{{ __('انتخاب صفحه') }}</label>
+                            <label for="page_name" class="col-md-4 col-form-label text-md-end">{{ __('نمایش در صفحه') }}</label>
 
                             <div class="col-md-6">
                                 <select name="page_name" id="page_name" class="form-control bg-dark text-white @error('page_name') is-invalid @enderror">

@@ -11,7 +11,7 @@
 
             <!-- Use Bootstrap Dark Card -->
             <div class="card bg-dark text-white">
-                <div class="card-header text-center">{{ __('Create New Category') }}</div>
+                <div class="card-header text-center">{{ __('ایجاد دسته  جدید') }}</div>
 
                 <div class="card-body">
                     <form action="{{ route('categories.store') }}" method="POST" style="direction: rtl;">
@@ -19,7 +19,7 @@
 
                         <!-- Category Name Input -->
                         <div class="row mb-3">
-                            <label for="name" class="col-md-4 col-form-label text-md-end">{{ __('نام دسته‌بندی') }}</label>
+                            <label for="name" class="col-md-4 col-form-label text-md-end">{{ __('نام دسته  محصول') }}</label>
 
                             <div class="col-md-6">
                                 <input type="text" name="name" id="name" class="form-control bg-dark text-white @error('name') is-invalid @enderror" required>
@@ -34,11 +34,11 @@
 
                         <!-- Page Name Dropdown -->
                         <div class="row mb-3">
-                            <label for="page_name" class="col-md-4 col-form-label text-md-end">{{ __('نام صفحه') }}</label>
+                            <label for="page_name" class="col-md-4 col-form-label text-md-end">{{ __('نمایش در صفحه') }}</label>
 
                             <div class="col-md-6">
                                 <select name="page_name" id="page_name" class="form-control bg-dark text-white @error('page_name') is-invalid @enderror" required>
-                                    <option value="">{{ __('-- Select Page --') }}</option>
+                                    <option value="">{{ __('-- انتخاب صفحه --') }}</option>
                                     <option value="khoskkon">خشک کن</option>
                                     <option value="korepokht">کوره پخت</option>
                                     <option value="mashinAlatShekldehi">ماشین آلات شکل دهی</option>
@@ -57,7 +57,7 @@
                         <div class="row mb-0">
                             <div class="col-md-8 offset-md-4">
                                 <button type="submit" class="theme-btn btn-style-two">
-                                    {{ __('ایجاد دسته‌بندی') }}
+                                    {{ __('ثبت') }}
                                 </button>
                             </div>
                         </div>

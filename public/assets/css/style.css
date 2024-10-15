@@ -3945,6 +3945,13 @@ form label.error{
   border-radius: 15px 15px 0 0;
 }
 
+.blog-details .image-box {
+  position: relative;
+  display: block;
+  border-radius: 15px 15px 0 0;
+  overflow: hidden;
+  width: 100%;
+}
 .blog-details .lower{
   position: relative;
   display: block;

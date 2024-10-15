@@ -5,7 +5,7 @@
   <div class="dashboard-header">
     <h2 class="text-light">داشبورد مدیریت</h2>
     <p class="lead text-secondary">
-      به پنل مدیریت خوش آمدید. اینجا می‌توانید محصولات، دسته‌بندی‌ها، خدمات، پروژه‌ها و بلاگ‌ها را مدیریت کنید.
+      به پنل مدیریت خوش آمدید. اینجا می‌توانید محصولات، دسته‌بندی‌ها، سرویس، پروژه‌ها و بلاگ‌ها را مدیریت کنید.
     </p>
   </div>
 
@@ -18,10 +18,18 @@
         <i class="fas fa-box"></i>
       </div>
       <h3>مدیریت محصولات</h3>
-      <p>افزودن، ویرایش و حذف محصولات فروشگاه شما.</p>
+      <p>افزودن، ویرایش و حذف محصولات  شما.</p>
       <div class="action-btns">
-        <a href="{{ route('products.create') }}" class="btn btn-outline-light">افزودن محصول جدید</a>
-        <a href="{{ route('products.index') }}" class="btn btn-outline-light">مشاهده محصولات</a>
+        <!-- Icons for CRUD actions -->
+        <a href="{{ route('products.create') }}" class="btn btn-outline-light"><i class="fas fa-plus"></i></a>
+        <a href="{{ route('products.index') }}" class="btn btn-outline-light"><i class="fas fa-eye"></i></a>
+        @if(isset($mostClickedProducts) && $mostClickedProducts->isNotEmpty())
+          @foreach ($mostClickedProducts as $product)
+            <a href="{{ route('products.edit', $product->id) }}" class="btn btn-outline-light"><i class="fas fa-edit"></i></a>
+          @endforeach
+        @else
+          <p>هیچ محصولی برای نمایش وجود ندارد.</p>
+        @endif
       </div>
     </div>
 
@@ -33,8 +41,15 @@
       <h3>مدیریت دسته‌بندی‌ها</h3>
       <p>افزودن، ویرایش و حذف دسته‌بندی محصولات و مقالات.</p>
       <div class="action-btns">
-        <a href="{{ route('categories.create') }}" class="btn btn-outline-light">افزودن دسته‌بندی جدید</a>
-        <a href="{{ route('categories.index') }}" class="btn btn-outline-light">مشاهده دسته‌بندی‌ها</a>
+        <a href="{{ route('categories.create') }}" class="btn btn-outline-light"><i class="fas fa-plus"></i></a>
+        <a href="{{ route('categories.index') }}" class="btn btn-outline-light"><i class="fas fa-eye"></i></a>
+        @if(isset($categories) && $categories->isNotEmpty())
+          @foreach ($categories as $category)
+            <a href="{{ route('categories.edit', $category->id) }}" class="btn btn-outline-light"><i class="fas fa-edit"></i></a>
+          @endforeach
+        @else
+          <!-- <p>هیچ دسته‌بندی‌ای برای نمایش وجود ندارد.</p> -->
+        @endif
       </div>
     </div>
 
@@ -43,11 +58,18 @@
       <div class="card-icon">
         <i class="fas fa-concierge-bell"></i>
       </div>
-      <h3>مدیریت خدمات</h3>
-      <p>افزودن، ویرایش و حذف خدمات ارائه‌شده به مشتریان.</p>
+      <h3>مدیریت سرویس</h3>
+      <p>افزودن، ویرایش و حذف سرویس ارائه‌شده به مشتریان.</p>
       <div class="action-btns">
-        <a href="{{ route('services.create') }}" class="btn btn-outline-light">افزودن خدمت جدید</a>
-        <a href="{{ route('services.index') }}" class="btn btn-outline-light">مشاهده خدمات</a>
+        <a href="{{ route('services.create') }}" class="btn btn-outline-light"><i class="fas fa-plus"></i></a>
+        <a href="{{ route('services.index') }}" class="btn btn-outline-light"><i class="fas fa-eye"></i></a>
+        @if(isset($services) && $services->isNotEmpty())
+          @foreach ($services as $service)
+            <a href="{{ route('services.edit', $service->id) }}" class="btn btn-outline-light"><i class="fas fa-edit"></i></a>
+          @endforeach
+        @else
+          <!-- <p>هیچ سرویسی برای نمایش وجود ندارد.</p> -->
+        @endif
       </div>
     </div>
 
@@ -59,8 +81,15 @@
       <h3>مدیریت پروژه‌ها</h3>
       <p>مدیریت پروژه‌های در حال انجام و انجام شده.</p>
       <div class="action-btns">
-        <a href="{{ route('projects.create') }}" class="btn btn-outline-light">افزودن پروژه جدید</a>
-        <a href="{{ route('projects.index') }}" class="btn btn-outline-light">مشاهده پروژه‌ها</a>
+        <a href="{{ route('projects.create') }}" class="btn btn-outline-light"><i class="fas fa-plus"></i></a>
+        <a href="{{ route('projects.index') }}" class="btn btn-outline-light"><i class="fas fa-eye"></i></a>
+        @if(isset($projects) && $projects->isNotEmpty())
+          @foreach ($projects as $project)
+            <a href="{{ route('projects.edit', $project->id) }}" class="btn btn-outline-light"><i class="fas fa-edit"></i></a>
+          @endforeach
+        @else
+          <!-- <p>هیچ پروژه‌ای برای نمایش وجود ندارد.</p> -->
+        @endif
       </div>
     </div>
 
@@ -72,8 +101,15 @@
       <h3>مدیریت مقالات</h3>
       <p>مدیریت و انتشار مقالات جدید در وبلاگ.</p>
       <div class="action-btns">
-        <a href="{{ route('blog.create') }}" class="btn btn-outline-light">افزودن مقاله جدید</a>
-        <a href="{{ route('blog.index') }}" class="btn btn-outline-light">مشاهده مقالات</a>
+        <a href="{{ route('blog.create') }}" class="btn btn-outline-light"><i class="fas fa-plus"></i></a>
+        <a href="{{ route('blog.index') }}" class="btn btn-outline-light"><i class="fas fa-eye"></i></a>
+        @if(isset($posts) && $posts->isNotEmpty())
+          @foreach ($posts as $post)
+            <a href="{{ route('blog.edit', $post->id) }}" class="btn btn-outline-light"><i class="fas fa-edit"></i></a>
+          @endforeach
+        @else
+          <p>هیچ مقاله‌ای برای نمایش وجود ندارد.</p>
+        @endif
       </div>
     </div>
 
@@ -94,7 +130,7 @@
       <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
       <script>
-        var mostClickedProducts = @json($mostClickedProducts); // Get data from the controller
+        var mostClickedProducts = @json($mostClickedProducts);
 
         var productNames = mostClickedProducts.map(product => product.name); // Extract product names
         var productClicks = mostClickedProducts.map(product => product.clicks); // Extract click counts
@@ -198,6 +234,7 @@
             <p>در حال حاضر اطلاعاتی برای نمایش وجود ندارد.</p>
         @endif
     </div>
+
 <script>
     let pageLoadTime = performance.now();  
 
@@ -217,4 +254,6 @@
     });
 </script>
 
+  </div>
+</div>
 @endsection
