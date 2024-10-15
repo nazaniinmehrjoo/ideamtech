@@ -17,7 +17,7 @@
                             <div class="content-box">
                                 <div class="content">
                                     <div class="inner">
-                                        <div class="cat"><span>پروژه های کلید در دست و ساخت انواع خشک کن</span></div>
+                                        <div class="cat"><a href="/">پروژه های کلید در دست و ساخت انواع خشک کن</a></div>
                                         <h3><span>نوآوردرساخت و اجرا</span></h3>
                                     </div>
                                 </div>
@@ -31,7 +31,7 @@
                             <div class="content-box">
                                 <div class="content">
                                     <div class="inner">
-                                        <div class="cat"><span>راه های خلاقانه برای حل مشکلات خط تولید</span></div>
+                                        <div class="cat"><a>راه های خلاقانه برای حل مشکلات خط تولید</a></div>
                                         <h3><span>ایده.طراحی.ساخت</span></h3>
                                     </div>
                                 </div>
@@ -44,7 +44,7 @@
                             <div class="content-box">
                                 <div class="content">
                                     <div class="inner">
-                                        <div class="cat"><span>راه های خلاقانه برای حل مشکلات خط تولید</span></div>
+                                        <div class="cat"><a>راه های خلاقانه برای حل مشکلات خط تولید</a></div>
                                         <h3><span>ایده.طراحی.ساخت</span></h3>
                                     </div>
                                 </div>
@@ -53,12 +53,12 @@
 
                         <!--Slide Item-->
                         <div class="slide-item">
-                            <div class="image-layer" style="background-image: url(/assets/images/main-slider/IMG_5815.JPG);"></div>
+                            <div class="image-layer" style="background-image: url(/assets/images/main-slider/BORNA1-2-2048x821.jpg);"></div>
                             <div class="slide-count"><span>04</span></div>
                             <div class="content-box">
                                 <div class="content">
                                     <div class="inner">
-                                        <div class="cat"><span>راه های خلاقانه برای حل مشکلات خط تولید</span></div>
+                                        <div class="cat"><a href="/درباره-ما">راه های خلاقانه برای حل مشکلات خط تولید</a></div>
                                         <h3><span>ایده.طراحی.ساخت</span></h3>
                                     </div>
                                 </div>
@@ -86,7 +86,7 @@
                                     <div class="icon-box"><span class="fa-regular fa-users"></span></div>
                                         <h5>رضایت مشتری</h5>
                                         <div class="text">تمرکز ما بر ارائه خدماتی است که با نیازهای مشتریان همخوانی داشته باشد و به ایجاد تجربه‌ای مثبت و موثر برای آن‌ها منجر شود</div>
-                                        <div class="link-box"><a href="/ماشین آلات و تجهیزات/محصولات"><span class="far fa-angle-right"></span></a></div>
+                                        <div class="link-box"><a href="/مشتریان-ما"><span class="far fa-angle-right"></span></a></div>
                                     </div>
                                 </div>
                             </div>
@@ -98,7 +98,7 @@
                                         <h5>اخبار و مقالات</h5>
                                         <div class="text">
                                         در بخش اخبار و مقالات برناگستر، جدیدترین رویدادها و مطالب تخصصی را دنبال کنید.</div>
-                                        <div class="link-box"><a href="/خشک-کن/محصولات"><span class="far fa-angle-right"></span></a></div>
+                                        <div class="link-box"><a href="/blog"><span class="far fa-angle-right"></span></a></div>
                                     </div>
                                 </div>
                             </div>
@@ -143,7 +143,7 @@
                                             </div>
                                             <div class="text-col aboutBornaText col-lg-7 col-md-7 col-sm-6">
                                                 <div class="text purposeContent" style="display:flex">
-                                                    <p style="margin-right:20px">شرکت نوآوران برنا گستر پارسی در سال ۱۳۸۵ تأسیس شده است. این مجموعه مشاور، طراح و سازنده ماشین‌آلات مرتبط با خطوط تولید مصالح ساختمانی از جمله آجر، سفال و سرامیک است.</p>
+                                                    <p>شرکت نوآوران برنا گستر پارسی در سال ۱۳۸۵ تأسیس شده است. این مجموعه مشاور، طراح و سازنده ماشین‌آلات مرتبط با خطوط تولید مصالح ساختمانی از جمله آجر، سفال و سرامیک است.</p>
                                                 </div>
                                                 <div class="joinUsBtnContainer">
                                                     <button class="joinUsbtnContent">
@@ -182,7 +182,7 @@
                                     <div class="tab" id="tab-3">
                                         <div class="row clearfix">
                                             <div class="image-col col-lg-5 col-md-5 col-sm-6">
-                                                <div class="image mainAboutUs"><img src="/assets/images/resource/Home-2.jpg" alt=""></div>
+                                                <div class="image mainAboutUs"><img src="/assets/images/main-slider/pokht.jpg" alt=""></div>
                                             </div>
                                             <div class="text-col col-lg-7 col-md-7 col-sm-6">
                                                 <div class="text purposeContent">
@@ -216,7 +216,7 @@
                                 </div>
                                 <!--Block-->
                                 <div class="accordion block active-block">
-                                    <div class="acc-btn active">شبیه‌ساز پیشرفته برای بهینه‌سازی خطوط تولید<i class="fa-solid fa-rocket"></i></div>
+                                    <div class="acc-btn active">شبیه‌ساز پیشرفته برای بهینه‌سازی خطوط تولید<i class="fa-regular fa-rocket-launch"></i></div>
                                     <div class="acc-content">
                                         <div class="content simulatorContent">
                                             <div class="text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</div>
