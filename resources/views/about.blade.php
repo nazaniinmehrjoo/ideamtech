@@ -13,7 +13,7 @@
                             <div class="banner-slider-six">
                                 <!--Slide Item-->
                                 <div class="slide-item">
-                                    <div class="image-layer" style="background-image: url(/assets/images/resource/BORNA1-2-2048x821.jpg);"></div>
+                                    <div class="image-layer" style="background-image: url(/assets/images/main-slider/BORNA1-2-2048x821.jpg);"></div>
                                     <div class="auto-container">
                                         <div class="content-box">
                                             <div class="content">
@@ -32,7 +32,7 @@
                                 </div>
                                 <!--Slide Item-->
                                 <div class="slide-item">
-                                    <div class="image-layer" style="background-image: url(/assets/images/main-slider/image-14.jpg);"></div>
+                                    <div class="image-layer" style="background-image: url(/assets/images/main-slider/14010324_robat-2-2.jpg);"></div>
                                     <div class="auto-container">
                                         <div class="content-box">
                                             <div class="content">
@@ -51,7 +51,7 @@
                                 </div>
                                 <!--Slide Item-->
                                 <div class="slide-item">
-                                    <div class="image-layer" style="background-image: url(/assets/images/main-slider/image-15.jpg);"></div>
+                                    <div class="image-layer" style="background-image: url(/assets/images/main-slider/Home-1.jpg);"></div>
                                     <div class="auto-container">
                                         <div class="content-box">
                                             <div class="content">
@@ -70,7 +70,7 @@
                                 </div>
                                 <!--Slide Item-->
                                 <div class="slide-item">
-                                    <div class="image-layer" style="background-image: url(/assets/images/main-slider/image-16.jpg);"></div>
+                                    <div class="image-layer" style="background-image: url(/assets/images/main-slider/IMG_7409_1.jpg);"></div>
                                     <div class="auto-container">
                                         <div class="content-box">
                                             <div class="content">
@@ -91,10 +91,10 @@
                             <div class="pager-content">
                                 <div class="pager-box">
                                     <div class="pager-three clearfix">
-                                        <a href="" class="pager-item active" data-slide-index="0"><div class="inner"><div class="image"><img src="/assets/images/resource/BORNA1-2-2048x821.jpg" alt=""></div><div class="count">01</div><div class="text">Clarity is king</div></div></a>
-                                        <a href="" class="pager-item" data-slide-index="1"><div class="inner"><div class="image"><img src="/assets/images/main-slider/thumb-2.jpg" alt=""></div><div class="count">02</div><div class="text">Exceptional Design</div></div></a>
-                                        <a href="" class="pager-item" data-slide-index="2"><div class="inner"><div class="image"><img src="/assets/images/main-slider/thumb-3.jpg" alt=""></div><div class="count">03</div><div class="text">Bringing ideas to life</div></div></a>
-                                        <a href="" class="pager-item" data-slide-index="3"><div class="inner"><div class="image"><img src="/assets/images/main-slider/thumb-4.jpg" alt=""></div><div class="count">04</div><div class="text">Design Your Success</div></div></a>
+                                        <a href="" class="pager-item active" data-slide-index="0"><div class="inner"><div class="image"><img src="/assets/images/main-slider/BORNA1-2-2048x821.jpg" alt=""></div><div class="count">01</div><div class="text">Clarity is king</div></div></a>
+                                        <a href="" class="pager-item" data-slide-index="1"><div class="inner"><div class="image"><img src="/assets/images/main-slider/14010324_robat-2-2.jpg" alt=""></div><div class="count">02</div><div class="text">Exceptional Design</div></div></a>
+                                        <a href="" class="pager-item" data-slide-index="2"><div class="inner"><div class="image"><img src="/assets/images/main-slider/Home-1.jpg" alt=""></div><div class="count">03</div><div class="text">Bringing ideas to life</div></div></a>
+                                        <a href="" class="pager-item" data-slide-index="3"><div class="inner"><div class="image"><img src="/assets/images/main-slider/IMG_7409_1.jpg" alt=""></div><div class="count">04</div><div class="text">Design Your Success</div></div></a>
                                     </div>
                                 </div>
                             </div>
@@ -122,7 +122,7 @@
                                     <div class="icon-box"><span class="fa-regular fa-users"></span></div>
                                         <h5>رضایت مشتری</h5>
                                         <div class="text">تمرکز ما بر ارائه خدماتی است که با نیازهای مشتریان همخوانی داشته باشد و به ایجاد تجربه‌ای مثبت و موثر برای آن‌ها منجر شود</div>
-                                        <div class="link-box"><a href="/ماشین آلات و تجهیزات/محصولات"><span class="far fa-angle-right"></span></a></div>
+                                        <div class="link-box"><a href="/مشتریان-ما"><span class="far fa-angle-right"></span></a></div>
                                     </div>
                                 </div>
                             </div>
@@ -134,7 +134,7 @@
                                         <h5>اخبار و مقالات</h5>
                                         <div class="text">
                                         در بخش اخبار و مقالات برناگستر، جدیدترین رویدادها و مطالب تخصصی را دنبال کنید.</div>
-                                        <div class="link-box"><a href="/خشک-کن/محصولات"><span class="far fa-angle-right"></span></a></div>
+                                        <div class="link-box"><a href="/blog"><span class="far fa-angle-right"></span></a></div>
                                     </div>
                                 </div>
                             </div>
@@ -172,7 +172,7 @@
                         <!--Content-->
                         <div class="text-col col-lg-6 col-md-12 col-sm-12">
                             <div class="inner">
-                                <h4>Plans and strategies that improve  your online presence</h4>
+                                <h4>درباره‌ی برناگستر</h4>
                                 <div class="text">
                                     
                                     <p>
@@ -183,9 +183,10 @@
                                     </p>
                                     <p>در این زمینه در بخش خشک کن روتاری و همچنین ربات حمل و بارگیری خشت و دستگاه های دیگر مرتبط با صنعت آجر، این شرکت دارای محصولات منحصر بفرد و گواهی ثبت اختراع می­ باشد.</p>
                                     <ul>
-                                        <li>Digital Marketing</li>
-                                        <li>SEO Services</li>
-                                        <li>Responsive Design</li>
+                                        <li>پیشرو در ساخت ماشین آلات آجر</li>
+                                        <li>پیشرو در تکنولوژی</li>
+                                        <li>پیشرو در طراحی - ساخت - اجرا</li>
+                                        <li>مشاور در ساخت کارخانه‌جات آجر</li>
                                     </ul>
                                 </div>
                             </div>
@@ -210,7 +211,7 @@
                             <div class="team-block col-xl-4 col-lg-6 col-md-6 col-sm-12">
                                 <div class="inner-box">
                                     <div class="image-box"><a href="#"><img src="/assets/images/resource/a1.jpg" alt=""></a></div>
-                                    <div class="cat"><span>Coding</span></div>
+                                    <div class="cat"><span>۰۲۴۵۵۴ الف/۸۹</span></div>
                                     <div class="social">
                                         <a href="#"><i class="fab fa-facebook-square"></i></a>
                                         <a href="#"><i class="fab fa-twitter-square"></i></a>
@@ -224,7 +225,7 @@
                             <div class="team-block col-xl-4 col-lg-6 col-md-6 col-sm-12">
                                 <div class="inner-box">
                                     <div class="image-box"><a href="#"><img src="/assets/images/resource/a2.jpg" alt=""></a></div>
-                                    <div class="cat"><span>Marketing</span></div>
+                                    <div class="cat"><span>۰۲۹۲۳۵ الف/۸۹</span></div>
                                     <div class="social">
                                         <a href="#"><i class="fab fa-facebook-square"></i></a>
                                         <a href="#"><i class="fab fa-twitter-square"></i></a>
@@ -238,7 +239,7 @@
                             <div class="team-block col-xl-4 col-lg-6 col-md-6 col-sm-12">
                                 <div class="inner-box">
                                     <div class="image-box"><a href="#"><img src="/assets/images/resource/a3.jpg" alt=""></a></div>
-                                    <div class="cat"><span>SEO</span></div>
+                                    <div class="cat"><span>۰۲۴۵۵۴ الف/۸۹</span></div>
                                     <div class="social">
                                         <a href="#"><i class="fab fa-facebook-square"></i></a>
                                         <a href="#"><i class="fab fa-twitter-square"></i></a>
@@ -259,8 +260,8 @@
                 <div class="auto-container">
                     <div class="def-title-box">
                         <div class="patt"><span></span></div>
-                        <div class="subtitle">what we offer</div>
-                        <h3>Proffesional Services</h3>
+                        <div class="subtitle">از مأموریت و ارزش‌ها تا کاتالوگ و تأییدیه‌های فنی</div>
+                        <h3>دستاوردها و ارزش‌های برناگستر</h3>
                     </div>
 
                     <div class="row parent-row clearfix">
@@ -311,7 +312,7 @@
                                     <div class="tab" id="tab-3">
                                         <div class="row clearfix">
                                             <div class="image-col col-lg-5 col-md-5 col-sm-6">
-                                                <div class="image mainAboutUs"><img src="/assets/images/resource/Home-2.jpg" alt=""></div>
+                                                <div class="image mainAboutUs"><img src="/assets/images/main-slider/pokht.jpg" alt=""></div>
                                             </div>
                                             <div class="text-col col-lg-7 col-md-7 col-sm-6">
                                             <div class="text purposeContent">
@@ -336,28 +337,67 @@
                             <div class="accordion-box clearfix">
                             <!--Block-->
                                 <div class="accordion block">
-                                    <div class="acc-btn">For the trust, you have on us <i class="fa-regular fa-trophy"></i></div>
+                                    <div class="acc-btn">کسب دانش فنی <i class="fa-regular fa-trophy"></i></div>
                                     <div class="acc-content">
                                         <div class="content">
-                                            <div class="text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</div>
+                                            <div class="text styleList">
+                                                <ul class="styled-list">
+                                                    <li>
+                                                        کسب دانش فنی خشک کن روتاری  
+                                                    </li>
+                                                    <li>
+                                                        کسب دانش فنی ساخت انواع رباتهای صنعتی   
+                                                    </li>
+                                                    <li>
+                                                        کسب دانش فنی و ساخت فن محوری با بازدهی فن­های روز دنیا جهت بکارگیری در تونل خشک کن
+                                                    </li>
+                                                    <li>
+                                                        کسب دانش فنی مدلسازی کارخانجات تولید آجر پیش از احداث   
+                                                    </li>
+                                                    <li>
+                                                        کسب توان فنی در طراحی، مشاوره و بهینه سازی احداث خطوط تولید آجر سفال
+                                                    </li>
+                                                </ul>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                                 <!--Block-->
                                 <div class="accordion block active-block">
-                                    <div class="acc-btn active">Modern designs served with quality <i class="fa-regular fa-home"></i></div>
+                                    <div class="acc-btn active"> توان اجرایی <i class="fa-regular fa-home"></i></div>
                                     <div class="acc-content">
                                         <div class="content">
-                                            <div class="text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</div>
+                                            <div class="text">
+                                                <ul class="styled-list">
+                                                    <li>
+                                                        ساخت خشک کن روتاری (تونلی) با آخرین تکنولوژی روز و کاهش هزینه ها نسبت به خشک کن­ های اتاقکی
+                                                    </li>
+                                                    <li>
+                                                        انجام بیش از ۱۸ پروژه احداث، پروژه ساخت و راه اندازی خط کامل تولید آجر در شهر باکو در آذربایجان، ساخت و راه اندازی خطوط تولید آجر در داخل و پروژه بصورت کلید در دست ( Turn-Key) در سلیمانیه عراق
+                                                    </li>
+                                                
+                                                </ul>
+
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                                 <!--Block-->
                                 <div class="accordion block">
-                                    <div class="acc-btn">Designs too original to be copied <i class="fa-regular fa-user"></i></div>
+                                    <div class="acc-btn">پشتیبانی و تامین قطعات <i class="fa-regular fa-user"></i></div>
                                     <div class="acc-content">
                                         <div class="content">
-                                            <div class="text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</div>
+                                            <div class="text">
+                                            <ul class="styled-list">
+                                                    <li>
+                                                        انعقاد قرارداد جهت اصلاح، تعمیر و نگهداری خطوط تولید بیش از ۳۴ کارخانه تولید آجر
+                                                    </li>
+                                                    <li>
+                                                        توان فنی و مالی تامین کلیه قطعات یدکی و مورد نیاز خطوط تولید آجر
+                                                    </li>
+                                                
+                                                </ul>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>

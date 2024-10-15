@@ -24,6 +24,8 @@
                     <li><a href="#"><span class="fab fa-facebook-square"></span></a></li>
                 </ul>
             </div>
+            <!--Copyright Text-->
+            <div class="copyright">&copy; BornaGostar-Parsi</div>
 
             <!--Alt Logo Box-->
             <div class="alt-logo-box">
@@ -68,7 +70,7 @@
                 <div class="divider"></div>
 
                 <!-- Main Navigation Links -->
-                <li><a href="/">خانه</a></li>
+                <!-- <li><a href="/">خانه</a></li> -->
                 <li class="dropdown"><a href="#">خدمات</a>
                     <ul>
                         <li><a href="/مشاوره/خدمات">مشاوره</a></li>
@@ -96,17 +98,17 @@
                         <li><a href="#">تجهیزات نوآورانه</a></li>
                     </ul>
                 </li> -->
-                <li class="dropdown"><a href="#">درباره‌ی برناگستر</a>
-                    <ul>
+                <li class=""><a href="/درباره-ما">درباره‌ی برناگستر</a>
+                    <!-- <ul>
                         <li><a href="/درباره-ما">درباره ما</a></li>
                         <li><a href="#">امکانات سخت افزاری و نرم افزاری</a></li>
                         <li><a href="#">چگونه یک پروژه را انجام میدهیم</a></li>
                         <li><a href="#">رفرنس لیست</a></li>
                         <li><a href="#">بیانه ی ارزش ها و ماموریت</a></li>
                         <li><a href="#">کاتالوگ و مقالات</a></li>
-                    </ul>
+                    </ul> -->
                 </li>
-                <li class="dropdown"><a href="/contact">ارتباط با ما</a></li>
+                <li class=""><a href="/contact">ارتباط با ما</a></li>
             </ul>
         </div>
 
