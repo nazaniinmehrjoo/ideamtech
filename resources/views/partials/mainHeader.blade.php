@@ -48,7 +48,7 @@
         <div class="main-nav">
             <ul class="navigation">
                 <!-- Authentication Links -->
-                <div class="authentication-header">
+                <!-- <div class="authentication-header">
                     @guest
                         <a href="{{ route('login') }}" class="auth-button login-button"><i class="fas fa-sign-in-alt"></i> ورود</a>
                         @if (Route::has('register'))
@@ -64,7 +64,7 @@
                             @csrf
                         </form>
                     @endguest
-                </div>
+                </div> -->
 
                 <!-- Divider -->
                 <div class="divider"></div>
@@ -74,17 +74,22 @@
                 <li class="dropdown"><a href="#">خدمات</a>
                     <ul>
                         <li><a href="/مشاوره/خدمات">مشاوره</a></li>
-                        <li><a href="/تامین_قطعات/خدمات">تامین قطعات و تعمیرات</a></li>
+                        <li><a href="/تامین_قطعات/خدمات">تامین قطعات</a></li>
+                        <li><a href="/تامین_قطعات/خدمات">تعمیرات و نگهداری</a></li>
                         <li><a href="/خدمات_مهندسی/خدمات">خدمات مهندسی</a></li>
                         <li><a href="/نصب_و_راه_اندازی/خدمات">نصب و راه اندازی</a></li>
                         <li><a href="/خدمات_پس_از_فروش/خدمات">خدمات پس از فروش</a></li>
                     </ul>
                 </li>
-                <li class="dropdown"><a href="#">پروژه ها و محصولات </a>
+                <li class="dropdown"><a href="#">ماشین آلات</a>
                     <ul>
                         <li><a href="/ماشین_آلات_فرآوری_و_شکل_دهی/محصولات">ماشین آلات فرآوری و شکل دهی</a></li>
-                        <li><a href="/خشک-کن/محصولات">پروژه‌ی خشک‌کن</a></li>
                         <li><a href="/ماشین_آلات_و_تجهیزات/محصولات">ماشین آلات و تجهیزات</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown"><a href="#">پروژه ها</a>
+                    <ul>
+                        <li><a href="/خشک-کن/محصولات">پروژه‌ی خشک‌کن</a></li>
                         <li><a href="/کوره_پخت/محصولات">پروژه‌ی کوره پخت</a></li>
                         <li><a href="/کوره_پخت/محصولات">پروژه‌ی خط کامل آجر</a></li>
 

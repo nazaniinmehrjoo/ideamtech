@@ -1017,7 +1017,7 @@ form label.error{
 
 .main-header-bar .social-links{
   position:absolute;
-  left:32px;
+  right:5%;
   bottom:270px;
   width:100%;
   padding:0px 0;
@@ -1833,7 +1833,7 @@ form label.error{
   position: relative;
   display: block;
   margin-bottom: 20px;
-  margin-right: 11%;
+  margin-right: 15%;
 }
 
 .banner-two .slide-item .cat span{
@@ -1847,6 +1847,24 @@ form label.error{
   font-size: 15px;
   font-weight: 600;
   border-radius: 20px;
+}
+
+.banner-two .slide-item .cat a {
+  position: relative;
+  display: inline-block;
+  vertical-align: top;
+  line-height: 24px;
+  padding: 8px 18px;
+  background: #f05928;
+  color: #292c30;
+  font-size: 15px;
+  font-weight: 600;
+  border-radius: 20px;
+  text-decoration: none;
+  cursor: pointer;
+}
+.banner-two .slide-item span{ 
+  margin-right: 5%;
 }
 
 .banner-two .slide-item .links-box{
@@ -1906,10 +1924,13 @@ form label.error{
 
 ***/
 
+
 .def-title-box{
   position: relative;
   margin-bottom: 30px;
+  direction: rtl;
 }
+
 
 .def-title-box .patt{
   position: relative;
@@ -2157,7 +2178,10 @@ form label.error{
   font-family: 'IRANSans';
   color: rgba(255, 255, 255, 0.40);
   line-height: 1.6em;
+  direction: rtl;
+  text-align: justify;
 }
+
 
 .plans-section .text-col .text p{
   margin-bottom: 25px;
@@ -2171,7 +2195,7 @@ form label.error{
 .plans-section .text-col .text ul li{
   position: relative;
   line-height: 26px;
-  padding-left: 30px;
+  padding-right: 30px;
   margin-bottom: 10px;
 }
 
@@ -2180,12 +2204,12 @@ form label.error{
   font-family: 'IRANSans';
   font-weight: 400;
   position: absolute;
-  left: 0;
+  right: 0;
   top: 0;
   line-height: 26px;
   color: #f05928;
+  direction: rtl;
 }
-
 /*** 
 
 ====================================================================
@@ -2643,10 +2667,9 @@ form label.error{
 .accordion-box .block.active-block .acc-btn{
     color: rgba(255, 255, 255, 1);
 }
-
 .accordion-box .block .acc-btn i{
   position: absolute;
-  left: -1px;
+  right: -1px;
   top: -1px;
   height: 48px;
   width: 48px;
@@ -2663,6 +2686,7 @@ form label.error{
   -o-transition:all 400ms ease;
   transition:all 400ms ease;
 }
+
 
 .accordion-box .block .acc-btn.active i{
   background: #f05928;
@@ -2720,7 +2744,7 @@ form label.error{
 
 .main-footer .footer-logo{
   position: relative;
-  text-align: center;
+  text-align: end;
   margin-bottom: 70px;
 }
 
@@ -2759,7 +2783,7 @@ form label.error{
 
 .main-footer .info .text{
   position: relative;
-  font-size: 20px;
+  font-size: 17px;
   font-family: 'IRANSans';
   font-weight: 400;
   line-height: 1.5em;
@@ -2768,6 +2792,7 @@ form label.error{
 .main-footer .info .text a{
   position: relative;
   color: #ffffff;
+  text-decoration: none;
 }
 
 .main-footer .loc-info{
@@ -2833,6 +2858,7 @@ form label.error{
 .page-title .bread-crumb{
   position: relative;
   line-height: 24px;
+  direction: rtl;
 }
 
 .page-title .bread-crumb ul li{

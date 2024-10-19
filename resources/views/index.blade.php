@@ -95,10 +95,10 @@
                                 <div class="inner-box">
                                     <div class="inner">
                                     <div class="icon-box"><span class="fa-light fa-block-brick-fire"></span></div>
-                                        <h5>اخبار و مقالات</h5>
+                                        <h5>اخبار و رویدادها</h5>
                                         <div class="text">
                                         در بخش اخبار و مقالات برناگستر، جدیدترین رویدادها و مطالب تخصصی را دنبال کنید.</div>
-                                        <div class="link-box"><a href="/blog"><span class="far fa-angle-right"></span></a></div>
+                                        <div class="link-box"><a href="/مقالات"><span class="far fa-angle-right"></span></a></div>
                                     </div>
                                 </div>
                             </div>
@@ -106,8 +106,8 @@
                             <div class="service-block col-xl-4 col-lg-6 col-md-6 col-sm-12">
                                 <div class="inner-box">
                                     <div class="inner">
-                                        <div class="icon-box"><span class="far fa-chart-column"></span></div>                                        <h5>روند انجام پروژه‌ها</h5>
-                                        <div class="text" style=" margin-left: 39px;">چگونه ما یک پروژه را انجام می‌دهیم</div>
+                                        <div class="icon-box"><span class="far fa-chart-column"></span></div><h5>با ما پروژه هارامتمایز انجام دهید</h5>
+                                        <div class="text" style=" margin-left: 39px;">لورم ساز فارسی</div>
                                         <div class="link-box"><a href="/تامین قطعات/خدمات"><span class="far fa-angle-right"></span></a></div>
                                     </div>
                                 </div>
