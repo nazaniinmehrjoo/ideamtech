@@ -13,7 +13,7 @@
                                 <div class="content">
                                     <div class="inner">
                                         <div class="cat"><a href="/">خشک کن</a></div>
-                                        <h4><span>تولید سریع‌تر، با مصرف انرژی بهینه</span></h4>
+                                        <span class="sliderSesc">تولید سریع‌تر، با مصرف انرژی بهینه</span>
                                     </div>
                                 </div>
                             </div>
@@ -27,7 +27,7 @@
                                 <div class="content">
                                     <div class="inner">
                                         <div class="cat"><a>ربات</a></div>
-                                        <h3><span>خط تولید تمام مکانیزه</span></h3>
+                                        <span class="sliderSesc">خط تولید تمام مکانیزه</span>
                                     </div>
                                 </div>
                             </div>
@@ -41,7 +41,7 @@
                                 <div class="content">
                                     <div class="inner">
                                         <div class="cat"><a>خشک کن آجر عراقی</a></div>
-                                        <h3><span>اولین خشک کن سریع آجر عراقی درجهان</span></h3>
+                                        <span class="sliderSesc">اولین خشک کن سریع آجر عراقی درجهان</span>
                                     </div>
                                 </div>
                             </div>
@@ -54,7 +54,7 @@
                                 <div class="content">
                                     <div class="inner">
                                         <div class="cat"><a href="/درباره-ما">کوره پخت تونلی</a></div>
-                                        <h3><span>طراحی و ساخت تونل پخت</span></h3>
+                                        <span class="sliderSesc">طراحی و ساخت تونل پخت</span>
                                     </div>
                                 </div>
                             </div>
@@ -66,7 +66,7 @@
                                 <div class="content">
                                     <div class="inner">
                                         <div class="cat"><a href="/درباره-ما">درباره برناگستر</a></div>
-                                        <h3><span>ایده طراحی ساخت</span></h3>
+                                       <span class="sliderSesc">ایده طراحی ساخت</span>
                                     </div>
                                 </div>
                             </div>
@@ -92,7 +92,10 @@
                                     <div class="inner">
                                     <div class="icon-box"><span class="fa-regular fa-users"></span></div>
                                         <h5>رضایت مشتری</h5>
-                                        <div class="text">رضایت مشتریان، اولویت ماست. تیم برناگستر با خدمات حرفه‌ای و پشتیبانی مستمر، تجربه‌ای مطمئن و رضایت‌بخش را برای شما فراهم می‌کند.</div>
+                                        <div class="text">
+                                            <p> رضایت مشتریان، اولویت ماست. تیم برناگستر با خدمات حرفه‌ای و پشتیبانی مستمر، تجربه‌ای مطمئن و رضایت‌بخش را برای شما فراهم می‌کند. </p>
+
+                                        </div>
                                         <div class="link-box"><a href="/مشتریان-ما"><span class="far fa-angle-right"></span></a></div>
                                     </div>
                                 </div>
@@ -104,7 +107,10 @@
                                     <div class="icon-box"><span class="fa-light fa-block-brick-fire"></span></div>
                                         <h5>اخبار و رویدادها</h5>
                                         <div class="text">
-                                        آخرین اخبار و رویدادهای صنعت آجر را از طریق برناگستر دنبال کنید.  و از تازه‌ترین پروژه‌ها، تحولات و دستاوردهای تیم ما در این حوزه باخبر شوید.</div>
+                                            <p>
+                                            آخرین اخبار و رویدادهای صنعت آجر را از طریق برناگستر دنبال کنید.  و از تازه‌ترین پروژه‌ها، تحولات و دستاوردهای تیم ما در این حوزه باخبر شوید.
+                                            </p>
+                                        </div>
                                         <div class="link-box"><a href="/مقالات"><span class="far fa-angle-right"></span></a></div>
                                     </div>
                                 </div>
@@ -114,7 +120,11 @@
                                 <div class="inner-box">
                                     <div class="inner">
                                         <div class="icon-box"><span class="far fa-chart-column"></span></div><h5>متمایز از دیگران</h5>
-                                        <div class="text" style=" margin-left: 39px;">با ما، پروژه‌های خود را متمایز انجام دهید. تیم نصب حرفه‌ای ما اجرای دقیق و باکیفیت را تضمین می‌کند.</div>
+                                        <div class="text">
+                                            <p>
+                                            با ما، پروژه‌های خود را متمایز انجام دهید. تیم نصب حرفه‌ای ما اجرای دقیق و باکیفیت را تضمین می‌کند.
+                                            </p>
+                                        </div>
 
                                         <div class="link-box"><a href="/تامین قطعات/خدمات"><span class="far fa-angle-right"></span></a></div>
                                     </div>
@@ -126,7 +136,9 @@
                                     <div class="inner">
                                     <div class="icon-box"><span class="fa-sharp fa-regular fa-trowel-bricks"></span></div>
                                         <h5>شبیه ساز</h5>
-                                        <div class="text">این دستگاه ابزاری است برای پیشبینی مدت زمان  خشک شدن انواع آجر و سفال با توجه به دما .رطوبت.و سرعت هوا</div>
+                                        <div class="text">
+                                           <p>این دستگاه ابزاری است برای پیشبینی مدت زمان  خشک شدن انواع آجر و سفال با توجه به دما .رطوبت.و سرعت هوا</p> 
+                                        </div>
                                         <div class="link-box"><a href="/مشتریان-ما"><span class="far fa-angle-right"></span></a></div>
                                     </div>
                                 </div>
