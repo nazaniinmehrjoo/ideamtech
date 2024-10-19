@@ -7,18 +7,13 @@
                     <div class="banner-slider owl-theme owl-carousel">
                         <!--Slide Item-->
                         <div class="slide-item">
-                        <div class="image-layer">
-                        <video autoplay muted loop playsinline>
-                                <source src="/assets/video/slider/turnkeysolution.mp4" type="video/mp4">
-                            </video>
-                        </div>
-
+                        <div class="image-layer" style="background-image: url(/assets/images/main-slider/khoshkon.jpg);"></div>
                         <div class="slide-count"><span>01</span></div>
                             <div class="content-box">
                                 <div class="content">
                                     <div class="inner">
-                                        <div class="cat"><a href="/">پروژه های کلید در دست و ساخت انواع خشک کن</a></div>
-                                        <h3><span>نوآوردرساخت و اجرا</span></h3>
+                                        <div class="cat"><a href="/">خشک کن</a></div>
+                                        <h4><span>تولید سریع‌تر، با مصرف انرژی بهینه</span></h4>
                                     </div>
                                 </div>
                             </div>
@@ -26,19 +21,19 @@
 
                         <!--Slide Item-->
                         <div class="slide-item">
-                            <div class="image-layer" style="background-image: url(/assets/images/main-slider/rapiddrier.jpg);"></div>
+                            <div class="image-layer" style="background-image: url(/assets/images/main-slider/14010324_robat-2.jpg);"></div>
                             <div class="slide-count"><span>02</span></div>
                             <div class="content-box">
                                 <div class="content">
                                     <div class="inner">
-                                        <div class="cat"><a>راه های خلاقانه برای حل مشکلات خط تولید</a></div>
-                                        <h3><span>ایده.طراحی.ساخت</span></h3>
+                                        <div class="cat"><a>ربات</a></div>
+                                        <h3><span>خط تولید تمام مکانیزه</span></h3>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <!--Slide Item-->
-                        <div class="slide-item">
+                        <!-- <div class="slide-item">
                             <div class="image-layer" style="background-image: url(/assets/images/main-slider/14010324_robat-2.jpg);"></div>
                             <div class="slide-count"><span>03</span></div>
                             <div class="content-box">
@@ -49,17 +44,29 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
 
                         <!--Slide Item-->
+                        <div class="slide-item">
+                            <div class="image-layer" style="background-image: url(/assets/images/main-slider/koreh-pokhttoneli.jpg);"></div>
+                            <div class="slide-count"><span>03</span></div>
+                            <div class="content-box">
+                                <div class="content">
+                                    <div class="inner">
+                                        <div class="cat"><a href="/درباره-ما">کوره پخت تونلی</a></div>
+                                        <h3><span>طراحی و ساخت تونل پخت</span></h3>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                         <div class="slide-item">
                             <div class="image-layer" style="background-image: url(/assets/images/main-slider/BORNA1-2-2048x821.jpg);"></div>
                             <div class="slide-count"><span>04</span></div>
                             <div class="content-box">
                                 <div class="content">
                                     <div class="inner">
-                                        <div class="cat"><a href="/درباره-ما">راه های خلاقانه برای حل مشکلات خط تولید</a></div>
-                                        <h3><span>ایده.طراحی.ساخت</span></h3>
+                                        <div class="cat"><a href="/درباره-ما">درباره برناگستر</a></div>
+                                        <h3><span></span></h3>
                                     </div>
                                 </div>
                             </div>
