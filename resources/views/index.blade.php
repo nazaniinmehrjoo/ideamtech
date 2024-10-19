@@ -33,23 +33,23 @@
                             </div>
                         </div>
                         <!--Slide Item-->
-                        <!-- <div class="slide-item">
-                            <div class="image-layer" style="background-image: url(/assets/images/main-slider/14010324_robat-2.jpg);"></div>
+                        <!--Slide Item-->
+                        <div class="slide-item">
+                            <div class="image-layer" style="background-image: url(/assets/images/main-slider/khoskkon-araghi.jpg);"></div>
                             <div class="slide-count"><span>03</span></div>
                             <div class="content-box">
                                 <div class="content">
                                     <div class="inner">
-                                        <div class="cat"><a>راه های خلاقانه برای حل مشکلات خط تولید</a></div>
-                                        <h3><span>ایده.طراحی.ساخت</span></h3>
+                                        <div class="cat"><a>خشک کن آجر عراقی</a></div>
+                                        <h3><span>اولین خشک کن سریع آجر عراقی درجهان</span></h3>
                                     </div>
                                 </div>
-                            </div> 
-                        </div> -->
-
+                            </div>
+                        </div>
                         <!--Slide Item-->
                         <div class="slide-item">
                             <div class="image-layer" style="background-image: url(/assets/images/main-slider/koreh-pokhttoneli.jpg);"></div>
-                            <div class="slide-count"><span>03</span></div>
+                            <div class="slide-count"><span>04</span></div>
                             <div class="content-box">
                                 <div class="content">
                                     <div class="inner">
@@ -61,12 +61,12 @@
                         </div>
                         <div class="slide-item">
                             <div class="image-layer" style="background-image: url(/assets/images/main-slider/BORNA1-2-2048x821.jpg);"></div>
-                            <div class="slide-count"><span>04</span></div>
+                            <div class="slide-count"><span>05</span></div>
                             <div class="content-box">
                                 <div class="content">
                                     <div class="inner">
                                         <div class="cat"><a href="/درباره-ما">درباره برناگستر</a></div>
-                                        <h3><span></span></h3>
+                                        <h3><span>ایده طراحی ساخت</span></h3>
                                     </div>
                                 </div>
                             </div>
@@ -80,7 +80,7 @@
                 <div class="auto-container">
                     <div class="def-title-box">
                         <div class="patt"><span></span></div>
-                        <div class="subtitle">سفر مشتریان و پروژه‌ها</div>
+                        <!-- <div class="subtitle">سفر مشتریان و پروژه‌ها</div> -->
                         <h3> داستان‌ها و دستاوردهای ما</h3>
                     </div>
 
@@ -92,7 +92,7 @@
                                     <div class="inner">
                                     <div class="icon-box"><span class="fa-regular fa-users"></span></div>
                                         <h5>رضایت مشتری</h5>
-                                        <div class="text">تمرکز ما بر ارائه خدماتی است که با نیازهای مشتریان همخوانی داشته باشد و به ایجاد تجربه‌ای مثبت و موثر برای آن‌ها منجر شود</div>
+                                        <div class="text">رضایت مشتریان، اولویت ماست. تیم برناگستر با خدمات حرفه‌ای و پشتیبانی مستمر، تجربه‌ای مطمئن و رضایت‌بخش را برای شما فراهم می‌کند.</div>
                                         <div class="link-box"><a href="/مشتریان-ما"><span class="far fa-angle-right"></span></a></div>
                                     </div>
                                 </div>
@@ -104,7 +104,7 @@
                                     <div class="icon-box"><span class="fa-light fa-block-brick-fire"></span></div>
                                         <h5>اخبار و رویدادها</h5>
                                         <div class="text">
-                                        در بخش اخبار و مقالات برناگستر، جدیدترین رویدادها و مطالب تخصصی را دنبال کنید.</div>
+                                        آخرین اخبار و رویدادهای صنعت آجر را از طریق برناگستر دنبال کنید.  و از تازه‌ترین پروژه‌ها، تحولات و دستاوردهای تیم ما در این حوزه باخبر شوید.</div>
                                         <div class="link-box"><a href="/مقالات"><span class="far fa-angle-right"></span></a></div>
                                     </div>
                                 </div>
@@ -113,8 +113,9 @@
                             <div class="service-block col-xl-3 col-lg-6 col-md-6 col-sm-12">
                                 <div class="inner-box">
                                     <div class="inner">
-                                        <div class="icon-box"><span class="far fa-chart-column"></span></div><h5>با ما پروژه‌ها را متمایز انجام دهید</h5>
-                                        <div class="text" style=" margin-left: 39px;">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت </div>
+                                        <div class="icon-box"><span class="far fa-chart-column"></span></div><h5>متمایز از دیگران</h5>
+                                        <div class="text" style=" margin-left: 39px;">با ما، پروژه‌های خود را متمایز انجام دهید. تیم نصب حرفه‌ای ما اجرای دقیق و باکیفیت را تضمین می‌کند.</div>
+
                                         <div class="link-box"><a href="/تامین قطعات/خدمات"><span class="far fa-angle-right"></span></a></div>
                                     </div>
                                 </div>
@@ -125,7 +126,7 @@
                                     <div class="inner">
                                     <div class="icon-box"><span class="fa-regular fa-users"></span></div>
                                         <h5>شبیه ساز</h5>
-                                        <div class="text">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت </div>
+                                        <div class="text">این دستگاه ابزاری است برای پیشبینی مدت زمان  خشک شدن انواع آجر و سفال با توجه به دما .رطوبت.و سرعت هوا</div>
                                         <div class="link-box"><a href="/مشتریان-ما"><span class="far fa-angle-right"></span></a></div>
                                     </div>
                                 </div>
@@ -139,8 +140,8 @@
                 <div class="auto-container">
                     <div class="def-title-box">
                         <div class="patt"><span></span></div>
-                        <div class="subtitle">مسیر ما</div>
-                        <h3>شناخت ما، ارزش‌ها و دستاوردها</h3>
+                        <div class="subtitle">مسیر برناگستر</div>
+                        <h3>شناخت،ارزش‌ها و دستاوردها</h3>
                     </div>
 
                     <div class="row parent-row clearfix">
@@ -160,7 +161,11 @@
                                             </div>
                                             <div class="text-col aboutBornaText col-lg-7 col-md-7 col-sm-6">
                                                 <div class="text purposeContent" style="display:flex">
-                                                    <p>شرکت نوآوران برنا گستر پارسی در سال ۱۳۸۵ تأسیس شده است. این مجموعه مشاور، طراح و سازنده ماشین‌آلات مرتبط با خطوط تولید مصالح ساختمانی از جمله آجر، سفال و سرامیک است.</p>
+                                                <p>شرکت نوآوران برنا گستر پارسی از سال 1385  با بهره گیری از متخصصین توانمند و استفاده از دانش روز نسبت به بومی سازی دانش فنی و صرف زمان و هزینه در بخش تحقیق و توسعه نسبت به بهینه سازی و ساخت کلیه تجهیزات خط تولید آجر، اقدام نموده است.
+                                                    این امر باعث توانمندی شرکت برنا گستر جهت ارائه خدمات متنوع در بخشهای مختلف از جمله ارائه مشاوره در زمینه احداث کارخانه تولید آجر و محصولات مشابه مانند خطوط تولید پشم شیشه، بلوک های سیمانی، کاشی و سرامیک از مرحله برآورد اقتصادی و فنی (طرح توجیهی)، مکانیابی ، طراحی و مشاوره احداث خط تولید ، اصلاح و بهینه سازی خطوط موجود و تعمیر و نگهداری از آنها شده است.
+                                                    در این زمینه در بخش خشک کن روتاری و همچنین ربات حمل و بارگیری خشت و دستگاه های دیگر مرتبط با صنعت آجر، این شرکت دارای محصولات منحصر بفرد و گواهی ثبت اختراع می­ باشد.
+                                                </p>
+                                                        
                                                 </div>
                                                 <div class="joinUsBtnContainer">
                                                     <button class="joinUsbtnContent">
@@ -183,7 +188,7 @@
                                             </div>
                                             <div class="text-col catalogContent col-lg-7 col-md-7 col-sm-6">
                                                 <div class="text purposeContent">
-                                                    <p>برای آشنایی بیشتر با محصولات و خدمات شرکت ما، کاتالوگ جامع را دانلود کنید. در این کاتالوگ می‌توانید جزئیات کامل درباره تولیدات ما، مشخصات فنی محصولات، و راهکارهای نوآورانه‌ای که ارائه می‌دهیم را مشاهده کنید.</p>
+                                                    <p>برای آشنایی بیشتر با محصولات و خدمات متنوع شرکت برناگستر، کاتالوگ جامع ما را دانلود کنید. در این کاتالوگ، اطلاعات کامل درباره تولیدات ما، از جمله مشخصات فنی محصولات، ویژگی‌های منحصر به فرد، و راهکارهای نوآورانه‌ای که در صنعت آجر ارائه می‌دهیم، به طور دقیق و شفاف آمده است. با مطالعه آن، می‌توانید بهترین گزینه‌ها را برای نیازهای پروژه‌های خود انتخاب کنید.</p>
                                                     <!-- <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor.</p> -->
                                                 </div>
                                                 <p class="catalogDesc">دانلود کاتالوگ</p>
