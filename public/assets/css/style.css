@@ -2449,16 +2449,11 @@ form label.error{
 }
 
 .tabs-box .tab-buttons .tab-btn{
+  position: relative;
   display: inline-block;
-  padding: 12px 20px;
-  background-color: #ffffff;
-  color: #333;
-  font-family: 'IRANSans', sans-serif;
-  font-size: 18px;
-  text-align: center;
-  border-radius: 25px;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-  transition: all 0.3s ease;
+  vertical-align: top;
+  cursor: pointer;
+
 }
 
 .tabs-box .tabs-content{
@@ -7248,13 +7243,4 @@ canvas {
   height: 100%;
   object-fit: cover;
   object-position: center; 
-}
-.sliderLogo {
-  position: absolute;
-  top: 10% !important;
-  z-index: 999999;
-  left: 5%;
-}
-.sliderLogo img {
-  width: 80%;
 }

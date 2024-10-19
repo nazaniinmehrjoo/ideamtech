@@ -2,11 +2,7 @@
 @section('content')
 <div class="body-bg-layer" style="background-color: #1a1a23;"></div>
  <!-- Banner Two -->
-           
             <section class="banner-two" id="to-top-div">
-                <div class="sliderLogo">
-                    <img src="/assets/images/logotest2.png" alt="bornagostar">
-                </div>
                 <div class="auto-container">
                     <div class="banner-slider owl-theme owl-carousel">
                         <!--Slide Item-->
