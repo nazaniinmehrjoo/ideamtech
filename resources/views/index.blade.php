@@ -2,7 +2,11 @@
 @section('content')
 <div class="body-bg-layer" style="background-color: #1a1a23;"></div>
  <!-- Banner Two -->
+           
             <section class="banner-two" id="to-top-div">
+                <div class="sliderLogo">
+                    <img src="/assets/images/logotest2.png" alt="bornagostar">
+                </div>
                 <div class="auto-container">
                     <div class="banner-slider owl-theme owl-carousel">
                         <!--Slide Item-->
@@ -123,10 +127,10 @@
                               <div class="service-block col-xl-3 col-lg-6 col-md-6 col-sm-12">
                                 <div class="inner-box">
                                     <div class="inner">
-                                    <div class="icon-box"><span class="fa-regular fa-users"></span></div>
+                                    <div class="icon-box"><span class="fa-sharp fa-regular fa-trowel-bricks"></span></div>
                                         <h5>شبیه ساز</h5>
                                         <div class="text">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت </div>
-                                        <div class="link-box"><a href="/مشتریان-ما"><span class="far fa-angle-right"></span></a></div>
+                                        <div class="link-box"><a href="/"><span class="far fa-angle-right"></span></a></div>
                                     </div>
                                 </div>
                             </div>
