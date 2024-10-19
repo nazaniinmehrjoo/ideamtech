@@ -43,7 +43,7 @@
                                         <h3><span>ایده.طراحی.ساخت</span></h3>
                                     </div>
                                 </div>
-                            </div>
+                            </div> 
                         </div> -->
 
                         <!--Slide Item-->
