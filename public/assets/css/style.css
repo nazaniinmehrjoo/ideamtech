@@ -260,7 +260,7 @@ p{
 
 .auto-container{
   position: static;
-  max-width: 1240px;
+  max-width: 1400px;
   padding: 0px 20px;
   margin: 0 auto;
   text-align:center !important;
@@ -2001,7 +2001,7 @@ form label.error{
 
 .services .row .service-block{
   position: relative;
-  padding: 0 20px;
+  padding: 0 15px;
   margin-bottom: 40px;
 }
 
@@ -2018,11 +2018,11 @@ form label.error{
   position: relative;
   display: block;
   min-height: 80px;
-   padding-left: 100px; 
+  padding-left: 100px; 
 }
 
 .service-block .icon-box{
-    right: 86%;
+    right: 83%;
     position: absolute;
     width: 74px;
     height: 80px;
@@ -2048,16 +2048,17 @@ form label.error{
 
 .service-block h5{
   position: relative;
-  font-size: 18px;
+  font-size: 16px;
   font-family: 'IRANSans';
   color: rgba(255, 255, 255, 1);
   margin: 0 0;
   text-align: center;
+  height: 33px;
 }
 
 .service-block .text{
   position: relative;
-  font-size: 15px;
+  font-size: 14px;
   font-family: 'IRANSans';
   color: rgba(255, 255, 255, 0.40);
   margin: 10px 0 10px;
@@ -2085,6 +2086,7 @@ form label.error{
   -o-transition: all .5s ease;
   -moz-transition: all .5s ease;
   transition: all .5s ease;
+  right: 70%;
 }
 
 .service-block .inner-box:hover .link-box a{
@@ -2520,7 +2522,7 @@ form label.error{
 .def-tabs-box .image-col .image img{
   position: relative;
   display: block;
-  width: 100%;
+  width: 80%;
   border-radius: 20px;
 }
 
@@ -6982,7 +6984,7 @@ margin-bottom: 20px;
 
 }
 .mainAboutUs img{
-  height: 203px;
+  height: 313px;
   width: 234px;
   object-fit: cover; 
 }

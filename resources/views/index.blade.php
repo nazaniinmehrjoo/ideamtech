@@ -7,11 +7,7 @@
                     <div class="banner-slider owl-theme owl-carousel">
                         <!--Slide Item-->
                         <div class="slide-item">
-                        <div class="image-layer">
-                        <video autoplay muted loop playsinline>
-                                <source src="/assets/video/slider/turnkeysolution.mp4" type="video/mp4">
-                            </video>
-                        </div>
+                        <div class="image-layer" style="background-image: url(/assets/images/main-slider/rapiddrier.jpg);"></div>
 
                         <div class="slide-count"><span>01</span></div>
                             <div class="content-box">
@@ -80,7 +76,7 @@
                     <div class="services">
                         <div class="row clearfix">
                             <!--Block-->
-                            <div class="service-block col-xl-4 col-lg-6 col-md-6 col-sm-12">
+                            <div class="service-block col-xl-3 col-lg-6 col-md-6 col-sm-12">
                                 <div class="inner-box">
                                     <div class="inner">
                                     <div class="icon-box"><span class="fa-regular fa-users"></span></div>
@@ -91,7 +87,7 @@
                                 </div>
                             </div>
                             <!--Block-->
-                            <div class="service-block col-xl-4 col-lg-6 col-md-6 col-sm-12">
+                            <div class="service-block col-xl-3 col-lg-6 col-md-6 col-sm-12">
                                 <div class="inner-box">
                                     <div class="inner">
                                     <div class="icon-box"><span class="fa-light fa-block-brick-fire"></span></div>
@@ -103,16 +99,26 @@
                                 </div>
                             </div>
                             <!--Block-->
-                            <div class="service-block col-xl-4 col-lg-6 col-md-6 col-sm-12">
+                            <div class="service-block col-xl-3 col-lg-6 col-md-6 col-sm-12">
                                 <div class="inner-box">
                                     <div class="inner">
-                                        <div class="icon-box"><span class="far fa-chart-column"></span></div><h5>با ما پروژه هارامتمایز انجام دهید</h5>
-                                        <div class="text" style=" margin-left: 39px;">لورم ساز فارسی</div>
+                                        <div class="icon-box"><span class="far fa-chart-column"></span></div><h5>با ما پروژه‌ها را متمایز انجام دهید</h5>
+                                        <div class="text" style=" margin-left: 39px;">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت </div>
                                         <div class="link-box"><a href="/تامین قطعات/خدمات"><span class="far fa-angle-right"></span></a></div>
                                     </div>
                                 </div>
                             </div>
-                          
+                              <!--Block-->
+                              <div class="service-block col-xl-3 col-lg-6 col-md-6 col-sm-12">
+                                <div class="inner-box">
+                                    <div class="inner">
+                                    <div class="icon-box"><span class="fa-regular fa-users"></span></div>
+                                        <h5>شبیه ساز</h5>
+                                        <div class="text">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت </div>
+                                        <div class="link-box"><a href="/مشتریان-ما"><span class="far fa-angle-right"></span></a></div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -127,7 +133,7 @@
                     </div>
 
                     <div class="row parent-row clearfix">
-                        <div class="tabs-col col-xl-6 col-lg-12 col-md-12 col-sm-12">
+                        <div class="tabs-col col-xl-12 col-lg-12 col-md-12 col-sm-12">
                             <div class="tabs-box def-tabs-box">
                                 <ul class="tab-buttons clearfix">
                                     <li class="tab-btn active-btn" data-tab="#tab-1"><span>درباره‌ی برناگستر</span></li>
@@ -202,10 +208,8 @@
                                 </div>
                             </div>
                         </div>
-
-                        <div class="proffionalService accordions-col col-xl-6 col-lg-12 col-md-12 col-sm-12">
+                        <!-- <div class="proffionalService accordions-col col-xl-6 col-lg-12 col-md-12 col-sm-12">
                             <div class="accordion-box clearfix">
-                            <!--Block-->
                                 <div class="accordion block">
                                     <div class="acc-btn">For the trust, you have on us <i class="fa-regular fa-trophy"></i></div>
                                     <div class="acc-content">
@@ -214,7 +218,6 @@
                                         </div>
                                     </div>
                                 </div>
-                                <!--Block-->
                                 <div class="accordion block active-block">
                                     <div class="acc-btn active">شبیه‌ساز پیشرفته برای بهینه‌سازی خطوط تولید<i class="fa-regular fa-rocket-launch"></i></div>
                                     <div class="acc-content">
@@ -226,7 +229,6 @@
                                         </div>
                                     </div>
                                 </div>
-                                <!--Block-->
                                 <div class="accordion block">
                                     <div class="acc-btn">Designs too original to be copied <i class="fa-regular fa-user"></i></div>
                                     <div class="acc-content">
@@ -237,7 +239,7 @@
                                 </div>
 
                             </div>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
             </section>
