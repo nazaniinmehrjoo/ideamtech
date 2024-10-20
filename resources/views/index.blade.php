@@ -167,7 +167,7 @@
                                 <div class="tabs-content">
                                     <!--Tab-->
                                     <div class="tab active-tab" id="tab-1">
-                                        <div class="row clearfix">
+                                        <div class="row clearfix mainTabContainer">
                                             <div class="image-col col-lg-5 col-md-5 col-sm-6">
                                                 <div class="image mainAboutUs"><img src="/assets/images/resource/bornagostar.jpg" alt="bornagostar"></div>
                                             </div>
@@ -194,7 +194,7 @@
 
                                     <!--Tab-->
                                     <div class="tab" id="tab-2">
-                                        <div class="row clearfix">
+                                        <div class="row clearfix mainTabContainer">
                                             <div class="image-col col-lg-5 col-md-5 col-sm-6">
                                                 <div class="image mainAboutUs"><img src="/assets/images/resource/catalog.png" alt=""></div>
                                             </div>
@@ -214,7 +214,7 @@
 
                                     <!--Tab-->
                                     <div class="tab" id="tab-3">
-                                        <div class="row clearfix">
+                                        <div class="row clearfix mainTabContainer">
                                             <div class="image-col col-lg-5 col-md-5 col-sm-6">
                                                 <div class="image mainAboutUs"><img src="/assets/images/main-slider/pokht.jpg" alt=""></div>
                                             </div>
