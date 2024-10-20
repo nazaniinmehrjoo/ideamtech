@@ -1,160 +1,7 @@
 @extends('layouts.app', ['title' => 'درباره ما'])
 @section('content')
-
-        
-            <div class="body-bg-layer" style="background-color:#282828;"></div>
-         
-
-            <!-- slider -->
-            <section class="banner-eight">
-                <div class="banner-container">
-                    <div class="banner-slider-outer">
-                        <div class="slider-box">
-                            <div class="banner-slider-six">
-                                <!--Slide Item-->
-                                <div class="slide-item">
-                                    <div class="image-layer" style="background-image: url(/assets/images/main-slider/BORNA1-2-2048x821.jpg);"></div>
-                                    <div class="auto-container">
-                                        <div class="content-box">
-                                            <div class="content">
-                                                <div class="clearfix">
-                                                    <div class="inner">
-                                                        <h4><strong>Good design</strong> never ages</h4>
-                                                        <h1><span>Creating an <br>effective website</span></h1>
-                                                        <div class="links-box clearfix">
-                                                            <div class="link"><a href="about.html" class="theme-btn btn-style-one"><span>learn more<i class="icon fa fa-arrow-right"></i></span></a></div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!--Slide Item-->
-                                <div class="slide-item">
-                                    <div class="image-layer" style="background-image: url(/assets/images/main-slider/14010324_robat-2-2.jpg);"></div>
-                                    <div class="auto-container">
-                                        <div class="content-box">
-                                            <div class="content">
-                                                <div class="clearfix">
-                                                    <div class="inner">
-                                                        <h4><strong>Good design</strong> never ages</h4>
-                                                        <h1><span>Creating an <br>effective website</span></h1>
-                                                        <div class="links-box clearfix">
-                                                            <div class="link"><a href="about.html" class="theme-btn btn-style-one"><span>learn more<i class="icon fa fa-arrow-right"></i></span></a></div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!--Slide Item-->
-                                <div class="slide-item">
-                                    <div class="image-layer" style="background-image: url(/assets/images/main-slider/Home-1.jpg);"></div>
-                                    <div class="auto-container">
-                                        <div class="content-box">
-                                            <div class="content">
-                                                <div class="clearfix">
-                                                    <div class="inner">
-                                                        <h4><strong>Good design</strong> never ages</h4>
-                                                        <h1><span>Creating an <br>effective website</span></h1>
-                                                        <div class="links-box clearfix">
-                                                            <div class="link"><a href="about.html" class="theme-btn btn-style-one"><span>learn more<i class="icon fa fa-arrow-right"></i></span></a></div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!--Slide Item-->
-                                <div class="slide-item">
-                                    <div class="image-layer" style="background-image: url(/assets/images/main-slider/IMG_7409_1.jpg);"></div>
-                                    <div class="auto-container">
-                                        <div class="content-box">
-                                            <div class="content">
-                                                <div class="clearfix">
-                                                    <div class="inner">
-                                                        <h4><strong>Good design</strong> never ages</h4>
-                                                        <h1><span>Creating an <br>effective website</span></h1>
-                                                        <div class="links-box clearfix">
-                                                            <div class="link"><a href="about.html" class="theme-btn btn-style-one"><span>learn more<i class="icon fa fa-arrow-right"></i></span></a></div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="pager-content">
-                                <div class="pager-box">
-                                    <div class="pager-three clearfix">
-                                        <a href="" class="pager-item active" data-slide-index="0"><div class="inner"><div class="image"><img src="/assets/images/main-slider/BORNA1-2-2048x821.jpg" alt=""></div><div class="count">01</div><div class="text">Clarity is king</div></div></a>
-                                        <a href="" class="pager-item" data-slide-index="1"><div class="inner"><div class="image"><img src="/assets/images/main-slider/14010324_robat-2-2.jpg" alt=""></div><div class="count">02</div><div class="text">Exceptional Design</div></div></a>
-                                        <a href="" class="pager-item" data-slide-index="2"><div class="inner"><div class="image"><img src="/assets/images/main-slider/Home-1.jpg" alt=""></div><div class="count">03</div><div class="text">Bringing ideas to life</div></div></a>
-                                        <a href="" class="pager-item" data-slide-index="3"><div class="inner"><div class="image"><img src="/assets/images/main-slider/IMG_7409_1.jpg" alt=""></div><div class="count">04</div><div class="text">Design Your Success</div></div></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            <!-- end Slider -->
-
-            <!--Services Section-->
-            <section class="services-section">
-                <div class="auto-container">
-                    <div class="def-title-box">
-                        <div class="patt"><span></span></div>
-                        <div class="subtitle">سفر مشتریان و پروژه‌ها</div>
-                        <h3> داستان‌ها و دستاوردهای ما</h3>
-                    </div>
-
-                    <div class="services">
-                        <div class="row clearfix">
-                            <!--Block-->
-                            <div class="service-block col-xl-4 col-lg-6 col-md-6 col-sm-12">
-                                <div class="inner-box">
-                                    <div class="inner">
-                                    <div class="icon-box"><span class="fa-regular fa-users"></span></div>
-                                        <h5>رضایت مشتری</h5>
-                                        <div class="text">تمرکز ما بر ارائه خدماتی است که با نیازهای مشتریان همخوانی داشته باشد و به ایجاد تجربه‌ای مثبت و موثر برای آن‌ها منجر شود</div>
-                                        <div class="link-box"><a href="/مشتریان-ما"><span class="far fa-angle-right"></span></a></div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!--Block-->
-                            <div class="service-block col-xl-4 col-lg-6 col-md-6 col-sm-12">
-                                <div class="inner-box">
-                                    <div class="inner">
-                                    <div class="icon-box"><span class="fa-light fa-block-brick-fire"></span></div>
-                                        <h5>اخبار و مقالات</h5>
-                                        <div class="text">
-                                        در بخش اخبار و مقالات برناگستر، جدیدترین رویدادها و مطالب تخصصی را دنبال کنید.</div>
-                                        <div class="link-box"><a href="/blog"><span class="far fa-angle-right"></span></a></div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!--Block-->
-                            <div class="service-block col-xl-4 col-lg-6 col-md-6 col-sm-12">
-                                <div class="inner-box">
-                                    <div class="inner">
-                                        <div class="icon-box"><span class="far fa-chart-column"></span></div>                                        <h5>روند انجام پروژه‌ها</h5>
-                                        <div class="text" style=" margin-left: 39px;">چگونه ما یک پروژه را انجام می‌دهیم</div>
-                                        <div class="link-box"><a href="/تامین قطعات/خدمات"><span class="far fa-angle-right"></span></a></div>
-                                    </div>
-                                </div>
-                            </div>
-                          
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-
+<br>
+<br>
             <!--Plans Section-->
             <section class="plans-section">
                 <div class="auto-container">
@@ -176,22 +23,49 @@
                                 <div class="text">
                                     
                                     <p>
-                                            شرکت نوآوران برنا گستر پارسی با بیش از ۱۵ سال سابقه با بهره گیری از متخصصین توانمند و استفاده از دانش روز نسبت به بومی سازی دانش فنی و صرف زمان و هزینه در بخش تحقیق و توسعه نسبت به بهینه سازی و ساخت کلیه تجهیزات خط تولید آجر، اقدام نموده است.
-
-                                            این امر باعث توانمندی شرکت برنا گستر جهت ارائه خدمات متنوع در بخشهای مختلف از جمله ارائه مشاوره در زمینه احداث کارخانه تولید آجر و محصولات مشابه مانند خطوط تولید پشم شیشه، بلوک های سیمانی، کاشی و سرامیک از مرحله برآورد اقتصادی و فنی (طرح توجیهی)، مکانیابی ، طراحی و مشاوره احداث خط تولید ، اصلاح و بهینه سازی خطوط موجود و تعمیر و نگهداری از آنها شده است.
-
+                                        شرکت نوآوران برنا گستر پارسی از سال 1385، با بهره‌گیری از متخصصین توانمند و سرمایه‌گذاری در تحقیق و توسعه، توانسته است تجهیزات خط تولید آجر را بومی‌سازی و بهینه‌سازی کند.
+                                        این شرکت با ارائه خدمات متنوع در مشاوره، طراحی، ساخت و اجرا در زمینه احداث کارخانه‌های تولید آجر و محصولات مشابه، از مراحل طرح توجیهی تا تعمیر و نگهداری، به نیازهای مختلف مشتریان پاسخ می‌دهد. توجه ویژه به بهینه‌سازی مصرف انرژی و توسعه طرح‌های خشک کن آجر برای کاهش مصرف گاز و برق، از مزیت‌های رقابتی سازمان است 
+                                    </p>    
+                                    <p>
+                                        از جمله عوامل دیگری که موجب توانمندی این شرکت شده، ارائه خدمات متنوع در بخشهای مختلفی چون مشاوره ، طراحی ، ساخت واجراء در زمینه احداث کارخانه تولید آجر و محصولات مشابه مانند خطوط تولید پشم شیشه، بلوک های سیمانی، کاشی و سرامیک از مرحله برآورد اقتصادی و فنی (طرح توجیهی)، مکانیابی ، احداث خط تولید ، اصلاح و بهینه سازی خطوط موجود و تعمیر و نگهداری از آنها می باشد.
+                                        نوآوران برنا گستر پارسی متعهدانه از طراحی تا اجرا همراه صنعتگران محترم خواهد بود.
                                     </p>
-                                    <p>در این زمینه در بخش خشک کن روتاری و همچنین ربات حمل و بارگیری خشت و دستگاه های دیگر مرتبط با صنعت آجر، این شرکت دارای محصولات منحصر بفرد و گواهی ثبت اختراع می­ باشد.</p>
                                     <ul>
-                                        <li>پیشرو در ساخت ماشین آلات آجر</li>
-                                        <li>پیشرو در تکنولوژی</li>
-                                        <li>پیشرو در طراحی - ساخت - اجرا</li>
-                                        <li>مشاور در ساخت کارخانه‌جات آجر</li>
+                                        <li>پیشرودر طراحی ساخت ماشین آلات آجر</li>
+                                        <li>پیشرو در تکنولوژی روز دنیا</li>
+                                        <li>مشاوره در ساخت کارخانه‌جات آجر</li>
+                                        <li>تعهد در خدمات پس از فروش</li>
                                     </ul>
                                 </div>
                             </div>
                         </div>
 
+                    </div>
+                </div>
+            </section>
+                   <!--Services Section-->
+                   <section class="services-section">
+                <div class="auto-container">
+                    <div class="def-title-box">
+                        <div class="patt"><span></span></div>
+                        <!-- <div class="subtitle">سفر مشتریان و پروژه‌ها</div> -->
+                        <h3> داستان‌ها و دستاوردهای ما</h3>
+                    </div>
+                    <div class="services">
+                        <div class="row clearfix">
+                            <!--Block-->
+                            <div class="service-block col-xl-12 col-lg-12 col-md-6 col-sm-12">
+                                <div class="inner-box">
+                                    <div class="inner">
+                                    <div class="icon-box"><span class="fa-regular fa-users"></span></div>
+                                        <h5>رضایت مشتری</h5>
+                                        <div class="text">رضایت مشتریان، اولویت ماست. تیم برناگستر با خدمات حرفه‌ای و پشتیبانی مستمر، تجربه‌ای مطمئن و رضایت‌بخش را برای شما فراهم می‌کند.</div>
+                                        <div class="link-box"><a href="/مشتریان-ما"><span class="far fa-angle-right"></span></a></div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                        </div>
                     </div>
                 </div>
             </section>
@@ -301,8 +175,7 @@
                                             </div>
                                             <div class="text-col col-lg-7 col-md-7 col-sm-6">
                                                 <div class="text">
-                                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                                                    <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor.</p>
+                                               <p>اخذ تأییدیه فنی و گواهی حسن انجام کار پس از تحویل پروژه به معنای اطمینان از رعایت کامل استانداردهای کیفی و فنی در تمامی مراحل اجرایی پروژه است. این تأییدیه، بیانگر این است که پروژه مطابق با مشخصات فنی و نیازهای تعیین شده توسط کارفرما اجرا شده و تمامی مراحل طراحی، ساخت، نصب و بهره‌برداری به‌صورت صحیح و بدون نقص انجام شده‌اند.</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -343,16 +216,16 @@
                                             <div class="text styleList">
                                                 <ul class="styled-list">
                                                     <li>
-                                                        کسب دانش فنی خشک کن روتاری  
+                                                    کسب دانش فنی انوع  خشک کن 
                                                     </li>
                                                     <li>
-                                                        کسب دانش فنی ساخت انواع رباتهای صنعتی   
+                                                        کسب دانش فنی ساخت انواع رباتهای صنعتی
                                                     </li>
                                                     <li>
-                                                        کسب دانش فنی و ساخت فن محوری با بازدهی فن­های روز دنیا جهت بکارگیری در تونل خشک کن
+                                                        کسب دانش فنی و ساخت فن آکسیال با بالا ترین بازدهی جهت بکارگیری در تونل خشک کن
                                                     </li>
                                                     <li>
-                                                        کسب دانش فنی مدلسازی کارخانجات تولید آجر پیش از احداث   
+                                                        کسب دانش فنی مدلسازی کارخانجات تولید آجر پیش از احداث
                                                     </li>
                                                     <li>
                                                         کسب توان فنی در طراحی، مشاوره و بهینه سازی احداث خطوط تولید آجر سفال
@@ -370,10 +243,10 @@
                                             <div class="text">
                                                 <ul class="styled-list">
                                                     <li>
-                                                        ساخت خشک کن روتاری (تونلی) با آخرین تکنولوژی روز و کاهش هزینه ها نسبت به خشک کن­ های اتاقکی
+                                                        ساخت انواع خشک کن با آخرین تکنولوژی روز و کاهش هزینه ها نسبت به خشک کن های اتاقکی
                                                     </li>
                                                     <li>
-                                                        انجام بیش از ۱۸ پروژه احداث، پروژه ساخت و راه اندازی خط کامل تولید آجر در شهر باکو در آذربایجان، ساخت و راه اندازی خطوط تولید آجر در داخل و پروژه بصورت کلید در دست ( Turn-Key) در سلیمانیه عراق
+                                                    انجام 10 ها پروژه ساخت و راه اندازی خط کامل تولید آجر در ایران و کشور های آذربایجان و عراق
                                                     </li>
                                                 
                                                 </ul>
@@ -390,10 +263,10 @@
                                             <div class="text">
                                             <ul class="styled-list">
                                                     <li>
-                                                        انعقاد قرارداد جهت اصلاح، تعمیر و نگهداری خطوط تولید بیش از ۳۴ کارخانه تولید آجر
+                                                        انعقاد قرارداد جهت اصلاح، تعمیر و نگهداری خطوط تولید کارخانجات تولید آجر
                                                     </li>
                                                     <li>
-                                                        توان فنی و مالی تامین کلیه قطعات یدکی و مورد نیاز خطوط تولید آجر
+                                                        توان خدمات  فنی و تامین کلیه قطعات یدکی و مورد نیاز خطوط تولید آجر
                                                     </li>
                                                 
                                                 </ul>
