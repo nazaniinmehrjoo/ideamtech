@@ -1,15 +1,15 @@
-@extends('layouts.app')
+@extends('layouts.app', ['title' => 'تماس با ما'])
 @section('content')
     <div class="cursor"></div>
 
             <!-- Page Title -->
             <section class="page-title" id="to-top-div">
                 <div class="auto-container">
-                    <h1><span>contact</span></h1>
+                    <!-- <h1><span>ارتباط با ما</span></h1> -->
                     <div class="bread-crumb">
                         <ul class="clearfix">
-                            <li><a href="index.html">home</a></li>
-                            <li class="current">contact</li>
+                            <li><a href="index.html">خانه</a></li>
+                            <li class="current">ارتباط با ما</li>
                         </ul>
                     </div>
                 </div>
@@ -22,8 +22,8 @@
                 <div class="auto-container">
                     <div class="def-title-box">
                         <div class="patt"><span></span></div>
-                        <div class="subtitle">get in touch</div>
-                        <h3>contact us</h3>
+                        <div class="subtitle">با تیم برنادرارتباط باشید</div>
+                        <h3>ارتباط با ما</h3>
                     </div>
 
                     <div class="info-box">
@@ -33,8 +33,8 @@
                                 <div class="inner-box">
                                     <div class="inner">
                                         <div class="icon-box"><span class="fa fa-phone"></span></div>
-                                        <h5>Reception Desk</h5>
-                                        <div class="info"><a href="tel:(+01)1234567899">(+01) 123 456 7899</a></div>
+                                        <h5>شماره تماس</h5>
+                                        <div class="info"><a href="tel:(+01)1234567899">021-88302036</a></div>
                                     </div>
                                 </div>
                             </div>
@@ -43,8 +43,8 @@
                                 <div class="inner-box">
                                     <div class="inner">
                                         <div class="icon-box"><span class="far fa-clock"></span></div>
-                                        <h5>Working Hours</h5>
-                                        <div class="info">Monday - Friday  /  08:00-17:00</div>
+                                        <h5>ساعت کاری</h5>
+                                        <div class="info">شنبه - پنج شنبه  /  08:00-17:00</div>
                                     </div>
                                 </div>
                             </div>
@@ -53,8 +53,8 @@
                                 <div class="inner-box">
                                     <div class="inner">
                                         <div class="icon-box"><span class="fa fa-map-marker-alt"></span></div>
-                                        <h5>Address</h5>
-                                        <div class="info">Example street nr 23</div>
+                                        <h5>آدرس دفتر مرکزی</h5>
+                                        <div class="info">خیابان گاندی، نبش کوچه 8، ساختمان مروارید، طبقه سوم، واحد 9</div>
                                     </div>
                                 </div>
                             </div>
@@ -64,7 +64,7 @@
                     <div class="contact-box">
                         <div class="row clearfix">
                             <div class="form-col col-xl-8 col-lg-12 col-md-12 col-sm-12">
-                                <h5>Send message</h5>
+                                <h5>ارسال پیام</h5>
                                 @if ($errors->any())
                                     <div class="alert alert-danger">
                                         <ul>
@@ -88,21 +88,25 @@
                                         <div class="row clearfix">
                                             <div class="inner-col col-lg-6 col-md-6 col-sm-12">
                                                 <div class="form-group">
-                                                    <div class="field-label"><span class="icon fa fa-user"></span> Name</div>
+                                                    <div class="field-label"><span class="icon fa fa-user"></span> نام </div>
                                                     <div class="field-inner"><input type="text" name="name" value="" placeholder="" ><i class="dot"></i></div>
                                                 </div>
                                                 <div class="form-group">
-                                                    <div class="field-label"><span class="icon far fa-envelope"></span> E-mail</div>
+                                                    <div class="field-label"><span class="icon far fa-envelope"></span>نام خانوادگی</div>
+                                                    <div class="field-inner"><input type="email" name="email" value="" placeholder="" ><i class="dot"></i></div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <div class="field-label"><span class="icon fa fa-phone"></span>شماره تماس</div>
                                                     <div class="field-inner"><input type="email" name="email" value="" placeholder="" ><i class="dot"></i></div>
                                                 </div>
                                             </div>
                                             <div class="inner-col col-lg-6 col-md-6 col-sm-12">
                                                 <div class="form-group">
-                                                    <div class="field-label">Message</div>
+                                                    <div class="field-label">پیام شما</div>
                                                     <div class="field-inner"><textarea name="message" placeholder="" ></textarea><i class="dot"></i></div>
                                                 </div>
                                                 <div class="form-group">
-                                                    <button type="submit" class="theme-btn btn-style-two"><span>Send Message</span></button>
+                                                    <button type="submit" class="theme-btn btn-style-two"><span>ثبت</span></button>
                                                 </div>
                                             </div>
                                         </div>

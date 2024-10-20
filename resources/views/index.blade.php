@@ -1,5 +1,12 @@
 @extends('layouts.app')
 @section('content')
+<title>
+    @isset($title)
+        {{ $title }} |
+    @endisset
+    {{ config('app.name', 'خانه') }}
+</title>
+
 <div class="body-bg-layer" style="background-color: #1a1a23;"></div>
  <!-- Banner Two -->
             <section class="banner-two" id="to-top-div">
@@ -12,8 +19,8 @@
                             <div class="content-box">
                                 <div class="content">
                                     <div class="inner">
-                                        <div class="cat"><a href="/">خشک کن</a></div>
-                                        <span class="sliderSesc">تولید سریع‌تر، با مصرف انرژی بهینه</span>
+                                        <div class="cat"><a href="خشک-کن/محصولات">خشک کن</a></div>
+                                        <h4><span>تولید سریع‌تر، با مصرف انرژی بهینه</span></h4>
                                     </div>
                                 </div>
                             </div>
@@ -53,8 +60,8 @@
                             <div class="content-box">
                                 <div class="content">
                                     <div class="inner">
-                                        <div class="cat"><a href="/درباره-ما">کوره پخت تونلی</a></div>
-                                        <span class="sliderSesc">طراحی و ساخت تونل پخت</span>
+                                        <div class="cat"><a href="/کوره_پخت/محصولات">کوره پخت تونلی</a></div>
+                                        <h3><span>طراحی و ساخت تونل پخت</span></h3>
                                     </div>
                                 </div>
                             </div>
@@ -136,10 +143,8 @@
                                     <div class="inner">
                                     <div class="icon-box"><span class="fa-sharp fa-regular fa-trowel-bricks"></span></div>
                                         <h5>شبیه ساز</h5>
-                                        <div class="text">
-                                           <p>این دستگاه ابزاری است برای پیشبینی مدت زمان  خشک شدن انواع آجر و سفال با توجه به دما .رطوبت.و سرعت هوا</p> 
-                                        </div>
-                                        <div class="link-box"><a href="/مشتریان-ما"><span class="far fa-angle-right"></span></a></div>
+                                        <div class="text">این دستگاه ابزاری است برای پیشبینی مدت زمان  خشک شدن انواع آجر و سفال با توجه به دما .رطوبت.و سرعت هوا</div>
+                                        <div class="link-box"><a href="/شبیه-ساز"><span class="far fa-angle-right"></span></a></div>
                                     </div>
                                 </div>
                             </div>

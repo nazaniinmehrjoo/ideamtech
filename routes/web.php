@@ -27,6 +27,9 @@ Route::get('/', function () {
     return view('index');
 });
 
+Route::get('/شبیه-ساز', function () {
+    return view('simulator');
+});
 
 Route::resource('cooperations', CooperationController::class);
 Route::resource('employment-forms', EmploymentFormController::class);
