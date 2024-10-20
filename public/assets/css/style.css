@@ -6120,8 +6120,8 @@ form label.error{
   position: relative;
   display: block;
   min-height: 250px;
-  padding: 70px 150px 70px 180px;
-  background: #121416;
+  padding: 30px 139px 62px 148px;
+  background: #282828;
 }
 
 .banner-ten .slide-item .bottom-content .bottom-inner:before{
@@ -6132,15 +6132,15 @@ form label.error{
   margin-right: -1px;
   width: 2000px;
   height: 100%;
-  background: #121416;
+  background: #282828;
 }
 
 .banner-ten .slide-item .bottom-content .text{
   position: relative;
   font-family: 'IRANSans';
-  font-weight: 400;
-  font-size: 20px;
-  padding-top: 25px;
+  font-weight: 300;
+  font-size: 16px;
+  /* padding-top: 25px; */
   line-height: 30px;
 }
 
