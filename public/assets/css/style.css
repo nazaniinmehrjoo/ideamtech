@@ -1036,13 +1036,13 @@ form label.error{
   relative;
   display:
   block;
-  width: 38px;
+  width: 50px;
   color: white;
-  height: 38px;
+  height: 50px;
   text-align: center;
   background: rgba(255, 255, 255, 0.10);
-  font-size:14px;
-  line-height:38px;
+  font-size:20px;
+  line-height:50px;
   border-radius: 50%;
   -webkit-transition: all 300ms ease;
   -ms-transition: all 300ms ease;
@@ -2024,7 +2024,7 @@ form label.error{
 .service-block .icon-box{
     right: 83%;
     position: absolute;
-    width: 74px;
+    width: 30%;
     height: 80px;
     line-height: 80px;
     font-size: 32px;
@@ -2063,7 +2063,6 @@ form label.error{
   color: rgba(255, 255, 255, 0.40);
   margin: 10px 0 10px;
   text-align: justify;
-  height: 100px;
   text-align-last: right;
   direction: rtl;
 }
@@ -2480,7 +2479,7 @@ form label.error{
 
 .def-tabs-box .tab-buttons{
   display: table;
-  width: 100%;
+  width: 105%;
   vertical-align: middle;
   border-bottom: 1px solid rgba(255,255,255,0.10);
 }
@@ -2490,7 +2489,7 @@ form label.error{
   display: table-cell;
   vertical-align: middle;
   line-height: 26px;
-  padding: 10px 10px;
+  padding: 10px 50px;
   font-family: 'IRANSans';
   font-size: 16px;
   text-align: center;
@@ -7246,4 +7245,8 @@ canvas {
   height: 100%;
   object-fit: cover;
   object-position: center; 
+}
+.mainTabContainer{
+  display: flex;
+  align-items: center;
 }
