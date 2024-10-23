@@ -268,7 +268,13 @@
 	.banner-seven .slide-item .text {
 		font-size: 16px;
 	}
-
+	/* about borna responsive */
+	.service-block .customerInner {
+		gap: 2em;
+	}
+	.def-tabs-box .tab-buttons .tab-btn {
+		padding: 2px 50px;
+	}
 }
 
 @media only screen and (max-width: 1199px) {
@@ -536,7 +542,20 @@
 	.banner-seven .slide-item .inner {
 		float: left;
 	}
-
+	/* about borna responsive */
+	.banner-six .slide-item .image-layer {
+		width: 73%;
+		left: 15%;
+	}
+	.certificateZoomIn {
+		right: 14%;
+	}
+	.service-block .customerInner {
+		gap: 2em;
+	}
+	.service-block .customerIconBox {
+		width: 10%;
+	}
 }
 
 @media only screen and (min-width: 768px) {
@@ -790,7 +809,11 @@
 	/* .banner-four .pager-outer {
 		display: none;
 	} */
-
+	.banner-six .slide-item .image-layer {
+		height: 100%;
+		width: 80%;
+		left: 18%;
+	}
 	.banner-four .banner-slider-outer {
 		padding-bottom: 50px;
 	}
@@ -891,9 +914,102 @@
 		line-height: 50px;
 		font-size: 20px;
 	}
+	/* about borna responsive */
+	.plans-section .text-col .text {
+		font-size: 14px;
+	}
+	.plans-section .image-col .image::before {
+		left: 20px;
+		top: 35px;
+		right: -12px;
+		bottom: -13px;
+	}
+	.plans-section .image-col .image .bg-pattern {
+		left: -29px;
+		top: -28px;
+		right: -54px;
+		bottom: -60px;
+	  }
+	  .plans-section .image-col .image {
+		margin-right: 30px;
+	  }
+	  .popup-overlay {
+		transform: translate(-39%, -50%);
+		width: 70%;
+	  }
+	  /* .banner-six .slide-item .image-layer {
+		height: 96%;
+		width: 70%;
+		left: 18%;
+	  } */
+	  .customerInner .image-content img{
+		width: auto ;
+	}
+	  .banner-six .slide-item .content-box {
+		padding-top: 0px;
+	  }
+	  .def-title-box .subtitle {
+		font-size: 12px;
+	  }
+	  .banner-six .slide-item .inner {
+		padding: 0px 20px 40px 60px;
 
+	  }
+	  .banner-six {
+		padding: 0px;
+	  }
+	  .service-block .text {
+		font-size: 14px;
+	  }
+	  .customer-service h5 {
+		height: 30px !important;
+	  }
+	  .service-block .customerInner {
+		display: block !important;
+	  }
+	  /* .def-tabs-box .tab-buttons .tab-btn {
+		width: 105%;
+	  } */
+	  .def-tabs-box .tab-buttons .tab-btn {
+		padding: 0px 40px;
+	  }
+	  .def-tabs-box .image-col .image img {
+		width: 100%;
+	  }
+	  .purposeContent {
+		font-size: 12px;
+	  }
+	  .catalogContent .catalogDesc {
+		font-size: 12px;
+	  }
+	  .accordion-box .block .content .text {
+		font-size: 14px;
+	  }
+	  .parent-row .tabs-col  .tabs-box .tab-buttons .tab-btn span  {
+		font-size: 14px;
+	  }
+	  .banner-six .slide-item .image-box {
+		top: 30%;
+		
+	  }
+	  .certificateZoomIn {
+		padding: 8px 14px;
+		top: 3%;
+  		right: 5%;
+	  }
+	  .banner-six .slide-item .content-box {
+		height: 715px;
+	}
 }
 
+@media only screen and (max-width: 840px) {
+	.banner-six .slide-item .image-layer {
+		left: 0;
+  		top: 0;
+  		width: 100%;
+		height: 100%;
+	}
+}
 @media only screen and (max-width: 767px) {
 	.modal-content {
 		margin: 40% 25% auto;
@@ -1086,9 +1202,9 @@
 		height: 100%;
 	}
 
-	.banner-six .slide-item.alt .slide-count {
+	/* .banner-six .slide-item.alt .slide-count {
 		display: none;
-	}
+	} */
 
 	.banner-six .slide-item .content-box {
 		height: 630px;
@@ -1160,10 +1276,95 @@
 	.banner-seven .slide-item h1 {
 		font-size: 30px;
 	}
-
+	/* about borna responsive */
+	.plans-section .text-col .text {
+		font-size: 14px;
+	}
+	.plans-section .image-col .image::before {
+		left: 20px;
+		top: 35px;
+		right: -12px;
+		bottom: -13px;
+	}
+	.plans-section .image-col .image .bg-pattern {
+		left: -29px;
+		top: -28px;
+		right: -54px;
+		bottom: -60px;
+	  }
+	  .plans-section .image-col .image {
+		margin-right: 30px;
+	  }
+	  .popup-overlay {
+		transform: translate(-39%, -50%);
+		width: 70%;
+	  }
+	  .banner-six .slide-item .image-layer {
+		height: 69%;
+		width: 70%;
+		left: 18%;
+	  }
+	  .customerInner .image-content img{
+		width: 60%;
+	}
+	  .banner-six .slide-item .content-box {
+		padding-top: 0px;
+	  }
+	  .def-title-box .subtitle {
+		font-size: 12px;
+	  }
+	  .banner-six .slide-item .inner {
+		padding: 0px 20px 265px;
+	  }
+	  .banner-six {
+		padding: 0px;
+	  }
+	  .service-block .text {
+		font-size: 14px;
+	  }
+	  .customer-service h5 {
+		height: 30px !important;
+	  }
+	  .service-block .customerInner {
+		display: block !important;
+	  }
+	  /* .def-tabs-box .tab-buttons .tab-btn {
+		width: 105%;
+	  } */
+	  .def-tabs-box .tab-buttons .tab-btn {
+		padding: 0px 40px;
+	  }
+	  .def-tabs-box .image-col .image img {
+		width: 100%;
+	  }
+	  .purposeContent {
+		font-size: 12px;
+	  }
+	  .catalogContent .catalogDesc {
+		font-size: 12px;
+	  }
+	  .accordion-box .block .content .text {
+		font-size: 14px;
+	  }
+	  .parent-row .tabs-col  .tabs-box .tab-buttons .tab-btn span  {
+		font-size: 14px;
+	  }
+	  .banner-six .slide-item .image-box {
+		top: 30%;
+		
+	  }
+	  .certificateZoomIn {
+		padding: 8px 14px;
+		top: 3%;
+  		right: 16%;
+	  }
+	  .banner-six .slide-item .content-box {
+		height: 715px;
+	}
 }
 
 @media only screen and (max-width: 599px) {
+
 	.modal-content {
 		margin: 70% 20% auto;
 	}
@@ -1270,7 +1471,7 @@
 	}
 
 	.def-tabs-box .tab-buttons {
-		display: block;
+		display: table;
 	}
 
 	.def-tabs-box .tab-buttons .tab-btn {
@@ -1297,11 +1498,11 @@
 	.plans-section .image-col .image {
 		margin: 0 0;
 	}
-
+/* 
 	.plans-section .image-col .image:before,
 	.plans-section .image-col .image .bg-pattern {
 		display: none;
-	}
+	} */
 
 	.plans-section .text-col h4 {
 		font-size: 20px;
@@ -1469,7 +1670,88 @@
 	.banner-seven .slide-item .content-box {
 		padding: 50px 0;
 	}
-
+	/* about borna responsive */
+	.plans-section .text-col .text {
+		font-size: 14px;
+	}
+	.plans-section .image-col .image::before {
+		left: 20px;
+		top: 35px;
+		right: -12px;
+		bottom: -13px;
+	}
+	.plans-section .image-col .image .bg-pattern {
+		left: -17px;
+		top: -33px;
+		right: -26px;
+		bottom: -36px;
+	  }
+	  .popup-overlay {
+		transform: translate(-39%, -50%);
+		width: 70%;
+	  }
+	  .banner-six .slide-item .image-layer {
+		height: 69%;
+		width: 75%;
+		left: 14%;
+	  }
+	  .banner-six .slide-item .content-box {
+		padding-top: 0px;
+	  }
+	  .def-title-box .subtitle {
+		font-size: 12px;
+	  }
+	  .banner-six .slide-item .inner {
+		padding: 0px 20px 265px;
+	  }
+	  .banner-six {
+		padding: 0px;
+	  }
+	  .service-block .text {
+		font-size: 14px;
+	  }
+	  .customer-service h5 {
+		height: 30px !important;
+	  }
+	  .service-block .customerInner {
+		display: block !important;
+	  }
+	  .def-tabs-box .tab-buttons .tab-btn {
+		width: 105%;
+	  }
+	  .def-tabs-box .image-col .image img {
+		width: 100%;
+	  }
+	  .purposeContent {
+		font-size: 12px;
+	  }
+	  .catalogContent .catalogDesc {
+		font-size: 12px;
+	  }
+	  .accordion-box .block .content .text {
+		font-size: 14px;
+	  }
+	  .parent-row .tabs-col  .tabs-box .tab-buttons .tab-btn span  {
+		font-size: 14px;
+	  }
+	  .banner-six .slide-item .image-box {
+		top: 30%;
+		
+	  }
+	  .certificateZoomIn {
+		padding: 8px 14px;
+		top: 3%;
+  		right: 16%;
+	  }
+	  .banner-six .slide-item .content-box {
+		height: 715px;
+	  }
+	  .def-tabs-box .tab-buttons .tab-btn {
+		padding: 10px 50px;
+	  }
+	  .customerInner .image-content img{
+		width: 100%;
+	  } 
 }
 
 @media only screen and (max-width: 430px) {
@@ -1527,6 +1809,9 @@
 	.banner-two .slide-item .content-box .content .inner h3 {
 		font-size: 20px;
 	}
+	.banner-six .slide-item .content-box {
+		height: 550px !important;
+	}
 }
 @media only screen and (max-width: 367px) {
 	.modal-content {
@@ -1553,6 +1838,78 @@
 	.banner-nine .slide-item .image-box {
 		top: 100px;
 	}
+	.plans-section .text-col .text {
+		font-size: 12px;
+	}
+	.plans-section .image-col .image::before {
+		left: 20px;
+		top: 35px;
+		right: -12px;
+		bottom: -13px;
+	}
+	.plans-section .image-col .image .bg-pattern {
+		left: -17px;
+		top: -33px;
+		right: -26px;
+		bottom: -36px;
+	  }
+	  .popup-overlay {
+		transform: translate(-35%, -50%);
+		width: 70%;
+	  }
+	  .banner-six .slide-item .image-layer {
+		height: 59% !important;
+		width: 100% !important;
+		left: 0 !important;
+	  }
+	  .banner-six .slide-item .content-box {
+		padding-top: 0px;
+	  }
+	  .def-title-box .subtitle {
+		font-size: 10px;
+	  }
+	  .banner-six .slide-item .inner {
+		padding: 0px 20px 265px !important;
+	  }
+	  .banner-six {
+		padding: 0px;
+	  }
+	  .service-block .text {
+		font-size: 12px;
+	  }
+	  .customer-service h5 {
+		height: 30px !important;
+	  }
+	  .service-block .customerInner {
+		display: block !important;
+	  }
+	  .def-tabs-box .tab-buttons .tab-btn {
+		width: 115%;
+	  }
+	  .def-tabs-box .image-col .image img {
+		width: 100%;
+	  }
+	  .purposeContent {
+		font-size: 14px;
+	  }
+	  .catalogContent .catalogDesc {
+		font-size: 12px;
+	  }
+	  .accordion-box .block .content .text {
+		font-size: 14px;
+	  }
+	  .parent-row .tabs-col  .tabs-box .tab-buttons .tab-btn span  {
+		font-size: 14px;
+	  }
+	  .banner-six .slide-item .image-box {
+		top: 30%;
+	  }
+	  .banner-six .slide-item .content-box {
+		height: 550px !important;
+	}
+	.banner-six .slide-item h3 {
+		font-size: 18px;
+	}
 }
 @media only screen and (max-width: 479px) {
 	.banner-four .slider-box .slide-item {
@@ -1577,7 +1934,7 @@
 		top:360px;
 	}
 	.def-title-box h3 {
-		font-size: 20px;
+		font-size: 18px;
 	}
 
 	.banner-two .slide-item h2 {
@@ -1760,5 +2117,81 @@
 	.banner-section .owl-theme .owl-nav {
 		display: none;
 	}
-
+	/* about borna responsive */
+	.plans-section .text-col .text {
+		font-size: 12px;
+	}
+	.plans-section .image-col .image::before {
+		left: 20px;
+		top: 35px;
+		right: -12px;
+		bottom: -13px;
+	}
+	.plans-section .image-col .image .bg-pattern {
+		left: -17px;
+		top: -33px;
+		right: -26px;
+		bottom: -36px;
+	  }
+	  .popup-overlay {
+		transform: translate(-35%, -50%);
+		width: 70%;
+	  }
+	  .banner-six .slide-item .image-layer {
+		height: 65%;
+		width: 100% !important;
+		left: 0 !important;
+	  }
+	  .banner-six .slide-item .content-box {
+		padding-top: 0px;
+	  }
+	  .def-title-box .subtitle {
+		font-size: 10px;
+	  }
+	  .banner-six .slide-item .inner {
+		padding: 0px 20px 265px;
+	  }
+	  .banner-six {
+		padding: 0px;
+	  }
+	  .service-block .text {
+		font-size: 12px;
+	  }
+	  .customer-service h5 {
+		height: 30px !important;
+	  }
+	  .service-block .customerInner {
+		display: block !important;
+	  }
+	  .def-tabs-box .tab-buttons .tab-btn {
+		width: 108%;
+	  }
+	  .def-tabs-box .image-col .image img {
+		width: 100%;
+	  }
+	  .purposeContent {
+		font-size: 14px;
+	  }
+	  .catalogContent .catalogDesc {
+		font-size: 12px;
+	  }
+	  .accordion-box .block .content .text {
+		font-size: 14px;
+	  }
+	  .parent-row .tabs-col  .tabs-box .tab-buttons .tab-btn span  {
+		font-size: 14px;
+	  }
+	  .banner-six .slide-item .image-box {
+		top: 30%;
+		
+	  }
+	  .certificateZoomIn {
+		padding: 8px 14px;
+		top: 7%;
+  		right: 7%;
+  		padding: 4px 14px;
+	  }
+	  .banner-six .slide-item .content-box {
+		height: 715px;
+	}
 }
