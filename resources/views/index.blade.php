@@ -7,7 +7,7 @@
     {{ config('app.name', 'خانه') }}
 </title>
 
-<div class="body-bg-layer" style="background-color: #1a1a23;"></div>
+<div class="body-bg-layer" style="background-color: #15181b;"></div>
  <!-- Banner Two -->
             <section class="banner-two" id="to-top-div">
                 <div class="auto-container">
@@ -115,7 +115,7 @@
                                         <h5>اخبار و رویدادها</h5>
                                         <div class="text">
                                             <p>
-                                            آخرین اخبار و رویدادهای صنعت آجر را از طریق برناگستر دنبال کنید.  و از تازه‌ترین پروژه‌ها، تحولات و دستاوردهای تیم ما در این حوزه باخبر شوید.
+                                            آخرین اخبار و رویدادهای صنعت آجر را از طریق برناگستر دنبال کنید.و از تازه‌ترین پروژه‌ها، تحولات و دستاوردهای تیم ما در این حوزه باخبر شوید.
                                             </p>
                                         </div>
                                         <div class="link-box"><a href="/مقالات"><span class="far fa-angle-right"></span></a></div>
@@ -143,7 +143,7 @@
                                     <div class="inner">
                                     <div class="icon-box"><span class="fa-sharp fa-regular fa-trowel-bricks"></span></div>
                                         <h5>شبیه ساز</h5>
-                                        <div class="text">این دستگاه ابزاری است برای پیشبینی مدت زمان  خشک شدن انواع آجر و سفال با توجه به دما .رطوبت.و سرعت هوا</div>
+                                        <div class="text">این دستگاه ابزاری است برای پیشبینی مدت زمان  خشک شدن انواع آجر و سفال با توجه به دما، رطوبت و سرعت هوا</div>
                                         <div class="link-box"><a href="/شبیه-ساز"><span class="far fa-angle-right"></span></a></div>
                                     </div>
                                 </div>
@@ -221,7 +221,7 @@
                                     <div class="tab" id="tab-3">
                                         <div class="row clearfix mainTabContainer">
                                             <div class="image-col col-lg-5 col-md-5 col-sm-6">
-                                                <div class="image mainAboutUs"><img src="/assets/images/main-slider/pokht.jpg" alt=""></div>
+                                                <div class="image mainAboutUs"><img src="/assets/images/main-slider/indexconsultation.png" alt=""></div>
                                             </div>
                                             <div class="text-col col-lg-7 col-md-7 col-sm-6">
                                                 <div class="text purposeContent">
