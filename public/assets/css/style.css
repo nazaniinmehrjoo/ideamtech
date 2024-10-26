@@ -2546,6 +2546,9 @@ form label.error{
   display: block;
   width: 90%;
   border-radius: 20px;
+  max-width: 100%;
+  height: auto;
+  display: block;
 }
 
 .def-tabs-box .text-col{
