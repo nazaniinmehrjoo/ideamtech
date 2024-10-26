@@ -170,7 +170,7 @@ body {
   color: #ffffff;
   line-height: 1.60em;
   font-weight: 400;
-  background: #1a1a23;
+  background: #1a1a23 !important;
   -webkit-font-smoothing: antialiased;
   -moz-font-smoothing: antialiased;
   cursor: none;
@@ -3515,34 +3515,34 @@ form label.error{
 
 /*Pagination Style*/
 
-.styled-pagination{
-  position:relative;
+.styled-pagination {
+  position: relative;
+  list-style: none;
+  padding: 0;
 }
 
-.styled-pagination li{
-  position:relative;
-  float:left;
+.styled-pagination li {
+  position: relative;
+  float: left;
   font-family: 'IRANSans';
-  margin-right:20px;
+  margin-right: 20px;
 }
 
-.styled-pagination li a{
-  position:relative;
-  display:block;
-  line-height:24px;
+.styled-pagination li a,
+.styled-pagination li span {
+  position: relative;
+  display: block;
+  line-height: 24px;
   padding: 5px 9px;
-  font-size:14px;
-  font-weight:400;
-  color:#ffffff;
-  text-transform:uppercase;
-  transition:all 500ms ease;
-  -webkit-transition:all 500ms ease;
-  -ms-transition:all 500ms ease;
-  -o-transition:all 500ms ease;
-  -moz-transition:all 500ms ease;
+  font-size: 14px;
+  font-weight: 400;
+  color: #ffffff;
+  text-transform: uppercase;
+  transition: all 500ms ease;
 }
 
-.styled-pagination li a:after{
+.styled-pagination li a:after,
+.styled-pagination li span:after {
   content: '';
   position: absolute;
   left: 0;
@@ -3550,23 +3550,22 @@ form label.error{
   width: 100%;
   border-bottom: 1px solid rgba(255, 255, 255, 0.15);
   border-radius: 3px;
-  transition:all 500ms ease;
-  -webkit-transition:all 500ms ease;
-  -ms-transition:all 500ms ease;
-  -o-transition:all 500ms ease;
-  -moz-transition:all 500ms ease;
+  transition: all 500ms ease;
 }
 
 .styled-pagination li a:hover:after,
-.styled-pagination li.active a:after{
+.styled-pagination li.active a:after,
+.styled-pagination li.active span:after {
   border-bottom-width: 5px;
   border-color: #f05928;
 }
 
 .styled-pagination li a:hover,
-.styled-pagination li.active a{
+.styled-pagination li.active a,
+.styled-pagination li.active span {
   color: #ffffff;
 }
+
 
 /*** 
 
