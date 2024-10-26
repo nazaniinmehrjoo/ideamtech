@@ -1689,5 +1689,34 @@
     // returns the current jQuery object
     return this;
   };
+  $(document).ready(function() {
+    let popupTimeout;
+
+    $(".certificateZoomIn").on("click", function() {
+        clearTimeout(popupTimeout); 
+        const imageUrl = $(this).closest('.sertificate-box').find('.image-layer').css('background-image');
+        $(".popup-overlay").css({
+            'background-image': imageUrl,
+            'display': 'block'
+        }).fadeIn(300);
+    });
+
+    $(".popup-overlay").on("click", function() {
+        popupTimeout = setTimeout(function() {
+            $(".popup-overlay").fadeOut(300);
+        }, 100); 
+    });
+
+    
+    $(".popup-overlay").hover(
+        function() {
+            clearTimeout(popupTimeout);
+        },
+        function() {
+            $(this).fadeOut(300);
+        }
+    );
+});
+
 
 })(jQuery);
