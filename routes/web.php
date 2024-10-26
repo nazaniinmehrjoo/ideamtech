@@ -41,6 +41,7 @@ Route::get('/پیوستن-به-خانواده-برناگستر', function () {
 
 // Blog Routes
 Route::get('/مقالات', [BlogController::class, 'index'])->name('blog.index');
+Route::resource('blog', BlogController::class);
 
 // Track product clicks
 Route::post('/products/{product}/click', [ProductController::class, 'trackClick'])->name('products.trackClick');
@@ -100,7 +101,7 @@ Route::middleware(['isAdmin'])->group(function () {
     Route::post('/customer/export', [CustomerFormController::class, 'export'])->name('customer.export');
 
     // Blog management for admins
-    Route::resource('blog', BlogController::class);
+    
 });
 
 // No-access route for users without admin privileges
