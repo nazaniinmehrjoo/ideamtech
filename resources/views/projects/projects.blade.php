@@ -1,124 +1,14 @@
 @extends('layouts.app')
 
 @section('content')
-      <!-- Banner Section -->
-      <section class="banner-ten">
-                <div class="banner-container">
-                    <div class="banner-slider-outer">
-                        <div class="slider-box">
-                            <div class="banner-slider-eight">
-                                <!--Slide Item-->
-                                <div class="slide-item">
-                                    <div class="image-layer" style="background-image: url(/assets/images/main-slider/image-18.jpg);"></div>
-                                    <div class="auto-container">
-                                        <div class="content-box">
-                                            <div class="content">
-                                                <div class="clearfix">
-                                                    <div class="inner">
-                                                        <h4>Smart Technology</h4>
-                                                        <h1><span>Branding & <br>Website Design</span></h1>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="bottom-content">
-                                        <div class="auto-container">
-                                            <div class="bottom-inner">
-                                                <div class="count"><span>01</span></div>
-                                                <div class="text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="slide-count"><span>01</span></div>
-                                </div>
-                                <!--Slide Item-->
-                                <div class="slide-item">
-                                    <div class="image-layer" style="background-image: url(/assets/images/main-slider/image-13.jpg);"></div>
-                                    <div class="auto-container">
-                                        <div class="content-box">
-                                            <div class="content">
-                                                <div class="clearfix">
-                                                    <div class="inner">
-                                                        <h4>Smart Technology</h4>
-                                                        <h1><span>Branding & <br>Website Design</span></h1>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="bottom-content">
-                                        <div class="auto-container">
-                                            <div class="bottom-inner">
-                                                <div class="count"><span>02</span></div>
-                                                <div class="text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="slide-count"><span>02</span></div>
-                                </div>
-                                <!--Slide Item-->
-                                <div class="slide-item">
-                                    <div class="image-layer" style="background-image: url(/assets/images/main-slider/image-14.jpg);"></div>
-                                    <div class="auto-container">
-                                        <div class="content-box">
-                                            <div class="content">
-                                                <div class="clearfix">
-                                                    <div class="inner">
-                                                        <h4>Smart Technology</h4>
-                                                        <h1><span>Branding & <br>Website Design</span></h1>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="bottom-content">
-                                        <div class="auto-container">
-                                            <div class="bottom-inner">
-                                                <div class="count"><span>03</span></div>
-                                                <div class="text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="slide-count"><span>03</span></div>
-                                </div>
-                                <!--Slide Item-->
-                                <div class="slide-item">
-                                    <div class="image-layer" style="background-image: url(/assets/images/main-slider/image-16.jpg);"></div>
-                                    <div class="auto-container">
-                                        <div class="content-box">
-                                            <div class="content">
-                                                <div class="clearfix">
-                                                    <div class="inner">
-                                                        <h4>Smart Technology</h4>
-                                                        <h1><span>Branding & <br>Website Design</span></h1>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="bottom-content">
-                                        <div class="auto-container">
-                                            <div class="bottom-inner">
-                                                <div class="count"><span>04</span></div>
-                                                <div class="text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="slide-count"><span>04</span></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            <!--End Banner Section -->
-<div class="container mt-5">
-    <!-- Introduction Section -->
-    <div class="intro-section text-center">
-        <h2>مشتریان ما</h2>
-        <p>ما با افتخار پروژه‌های متعدد در زمینه‌های مختلف برای مشتریانمان انجام داده‌ایم. از خدمات مهندسی گرفته تا نصب و راه‌اندازی، در این صفحه می‌توانید پروژه‌های انجام‌شده و در حال انجام ما را مشاهده کنید.</p>
-    </div>
+
+
+    <div class="container mt-5">
+        <!-- Introduction Section -->
+        <div class="intro-section text-center">
+            <h2>مشتریان ما</h2>
+            <p>ما با افتخار پروژه‌های متعدد در زمینه‌های مختلف برای مشتریانمان انجام داده‌ایم. از خدمات مهندسی گرفته تا نصب و راه‌اندازی، در این صفحه می‌توانید پروژه‌های انجام‌شده و در حال انجام ما را مشاهده کنید.</p>
+        </div>
 
     <!-- Stats and Highlights Section -->
     <div class="row mt-5">
