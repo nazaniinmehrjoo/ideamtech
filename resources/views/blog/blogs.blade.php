@@ -25,27 +25,30 @@
                 <div class="news">
                     <div class="row clearfix">
                         @foreach($posts as $post)
-                            <div class="news-block col-xl-4 col-lg-6 col-md-6 col-sm-12">
-                                <div class="inner-box">
-                                    <div class="image-box">
+                            <div class="news-block col-12">
+                                <div class="inner-box d-flex custom-bg-color">
+                                    <!-- Image on the left side with category and date under it -->
+                                    <div class="custom-image-container">
                                         <a href="{{ route('blog.show', $post->id) }}">
                                             <img src="{{ asset('storage/' . $post->image) }}" alt="{{ $post->title }}">
                                         </a>
+                                        <div class="image-info">
+                                            <div class="cat">
+                                                <i class="far fa-folder"></i> {{ $post->category }}
+                                            </div>
+                                            <div class="time">
+                                                <i class="far fa-clock"></i> {{ \Carbon\Carbon::parse($post->created_at)->diffForHumans() }}
+                                            </div>
+                                        </div>
                                     </div>
-                                    <div class="lower">
+                                    <!-- Description on the right side -->
+                                    <div class="content-container">
                                         <h4>
                                             <a href="{{ route('blog.show', $post->id) }}">
                                                 {{ $post->title }}
                                             </a>
                                         </h4>
-                                        <div class="info">
-                                            <div class="cat i-block">
-                                                <i class="far fa-folder"></i> {{ $post->category }}
-                                            </div>
-                                            <div class="time i-block">
-                                                <i class="far fa-clock"></i> {{ \Carbon\Carbon::parse($post->created_at)->diffForHumans() }}
-                                            </div>
-                                        </div>
+                                        <p>{{ Str::limit($post->content, 150) }}</p>
                                         <div class="link-box">
                                             <a href="{{ route('blog.show', $post->id) }}" class="theme-btn">
                                                 ادامه مطلب <i class="far fa-long-arrow-alt-right"></i>
@@ -60,10 +63,77 @@
 
                 <!-- Pagination -->
                 <div class="styled-pagination">
-                    {{ $posts->links() }}
+                    {{ $posts->links('vendor.pagination.default') }}
                 </div>
             </div>
         </section>
     </div>
 </div>
+<style>
+.inner-box {
+    display: flex;
+    flex-direction: row; 
+    gap: 15px;
+    border: 1px solid #333333; 
+    padding: 10px; 
+    align-items: stretch; 
+    background-color: #282828; 
+    color: #f0f0f0; 
+}
+
+/* Image container adjustments */
+.custom-image-container {
+    width: 50%; 
+    overflow: hidden;
+    display: flex;
+    flex-direction: column; 
+}
+
+.custom-image-container img {
+    width: 100%;
+    height: auto; 
+    object-fit: cover; 
+}
+
+/* Category and date styling under the image */
+.image-info {
+    padding: 10px 0;
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+    color: #b0b0b0; 
+    border-radius:18px;
+}
+
+/* Content container adjustments */
+.content-container {
+    width: 50%; 
+    display: flex;
+    flex-direction: column;
+    justify-content: center; 
+    padding-left: 15px;
+}
+
+.content-container p {
+    margin-top: 10px;
+    font-size: 15px; 
+    color: #dddddd; 
+    direction:rtl;
+}
+
+.link-box a.theme-btn {
+    background-color: #444444;
+    color: #ffffff; 
+    padding: 8px 15px;
+    text-decoration: none;
+    border-radius: 4px; 
+    display: inline-block;
+    margin-top: 10px;
+}
+
+.link-box a.theme-btn:hover {
+    background-color: #555555; 
+}
+
+</style>
 @endsection

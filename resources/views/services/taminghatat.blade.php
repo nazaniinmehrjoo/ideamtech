@@ -4,20 +4,20 @@
 
 <div class="main-content-container main-responsive-container">
 
-    <!-- Banner Section -->
-    <section class="banner-three">
-        <div class="banner-container">
-            <div class="banner-slider-two owl-theme owl-carousel">
+    <!-- Portfolio Section -->
+    <section class="portfolio-one">
+        <div class="outer-container">
+            <div class="row clearfix">
                 @foreach($services as $key => $service)
-                <!-- Slide Item -->
-                <div class="slide-item">
-                    <div class="image-layer" style="background-image: url({{ asset('storage/' . json_decode($service->banner_images)[0]) }});"></div>
-
-                    <div class="slide-count"><span>{{ $key + 1 }}</span></div>
-                    <div class="content-box">
-                        <div class="content">
+                <!--Portfolio Item-->
+                <div class="portfolio-item-one col-xl-3 col-lg-4 col-md-6 col-sm-12">
+                    <div class="inner-box">
+                        <div class="image-container">
+                            <img src="{{ asset('storage/' . json_decode($service->banner_images)[0]) }}" alt="{{ $service->title }}" class="service-image">
+                        </div>
+                        <div class="overlay">
                             <div class="inner">
-                                <h3><a href="#">{{ $service->title }}</a></h3>
+                                <h5><a href="#">{{ $service->title }}</a></h5>
                                 <div class="cat"><span>{{ $service->category ?? 'بدون دسته‌بندی' }}</span></div>
                             </div>
                         </div>
@@ -27,7 +27,21 @@
             </div>
         </div>
     </section>
-    <!--End Banner Section -->
-
 </div>
 @endsection
+<style>
+    .image-container {
+    max-width: 354px;
+    max-height: 296px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.service-image {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: cover; 
+}
+</style>
