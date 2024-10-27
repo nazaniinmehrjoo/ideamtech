@@ -1,22 +1,22 @@
-@extends('layouts.app')
+@extends('layouts.app2')
 
 @section('content')
 <div class="container">
-    <h1>Projects</h1>
-    <a href="{{ route('projects.create') }}" class="btn btn-primary">Create New Project</a>
+    <h1>مدیریت پروژه ها</h1>
+    <a href="{{ route('projects.create') }}" class="btn btn-primary">ایجاد</a>
 
     @if(session('success'))
         <div class="alert alert-success">{{ session('success') }}</div>
     @endif
 
-    <table class="table table-striped">
+    <table class="table table-striped" srtle="direction:rtl">
         <thead>
             <tr>
-                <th>Project Name</th>
-                <th>Client</th>
-                <th>Start Date</th>
-                <th>Status</th>
-                <th>Actions</th>
+                <th>نام پروژه</th>
+                <th>کارفرما</th>
+                <th>تاریخ شروع</th>
+                <th>وضعیت</th>
+                <th>عملیات</th>
             </tr>
         </thead>
         <tbody>

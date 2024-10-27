@@ -12,26 +12,26 @@
   <!-- Dashboard Grid -->
   <div class="dashboard-grid">
     
-    <!-- Products Management Card -->
+   <!-- Products Management Card -->
     <div class="dashboard-card shadow-lg">
-      <div class="card-icon">
-        <i class="fas fa-box"></i>
-      </div>
-      <h3>مدیریت محصولات</h3>
-      <p>افزودن، ویرایش و حذف محصولات  شما.</p>
-      <div class="action-btns">
-        <!-- Icons for CRUD actions -->
-        <a href="{{ route('products.create') }}" class="btn btn-outline-light"><i class="fas fa-plus"></i></a>
-        <a href="{{ route('products.index') }}" class="btn btn-outline-light"><i class="fas fa-eye"></i></a>
-        @if(isset($mostClickedProducts) && $mostClickedProducts->isNotEmpty())
-          @foreach ($mostClickedProducts as $product)
-            <a href="{{ route('products.edit', $product->id) }}" class="btn btn-outline-light"><i class="fas fa-edit"></i></a>
-          @endforeach
-        @else
-          <p>هیچ محصولی برای نمایش وجود ندارد.</p>
-        @endif
-      </div>
+        <div class="card-icon">
+            <i class="fas fa-box"></i>
+        </div>
+        <h3>مدیریت پروژه ها</h3>
+        <p>افزودن، ویرایش و حذف محصولات شما.</p >
+        <div class="action-btns">
+            <!-- Button to create a new product -->
+            <a href="{{ route('products.create') }}" class="btn btn-outline-light" title="ایجاد محصول جدید">
+                <i class="fas fa-plus"></i> <!-- Create Icon -->
+            </a>
+
+            <!-- Button to show all products -->
+            <a href="{{ route('products.index') }}" class="btn btn-outline-light" title="نمایش همه محصولات">
+                <i class="fas fa-eye"></i> <!-- Show Icon -->
+            </a>
+        </div>
     </div>
+
 
     <!-- Categories Management Card -->
     <div class="dashboard-card shadow-lg">
@@ -58,8 +58,8 @@
       <div class="card-icon">
         <i class="fas fa-concierge-bell"></i>
       </div>
-      <h3>مدیریت سرویس</h3>
-      <p>افزودن، ویرایش و حذف سرویس ارائه‌شده به مشتریان.</p>
+      <h3>مدیریت خدمات</h3>
+      <p>افزودن، ویرایش و حذف خدمات ارائه‌شده به مشتریان.</p>
       <div class="action-btns">
         <a href="{{ route('services.create') }}" class="btn btn-outline-light"><i class="fas fa-plus"></i></a>
         <a href="{{ route('services.index') }}" class="btn btn-outline-light"><i class="fas fa-eye"></i></a>
