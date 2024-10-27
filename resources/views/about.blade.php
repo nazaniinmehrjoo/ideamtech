@@ -3,6 +3,9 @@
 <br>
 <br>
             <!--Plans Section-->
+            <div class="popup-overlay" id="popupOverlay" onclick="hidePopup()">
+                <img src="" id="popupImage" alt="">
+            </div>
             <section class="plans-section">
                 <div class="auto-container">
                     <div class="row clearfix">
@@ -31,10 +34,10 @@
                                         نوآوران برنا گستر پارسی متعهدانه از طراحی تا اجرا همراه صنعتگران محترم خواهد بود.
                                     </p>
                                     <ul>
-                                        <li>پیشرودر طراحی ساخت ماشین آلات آجر</li>
-                                        <li>پیشرو در تکنولوژی روز دنیا</li>
-                                        <li>مشاوره در ساخت کارخانه‌جات آجر</li>
-                                        <li>تعهد در خدمات پس از فروش</li>
+                                        <li><i class="fa-light fa-trophy-star"></i>پیشرودر طراحی ساخت ماشین آلات آجر</li>
+                                        <li><i class="fa-light fa-trophy-star"></i>پیشرو در تکنولوژی روز دنیا</li>
+                                        <li><i class="fa-light fa-trophy-star"></i>مشاوره در ساخت کارخانه‌جات آجر</li>
+                                        <li><i class="fa-light fa-trophy-star"></i>تعهد در خدمات پس از فروش</li>
                                     </ul>
                                 </div>
                             </div>
@@ -43,35 +46,164 @@
                     </div>
                 </div>
             </section>
-                   <!--Services Section-->
-                   <section class="services-section">
-                <div class="auto-container">
-                    <div class="def-title-box">
-                        <div class="patt"><span></span></div>
-                        <!-- <div class="subtitle">سفر مشتریان و پروژه‌ها</div> -->
-                        <h3> داستان‌ها و دستاوردهای ما</h3>
-                    </div>
-                    <div class="services">
-                        <div class="row clearfix">
-                            <!--Block-->
-                            <div class="service-block col-xl-12 col-lg-12 col-md-6 col-sm-12">
-                                <div class="inner-box">
-                                    <div class="inner">
-                                    <div class="icon-box"><span class="fa-regular fa-users"></span></div>
-                                        <h5>رضایت مشتری</h5>
-                                        <div class="text">رضایت مشتریان، اولویت ماست. تیم برناگستر با خدمات حرفه‌ای و پشتیبانی مستمر، تجربه‌ای مطمئن و رضایت‌بخش را برای شما فراهم می‌کند.</div>
-                                        <div class="link-box"><a href="/مشتریان-ما"><span class="far fa-angle-right"></span></a></div>
+
+
+            <!--Team Section-->
+            <section class="banner-six">
+                
+                <div class="banner-container">
+                    <div class="auto-container">
+                        <div class="def-title-box">
+                            <div class="patt"><span></span></div>
+                            <div class="subtitle">گواهینامه‌ها و ثبت اختراعات</div>
+                            <h3>گواهی‌نامه‌های برتر</h3>
+                        </div>
+                        <div class="banner-slider-four owl-theme owl-carousel">
+                            <!--Slide Item-->
+                            <div class="slide-item">
+                                <div class="content-box">
+                                    <div class="content">
+                                        <div class="slide-count"><span>01</span></div>
+                                        <div class="image-box sertificate-box">
+                                            <div class="image-layer" style="background-image: url(/assets/images/resource/a1.jpg);"></div>
+                                            <div class="certificateZoomIn">
+                                               <i class="fa-sharp fa-regular fa-arrows-maximize"></i>
+                                            </div>
+                                            <div class="inner">
+                                                <h3>طراحی و ساخت پره فن</h3>
+                                                <div class="cat"><span>۰۲۴۵۵۴ الف/۸۹</span></div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                            
+
+                            <!--Slide Item-->
+                            <div class="slide-item alt">
+                                <div class="content-box">
+                                    <div class="content">
+                                        <div class="slide-count"><span>02</span></div>
+                                        <div class="image-box sertificate-box">
+                                            <div class="image-layer" style="background-image: url(/assets/images/resource/a2.jpg);"></div>
+                                            <div class="certificateZoomIn">
+                                               <i class="fa-sharp fa-regular fa-arrows-maximize"></i>
+                                            </div>
+                                            <div class="inner">
+                                                <h3>دستگاه مکانیزه</h3>
+                                                <div class="cat"><span>۰۲۹۲۳۵ الف/۸۹</span></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!--Slide Item-->
+                            <div class="slide-item">
+                                <div class="content-box">
+                                    <div class="content">
+                                        <div class="slide-count"><span>03</span></div>
+                                        <div class="image-box sertificate-box">
+                                            <div class="image-layer" style="background-image: url(/assets/images/resource/a3.jpg);"></div>
+                                            <div class="certificateZoomIn">
+                                               <i class="fa-sharp fa-regular fa-arrows-maximize"></i>
+                                            </div>
+                                            <div class="inner">
+                                                <h3>ربات بارگیری خشت</h3>
+                                                <div class="cat"><span>۰۲۴۵۵۴ الف/۸۹</span></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!--Slide Item-->
+                            <div class="slide-item alt">
+                                <div class="content-box">
+                                    <div class="content">
+                                        <div class="slide-count"><span>04</span></div>
+                                        <div class="image-box sertificate-box">
+                                            <div class="image-layer" style="background-image: url(/assets/images/resource/a1.jpg);"></div>
+                                            <div class="certificateZoomIn">
+                                               <i class="fa-sharp fa-regular fa-arrows-maximize"></i>
+                                            </div>
+                                            <div class="inner">
+                                                <h3>City View</h3>
+                                                <div class="cat"><span>wallpapers</span></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!--Slide Item-->
+                            <!-- <div class="slide-item">
+                                <div class="content-box">
+                                    <div class="content">
+                                        <div class="slide-count"><span>05</span></div>
+                                        <div class="image-box">
+                                            <div class="image-layer" style="background-image: url(images/main-slider/image-8.jpg);"></div>
+                                            <div class="inner">
+                                                <h3><a href="#">City View</a></h3>
+                                                <div class="cat"><span>wallpapers</span></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div> -->
+
+                            <!--Slide Item-->
+                            <!-- <div class="slide-item alt">
+                                <div class="content-box">
+                                    <div class="content">
+                                        <div class="slide-count"><span>06</span></div>
+                                        <div class="image-box">
+                                            <div class="image-layer" style="background-image: url(images/main-slider/image-9.jpg);"></div>
+                                            <div class="inner">
+                                                <h3><a href="#">City View</a></h3>
+                                                <div class="cat"><span>wallpapers</span></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div> -->
+
+                            <!--Slide Item-->
+                            <!-- <div class="slide-item">
+                                <div class="content-box">
+                                    <div class="content">
+                                        <div class="slide-count"><span>07</span></div>
+                                        <div class="image-box">
+                                            <div class="image-layer" style="background-image: url(images/main-slider/image-10.jpg);"></div>
+                                            <div class="inner">
+                                                <h3><a href="#">City View</a></h3>
+                                                <div class="cat"><span>wallpapers</span></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div> -->
+
+                            <!--Slide Item-->
+                            <!-- <div class="slide-item alt">
+                                <div class="content-box">
+                                    <div class="content">
+                                        <div class="slide-count"><span>08</span></div>
+                                        <div class="image-box">
+                                            <div class="image-layer" style="background-image: url(images/main-slider/image-11.jpg);"></div>
+                                            <div class="inner">
+                                                <h3><a href="#">City View</a></h3>
+                                                <div class="cat"><span>wallpapers</span></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div> -->
+
                         </div>
                     </div>
                 </div>
             </section>
-
-            <!--Team Section-->
-            <section class="team-section">
+            <!-- <section class="team-section">
                 <div class="auto-container">
                     <div class="def-title-box">
                         <div class="patt"><span></span></div>
@@ -81,7 +213,6 @@
 
                     <div class="team">
                         <div class="row clearfix">
-                            <!--Block-->
                             <div class="team-block col-xl-4 col-lg-6 col-md-6 col-sm-12">
                                 <div class="inner-box">
                                     <div class="image-box"><a href="#"><img src="/assets/images/resource/a1.jpg" alt=""></a></div>
@@ -95,7 +226,6 @@
                                 </div>
                             </div>
 
-                            <!--Block-->
                             <div class="team-block col-xl-4 col-lg-6 col-md-6 col-sm-12">
                                 <div class="inner-box">
                                     <div class="image-box"><a href="#"><img src="/assets/images/resource/a2.jpg" alt=""></a></div>
@@ -109,7 +239,6 @@
                                 </div>
                             </div>
 
-                            <!--Block-->
                             <div class="team-block col-xl-4 col-lg-6 col-md-6 col-sm-12">
                                 <div class="inner-box">
                                     <div class="image-box"><a href="#"><img src="/assets/images/resource/a3.jpg" alt=""></a></div>
@@ -127,6 +256,43 @@
                     </div>
 
                 </div>
+            </section> -->
+
+            <!--Services Section-->
+            <section class="services-section">
+                <div class="auto-container">
+                    <div class="def-title-box">
+                        <div class="patt"><span></span></div>
+                        <!-- <div class="subtitle">سفر مشتریان و پروژه‌ها</div> -->
+                        <h3> داستان‌ها و دستاوردهای ما</h3>
+                    </div>
+                    <div class="services">
+                        <div class="row clearfix">
+                            <!--Block-->
+                            <div class="service-block customer-service col-xl-12 col-lg-12 col-md-12 col-sm-12">
+                                <div class="inner-box">
+                                    <div class="inner">
+                                    <div class="icon-box customerIconBox"><span class="fa-regular fa-users"></span></div>
+                                    
+                                        <h5>رضایت مشتری</h5>
+                                        <div class="customerInner">
+                                            <div class="image-content">
+                                                <img src="/assets/images/main-slider/modernbrik.png" alt="Custom Image">
+                                            </div>
+                                            <div>
+                                                <p class="text"> رضایت مشتریان، اولویت ماست. تیم برناگستر با خدمات حرفه‌ای و پشتیبانی مستمر، تجربه‌ای مطمئن و رضایت‌بخش را برای شما فراهم می‌کند.</p>
+                                                <div class="link-box"><a href="/مشتریان-ما"><span class="far fa-angle-right"></span></a></div>
+                                            </div>
+                                      
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
             </section>
 
             <!--Services Section-->
@@ -139,7 +305,7 @@
                     </div>
 
                     <div class="row parent-row clearfix">
-                        <div class="tabs-col col-xl-6 col-lg-12 col-md-12 col-sm-12">
+                        <div class="tabs-col  col-xl-6 col-lg-12 col-md-12 col-sm-12">
                             <div class="tabs-box def-tabs-box">
                                 <ul class="tab-buttons clearfix">
                                     <li class="tab-btn active-btn" data-tab="#tab-1"><span>کاتالوگ</span></li>
@@ -151,7 +317,7 @@
                                     <div class="tab active-tab" id="tab-1">
                                         <div class="row clearfix">
                                             <div class="image-col col-lg-5 col-md-5 col-sm-6">
-                                                <div class="image mainAboutUs"><img src="/assets/images/resource/catalog.png" alt=""></div>
+                                                <div class="image mainAboutBorna"><img src="/assets/images/resource/catalog.png" alt=""></div>
                                             </div>
                                             <div class="text-col catalogContent col-lg-7 col-md-7 col-sm-6">
                                             <div class="text purposeContent">
@@ -169,12 +335,12 @@
 
                                     <!--Tab-->
                                     <div class="tab" id="tab-2">
-                                        <div class="row clearfix">
+                                        <div class="row clearfix mainTabContainer">
                                             <div class="image-col col-lg-5 col-md-5 col-sm-6">
-                                                <div class="image mainAboutUs"><img src="/assets/images/resource/taeede.jpg" alt=""></div>
+                                                <div class="image mainAboutBorna"><img src="/assets/images/resource/taeede.jpg" alt=""></div>
                                             </div>
                                             <div class="text-col col-lg-7 col-md-7 col-sm-6">
-                                                <div class="text">
+                                                <div class="text purposeContent">
                                                <p>اخذ تأییدیه فنی و گواهی حسن انجام کار پس از تحویل پروژه به معنای اطمینان از رعایت کامل استانداردهای کیفی و فنی در تمامی مراحل اجرایی پروژه است. این تأییدیه، بیانگر این است که پروژه مطابق با مشخصات فنی و نیازهای تعیین شده توسط کارفرما اجرا شده و تمامی مراحل طراحی، ساخت، نصب و بهره‌برداری به‌صورت صحیح و بدون نقص انجام شده‌اند.</p>
                                                 </div>
                                             </div>
@@ -183,9 +349,9 @@
 
                                     <!--Tab-->
                                     <div class="tab" id="tab-3">
-                                        <div class="row clearfix">
+                                        <div class="row clearfix mainTabContainer">
                                             <div class="image-col col-lg-5 col-md-5 col-sm-6">
-                                                <div class="image mainAboutUs"><img src="/assets/images/main-slider/pokht.jpg" alt=""></div>
+                                                <div class="image mainAboutBorna"><img src="/assets/images/main-slider/pokht.jpg" alt=""></div>
                                             </div>
                                             <div class="text-col col-lg-7 col-md-7 col-sm-6">
                                             <div class="text purposeContent">
@@ -280,6 +446,7 @@
                     </div>
                 </div>
             </section>
+
 @endsection
         
     

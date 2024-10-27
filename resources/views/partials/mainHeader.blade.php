@@ -20,12 +20,12 @@
             <div class="social-links">
                 <ul class="clearfix">
                     <li><a href="#"><span class="fab fa-instagram"></span></a></li>
-                    <li><a href="#"><span class="fab fa-twitter-square"></span></a></li>
+                    <li><a href="#"><span class="fab fa-whatsapp"></span></a></li>
                     <li><a href="#"><span class="fab fa-facebook-square"></span></a></li>
                 </ul>
             </div>
             <!--Copyright Text-->
-            <div class="copyright">&copy; BornaGostar-Parsi</div>
+            <div class="copyright">&copy;BornaGostar-Parsi</div>
 
             <!--Alt Logo Box-->
             <div class="alt-logo-box">
