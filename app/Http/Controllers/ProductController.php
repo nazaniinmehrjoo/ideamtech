@@ -12,49 +12,12 @@ class ProductController extends Controller
 {
     public function index()
     {
-        // Fetch product data
         $products = Product::all();
         $categories = Category::all();
-    
-        // Headers for Products and Categories
-        $productHeaders = [
-            'ریف',
-            'نام محصول',
-            'دسته‌بندی',
-            'توضیحات',
-            'تصویر',
-            'نام صفحه',
-            'عملیات'
-        ];
         
-        $categoryHeaders = [
-            'ردیف',
-            'نام دسته بندی',
-            'نام صفحه',
-            'عملیات'
-        ];
-    
-        $serviceHeaders = [
-            'شناسه',
-            'نام خدمت',
-            'دسته‌بندی',
-            'توضیحات',
-            'تصاویر',
-            'عملیات'
-        ];
-    
-        // Fetch the most viewed and clicked products data for chart
-        $mostViewedAndClickedProducts = $this->getMostViewedAndClickedProducts();
-        // Return the view with all data
-        return view('admin.dashboard', compact(
-            'products', 
-            'categories', 
-            'productHeaders', 
-            'categoryHeaders', 
-            'serviceHeaders', 
-            'mostViewedAndClickedProducts' // Ensure this is passed to the view
-        ));
+        return view('products.index', compact('products', 'categories'));
     }
+
     // Function to get the most viewed and clicked products for each month
     public function getMostViewedAndClickedProducts()
     {
@@ -124,7 +87,7 @@ class ProductController extends Controller
         // Create product
         Product::create($data);
 
-        return redirect()->route('dashboard')->with('success', 'محصول با موفقیت ایجاد شد.');
+        return redirect()->route('products.index')->with('success', 'محصول با موفقیت ایجاد شد.');
     }
 
     // Edit product method
@@ -155,7 +118,7 @@ class ProductController extends Controller
         $product->update($data);
 
         // Redirect to the dashboard
-        return redirect()->route('dashboard')->with('success', 'محصول با موفقیت ویرایش شد.');
+        return redirect()->route('products.index')->with('success', 'محصول با موفقیت ویرایش شد.');
     }
 
     // Destroy (delete) product method
