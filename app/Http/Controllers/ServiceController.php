@@ -6,15 +6,31 @@ use Illuminate\Http\Request;
 
 class ServiceController extends Controller
 {
-        
-        public function index()
-        {
+            
+    public function index(Request $request)
+    {
+        $validPages = [
+            'consulting' => 'show_on_consulting',
+            'parts_repairs' => 'show_on_parts_repairs',
+            'engineering' => 'show_on_engineering',
+            'installation' => 'show_on_installation',
+            'after_sales' => 'show_on_after_sales',
+        ];
+    
+        $pageName = $request->query('page_name', 'all_services');
+    
+        if (isset($validPages[$pageName])) {
+            $services = Service::where($validPages[$pageName], true)->get();
+            $pageDisplayName = ucfirst(str_replace('_', ' ', $pageName));
+        } else {
             $services = Service::all();
-            $serviceTitles = $services->pluck('title');
-            $serviceViews = $services->pluck('views');
-            $serviceClicks = $services->pluck('clicks');
-            return view('services.index', compact('services'));
+            $pageDisplayName = 'All Services';
         }
+    
+        return view('services.index', compact('services', 'pageDisplayName'));
+    }
+    
+    
     
         public function create()
         {
@@ -48,7 +64,7 @@ class ServiceController extends Controller
                 'show_on_after_sales' => $request->page_name == 'after_sales' ? 1 : 0,
             ]);
     
-            return redirect()->route('dashboard')->with('success', 'Service created successfully.');
+            return redirect()->route('services.index')->with('success', 'Service created successfully.');
         }
     
         public function edit(Service $service)
@@ -89,17 +105,17 @@ class ServiceController extends Controller
                 'show_on_after_sales' => $request->page_name == 'after_sales' ? 1 : 0,
             ]);
         
-            return redirect()->route('dashboard')->with('success', 'Service updated successfully.');
+            return redirect()->route('services.index')->with('success', 'سرویس با موفقبت ویرایش یافت.');
         }
         
 
         
-        public function destroy(Service $services)
-    {
-        $services->delete();
-        return redirect()->route('dashboard')->with('success', 'سرویس با موفقیت حذف شد.');
+        public function destroy(Service $service)
+        {
+            $service->delete();
+            return redirect()->route('services.index')->with('success', 'Service deleted successfully.');
+        }
 
-    }
         public function consulting()
         {
             $services = Service::where('show_on_consulting', true)->get();

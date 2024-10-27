@@ -9,10 +9,8 @@ class Service extends Model
 {
     use HasFactory;
 
-    
     protected $table = 'services';
 
-    
     protected $fillable = [
         'title',           
         'category',        
@@ -28,4 +26,32 @@ class Service extends Model
     protected $casts = [
         'banner_images' => 'array',
     ];
+
+    // Accessor to get the display pages for each service
+    public function getDisplayPagesAttribute()
+    {
+        $pages = [];
+    
+        // Define valid page flags and their corresponding display names
+        $validPages = [
+            'Consulting' => 'show_on_consulting',
+            'Parts Repairs' => 'show_on_parts_repairs',
+            'Engineering' => 'show_on_engineering',
+            'Installation' => 'show_on_installation',
+            'After Sales' => 'show_on_after_sales',
+        ];
+    
+        // Check each flag and add the page to $pages if the flag is true
+        foreach ($validPages as $page => $column) {
+            if ($this->$column) {
+                $pages[] = $page;
+            }
+        }
+    
+        \Log::info('Display pages for service ID ' . $this->id . ': ' . json_encode($pages)); // Log for debugging
+    
+        return $pages;
+    }
+    
+    
 }
