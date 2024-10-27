@@ -40,8 +40,8 @@ Route::get('/پیوستن-به-خانواده-برناگستر', function () {
 
 
 // Blog Routes
-Route::get('/مقالات', [BlogController::class, 'index'])->name('blog.index');
-Route::resource('blog', BlogController::class);
+Route::get('/مقالات', [BlogController::class, 'publicIndex'])->name('blog.publicIndex');
+Route::get('/مقالات/{id}', [BlogController::class, 'show'])->name('blog.show'); 
 
 // Track product clicks
 Route::post('/products/{product}/click', [ProductController::class, 'trackClick'])->name('products.trackClick');
@@ -96,6 +96,11 @@ Route::middleware(['isAdmin'])->group(function () {
     Route::resource('categories', CategoryController::class);
     Route::resource('services', ServiceController::class);
     Route::resource('customer', CustomerFormController::class);
+    Route::get('/dashboard/blog', [BlogController::class, 'index'])->name('blog.index');
+    Route::resource('blog', BlogController::class)->except(['index', 'show']);
+    
+
+
 
     // Customer export functionality
     Route::post('/customer/export', [CustomerFormController::class, 'export'])->name('customer.export');

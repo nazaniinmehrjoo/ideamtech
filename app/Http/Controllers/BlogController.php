@@ -7,21 +7,26 @@ use Illuminate\Http\Request;
 
 class BlogController extends Controller
 {
-    // Display a listing of the posts
-    public function index()
+
+    public function publicIndex()
     {
         $posts = Post::orderBy('created_at', 'desc')->paginate(3);
-
+        
         return view('blog.blogs', compact('posts'));
     }
 
-    // Show the form for creating a new post
+    public function index()
+    {
+        $posts = Post::orderBy('created_at', 'desc')->paginate(3); 
+
+        return view('blog.index', compact('posts')); 
+    }
+
     public function create()
     {
         return view('blog.create');
     }
 
-    // Store a newly created post in the database
     public function store(Request $request)
     {
         $request->validate([
@@ -97,7 +102,7 @@ class BlogController extends Controller
         $post->category = $request->input('category');
         $post->save();
 
-        return redirect()->route('blog.index')->with('success', 'Post updated successfully!');
+        return redirect()->route('blog.index')->with('success', 'تغیررات با موفقیت ثبت شد!');
     }
 
     // Remove the specified post from the database
