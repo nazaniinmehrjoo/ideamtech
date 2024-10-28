@@ -4,10 +4,13 @@ namespace App\Http\Controllers;
 
 use App\Models\Post;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log; 
 
 class BlogController extends Controller
 {
-
+    /**
+     * Display a listing of the blog posts.
+     */
     public function publicIndex()
     {
         $posts = Post::orderBy('created_at', 'desc')->paginate(3);
@@ -15,25 +18,34 @@ class BlogController extends Controller
         return view('blog.blogs', compact('posts'));
     }
 
+    /**
+     * Display a listing of the blog posts for the admin.
+     */
     public function index()
     {
-        $posts = Post::orderBy('created_at', 'desc')->paginate(3); 
+        $posts = Post::orderBy('created_at', 'desc')->paginate(6);
 
-        return view('blog.index', compact('posts')); 
+        return view('blog.index', compact('posts'));
     }
 
+    /**
+     * Show the form for creating a new blog post.
+     */
     public function create()
     {
         return view('blog.create');
     }
 
+    /**
+     * Store a newly created blog post in the database.
+     */
     public function store(Request $request)
     {
         $request->validate([
             'title' => 'required|max:255',
             'category' => 'required|max:255',
             'content' => 'required',
-            'image' => 'nullable|image|max:2048',
+            'image' => 'nullable|image|max:20480', // 20MB
         ], [
             'title.required' => 'Please provide a title.',
             'content.required' => 'Post content is required.',
@@ -56,7 +68,9 @@ class BlogController extends Controller
         return redirect()->route('blog.index')->with('success', 'Post created successfully!');
     }
 
-    // Display a single post
+    /**
+     * Display a single blog post.
+     */
     public function show($id)
     {
         $post = Post::findOrFail($id);
@@ -66,29 +80,32 @@ class BlogController extends Controller
         return view('blog.show', compact('post', 'latestPosts', 'categories'));
     }
 
-    // Show the form for editing a post
+    /**
+     * Show the form for editing a blog post.
+     */
     public function edit($id)
     {
         $post = Post::findOrFail($id);
         return view('blog.edit', compact('post'));
     }
 
-    // Update the specified post in the database
+    /**
+     * Update the specified blog post in the database.
+     */
     public function update(Request $request, $id)
     {
-        // Validate the request data
         $request->validate([
             'title' => 'required|max:255',
             'category' => 'required|max:255',
             'content' => 'required',
-            'image' => 'nullable|image|max:2048',
+            'image' => 'nullable|image|max:20480', // 20MB
         ], [
             'title.required' => 'Please provide a title.',
             'content.required' => 'Post content is required.',
             'category.required' => 'Please select a category.',
             'image.image' => 'Please upload a valid image file.',
         ]);
-        // Find the post
+        
         $post = Post::findOrFail($id);
 
         // Store the uploaded image if there is one and update the post
@@ -102,13 +119,15 @@ class BlogController extends Controller
         $post->category = $request->input('category');
         $post->save();
 
-        return redirect()->route('blog.index')->with('success', 'تغیررات با موفقیت ثبت شد!');
+        return redirect()->route('blog.index')->with('success', 'Post updated successfully!');
     }
 
-    // Remove the specified post from the database
+    /**
+     * Remove the specified blog post from the database.
+     */
     public function destroy(Post $post)
     {
         $post->delete();
-        return redirect()->route('dashboard')->with('success', 'Post deleted successfully!');
+        return redirect()->route('blog.index')->with('success', 'Post deleted successfully!');
     }
 }
