@@ -29,8 +29,9 @@
                 </div>
             </div>
         @endforeach
-    </div>
-
-    {{ $posts->links() }}
+    </div>    
+</div>
+<div class="styled-pagination">
+                    {{ $posts->links('vendor.pagination.default') }}
 </div>
 @endsection
