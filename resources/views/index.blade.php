@@ -14,7 +14,8 @@
                     <div class="banner-slider owl-theme owl-carousel">
                         <!--Slide Item-->
                         <div class="slide-item">
-                        <div class="image-layer" style="background-image: url(/assets/images/main-slider/khoshkon.jpg);"></div>
+                        <div class="image-layer"></div>
+                        <img class="image-layer" src="/assets/images/main-slider/khoshkon.jpg" alt="">
                         <div class="slide-count"><span>01</span></div>
                             <div class="content-box">
                                 <div class="content">
@@ -28,7 +29,9 @@
 
                         <!--Slide Item-->
                         <div class="slide-item">
-                            <div class="image-layer" style="background-image: url(/assets/images/main-slider/14010324_robat-2.jpg);"></div>
+                            <div class="image-layer"></div>
+                            <img class="image-layer" src="/assets/images/main-slider/14010324_robat-2.jpg" alt="">
+
                             <div class="slide-count"><span>02</span></div>
                             <div class="content-box">
                                 <div class="content">
@@ -42,7 +45,9 @@
                         <!--Slide Item-->
                         <!--Slide Item-->
                         <div class="slide-item">
-                            <div class="image-layer" style="background-image: url(/assets/images/main-slider/khoskkon-araghi.jpg);"></div>
+                            <div class="image-layer"></div>
+                            <img class="image-layer" src="/assets/images/main-slider/khoskkon-araghi.jpg" alt="">
+
                             <div class="slide-count"><span>03</span></div>
                             <div class="content-box">
                                 <div class="content">
@@ -55,7 +60,9 @@
                         </div>
                         <!--Slide Item-->
                         <div class="slide-item">
-                            <div class="image-layer" style="background-image: url(/assets/images/main-slider/koreh-pokhttoneli.jpg);"></div>
+                            <div class="image-layer"></div>
+                            <img class="image-layer" src="/assets/images/main-slider/koreh-pokhttoneli.jpg" alt="korepokhttoneli">
+
                             <div class="slide-count"><span>04</span></div>
                             <div class="content-box">
                                 <div class="content">
@@ -67,7 +74,9 @@
                             </div>
                         </div>
                         <div class="slide-item">
-                            <div class="image-layer" style="background-image: url(/assets/images/main-slider/BORNA1-2-2048x821.jpg);"></div>
+                            <div class="image-layer"></div>
+                            <img class="image-layer" src="/assets/images/main-slider/BORNA1-2-2048x821.jpg" alt="bornagostar">
+
                             <div class="slide-count"><span>05</span></div>
                             <div class="content-box">
                                 <div class="content">
@@ -83,7 +92,7 @@
             </section>
             <!--End Banner Section -->
             <!--Services Section-->
-            <section class="services-section" style="background-image:url(/assets/images/background/plans-lines.png) ;">
+            <section class="services-section" style="background-image:url(/assets/images/background/plans-lines.png);">
                 <div class="auto-container">
                     <div class="def-title-box">
                         <div class="patt"><span></span></div>
