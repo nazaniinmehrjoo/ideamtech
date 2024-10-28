@@ -606,6 +606,9 @@
 		font-size: 30px;
 		line-height: 50px;
 	}
+	.news-section .custom-container  {
+		max-width: 90% !important;
+	}
 }
 
 @media only screen and (min-width: 768px) {
@@ -1088,6 +1091,19 @@
 		font-size: 30px;
 		line-height: 40px;
 	}
+	/* blog responsive */
+	.content-container p {
+		font-size: 14px !important;
+	}
+	.news-section .row .news-block, .mixitup-gallery .row .portfolio-block {
+		padding: 0px !important;
+	}
+	.news-section .custom-container  {
+		max-width: 90% !important;
+	}
+	.custom-image-container {
+		width: 40% !important;
+	}
 }
 
 @media only screen and (max-width: 840px) {
@@ -1097,6 +1113,11 @@
   		width: 100%;
 		height: 100%;
 	}
+	/* bog responsive */
+	.news-section .custom-container  {
+		max-width: 95% !important;
+	}
+
 }
 @media only screen and (max-width: 767px) {
 	.modal-content {
@@ -1487,6 +1508,23 @@
 		font-size: 25px;
 		line-height: 40px;
 	}
+	/* blog page responsive */
+	.news-block .inner-box {
+		display: block !important;
+	}
+	.custom-image-container {
+		width: 100% !important;
+	}
+	.news-section .row .news-block, .mixitup-gallery .row .portfolio-block {
+		padding: 0 30px;
+	}
+	.content-container {
+		width: 100% !important;
+	}
+	.news-section {
+		padding: 0 0 154px;
+	}
+
 }
 
 @media only screen and (max-width: 599px) {
@@ -2090,6 +2128,10 @@
 		font-size: 26px !important;
 		line-height: 40px !important;
 	}
+	/* blog responsive */
+	.news-section {
+		padding: 0 0 154px;
+	}
 }
 @media only screen and (max-width: 479px) {
 	
@@ -2414,6 +2456,13 @@
 	  }
 	  .banner-six .slide-item .content-box {
 		height: 715px;
+	}
+	/* blog responsive */
+	.news-section {
+		padding: 0 0 154px;
+	}
+	.news-block h4, .sidebar-page-container .post-author h5 {
+		font-size: 16px !important;
 	}
 }
 
