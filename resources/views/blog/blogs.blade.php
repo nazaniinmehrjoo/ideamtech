@@ -8,11 +8,11 @@
         <!-- Page Title -->
         <section class="page-title" id="to-top-div">
             <div class="auto-container">
-                <h1><span>مقالات</span></h1>
+                <h1><span>اخبارورویداد ها</span></h1>
                 <div class="bread-crumb">
                     <ul class="clearfix">
                         <li><a href="{{ route('home') }}">خانه</a></li>
-                        <li class="current">بلاگ</li>
+                        <li class="current">اخبارورویداد ها</li>
                     </ul>
                 </div>
             </div>
@@ -21,7 +21,7 @@
 
         <!--News Section-->
         <section class="news-section">
-            <div class="auto-container">
+            <div class="auto-container custom-container">
                 <div class="news">
                     <div class="row clearfix">
                         @foreach($posts as $post)
@@ -69,7 +69,15 @@
         </section>
     </div>
 </div>
+
 <style>
+/* Limit container width and center */
+.custom-container {
+    max-width: 64%; /* Adjust width as needed */
+    margin: 0 auto;
+}
+
+/* Other styling */
 .inner-box {
     display: flex;
     flex-direction: row; 
@@ -83,7 +91,7 @@
 
 /* Image container adjustments */
 .custom-image-container {
-    width: 50%; 
+    width: 36%; 
     overflow: hidden;
     display: flex;
     flex-direction: column; 

@@ -1,4 +1,4 @@
-@extends('layouts.app', ['title' => 'تامین قطعات و تعمیرات'])
+@extends('layouts.app2', ['title' => 'تامین قطعات و تعمیرات'])
 
 @section('content')
 
@@ -28,7 +28,6 @@
         </div>
     </section>
 </div>
-@endsection
 <style>
     .image-container {
     max-width: 354px;
@@ -40,8 +39,10 @@
 }
 
 .service-image {
-    max-width: 100%;
-    max-height: 100%;
+    width: 354px;
+    height: 296px;
     object-fit: cover; 
 }
 </style>
+
+@endsection
