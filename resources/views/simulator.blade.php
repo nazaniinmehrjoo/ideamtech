@@ -9,7 +9,8 @@
                             <div class="banner-slider-five">
                                 <!--Slide Item-->
                                 <div class="slide-item">
-                                    <div class="image-layer" style="background-image: url(/assets/images/main-slider/similator1.jpg);"></div>
+                                    
+                                    <img src="/assets/images/main-slider/similator1.jpg" class="image-layer" alt="similator1">
                                     <div class="auto-container">
                                         <div class="content-box">
                                             <div class="content">
@@ -28,7 +29,7 @@
                                 </div>
                                 <!--Slide Item-->
                                 <div class="slide-item">
-                                    <div class="image-layer" style="background-image: url(/assets/images/main-slider/similator2.jpg);"></div>
+                                    <img src="/assets/images/main-slider/similator2.jpg" class="image-layer" alt="similator2">
                                     <div class="auto-container">
                                         <div class="content-box">
                                             <div class="content">
@@ -47,7 +48,7 @@
                                 </div>
                                 <!--Slide Item-->
                                 <div class="slide-item">
-                                    <div class="image-layer" style="background-image: url(/assets/images/main-slider/smilator3.jpg);"></div>
+                                    <img src="/assets/images/main-slider/smilator3.jpg" class="image-layer" alt="smilator3">
                                     <div class="auto-container">
                                         <div class="content-box">
                                             <div class="content">

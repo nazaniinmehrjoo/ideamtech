@@ -544,14 +544,21 @@
 	.banner-nine .bx-controls {
 		bottom: 70px;
 	}
-
-	.banner-seven .pager-content {
+	/* Simulator responsive */
+	/* .banner-seven .pager-content {
 		display: none;
+	} */
+
+	/* .banner-seven .slide-item .inner {
+		float: left;
+	} */
+	.banner-seven .pager-content {
+		left: 60px;
+	}
+	.banner-seven .slide-item .inner {
+		max-width: 500px;
 	}
 
-	.banner-seven .slide-item .inner {
-		float: left;
-	}
 	/* about borna responsive */
 	.banner-six .slide-item .image-layer {
 		width: 73%;
@@ -1104,6 +1111,12 @@
 	.custom-image-container {
 		width: 40% !important;
 	}
+	/* Simulator responsive */
+	.banner-seven .slide-item .inner {
+		max-width: 300px;
+	}
+
+
 }
 
 @media only screen and (max-width: 840px) {
@@ -1547,6 +1560,19 @@
   		object-fit: cover;
   		margin-bottom: 9%;
 	}
+
+	/* Simulator responsive */
+	.banner-seven .slide-item .inner {
+		max-width: 200px;
+	}
+	.banner-seven .pager-content {
+		left: 6px;
+	
+	}
+	.banner-seven .pager-outer .pager-item .text {
+		font-size: 14px;
+	}
+
 }
 
 @media only screen and (max-width: 599px) {
@@ -1976,6 +2002,18 @@
 		font-size: 30px;
 		line-height: 55px;
 	}
+	
+	/* Simulator responsive */
+	.banner-seven .slide-item .inner h3{
+		font-size: 18px;
+	}
+	.banner-seven .pager-content {
+		width: 200px;
+	}
+	.banner-seven .slide-item .auto-container{
+		padding: 0px;
+	}
+
 }
 
 @media only screen and (max-width: 430px) {
@@ -2036,6 +2074,11 @@
 	.banner-six .slide-item .content-box {
 		height: 550px !important;
 	}
+	/* Simulator responsive */
+	.banner-seven .pager-content {
+		left: 20% !important;
+	}
+
 }
 @media only screen and (max-width: 367px) {
 	.modal-content {
@@ -2153,6 +2196,10 @@
 	/* blog responsive */
 	.news-section {
 		padding: 0 0 154px;
+	}
+	/* Simulator responsive */
+	.banner-seven .pager-content {
+		left: 10% !important;
 	}
 }
 @media only screen and (max-width: 479px) {
@@ -2485,6 +2532,24 @@
 	}
 	.news-block h4, .sidebar-page-container .post-author h5 {
 		font-size: 16px !important;
+	}
+
+	/* Simulator responsive */
+
+	.banner-seven .pager-content {
+		margin-top: -20%;
+	}
+	.banner-seven .pager-content {
+		left: 25%;
+	}
+	.banner-seven .slide-item .inner {
+		max-width: 400px;
+	}
+	.banner-seven .slide-item .content-box {
+		height: 40vh;
+	}
+	.banner-seven .slide-item .content {
+		padding-left: 5px;
 	}
 }
 
