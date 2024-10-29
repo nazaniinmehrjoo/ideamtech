@@ -12,8 +12,6 @@
         </div>
     </div>
 </section>
-<!--End Banner Section -->
-
 <!--Sidebar Page-->
 <div class="sidebar-page-container">
     <div class="auto-container">
@@ -22,28 +20,43 @@
             <div class="content-side col-lg-8 col-md-12 col-sm-12">
                 <div class="content-inner">
                     <div class="blog-details">
-                    <div class="image-box">
-                        <img src="{{ asset('storage/' . $post->image) }}" alt="{{ $post->title }}">
-                    </div>
-                        <div class="lower">
+                        <!-- Main Image -->
+                        <div class="image-box mb-4">
+                            <img src="{{ asset('storage/' . $post->image) }}" alt="{{ $post->title }}" class="img-fluid rounded">
+                        </div>
+                        
+                        <!-- Image Grid -->
+                        <div class="image-grid">
+                            <div class="row row-cols-1 row-cols-md-3 g-3">
+                                @foreach($post->images as $image)
+                                    <div class="col">
+                                        <div class="img-container">
+                                            <img src="{{ asset('storage/' . $image->image_path) }}" class="img-fluid rounded shadow-sm" alt="Image">
+                                        </div>
+                                    </div>
+                                @endforeach
+                            </div>
+                        </div>
+
+                        <!-- Post Content and Details -->
+                        <div class="lower mt-4">
                             <h3>{{ $post->title }}</h3>
-                            <div class="info">
+                            <div class="info mb-2">
                                 <div class="cat i-block"><i class="far fa-folder"></i> {{ $post->category }}</div>
                                 <div class="time i-block">
                                     <i class="far fa-clock"></i> {{ \Carbon\Carbon::parse($post->created_at)->diffForHumans() }}
                                 </div>
                             </div>
                             <div class="text-content text">
-                                <!-- Displaying post content -->
                                 {!! nl2br(e($post->content)) !!}
                             </div>
 
                             <!-- Tags -->
                             @if($post->tags)
-                                <div class="post-tags">
+                                <div class="post-tags mt-3">
                                     <span class="ttl">Tags:</span> 
                                     @foreach(explode(',', $post->tags) as $tag)
-                                        <a href="#">{{ trim($tag) }}</a>{{ !$loop->last ? ',' : '' }} &ensp;
+                                        <a href="#" class="badge bg-secondary text-white">{{ trim($tag) }}</a>
                                     @endforeach
                                 </div>
                             @endif
@@ -93,4 +106,16 @@
         </div>
     </div>
 </div>
+<style>
+    .img-container {
+        overflow: hidden;
+        border-radius: 8px;
+    }
+    .img-container img {
+        transition: transform 0.3s ease;
+    }
+    .img-container img:hover {
+        transform: scale(1.05);
+    }
+</style>
 @endsection
