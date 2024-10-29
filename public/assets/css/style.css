@@ -170,8 +170,7 @@ body {
   color: #ffffff;
   line-height: 1.60em;
   font-weight: 400;
-  background: #1a1a23;
-  background-color: #3a3c40 ;
+  background: #1a1a23 !important;
   -webkit-font-smoothing: antialiased;
   -moz-font-smoothing: antialiased;
   cursor: none;
@@ -2537,19 +2536,21 @@ form label.error{
   margin-bottom: 30px;
 }
 
-.def-tabs-box .image-col .image{
+.def-tabs-box .image-col .image {
   position: relative;
-  display: block;
+  width: 90%;
+  padding-top: 54.25%; 
+  overflow: hidden;
+  border-radius: 20px;
 }
 
-.def-tabs-box .image-col .image img{
-  position: relative;
-  display: block;
-  width: 90%;
-  border-radius: 20px;
-  max-width: 100%;
-  height: auto;
-  display: block;
+.def-tabs-box .image-col .image img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .def-tabs-box .text-col{
@@ -2949,8 +2950,6 @@ form label.error{
   position: relative;
   border: 1px solid rgba(255, 255, 255, 0.10);
   margin-bottom: 50px;
-  background-color: #343a40;
-  border-radius: 18px;
 } 
 
 .contact-section .info-box .row{
@@ -3000,14 +2999,13 @@ form label.error{
 .contact-section .info-box .info-block .info{
   position: relative;
   font-size: 14px;
-  color: whitesmoke;
+  color: #666666;
   font-family: 'IRANSans';
   line-height: 20px;
-  text-align: right;
 }
 
 .contact-section .info-box .info-block .info a{
-  color: whitesmoke;
+  color: #666666;
 }
 
 .contact-section .form-col{
@@ -6788,7 +6786,6 @@ border-radius: 4px;
 border: 1px solid #ced4da;
 padding: 10px;
 font-size: 16px;
-direction: rtl;
 }
 
 .form-group label {
