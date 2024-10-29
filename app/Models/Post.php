@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\PostImage;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -13,13 +14,19 @@ class Post extends Model
     protected $fillable = [
         'title', 'content', 'category', 'image'
     ];
+    public function images()
+    {
+        return $this->hasMany(PostImage::class);
+    }
+
+    // Format created_at for diffForHumans
     public function getCreatedAtAttribute($value)
     {
         return \Carbon\Carbon::parse($value)->diffForHumans();
     }
 
     /**
-     * Get the URL to the post image.
+     * Get the URL to the main post image.
      */
     public function getImageUrlAttribute()
     {
