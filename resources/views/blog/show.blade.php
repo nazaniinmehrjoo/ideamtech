@@ -17,7 +17,7 @@
     <div class="auto-container">
         <div class="row clearfix">
             <!--Content Side-->
-            <div class="content-side col-lg-8 col-md-12 col-sm-12">
+            <div class="content-side col-lg-8 col-md-8 col-sm-12">
                 <div class="content-inner">
                     <div class="blog-details">
                         <!-- Main Image -->
@@ -27,7 +27,7 @@
                         
                         <!-- Image Grid -->
                         <div class="image-grid">
-                            <div class="row row-cols-1 row-cols-md-3 g-3">
+                            <div class="row row-cols-2 row-cols-md-3 g-3">
                                 @foreach($post->images as $image)
                                     <div class="col">
                                         <div class="img-container">
@@ -66,7 +66,7 @@
             </div>
 
             <!--Sidebar Side-->
-            <div class="sidebar-side col-lg-4 col-md-12 col-sm-12">
+            <div class="sidebar-side col-lg-4 col-md-4 col-sm-12">
                 <div class="sidebar">
                     <div class="sidebar-widget recent-post">
                         <div class="sidebar-title"><h5><span>latest posts</span></h5></div>

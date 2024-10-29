@@ -1524,7 +1524,29 @@
 	.news-section {
 		padding: 0 0 154px;
 	}
+	/* show blog responsive */
+	.sidebar-page-container .content-side  {
+		max-width: 100%;
+		padding-right: 0%;
+  		padding-left: 0%;
+	}
+	.sidebar-side .recent-post .post .text {
+		font-size: 14px;
+		text-align: right;
 
+	}
+	.sidebar-side .recent-post .post .inner {
+		padding-left:140px;
+	}
+	.blog-details .lower{
+		padding: 0px 35px 5px;
+	}
+	.img-container img {
+		width: 200px;
+  		height: 93px;
+  		object-fit: cover;
+  		margin-bottom: 9%;
+	}
 }
 
 @media only screen and (max-width: 599px) {
