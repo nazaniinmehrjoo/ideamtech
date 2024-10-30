@@ -42,7 +42,7 @@
                 </div>
             </div>
             <div class="loc-info">
-                <a href="#">
+                <a href="https://maps.app.goo.gl/4XxYkAToJHVHrEEW9">
                     <span class="icon fa fa-map-marker-alt"></span> Map & Directions
                 </a>
             </div>
