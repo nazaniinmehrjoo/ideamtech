@@ -3974,6 +3974,9 @@ form label.error{
 .sidebar-page-container .content-side{
   position: relative;
   margin-bottom: 40px;
+  max-width: 60%;
+  padding-right: 6%;
+  padding-left: 2%;
 }
 
 .sidebar-page-container .content-side .content-inner{
@@ -3988,31 +3991,35 @@ form label.error{
   margin-bottom: 50px;
 }
 
-.blog-details .image-box{
-  position: relative;
-  display: block;
-  border-radius: 15px 15px 0 0;
-  overflow: hidden;
-}
-
-.blog-details .image-box img{
-  position: relative;
-  display: block;
-  width: 100%;
-  border-radius: 15px 15px 0 0;
-}
-
 .blog-details .image-box {
   position: relative;
   display: block;
   border-radius: 15px 15px 0 0;
   overflow: hidden;
   width: 100%;
+  height: auto !important;
 }
+
+.blog-details .image-box img {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 18px 0;
+}
+
+/* .blog-details .image-box {
+  position: relative;
+  display: block;
+  border-radius: 15px 15px 0 0;
+  overflow: hidden;
+  width: 100%;
+} */
 .blog-details .lower{
   position: relative;
   display: block;
-  padding: 35px 35px 0;
+  padding: 35px 35px 5px;
 }
 
 .blog-details h3{
@@ -4394,7 +4401,7 @@ form label.error{
   position: absolute;
   left: 0;
   top: 0;
-  width: 88px;
+  width: 100px;
   border-radius: 15px;
 }
 
@@ -6072,7 +6079,7 @@ form label.error{
   z-index: 1;
 }
 
-.banner-ten .slide-item .image-layer{
+/* .banner-ten .slide-item .image-layer{
   position: absolute;
   left: 0;
   top: 0;
@@ -6082,8 +6089,17 @@ form label.error{
   background-repeat: no-repeat;
   background-size: cover;
   z-index: 1;
+} */
+.banner-ten .slide-item .image-layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover; 
+  background-position: center center;
+  background-repeat: no-repeat;
 }
-
 .banner-ten .slide-item .image-layer:before{
   content: '';
   position: absolute;
@@ -7336,4 +7352,7 @@ canvas {
 .certificateZoomIn:hover {
   background: #f05928;
   color: #292c30;
+}
+.main-responsive-container {
+  padding-left: 0px;
 }

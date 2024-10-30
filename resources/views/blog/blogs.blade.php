@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="scroll-container">
-    <div class="main-content-container" id="scroll-container">
+    <div class="main-content-container main-responsive-container" id="scroll-container">
         <div class="body-bg-layer"></div>
 
         <!-- Page Title -->
@@ -87,6 +87,7 @@
     align-items: stretch; 
     background-color: #282828; 
     color: #f0f0f0; 
+    border-radius: 10px;
 }
 
 /* Image container adjustments */
@@ -101,6 +102,7 @@
     width: 100%;
     height: auto; 
     object-fit: cover; 
+    border-radius: 10px
 }
 
 /* Category and date styling under the image */
