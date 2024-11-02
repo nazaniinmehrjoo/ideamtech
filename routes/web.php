@@ -30,6 +30,9 @@ Route::get('/', function () {
 Route::get('/شبیه-ساز', function () {
     return view('simulator');
 });
+Route::get('/notfound', function () {
+    return view('404');
+});
 
 Route::resource('cooperations', CooperationController::class);
 Route::resource('employment-forms', EmploymentFormController::class);
