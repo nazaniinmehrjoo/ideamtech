@@ -301,8 +301,8 @@
 			pause: 10000,
 			slideMargin: 0,
 			captions: true,
-			nextText: '<span class="next-btn far fa-angle-left"></span>',
-    		prevText: '<span class="prev-btn far fa-angle-right"></span>'
+			nextText: '<span class="prev-btn far fa-angle-right"></span>',
+    		prevText: '<span class="next-btn far fa-angle-left"></span>'
 		});
 	}
 

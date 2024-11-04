@@ -695,7 +695,7 @@
         // add the controls to the DOM
         slider.controls.directionEl = $('<div class="bx-controls-direction" />');
         // add the control elements to the directionEl
-        slider.controls.directionEl.append(slider.controls.prev).append(slider.controls.next);
+        slider.controls.directionEl.append(slider.controls.next).append(slider.controls.prev);
         // slider.viewport.append(slider.controls.directionEl);
         slider.controls.el.addClass('bx-has-controls-direction').append(slider.controls.directionEl);
       }
