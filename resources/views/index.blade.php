@@ -142,7 +142,7 @@
                                             </p>
                                         </div>
 
-                                        <div class="link-box"><a href="/تامین قطعات/خدمات"><span class="far fa-angle-right"></span></a></div>
+                                        <div class="link-box"><a href="/متمایزازدیگران"><span class="far fa-angle-right"></span></a></div>
                                     </div>
                                 </div>
                             </div>
@@ -195,9 +195,9 @@
                                                 </div>
                                                 <div class="joinUsBtnContainer">
                                                     <button class="joinUsbtnContent">
-                                                      <svg width="200px" height="60px" viewBox="0 0 200 60"> <!-- تنظیم viewBox -->
-                                                        <polyline points="199,1 199,59 1,59 1,1 199,1" class="bg-line" /> <!-- تنظیم points -->
-                                                        <polyline points="199,1 199,59 1,59 1,1 199,1" class="hl-line" /> <!-- تنظیم points -->
+                                                      <svg width="200px" height="60px" viewBox="0 0 200 60"> 
+                                                        <polyline points="199,1 199,59 1,59 1,1 199,1" class="bg-line" />
+                                                        <polyline points="199,1 199,59 1,59 1,1 199,1" class="hl-line" />
                                                       </svg>
                                                       <span>پیوستن به خانواده‌ی برناگستر</span>
                                                     </button>
