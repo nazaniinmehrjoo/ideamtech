@@ -2,7 +2,7 @@
 
 @section('content')   
 <section class="banner-ten">
-                <div class="banner-container">
+                <div class="banner-container" direction:rtl>
                     <div class="banner-slider-outer">
                         <div class="slider-box">
                             <div class="banner-slider-eight">
