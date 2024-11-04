@@ -1,67 +1,188 @@
-@extends('layouts.app', ['title' => 'خدمات پس از فروش'])
+@extends('layouts.app2')
 
 @section('content')
-    <!-- Page Title -->
-    <section class="page-title" id="to-top-div">
-        <div class="auto-container">
-            <h1><span>خدمات پس از فروش</span></h1>
-            <div class="bread-crumb">
-                <ul class="clearfix">
-                    <li><a href="/">خانه</a></li>
-                    <li class="current">خدمات پس از فروش</li>
-                </ul>
+<!-- Include Bootstrap CSS -->
+<style>
+
+    .services,
+    .faq,
+    .contact {
+        background-color: #282828;
+        color: #dcdcdc;
+        padding: 50px 20px;
+    }
+
+    .section-title {
+        color: white;
+        margin-bottom: 30px;
+    }
+
+    .service-item,
+    .faq-item,
+    .contact form {
+        background: #2a2a2a;
+        border-radius: 10px;
+        padding: 20px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+
+    .service-item:hover,
+    .faq-item:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    }
+
+    .service-item h3,
+    .faq summary,
+    .contact h2 {
+        color: #f05928;
+    }
+
+    .contact form input,
+    .contact form textarea,
+    {
+    background-color: #333;
+    color: #e0e0e0;
+    border: 1px solid #444;
+    }
+</style>
+
+<!-- Hero Section -->
+<section class="hero d-flex flex-column align-items-center justify-content-center text-center">
+    <h1>After-Sales Service</h1>
+    <p>Your trusted partner for ongoing support, maintenance, and guidance to keep your equipment running smoothly.</p>
+    <div class="joinUsBtnContainer">
+        <button class="joinUsbtnContent">
+            <svg width="200px" height="6q0px" viewBox="0 0 200 60">
+                <polyline points="199,1 199,59 1,59 1,1 199,1" class="bg-line"></polyline>
+                <polyline points="199,1 199,59 1,59 1,1 199,1" class="hl-line"></polyline>
+            </svg>
+            <span>پیوستن به خانواده&zwnj;ی برناگستر</span>
+        </button>
+    </div>
+</section>
+
+
+<!-- Services Section with Bootstrap Grid -->
+<section class="services text-center">
+    <h2 class="section-title">Our Services</h2>
+    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 justify-content-center">
+        <div class="col">
+            <div class="service-item h-100 p-3">
+                <h3>Installation & Setup</h3>
+                <details>
+                    <summary>Learn More</summary>
+                    <p>Our installation service includes initial setup, calibration, and user training to ensure smooth
+                        operation right from the start.</p>
+                </details>
             </div>
         </div>
-    </section>
-
-    <section class="portfolio-section">
-        <div class="auto-container">
-            <div class="mixitup-gallery">
-                <!--Filter-->
-                <div class="gallery-filters centered clearfix">
-                    <ul class="filter-tabs filter-btns clearfix">
-                        <li class="active filter" data-role="button" data-filter="all">نمایش همه</li>
-                        @foreach($services->unique('category') as $service)
-                            <li class="filter" data-role="button" data-filter=".{{ $service->category }}">{{ $service->category }}</li>
-                        @endforeach
-                    </ul>
-                </div>
-
-                <div class="filter-list row clearfix">
-                    @foreach($services as $service)
-                        <!--Portfolio Block-->
-                        <div class="portfolio-block mix all {{ $service->category }} col-xl-4 col-lg-4 col-md-6 col-sm-12">
-                            <div class="inner-box">
-                                <div class="image">
-                                    <img src="{{ $service->banner_images ? asset('storage/' . json_decode($service->banner_images)[0]) : '/path/to/default/image.jpg' }}" alt="{{ $service->title }}">
-                                </div>
-                                <div class="overlay">
-                                    <div class="more-link" onclick="openMoreBtn(this)">
-                                    <i class="fa-solid fa-bars-staggered"></i>
-                                    </div>
-                                    <div class="inner">
-                                        <div class="cat"><span>{{ $service->category }}</span></div>
-                                        <h5 id="prodoctName"><a href="portfolio-single.html">{{ $service->title }}</a></h5>
-                                    </div>
-                                </div>
-                                
-                            </div>
-                        </div>
-                    @endforeach
-                </div>
+        <div class="col">
+            <div class="service-item h-100 p-3">
+                <h3>Maintenance & Repairs</h3>
+                <details>
+                    <summary>Learn More</summary>
+                    <p>Regular maintenance services to keep your equipment in top condition. Our team is also available
+                        for emergency repairs to minimize downtime.</p>
+                </details>
             </div>
         </div>
-        <div id="moreProductDtl" class="modal">
-        <div class="modal-content">
-            <span class="closeModal"><img src="/assets/images/icons/close-icon.png" alt=""></span>
-            <button class="download-btn" onclick="startSpin(this)">
-                <i class="fa-light fa-download download" id="download"></i>
-                <div class="spinner"></div>
-            </button>
-            <h3 id="productNameModal"></h3>
-            <p>{{ $service->content}}</p>
+        <div class="col">
+            <div class="service-item h-100 p-3">
+                <h3>Spare Parts Supply</h3>
+                <details>
+                    <summary>Learn More</summary>
+                    <p>Access genuine spare parts quickly and efficiently. We stock parts for a wide range of equipment
+                        to keep you up and running.</p>
+                </details>
+            </div>
+        </div>
+        <div class="col">
+            <div class="service-item h-100 p-3">
+                <h3>Technical Support</h3>
+                <details>
+                    <summary>Learn More</summary>
+                    <p>Our technical support team is ready to assist you with troubleshooting and resolving any
+                        technical issues you may encounter.</p>
+                </details>
+            </div>
+        </div>
+        <div class="col">
+            <div class="service-item h-100 p-3">
+                <h3>Warranty Services</h3>
+                <details>
+                    <summary>Learn More</summary>
+                    <p>We offer warranty services to ensure you get the most out of your equipment. Our warranty
+                        coverage includes repairs and replacements as needed.</p>
+                </details>
+            </div>
+        </div>
+        <div class="col">
+            <div class="service-item h-100 p-3">
+                <h3>Training & Consultation</h3>
+                <details>
+                    <summary>Learn More</summary>
+                    <p>Our experts provide training and consultation to help your team make the best use of your
+                        equipment, maximizing efficiency and productivity.</p>
+                </details>
+            </div>
         </div>
     </div>
-    </section>
-    <!-- End Site Container --> 
+</section>
+
+
+<!-- FAQ Section with Accordion Style -->
+<section class="faq text-center">
+    <h2 class="section-title">Frequently Asked Questions</h2>
+    <div class="accordion w-75 mx-auto" id="faqAccordion">
+        <div class="accordion-item faq-item">
+            <h3 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#faq1">
+                    How do I request service?
+                </button>
+            </h3>
+            <div id="faq1" class="accordion-collapse collapse">
+                <div class="accordion-body">
+                    Contact us using the form below or call our support line for assistance. We're here to help!
+                </div>
+            </div>
+        </div>
+        <div class="accordion-item faq-item">
+            <h3 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#faq2">
+                    What types of services are included?
+                </button>
+            </h3>
+            <div id="faq2" class="accordion-collapse collapse">
+                <div class="accordion-body">
+                    Our services include setup, maintenance, repairs, and spare parts supply, all tailored to support
+                    your specific needs.
+                </div>
+            </div>
+        </div>
+        <div class="accordion-item faq-item">
+            <h3 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#faq3">
+                    Do you offer on-site assistance?
+                </button>
+            </h3>
+            <div id="faq3" class="accordion-collapse collapse">
+                <div class="accordion-body">
+                    Yes, our technicians can provide on-site support when needed. We aim to minimize your equipment
+                    downtime.
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+    function contactSupport() {
+        window.location.href = 'mailto:info@brickind.com';
+    }
+</script>
 @endsection
