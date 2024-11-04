@@ -1476,7 +1476,7 @@ form label.error{
 ====================================================================
   Banner Slider Section
 ====================================================================
-
+ 
 ***/
 
 .banner-section{
@@ -2067,7 +2067,7 @@ form label.error{
   text-align: justify;
   text-align-last: right;
   direction: rtl;
-  height: 120px;
+  height: 130px;
 }
 
 .service-block .link-box{
@@ -5336,7 +5336,7 @@ form label.error{
   top: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0,0,0,0.0);
+  background: rgba(0,0,0,0.50);
   z-index: 1;
 }
 
