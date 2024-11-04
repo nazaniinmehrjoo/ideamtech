@@ -30,6 +30,9 @@ Route::get('/', function () {
 Route::get('/شبیه-ساز', function () {
     return view('simulator');
 });
+Route::get('/notfound', function () {
+    return view('404');
+});
 
 Route::get('/متمایزازدیگران', function () {
     return view('distinct');
