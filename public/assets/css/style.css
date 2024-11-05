@@ -263,11 +263,10 @@ p{
 .auto-container{
   position: static;
   max-width: 95%;
-  padding: 60px 20px;
+  padding: 0px 20px;
   margin: 0 auto;
   text-align:center !important;
 }
-
 .site-container{
   position: relative;
   margin: 0 auto;
@@ -2128,6 +2127,12 @@ form label.error{
   position: relative;
   margin-bottom: 60px;
 }
+
+
+
+.plans-section .auto-container{
+  padding: 60px 20px !important;
+} 
 
 .plans-section .image-col{
   position: relative;
@@ -5849,6 +5854,8 @@ form label.error{
   -webkit-transform:translateX(70px);
   -ms-transform:translateX(70px);
   transform:translateX(70px);
+  height: 100% !important;
+  width: 100% !important;
 }
 
 .banner-nine .slide-item[aria-hidden="false"] .image-box{
@@ -7312,8 +7319,8 @@ canvas {
     }
   }
 .image-box {
-  /* width: 376px; 
-  height: 266px; */
+  width: 376px; 
+  height: 266px;
   overflow: hidden; 
 }
 .image-box img {
