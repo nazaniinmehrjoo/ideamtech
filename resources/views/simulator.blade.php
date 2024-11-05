@@ -29,7 +29,7 @@
                                 </div>
                                 <!--Slide Item-->
                                 <div class="slide-item">
-                                    <img src="/assets/images/main-slider/similatorslider1.jpg" class="image-layer" alt="similator2">
+                                    <img src="/assets/images/main-slider/similator2.jpg" class="image-layer" alt="similator2">
                                     <div class="auto-container">
                                         <div class="content-box">
                                             <div class="content">
