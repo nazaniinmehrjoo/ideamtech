@@ -32,7 +32,7 @@ Route::get('/شبیه-ساز', function () {
 });
 Route::get('/notfound', function () {
     return view('404');
-});
+})->name('notfound');
 
 Route::get('/متمایزازدیگران', function () {
     return view('distinct');
