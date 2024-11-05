@@ -32,6 +32,10 @@ Route::get('/شبیه-ساز', function () {
 });
 Route::get('/notfound', function () {
     return view('404');
+})->name('notfound');
+
+Route::get('/متمایزازدیگران', function () {
+    return view('distinct');
 });
 
 Route::resource('cooperations', CooperationController::class);
@@ -66,7 +70,7 @@ Route::get('/مشاوره/خدمات', [ServiceController::class, 'consulting'])
 Route::get('/تامین_قطعات/خدمات', [ServiceController::class, 'partsRepairs'])->name('services.partsRepairs');
 Route::get('/خدمات_مهندسی/خدمات', [ServiceController::class, 'engineering'])->name('services.engineering');
 Route::get('/نصب_و_راه_اندازی/خدمات', [ServiceController::class, 'installation'])->name('services.installation');
-Route::get('/خدمات_پس_از_فروش/خدمات', [ServiceController::class, 'afterSales'])->name('services.afterSales');
+Route::get('/خدمات_پس_از_فروش/خدمات', [ServiceController::class, 'afterSales'])->name('services.khadamat-pasazforosh');
 
 // Publicly accessible routes for product listings
 Route::get('/ماشین_آلات_فرآوری_و_شکل_دهی/محصولات', [ProductController::class, 'mashinAlatShekldehi'])->name('products.mashinAlatShekldehi');

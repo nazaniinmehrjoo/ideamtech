@@ -83,6 +83,7 @@
     </div>
 
     <!-- Project Progress Chart and List Section -->
+    <!-- Project Progress Chart and List Section -->
     <div class="row mt-5">
         <div class="col-md-6">
             <div class="card">
@@ -99,7 +100,7 @@
                 <div class="card-header">
                     لیست پروژه‌ها
                 </div>
-                <div class="card-body">
+                <div class="card-body" style="max-height: 300px; overflow-y: auto;">
                     <input type="text" id="projectSearch" class="form-control mb-3" placeholder="جستجو پروژه‌ها..."
                         onkeyup="searchProjects()">
                     <table class="table table-dark table-hover">
@@ -126,19 +127,21 @@
             </div>
         </div>
     </div>
+
     <div class="row mt-5">
         <div class="col-md-12">
             <h3 class="text-white" style="text-align: center;padding: 10px;">نظر مشتریان ما</h3>
-    
+
             <div id="testimonialCarousel" class="carousel slide" data-ride="carousel">
                 <div class="carousel-inner">
                     <div class="carousel-item active">
                         <div class="testimonial text-center">
-                           <div class="image-content">
+                            <div class="image-content">
                                 <img src="/assets/images/main-slider/modernbrik.png" alt="Custom Image">
                             </div>
-                            <p class="testimonial-text">“خدمات شرکت شما بی‌نظیر بود. نصب و راه‌اندازی به موقع و بدونمشکل انجام شد.”</p>
-                                
+                            <p class="testimonial-text">“خدمات شرکت شما بی‌نظیر بود. نصب و راه‌اندازی به موقع و بدونمشکل
+                                انجام شد.”</p>
+
                             <p class="customer-name"><strong>- شرکت الف</strong></p>
                         </div>
                     </div>
@@ -147,7 +150,8 @@
                             <div class="image-content">
                                 <img src="/assets/images/main-slider/modernbrik.png" alt="Custom Image">
                             </div>
-                            <p class="testimonial-text">“خدمات شرکت شما بی‌نظیر بود. نصب و راه‌اندازی به موقع و بدونمشکل انجام شد.”</p>
+                            <p class="testimonial-text">“خدمات شرکت شما بی‌نظیر بود. نصب و راه‌اندازی به موقع و بدونمشکل
+                                انجام شد.”</p>
                             <p class="customer-name"><strong>- شرکت ب</strong></p>
                         </div>
                     </div>
@@ -156,7 +160,8 @@
                             <div class="image-content">
                                 <img src="/assets/images/main-slider/modernbrik.png" alt="Custom Image">
                             </div>
-                            <p class="testimonial-text">“خدمات شرکت شما بی‌نظیر بود. نصب و راه‌اندازی به موقع و بدونمشکل انجام شد.”</p>
+                            <p class="testimonial-text">“خدمات شرکت شما بی‌نظیر بود. نصب و راه‌اندازی به موقع و بدونمشکل
+                                انجام شد.”</p>
                             <p class="customer-name"><strong>- شرکت ج</strong></p>
                         </div>
                     </div>
@@ -165,7 +170,8 @@
                             <div class="image-content">
                                 <img src="/assets/images/main-slider/modernbrik.png" alt="Custom Image">
                             </div>
-                            <p class="testimonial-text">“خدمات شرکت شما بی‌نظیر بود. نصب و راه‌اندازی به موقع و بدونمشکل انجام شد.”</p>
+                            <p class="testimonial-text">“خدمات شرکت شما بی‌نظیر بود. نصب و راه‌اندازی به موقع و بدونمشکل
+                                انجام شد.”</p>
                             <p class="customer-name"><strong>- شرکت د</strong></p>
                         </div>
                     </div>
@@ -193,7 +199,7 @@
                 // Initialize the Leaflet map with a softer dark-themed tile layer
                 var map = L.map('map').setView([35.6892, 51.3890], 6);
                 L.tileLayer('https://tiles.stadiamaps.com/tiles/alidade_smooth_dark/{z}/{x}/{y}{r}.png', {
-                    maxZoom: 18,
+                    maxZoom: 90,
                     attribution: '© OpenStreetMap contributors, © Stadia Maps'
                 }).addTo(map);
 
