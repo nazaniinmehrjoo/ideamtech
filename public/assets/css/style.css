@@ -263,7 +263,7 @@ p{
 .auto-container{
   position: static;
   max-width: 95%;
-  padding: 0px 20px;
+  padding: 60px 20px;
   margin: 0 auto;
   text-align:center !important;
 }
@@ -1110,21 +1110,23 @@ form label.error{
   transform: rotate(-90deg);
 }
 
-.main-header-bar .alt-logo-box{
+ .alt-logo-box{
   position:absolute;
   left: 184px;
   top: 45px;
-  display: none;
-  z-index: 1;
+  /* display: none; */
+  z-index: 9999;
 }
 
-.main-header-bar.alt-logo .alt-logo-box{
+.alt-logo .alt-logo-box{
   display: block;
 }
 
-.main-header-bar .alt-logo-box img{
-  width: 192px;
-  max-width: none;
+ .alt-logo-box img{
+  /* width: 192px;
+  max-width: none; */
+  max-width: 340px;
+  height: 48px;
 }
 
 .main-nav-outer{

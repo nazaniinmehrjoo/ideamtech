@@ -1,8 +1,12 @@
 <!-- Main Header Bar-->
+<!--Alt Logo Box-->
+<div class="alt-logo-box">
+      <a href="/"><img src="/assets/images/logotest2.png" alt=""></a>
+</div>
 <header class="main-header-bar">
     <div class="line-one"></div>
     <div class="line-two"></div>
-    
+
     <!--Header-Upper-->
     <div class="header-bar-inner">
         <div class="outer-box clearfix">
@@ -27,10 +31,7 @@
             <!--Copyright Text-->
             <div class="copyright">&copy;BornaGostar-Parsi</div>
 
-            <!--Alt Logo Box-->
-            <div class="alt-logo-box">
-                <a href="/"><img src="/assets/images/logotest2.png" alt=""></a>
-            </div>
+       
         </div>
 
         <!--Main Nav Outer-->
