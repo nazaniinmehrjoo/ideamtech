@@ -5336,8 +5336,8 @@ form label.error{
   top: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0,0,0,0.50);
-  z-index: 1;
+  background: rgba(0,0,0,0.4);
+  z-index: 999;
 }
 
 .banner-seven .slide-item .image-layer{
@@ -5371,7 +5371,7 @@ form label.error{
   padding: 100px 0px 50px;
   height: 100vh;
   min-height: 320px;
-  z-index: 10;
+  /* z-index: 10; */
 }
 
 .banner-seven .slide-item .content{
@@ -5380,7 +5380,7 @@ form label.error{
   width: 100%;
   vertical-align: middle;
   padding-left: 130px;
-  z-index: 5;
+  z-index: 999999;
 }
 
 .banner-seven .slide-item .inner{
@@ -7310,8 +7310,8 @@ canvas {
     }
   }
 .image-box {
-  width: 376px; 
-  height: 266px;
+  /* width: 376px; 
+  height: 266px; */
   overflow: hidden; 
 }
 .image-box img {
