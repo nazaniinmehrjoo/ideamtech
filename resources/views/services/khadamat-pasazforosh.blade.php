@@ -32,9 +32,9 @@
         box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
     }
 
-    .service-item h3,
+    .service-item h4,
     .faq summary,
-    .contact h2 {
+    .contact h4 {
         color: #f05928;
     }
 
@@ -49,8 +49,8 @@
 
 <!-- Hero Section -->
 <section class="hero d-flex flex-column align-items-center justify-content-center text-center">
-    <h1>After-Sales Service</h1>
-    <p>Your trusted partner for ongoing support, maintenance, and guidance to keep your equipment running smoothly.</p>
+    <h1>خدمات پس از فروش</h1>
+    <p>به طور کل خدمات پس از فروش مجموعه اطلاعات و خدمات وآموزش ها و راهنمایی ها و ضمانت هایی است که یک شرکت به مشتریان اعلام میکند</p>
     <div class="joinUsBtnContainer">
         <button class="joinUsbtnContent">
             <svg width="200px" height="6q0px" viewBox="0 0 200 60">
@@ -65,65 +65,71 @@
 
 <!-- Services Section with Bootstrap Grid -->
 <section class="services text-center">
-    <h2 class="section-title">Our Services</h2>
+    <h2 class="section-title"></h2>
     <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 justify-content-center">
         <div class="col">
             <div class="service-item h-100 p-3">
-                <h3>Installation & Setup</h3>
+                <h4>ارسال. نصب و راه اندازی رایگان </h4>
                 <details>
-                    <summary>Learn More</summary>
-                    <p>Our installation service includes initial setup, calibration, and user training to ensure smooth
-                        operation right from the start.</p>
+                    <summary>ادامه</summary>
+                    <p>
+                        شامل خدماتی می باشد که درزمانی که محصول و یا قطعه با مشکل روبرو میشود ،نیرو های متخصص نسبت نعمیر محصول اقدام میکنند
+                    </p>
                 </details>
             </div>
         </div>
         <div class="col">
             <div class="service-item h-100 p-3">
-                <h3>Maintenance & Repairs</h3>
+                <h4>تعمیرات و نگهداری محصول</h4>
                 <details>
-                    <summary>Learn More</summary>
-                    <p>Regular maintenance services to keep your equipment in top condition. Our team is also available
-                        for emergency repairs to minimize downtime.</p>
+                    <summary>ادامه</summary>
+                    <p>
+                        شامل خدماتی می باشد که درزمانی که محصول و یا قطعه با مشکل روبرو میشود ،نیرو های متخصص نسبت نعمیر محصول اقدام میکنند
+                    </p>
                 </details>
             </div>
         </div>
         <div class="col">
             <div class="service-item h-100 p-3">
-                <h3>Spare Parts Supply</h3>
+                <h4>تهیه و توزیع قطعات محصول</h4>
                 <details>
-                    <summary>Learn More</summary>
-                    <p>Access genuine spare parts quickly and efficiently. We stock parts for a wide range of equipment
-                        to keep you up and running.</p>
+                    <summary>ادامه</summary>
+                 <p>
+                    شامل فروش کلیه قطعات مصنوعی محصول میباشد که به صورت کلی و جزیی برای مشتری در اسرع وقت ارسال میگردد
+                 </p>
                 </details>
             </div>
         </div>
         <div class="col">
             <div class="service-item h-100 p-3">
-                <h3>Technical Support</h3>
+                <h4>آموزش</h4>
                 <details>
-                    <summary>Learn More</summary>
-                    <p>Our technical support team is ready to assist you with troubleshooting and resolving any
-                        technical issues you may encounter.</p>
+                    <summary>ادامه</summary>
+                    <p>
+                        آموزش و ارایه اطلاعات مفید از جمله اطلاعات فنی،عمومی و تخصصی
+                    </p>
                 </details>
             </div>
         </div>
         <div class="col">
             <div class="service-item h-100 p-3">
-                <h3>Warranty Services</h3>
+                <h4>گارانتی محصول</h4>
                 <details>
-                    <summary>Learn More</summary>
-                    <p>We offer warranty services to ensure you get the most out of your equipment. Our warranty
-                        coverage includes repairs and replacements as needed.</p>
+                    <summary>ادامه</summary>
+                    <p>
+                        تعدیست که شرکت به مشتریان خود میدهد دراین صورت که در مدت زمان مشخصی و محدودی از زمان خری یا نصب چناچه محصول دچار مشکل شود مشتریان نسبت به تعویض یا تعمیر رایگان اقدام خواهند  کرد
+                    </p>
                 </details>
             </div>
         </div>
         <div class="col">
             <div class="service-item h-100 p-3">
-                <h3>Training & Consultation</h3>
+                <h4>پشتیلبانی آنلاین</h4>
                 <details>
-                    <summary>Learn More</summary>
-                    <p>Our experts provide training and consultation to help your team make the best use of your
-                        equipment, maximizing efficiency and productivity.</p>
+                    <summary>ادامه</summary>
+                    <p>
+                        ارایه خدمات پشتیبانی آنلاین شامل پاسخ گویی سریع به سوالات و ابهامات فوری مشتریان
+                    </p>
                 </details>
             </div>
         </div>
