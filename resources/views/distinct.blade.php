@@ -170,9 +170,10 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            gap: 15px;
+            gap: 213px;
             margin: 40px 0;
             position: relative;
+
         }
 
         /* Wave effect between circles */
@@ -180,8 +181,8 @@
             content: '';
             position: absolute;
             top: 50%;
-            left: 10%;
-            width: 80%;
+            left: 2%;
+            width: 95%;
             height: 10px;
             background: linear-gradient(to right, rgba(227, 6, 19, 0.5), rgba(227, 6, 19, 1), rgba(227, 6, 19, 0.5));
             border-radius: 50%;
@@ -230,7 +231,7 @@
         .flow-list {
             flex: 1 1 220px;
             padding: 20px;
-            background-color: #444;
+            background-color: #292c30;
             border-radius: 8px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
             transition: transform 0.3s, box-shadow 0.3s;
@@ -243,10 +244,11 @@
         }
 
         .flow-list h4 {
-            font-size: 1.2rem;
+            font-size: 1rem;
             color: #f05928;
-            margin-bottom: 10px;
+            margin-bottom: 10%;
             text-align: center;
+            font-weight: bold;
         }
 
         .flow-list .content p {
@@ -319,6 +321,12 @@
             background-color: #e0471b;
             color: #ffffff;
         }
+        .box-header {
+            padding: 6%;
+            border: 1px outset #f05928;
+            border-radius: 10px;
+        }
+
     </style>
 </head>
 
@@ -382,7 +390,7 @@
 
             <div class="flow-lists">
                 <div class="flow-list list-1 toAnim toDown anim">
-                    <h4 title="Think">طراحی هوشمند لیوت کارخانه</h4>
+                    <h4 title="Think" class="box-header">طراحی هوشمند لیوت کارخانه</h4>
                     <div class="content">
                         <ol>
                             <li>در نظر گرفتن توسعه برنامه کارخانه در سال‌های آینده برای طراحی لیوت</li>
@@ -405,7 +413,7 @@
                 </div>
 
                 <div class="flow-list list-2 toAnim toDown anim">
-                    <h4 title="Design">چکونگی انجام پروژه !</h4>
+                    <h4 title="Design" class="box-header">!چکونگی انجام پروژه</h4>
                     <div class="content">
                         <ol>
                             <li>طراحی مطابق استاندارد های جهانی</li>
@@ -431,7 +439,7 @@
                 </div>
 
                 <div class="flow-list list-3 toAnim toDown anim">
-                    <h4 title="Build">تا رسیدن به تولید پایدار درکنارتات هستیم</h4>
+                    <h4 title="Build" class="box-header">تا رسیدن به تولید پایدار درکنارتان هستیم</h4>
                     <div class="content">
                         <ol>
                             <li>مراقبت از کیفیت و کمیت تولید شما</li>
