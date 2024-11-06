@@ -1702,7 +1702,7 @@ form label.error{
 
 .banner-two{
   position: relative;
-  padding: 41px 0 100px;
+  padding: 105px 0 100px;
 }
 
 .banner-two .banner-slider{
@@ -6668,7 +6668,7 @@ form label.error{
 }
 .catalogContent .download-btn {
   display: initial !important;
-  bottom: 8%;
+  margin-bottom: 8%;
 }
 .catalogContent .catalogDesc {
   position: relative;
