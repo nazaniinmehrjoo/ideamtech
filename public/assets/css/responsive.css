@@ -601,7 +601,7 @@
 		padding:20px 75px 25px 100px;
 	}
 	.banner-ten .slide-item .bottom-content {
-		margin-left: 13px;
+		margin-left: 138px;
 	}
 	.banner-ten .slide-item .bottom-content .text h3{
 		font-size: 20px;
@@ -2008,14 +2008,14 @@
 		line-height: initial;
 	}
 	.banner-ten .slide-item .bottom-content .bottom-inner {
-		padding: 20px 44px 20px 13px;
+		padding: 35px 44px 20px 13px;
 	}
 	.banner-ten .slide-item .bottom-content {
 		margin-left: 13px;
 	}
 	.banner-ten .slide-item .bottom-content .text h3{
 		font-size: 18px;
-		width: 105px;
+		width: 100%;
 	}
 	.banner-ten .bx-controls .bx-controls-direction {
 		width: 42px;
@@ -2263,30 +2263,31 @@
 		line-height: initial;
 	}
 	.banner-ten .slide-item .bottom-content .bottom-inner {
-		padding: 20px 44px 20px 13px;
+		padding: 60px 44px 20px 13px;
 	}
 	.banner-ten .slide-item .bottom-content {
 		margin-left: 13px;
 	}
 	.banner-ten .slide-item .bottom-content .text h3{
 		font-size: 18px;
-		width: 105px;
+		width: 100%;
+		text-align: right;
 	}
 	.banner-ten .bx-controls .bx-controls-direction {
-		width: 42px;
+		width: 37px;
 	}
 	.banner-ten .bx-controls .bx-prev, .banner-ten .bx-controls .bx-next {
-		width: 40px;
-    	height: 40px;
+		width: 35px;
+    	height: 35px;
 	}
 	.banner-ten .bx-controls {
-		height: 80px;
+		height: 70px;
 	}
 	.banner-ten .bx-controls {
 		right: 18px;
 	}
 	.banner-ten .bx-controls .bx-prev, .banner-ten .bx-controls .bx-next{
-		line-height: 40px;
+		line-height: 35px;
 	}
 	.banner-ten .slide-item .bottom-content .count {
 		top: 5px;
