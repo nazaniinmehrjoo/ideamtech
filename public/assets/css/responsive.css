@@ -311,7 +311,7 @@
 		padding: 0px 50px;
 	}
 	.accordionslider-box {
-		height: 400px;
+		height: 500px;
 		overflow-y: scroll;
 		scrollbar-width: thin; 
 	}
@@ -650,6 +650,10 @@
  		line-height: 80px;
  		font-size: 32px;
 	}
+	/* Responsive of Khadamat Mohandesi */
+	.main-content-container {
+		padding-left: 50px;
+	}
 
 }
 
@@ -676,7 +680,7 @@
 		width: 350px !important;
 	}
 	.accordionslider-box {
-		height: 300px;
+		height: 500px;
 		overflow-y: scroll;
 		scrollbar-width: thin; 
 	}
@@ -1175,7 +1179,7 @@
 		padding-left: 0;
 	}
 	.accordionslider-box {
-		height: 200px;
+		height: 500px;
 		overflow-y: scroll;
 		scrollbar-width: thin; 
 	}
@@ -1618,7 +1622,7 @@
 		width: 300px !important;
 	}
 	.accordionslider-box {
-		height: 200px;
+		height: 500px;
 		overflow-y: scroll;
 		scrollbar-width: thin; 
 	}
