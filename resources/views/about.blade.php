@@ -41,10 +41,10 @@
                             نوآوران برنا گستر پارسی متعهدانه از طراحی تا اجرا همراه صنعتگران محترم خواهد بود.
                         </p>
                         <ul>
-                            <li><i class="fa-light fa-trophy-star"></i>پیشرودر طراحی ساخت ماشین آلات آجر</li>
-                            <li><i class="fa-light fa-trophy-star"></i>پیشرو در تکنولوژی روز دنیا</li>
-                            <li><i class="fa-light fa-trophy-star"></i>مشاوره در ساخت کارخانه‌جات آجر</li>
-                            <li><i class="fa-light fa-trophy-star"></i>تعهد در خدمات پس از فروش</li>
+                            <li><i class="fa-light fa-medal"></i>پیشرودر طراحی ساخت ماشین آلات آجر</li>
+                            <li><i class="fa-light fa-medal"></i>پیشرو در تکنولوژی روز دنیا</li>
+                            <li><i class="fa-light fa-medal"></i>مشاوره در ساخت کارخانه‌جات آجر</li>
+                            <li><i class="fa-light fa-medal"></i>تعهد در خدمات پس از فروش</li>
                         </ul>
                     </div>
                 </div>
@@ -432,7 +432,7 @@
                     </div>
                     <!--Block-->
                     <div class="accordion block active-block">
-                        <div class="acc-btn active"> توان اجرایی <i class="fa-regular fa-home"></i></div>
+                        <div class="acc-btn active"> توان اجرایی <i class="fa-light fa-user-helmet-safety"></i></div>
                         <div class="acc-content">
                             <div class="content">
                                 <div class="text">
@@ -454,7 +454,7 @@
                     </div>
                     <!--Block-->
                     <div class="accordion block">
-                        <div class="acc-btn">پشتیبانی و تامین قطعات <i class="fa-regular fa-user"></i></div>
+                        <div class="acc-btn">پشتیبانی و تامین قطعات <i class="fa-regular fa-user-headset"></i></div>
                         <div class="acc-content">
                             <div class="content">
                                 <div class="text">
