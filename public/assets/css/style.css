@@ -3625,6 +3625,7 @@ form label.error{
   background: #2b2f33;
   margin-bottom: 40px;
   border-radius: 15px;
+  direction: rtl;
 }
 
 .mixitup-gallery .gallery-filters ul{
@@ -7406,4 +7407,7 @@ canvas {
 
 .hero .btn-custom:hover {
   background-color: #d49b00;
+}
+.customerContent  {
+  margin-top: 10% !important;
 }
