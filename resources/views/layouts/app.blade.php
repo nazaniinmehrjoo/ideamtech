@@ -17,7 +17,7 @@
     <!-- <link rel="icon" href="/assets/images/favicon.png" type="image/x-icon"> -->
 
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-dark-5@1.1.3/dist/css/bootstrap-dark.min.css" rel="stylesheet">
+    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap-dark-5@1.1.3/dist/css/bootstrap-dark.min.css" rel="stylesheet"> -->
 
     <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
 
