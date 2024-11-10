@@ -1152,7 +1152,10 @@
 		max-width: 300px;
 	}
 
-
+	/* Our customers Reponsive */
+	.customerContent  {
+		margin-top: 25% !important;
+	}
 
 }
 
@@ -1611,6 +1614,10 @@
 	/* Home page resonsive */
 	.def-tabs-box .tab-buttons {
 		width: 108%;
+	}
+	/* Our customers Reponsive */
+	.customerContent  {
+		margin-top: 35% !important;
 	}
 }
 
@@ -2255,6 +2262,10 @@
   		height: 30px !important;
 	}
 	
+	/* Our customers Reponsive */
+	.customerContent  {
+		margin-top: 45% !important;
+	}
 }
 @media only screen and (max-width: 479px) {
 	
