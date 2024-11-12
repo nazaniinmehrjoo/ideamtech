@@ -76,9 +76,7 @@
                                 <select name="category_id" id="category" class="form-control bg-dark text-white @error('category_id') is-invalid @enderror" required>
                                     <option value="">{{ __('-- Select Category --') }}</option>
                                     @foreach($categories as $category)
-                                        <option value="{{ $category->id }}" {{ $product->category_id == $category->id ? 'selected' : '' }}>
-                                            {{ $category->name }}
-                                        </option>
+                                        <option value="{{ $category->id }}" {{ $product->category_id == $category->id ? 'selected' : '' }}>{{ $category->name }}</option>
                                     @endforeach
                                 </select>
 
@@ -88,6 +86,34 @@
                                     </span>
                                 @enderror
                             </div>
+                        </div>
+
+                        <!-- Metric Fields for 'khoskkon' Page -->
+                        <div id="khoskkonFields" style="display: {{ $product->page_name == 'khoskkon' ? 'block' : 'none' }};">
+                            @php
+                                $metrics = [
+                                    'total_cost' => 'هزینه تمام شده',
+                                    'energy_consumption' => 'مصرف انرژی',
+                                    'production_variety' => 'تنوع تولید',
+                                    'occupied_area' => 'مساحت اشغال شده',
+                                    'drying_time' => 'زمان خشک شدن',
+                                    'maintenance_cost' => 'هزینه تعمیر و نگهداری',
+                                    'product_quality' => 'کیفیت محصول',
+                                    'operation_cost' => 'هزینه اپراتوری',
+                                    'machine_quality' => 'کیفیت ماشین آلات'
+                                ];
+                            @endphp
+                            @foreach ($metrics as $field => $label)
+                                <div class="row mb-3">
+                                    <label for="{{ $field }}" class="col-md-4 col-form-label text-md-end">{{ __($label) }}</label>
+                                    <div class="col-md-6">
+                                        <input type="number" name="{{ $field }}" id="{{ $field }}" class="form-control bg-dark text-white @error($field) is-invalid @enderror" value="{{ old($field, $product->$field) }}">
+                                        @error($field)
+                                            <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>
+                                        @enderror
+                                    </div>
+                                </div>
+                            @endforeach
                         </div>
 
                         <!-- Product Image Input -->
@@ -128,4 +154,13 @@
     </div>
 </div>
 
+<!-- JavaScript to dynamically show/hide metric fields based on selected page -->
+<script>
+    const pageNameSelect = document.getElementById('page_name');
+    const khoskkonFields = document.getElementById('khoskkonFields');
+
+    pageNameSelect.addEventListener('change', function () {
+        khoskkonFields.style.display = this.value === 'khoskkon' ? 'block' : 'none';
+    });
+</script>
 @endsection

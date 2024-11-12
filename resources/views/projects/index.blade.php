@@ -1,42 +1,65 @@
 @extends('layouts.app2')
 
 @section('content')
-<div class="container">
-    <h1>مدیریت پروژه ها</h1>
-    <a href="{{ route('projects.create') }}" class="btn btn-primary">ایجاد</a>
+<div class="container" style="direction: rtl;">
+    <h1 class="text-center my-4">مدیریت پروژه‌ها</h1>
 
+    <!-- Success Message -->
     @if(session('success'))
-        <div class="alert alert-success">{{ session('success') }}</div>
+        <div class="alert alert-success text-center">{{ session('success') }}</div>
     @endif
 
-    <table class="table table-striped" srtle="direction:rtl">
-        <thead>
-            <tr>
-                <th>نام پروژه</th>
-                <th>کارفرما</th>
-                <th>تاریخ شروع</th>
-                <th>وضعیت</th>
-                <th>عملیات</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach ($projects as $project)
+    <!-- Create Button -->
+    <div class="text-center mb-4">
+        <a href="{{ route('projects.create') }}" class="btn btn-outline-primary">
+            <i class="fas fa-plus"></i> ایجاد پروژه جدید
+        </a>
+    </div>
+
+    <!-- Projects Table -->
+    <div class="table-responsive">
+        <table class="table table-bordered table-hover table-striped text-center">
+            <thead class="table-dark">
                 <tr>
-                    <td>{{ $project->name }}</td>
-                    <td>{{ $project->client }}</td>
-                    <td>{{ $project->start_date }}</td>
-                    <td>{{ $project->status }}</td>
-                    <td>
-                        <a href="{{ route('projects.edit', $project->id) }}" class="btn btn-warning">Edit</a>
-                        <form action="{{ route('projects.destroy', $project->id) }}" method="POST" style="display:inline-block;">
-                            @csrf
-                            @method('DELETE')
-                            <button class="btn btn-danger" onclick="return confirm('Are you sure?')">Delete</button>
-                        </form>
-                    </td>
+                    <th>نام پروژه</th>
+                    <th>کارفرما</th>
+                    <th>تاریخ شروع</th>
+                    <th>وضعیت</th>
+                    <th>عملیات</th>
                 </tr>
-            @endforeach
-        </tbody>
-    </table>
+            </thead>
+            <tbody>
+                @forelse ($projects as $project)
+                    <tr>
+                        <td>{{ $project->name }}</td>
+                        <td>{{ $project->client }}</td>
+                        <td>{{ $project->start_date }}</td>
+                        <td>{{ $project->status }}</td>
+                        <td>
+                            <a href="{{ route('projects.edit', $project->id) }}" class="btn btn-sm btn-warning mx-1">
+                                <i class="fas fa-edit"></i> ویرایش
+                            </a>
+                            <form action="{{ route('projects.destroy', $project->id) }}" method="POST" style="display:inline-block;">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="btn btn-sm btn-danger mx-1" onclick="return confirm('آیا مطمئن هستید که می‌خواهید این پروژه را حذف کنید؟')">
+                                    <i class="fas fa-trash-alt"></i> حذف
+                                </button>
+                            </form>
+                        </td>
+                    </tr>
+                @empty
+                    <tr>
+                        <td colspan="5" class="text-muted">هیچ پروژه‌ای موجود نیست.</td>
+                    </tr>
+                @endforelse
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Pagination Links -->
+    <div class="d-flex justify-content-center mt-4">
+        {{ $projects->links('vendor.pagination.default') }}
+    </div>
 </div>
 @endsection
