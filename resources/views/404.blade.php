@@ -50,11 +50,14 @@
 
     #wrap {
         width: 80%;
-        max-width: 1400px;
+        /* max-width: 1400px; */
         margin: 0 auto;
         height: auto;
         position: relative;
         margin-top: 8%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
     }
 
 
@@ -63,7 +66,7 @@
 
     #main-content {
         float: right;
-        max-width: 45%;
+        max-width: 50%;
         color: white;
         font-weight: 300;
         font-size: 18px;
@@ -74,9 +77,9 @@
 
     #main-content h1 {
         margin: 0px;
-        font-weight: 400;
-        font-size: 42px;
-        margin-bottom: 40px;
+        font-weight: bold;
+        font-size: 30px;
+        margin-bottom: 30px;
         line-height: normal;
     }
 
@@ -225,7 +228,7 @@
     @media all and (max-width: 799px) {
         #wrap {
             width: 90%;
-            height: auto;
+            height: 100%;
             margin-top: 40px;
             top: 0%;
         }
@@ -249,9 +252,9 @@
             text-align: justify;
         }
 
-        #main-content h1 {
+        /* #main-content h1 {
             text-align: left;
-        }
+        } */
 
         #search input[type='text'] {
             width: 84%;
@@ -271,6 +274,12 @@
     .sadRobot {
         width: 170px;
         height: 100%;
+    }
+    .notFoundPageContainer {
+        text-align: right;
+    }
+    #navigation a.navigation {
+        text-align: center;
     }
 </style>
 <div id="wrap">
@@ -410,7 +419,7 @@
         <div class="row" style="display:flex">
             <img src="/assets/images/resource/robot404.png" alt="notfound" class="sadRobot">
         </div>
-        <div class="content">
+        <div class="content notFoundPageContainer">
             <h1>صفحه‌ای که دنبال آن بودید پیدا نشد</h1>
 
             <p>متأسفانه صفحه‌ای که به دنبال آن بودید پیدا نشد. ممکن است به‌طور موقت در دسترس نباشد، جابجا شده باشد یا

@@ -20,7 +20,7 @@
         .main_image {
             width: 100%;
             height: 100vh;
-            background-image: url("{{ asset('/assets/images/main-slider/Adl-2.JPG') }}");
+            /* background-image: url("{{ asset('/assets/images/main-slider/Adl-2.JPG') }}"); */
             background-size: cover;
             background-position: center;
             position: relative;
@@ -28,7 +28,9 @@
             align-items: center;
             justify-content: center;
         }
-
+        .main_image img {
+            height: 100%;
+        }
         .main_image h1 {
             font-size: 100px;
             color: rgba(255, 255, 255, 0.9);
@@ -278,6 +280,7 @@
             padding: 20px;
             background-color: #f05928;
             color: white;
+            width: 80%;
         }
 
         .content-wrapper {
@@ -326,6 +329,9 @@
             border: 1px outset #f05928;
             border-radius: 10px;
         }
+        .flow-step-header {
+            display: none;
+        }
 
     </style>
 </head>
@@ -334,6 +340,7 @@
 
     <section class="intro_section">
         <div class="main_image lazyloaded">
+            <img src="/assets/images/main-slider/Adl-2.JPG" alt="">
             <div class="scroll-icon">
                 <div class="icon-container">
                     <div class="mouse-icon">
@@ -390,6 +397,10 @@
 
             <div class="flow-lists">
                 <div class="flow-list list-1 toAnim toDown anim">
+                    <div class="flow-step-header">
+                        <div class=" flow-step ">قبل اجرا</div>
+                    </div>
+
                     <h4 title="Think" class="box-header">طراحی هوشمند لیوت کارخانه</h4>
                     <div class="content">
                         <ol>
@@ -413,6 +424,9 @@
                 </div>
 
                 <div class="flow-list list-2 toAnim toDown anim">
+                    <div class="flow-step-header">
+                        <div class="flow-step">حین اجرا</div>
+                    </div>
                     <h4 title="Design" class="box-header">!چکونگی انجام پروژه</h4>
                     <div class="content">
                         <ol>
@@ -439,6 +453,9 @@
                 </div>
 
                 <div class="flow-list list-3 toAnim toDown anim">
+                    <div class="flow-step-header">
+                        <div class="flow-step">بعد از تحویل</div>
+                    </div>
                     <h4 title="Build" class="box-header">تا رسیدن به تولید پایدار درکنارتان هستیم</h4>
                     <div class="content">
                         <ol>

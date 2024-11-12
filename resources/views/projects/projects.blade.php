@@ -2,7 +2,7 @@
 
 @section('content')
 
-<div class="container mt-5">
+<div class="customerContent container">
     <!-- Introduction Section -->
     <div class="intro-section text-center">
         <h2>مشتریان ما</h2>
