@@ -9,9 +9,11 @@ class EmploymentFormController extends Controller
 {
     public function index()
     {
-        $forms = EmploymentForm::all();
+        $forms = EmploymentForm::paginate(10);
+
         return view('employment_form.index', compact('forms'));
     }
+
 
     // Show the form for creating a new form
     public function create()
@@ -23,13 +25,14 @@ class EmploymentFormController extends Controller
     public function store(Request $request)
     {
         $validated = $this->validateRequest($request);
-        
+
         // Handle file uploads (same as before)
         $validated = $this->handleFileUploads($request, $validated);
 
         EmploymentForm::create($validated);
 
-        return redirect()->route('employment-forms.index')->with('success', 'Form submitted successfully!');
+        return redirect('/')->with('success', 'با موفقیت ثبت شد.');
+
     }
 
     // // Display the specified form
@@ -79,9 +82,9 @@ class EmploymentFormController extends Controller
             'experience_years' => 'required|integer',
             'education_history' => 'required|string',
             'training_courses' => 'nullable|string',
-            'training_certificate' => 'nullable|file|image|max:2048',
+            'training_certificate' => 'nullable|file|image|max:40960',
             'work_experience' => 'nullable|string',
-            'work_experience_photo' => 'nullable|file|image|max:2048',
+            'work_experience_photo' => 'nullable|file|image|max:40960',
             'foreign_language' => 'required|string',
             'language_proficiency' => 'required|integer|min:1|max:5',
             'software_skills' => 'nullable|string',
