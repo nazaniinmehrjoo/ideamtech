@@ -8,10 +8,7 @@ class ProjectController extends Controller
 {
     public function index()
     {
-        // Fetch all projects from the database
-        $projects = Project::all();
-    
-        // Return the index view and pass the projects data
+        $projects = Project::paginate(10); 
         return view('projects.index', compact('projects'));
     }
     public function create()
