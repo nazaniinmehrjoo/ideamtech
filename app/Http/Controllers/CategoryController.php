@@ -35,7 +35,7 @@ class CategoryController extends Controller
         
         Category::create($data);
 
-        return redirect()->route('dashboard')->with('success', 'دسته بندی جدید با موفقیت ایجاد شد.');
+        return redirect()->route('categories.index')->with('success', 'دسته بندی جدید با موفقیت ایجاد شد.');
     }
 
     public function edit($id)
@@ -58,7 +58,7 @@ class CategoryController extends Controller
         
         $category->update($data);
 
-        return redirect()->route('dashboard')->with('success', 'Category updated successfully.');
+        return redirect()->route('categories.index')->with('success', 'Category updated successfully.');
     }
 
     public function destroy($id)
