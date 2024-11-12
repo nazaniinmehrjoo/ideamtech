@@ -10,7 +10,7 @@ class BlogController extends Controller
 {
     public function publicIndex()
     {
-        $posts = Post::latest()->paginate(3);
+        $posts = Post::latest()->paginate(10);
         return view('blog.blogs', compact('posts'));
     }
 
@@ -31,7 +31,7 @@ class BlogController extends Controller
             'title' => 'required|max:255',
             'category' => 'required|max:255',
             'content' => 'required',
-            'main_image' => 'nullable|image|max:40960', // Validation for main image
+            'main_image' => 'nullable|image|max:40960', 
             'images.*' => 'nullable|image|max:40960',
         ]);
     
@@ -40,8 +40,8 @@ class BlogController extends Controller
         // Handle main image upload
         if ($request->hasFile('main_image')) {
             $mainImagePath = $request->file('main_image')->store('posts', 'public');
-            $post->main_image_path = $mainImagePath; // Set the main image path
-            $post->save(); // Save the post with the main image
+            $post->main_image_path = $mainImagePath;
+            $post->save(); 
         }
     
         // Handle additional images upload
