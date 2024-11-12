@@ -38,8 +38,12 @@ Route::get('/متمایزازدیگران', function () {
     return view('distinct');
 });
 
-Route::resource('cooperations', CooperationController::class);
-Route::resource('employment-forms', EmploymentFormController::class);
+Route::get('cooperations/create', [CooperationController::class, 'create'])->name('cooperations.create');
+Route::post('cooperations', [CooperationController::class, 'store'])->name('cooperations.store');
+
+Route::get('employment-forms/create', [EmploymentFormController::class, 'create'])->name('employment-forms.create');
+Route::post('employment-forms', [EmploymentFormController::class, 'store'])->name('employment-forms.store');
+
 
 Route::get('/پیوستن-به-خانواده-برناگستر', function () {
     return view('forms.form-selection');
@@ -105,6 +109,16 @@ Route::middleware(['isAdmin'])->group(function () {
     Route::resource('customer', CustomerFormController::class);
     Route::get('/dashboard/blog', [BlogController::class, 'index'])->name('blog.index');
     Route::resource('blog', BlogController::class)->except(['index', 'show']);
+
+    Route::get('cooperations', [CooperationController::class, 'index'])->name('cooperations.index');
+    Route::get('cooperations/{id}/edit', [CooperationController::class, 'edit'])->name('cooperations.edit');
+    Route::put('cooperations/{id}', [CooperationController::class, 'update'])->name('cooperations.update');
+    Route::delete('cooperations/{id}', [CooperationController::class, 'destroy'])->name('cooperations.destroy');
+
+    Route::get('employment-forms', [EmploymentFormController::class, 'index'])->name('employment-forms.index');
+    Route::get('employment-forms/{id}/edit', [EmploymentFormController::class, 'edit'])->name('employment-forms.edit');
+    Route::put('employment-forms/{id}', [EmploymentFormController::class, 'update'])->name('employment-forms.update');
+    Route::delete('employment-forms/{id}', [EmploymentFormController::class, 'destroy'])->name('employment-forms.destroy');
     
 
 
