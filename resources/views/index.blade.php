@@ -11,7 +11,7 @@
 <!-- Banner Two -->
 <section class="banner-two" id="to-top-div">
     <div class="auto-container">
-        <div class="banner-slider owl-theme owl-carousel">
+        <div class="banner-slider owl-theme owl-carousel col-md-12 col-md-offset-2">
             <!--Slide Item-->
             <div class="slide-item">
                 <div class="image-layer"></div>
@@ -73,10 +73,10 @@
                     </div>
                 </div>
             </div>
-            <div class="slide-item">
-                <div class="image-layer"></div>
-                <img class="image-layer" src="/assets/images/main-slider/BORNA1-2-2048x821.jpg" alt="bornagostar">
-
+            <div class="slide-item ">
+                <div class="image-layer">
+                <img class="image-layer" id="imageLayerFive" src="/assets/images/main-slider/BORNA1-2-2048x821.jpg" alt="bornagostar">
+                </div>
                 <div class="slide-count"><span>05</span></div>
                 <div class="content-box">
                     <div class="content">

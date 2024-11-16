@@ -2717,14 +2717,22 @@
 		max-width: 293px;
   		height: 40px;
 	}
-	/* Homeb page responsive */
+	/* Home page responsive */
 	.sliderSesc {
 		font-size: 20px;
 	}
 	.banner-two .slide-item .cat a {
 		font-size: 14px;
 	}
-
+	.service-block .text {
+		height: auto;
+	}
+	.auto-container {
+		max-width: 100%;
+	}
+	/* .banner-two .slide-item #imageLayerFive {
+		height: 40%;
+	} */
 	/* Distinct Responsive */
 	.panel-content {
 		padding: 15px !important;
@@ -2745,6 +2753,7 @@
 	#main-content {
 		font-size: 14px !important;
 	}
+
 }
 
 
