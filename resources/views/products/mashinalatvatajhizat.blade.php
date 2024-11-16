@@ -6,7 +6,7 @@
     <div class="auto-container">
         <h1><span>ماشین آلات و تجهیزات</span></h1>
         <div class="bread-crumb">
-            <ul class="breadcrumb bg-dark text-light justify-content-center">
+            <ul>
                 <li><a href="/" class="text-light">خانه</a></li>
                 <li class="active">ماشین آلات و تجهیزات</li>
             </ul>
