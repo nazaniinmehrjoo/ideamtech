@@ -15,49 +15,63 @@
     </div>
 </section>
 
-<section class="portfolio-section" style="direction:rtl">
+<section class="portfolio-section" style="direction:rtl;">
     <div class="auto-container">
         <div class="mixitup-gallery">
             <!-- Filter Section -->
             <div class="gallery-filters centered clearfix">
-                <ul class="filter-tabs filter-btns clearfix">
-                    <li class="filter" data-filter="all" onclick="showProductList()">نمایش همه</li>
+                <ul class="filter-tabs filter-btns clearfix" style="color: #ffffff;">
+                    <li class="filter" data-filter="all" onclick="showProductList('all')" style="color: #ffffff;">نمایش
+                        همه</li>
                     @foreach($categories as $category)
-                        <li class="filter" data-filter=".category-{{ $category->id }}" onclick="showProductList()">
+                        <li class="filter" data-filter=".category-{{ $category->id }}"
+                            onclick="showProductList({{ $category->id }})" style="color: #ffffff;">
                             {{ $category->name }}
                         </li>
                     @endforeach
-                    <li class="filter" onclick="showComparisonChart()">مقایسه خشک کن ها</li>
+                    <li class="filter" onclick="showComparisonChart()" style="color: #ffffff;">مقایسه خشک کن ها</li>
                 </ul>
+            </div>
+
+            <!-- Static Text Box -->
+            <div class="static-text-box" id="staticTextBox"
+                style="padding: 20px; margin: 20px 0; background: #333; border-radius: 8px; text-align: center; display: none; color: #ffffff; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);">
+                <p id="staticTextContent" style="margin: 0; font-size: 16px;"></p>
             </div>
 
             <!-- Product List -->
             <div class="filter-list row clearfix" id="product-list">
                 @forelse($products as $product)
-                    <div class="portfolio-block mix category-{{ $product->category_id }} col-xl-4 col-lg-4 col-md-6 col-sm-12" data-category="{{ $product->category_id }}">
-                        <div class="inner-box">
+                    <div class="portfolio-block mix category-{{ $product->category_id }} col-xl-4 col-lg-4 col-md-6 col-sm-12"
+                        data-category="{{ $product->category_id }}">
+                        <div class="inner-box"
+                            style="background-color: #2b2b2b; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);">
                             <div class="image">
-                                <img src="{{ asset('storage/' . $product->image) }}" alt="{{ $product->name }}">
+                                <img src="{{ asset('storage/' . $product->image) }}" alt="{{ $product->name }}"
+                                    style="border-radius: 8px 8px 0 0;">
                             </div>
                             <div class="overlay">
-                                <div class="more-link" onclick="trackAndOpenModal({{ $product->id }}, '{{ $product->name }}', '{{ $product->description }}')">
-                                    <i class="fa-solid fa-bars-staggered"></i>
+                                <div class="more-link"
+                                    onclick="trackAndOpenModal({{ $product->id }}, '{{ $product->name }}', '{{ $product->description }}')">
+                                    <i class="fa-solid fa-bars-staggered theme-btn"></i>
                                 </div>
                                 <div class="inner">
                                     <div class="cat"><span>{{ $product->category->name }}</span></div>
-                                    <h5 id="productName"><a href="#">{{ $product->name }}</a></h5>
+                                    <h5 id="productName"><a href="#" class="text-light">{{ $product->name }}</a>
+                                    </h5>
                                 </div>
                             </div>
                         </div>
                     </div>
                 @empty
-                    <p>محصولی یافت نشد.</p>
+                    <p style="color: #ffffff;">محصولی یافت نشد.</p>
                 @endforelse
             </div>
 
             <!-- Comparison Chart Container -->
             <div id="comparisonChartContainer" style="display: none; width: 80%; max-width: 700px; margin: 30px auto;">
-                <div class="chart-box" style="background: #444; border-radius: 8px; padding: 20px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);">
+                <div class="chart-box"
+                    style="background: #444; border-radius: 8px; padding: 20px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);">
                     <h4 style="text-align: center; color: #ffffff; margin-bottom: 15px;">نمودار مقایسه‌ای خشک کن‌ها</h4>
                     <div style="width: 100%; margin: auto;">
                         <canvas id="radarChart"></canvas>
@@ -67,22 +81,48 @@
         </div>
     </div>
 </section>
-
-<!-- Chart Script -->
-<!-- <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> -->
+<!-- Modal to show product details -->
 <div id="moreProductDtl" class="modal" style="display: none;">
-    <div class="modal-content">
+    <div class="modal-content bg-dark text-white">
         <span class="closeModal" onclick="closeModal()"><img src="/assets/images/icons/close-icon.png" alt=""></span>
         <button class="download-btn" onclick="startSpin(this)">
             <i class="fa-light fa-download download" id="download"></i>
             <div class="spinner"></div>
         </button>
-        <h3 id="productNameModal"></h3>
-        <p id="productDescriptionModal"></p>
+        <h3 id="productNameModal" class="text-light"></h3>
+        <p id="productDescriptionModal" class="text-light"></p>
     </div>
 </div>
 <script>
-    document.addEventListener("DOMContentLoaded", function() {
+    // Static text data for each category
+    const categoryTexts = {
+        1: " لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیازلورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز",
+        2: "لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز",
+        3: "لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز",
+        4: "لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز",
+        // Add or modify texts for each category ID here as needed
+    };
+
+    // Function to update static text and show product list based on selected category
+    function showProductList(categoryId) {
+        document.getElementById('comparisonChartContainer').style.display = 'none';
+        document.getElementById('product-list').style.display = 'flex';
+
+        // Get references to static text elements
+        const staticTextBox = document.getElementById('staticTextBox');
+        const staticTextContent = document.getElementById('staticTextContent');
+
+        // Check if a specific category was selected, and update or hide the static text box accordingly
+        if (categoryId in categoryTexts) {
+            staticTextContent.textContent = categoryTexts[categoryId];
+            staticTextBox.style.display = 'block'; // Show the static text box for specific categories
+        } else {
+            staticTextBox.style.display = 'none'; // Hide the static text box when "نمایش همه" is selected
+        }
+    }
+
+    // Chart setup
+    document.addEventListener("DOMContentLoaded", function () {
         const labels = {!! json_encode($criteriaLabels) !!};
         const datasets = {!! json_encode($productDatasets) !!};
 
@@ -94,8 +134,8 @@
 
             new Chart(ctx, {
                 type: 'radar',
-                data: { 
-                    labels: labels, 
+                data: {
+                    labels: labels,
                     datasets: datasets
                 },
                 options: {
@@ -143,12 +183,9 @@
     function showComparisonChart() {
         document.getElementById('product-list').style.display = 'none';
         document.getElementById('comparisonChartContainer').style.display = 'block';
-    }
 
-    // Function to show the product list and hide the comparison chart
-    function showProductList() {
-        document.getElementById('comparisonChartContainer').style.display = 'none';
-        document.getElementById('product-list').style.display = 'flex';
+        // Hide the static text box when showing the comparison chart
+        document.getElementById('staticTextBox').style.display = 'none';
     }
 </script>
 <script>
@@ -163,29 +200,32 @@
             },
             body: JSON.stringify({})
         })
-        .then(response => {
-            if (!response.ok) {
-                throw new Error('Network response was not ok');
-            }
-            return response.json(); // Ensure response is JSON
-        })
-        .then(data => {
-            console.log(data.message); // Success message
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.json(); // Ensure response is JSON
+            })
+            .then(data => {
+                console.log(data.message); // Success message
 
-            // Open the modal with the product information
-            document.getElementById('productNameModal').textContent = productName;
-            document.getElementById('productDescriptionModal').textContent = productDescription;
-            document.getElementById('moreProductDtl').style.display = 'block';
-        })
-        .catch(error => {
-            console.error('Error tracking click:', error);
-        });
+                // Open the modal with the product information
+                document.getElementById('productNameModal').textContent = productName;
+                document.getElementById('productDescriptionModal').textContent = productDescription;
+                document.getElementById('moreProductDtl').style.display = 'block';
+            })
+            .catch(error => {
+                console.error('Error tracking click:', error);
+            });
     }
 
     // Function to close the modal
     function closeModal() {
         document.getElementById('moreProductDtl').style.display = 'none';
     }
-</script>
 
+    function startSpin(button) {
+        // Add your spinning logic here if needed
+    }
+</script>
 @endsection
