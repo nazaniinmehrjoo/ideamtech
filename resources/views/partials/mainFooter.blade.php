@@ -5,7 +5,7 @@
     <div class="footer-inner">
         <div class="auto-container">
             <div class="footer-logo">
-                <a href="index.html"><img src="/assets/images/logotest2.png" alt=""></a>
+                <a href="index.html"><img src="/assets/images/logo2.png" alt=""></a>
             </div>
             <div class="info">
                 <div class="row clearfix">
@@ -13,9 +13,9 @@
                     <div class="info-block col-lg-6 col-md-6 col-sm-12">
                         <div class="i-title">آدرس</div>
                         <div class="text">
-                            | <span>کارخانه 1 :</span>  جاده قدیم قم-کاشان، بعد از پل جمکران  کوچه عدل
+                            <span>کارخانه 1 :</span>  جاده قدیم قم-کاشان، بعد از پل جمکران  کوچه عدل | 
                             <br>
-                            | <span>کارخانه 2:</span> اتوبان تهران-قم، شهرک صنعتی محمود آباد  
+                            <span>کارخانه 2:</span> اتوبان تهران-قم، شهرک صنعتی محمود آباد | 
                             <br>
                             <span>دفتر مرکزی تهران:</span> خیابان گاندی، نبش کوچه 8، ساختمان مروارید، طبقه سوم، واحد 9
                         </div>
@@ -23,7 +23,7 @@
                     <!--Block-->
                     <div class="info-block col-lg-6 col-md-6 col-sm-12">
                         <div class="i-title">تماس با ما</div>
-                        <div class="text">
+                        <div class="text contactDetail">
                             <span class="icon fa fa-phone"style="color: #f05928;"></span> 
                             <a href="tel:+982188302036">021 88302036-88302037</a> 
                             <br>
