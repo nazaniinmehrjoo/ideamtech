@@ -31,9 +31,9 @@
 		padding-top: 100px;
 	} */
 
-	.main-footer .info .text {
+	/* .main-footer .info .text {
 		font-size: 28px;
-	}
+	} */
 
 
 	.portfolio-one .portfolio-item-one {
@@ -145,9 +145,9 @@
 		font-size: 48px;
 	}
 
-	.main-footer .info .text {
+	/* .main-footer .info .text {
 		font-size: 24px;
-	}
+	} */
 
 	.page-title {
 		padding: 70px 0;
@@ -657,9 +657,9 @@
  		font-size: 32px;
 	}
 	/* Responsive of Khadamat Mohandesi */
-	.main-content-container {
+	/* .main-content-container {
 		padding-left: 50px;
-	}
+	} */
 
 }
 
@@ -812,12 +812,12 @@
 		width: 90px;
 	}
 
-	.main-footer .info .text {
+	/* .main-footer .info .text {
 		font-size: 20px;
-	}
+	} */
 
 	.main-footer .footer-logo img {
-		height: 35px;
+		height: 115px;
 	}
 
 	.main-footer {
@@ -1193,7 +1193,9 @@
 	#wrap {
 		display: block !important;
 	}
-
+	.main-footer .info .text {
+		font-size: 14px;
+	}
 }
 
 @media only screen and (max-width: 840px) {
@@ -1339,7 +1341,7 @@
 	}
 
 	.main-footer .footer-logo img {
-		height: 26px;
+		height: 115px;
 	}
 
 	.page-title {
@@ -1798,10 +1800,10 @@
 	.banner-section .slide-item .text {
 		font-size: 16px;
 	}
-
+/* 
 	.main-footer .info .text {
 		font-size: 16px;
-	}
+	} */
 
 	.main-footer .loc-info a {
 		font-size: 15px;
@@ -2717,14 +2719,22 @@
 		max-width: 293px;
   		height: 40px;
 	}
-	/* Homeb page responsive */
+	/* Home page responsive */
 	.sliderSesc {
 		font-size: 20px;
 	}
 	.banner-two .slide-item .cat a {
 		font-size: 14px;
 	}
-
+	.service-block .text {
+		height: auto;
+	}
+	.auto-container {
+		max-width: 100%;
+	}
+	/* .banner-two .slide-item #imageLayerFive {
+		height: 40%;
+	} */
 	/* Distinct Responsive */
 	.panel-content {
 		padding: 15px !important;
@@ -2745,6 +2755,7 @@
 	#main-content {
 		font-size: 14px !important;
 	}
+
 }
 
 
