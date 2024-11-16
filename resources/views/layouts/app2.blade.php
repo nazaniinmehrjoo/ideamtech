@@ -7,20 +7,14 @@
         @isset($title)
             {{ $title }} |
         @endisset
-        {{ config('app.name', 'Laravel') }}
+        {{ config('app.name', '') }}
     </title>
     <meta charset="utf-8">
 
     <!-- Stylesheets -->
     <link href="/assets/css/bootstrap.css" rel="stylesheet">
     <link href="/assets/css/style.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
-    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap-dark-5@1.1.3/dist/css/bootstrap-dark.min.css" rel="stylesheet"> -->
-
-    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
-
-    <!-- Chart.js -->
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="/assets/css/leaflet.css" rel="stylesheet">
 
     <!-- Responsive -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -66,6 +60,8 @@
     <script src="/assets/js/bxslider.js"></script>
     <script src="/assets/js/custom-script.js"></script>
     <script src="/assets/js/modal.js"></script>
+    <script src="/assets/js/chart.js"></script>
+    <script src="/assets/js/leaflet.js"></script>
 
     <!-- Laravel Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
