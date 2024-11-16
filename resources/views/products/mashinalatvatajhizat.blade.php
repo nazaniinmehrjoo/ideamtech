@@ -52,7 +52,9 @@
                     </div>
                 </div>
                 @empty
-                <p class="text-light">هیچ محصولی ثبت نشده است</p>
+                <div class="notRegister">
+                    <p class="text-light">هیچ محصولی ثبت نشده است</p>
+                </div>
                 @endforelse
             </div>
         </div>
