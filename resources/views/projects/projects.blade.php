@@ -29,7 +29,7 @@
         <!-- Box for پروژه‌های انجام‌شده -->
         <div class="col-md-4">
             <div class="card stat-box border-success">
-                <div class="card-header bg-success text-black">
+                <div class="card-header bg-success text-black text-center">
                     <i class="fas fa-check-circle"></i> پروژه‌های انجام‌شده
                 </div>
                 <div class="card-body">
@@ -48,7 +48,7 @@
         <!-- Box for پروژه‌های در حال انجام -->
         <div class="col-md-4">
             <div class="card stat-box border-warning">
-                <div class="card-header bg-warning text-white">
+                <div class="card-header bg-warning text-white text-center">
                     <i class="fas fa-tasks"></i> پروژه‌های در حال انجام
                 </div>
                 <div class="card-body">
@@ -67,7 +67,7 @@
         <!-- Box for تعداد کل پروژه‌ها -->
         <div class="col-md-4">
             <div class="card stat-box border-primary">
-                <div class="card-header bg-primary text-white">
+                <div class="card-header bg-primary text-white text-center">
                     <i class="fas fa-project-diagram"></i> تعداد کل پروژه‌ها
                 </div>
                 <div class="card-body">
@@ -85,7 +85,7 @@
     <!-- Project Progress Chart and List Section -->
     <!-- Project Progress Chart and List Section -->
     <div class="row mt-5">
-        <div class="col-md-6">
+        <div class="col-md-6 col-sm-12">
             <div class="card">
                 <div class="card-header">
                     نمودار پیشرفت پروژه‌ها
@@ -95,7 +95,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-6">
+        <div class="customerList col-md-6 col-sm-12">
             <div class="card">
                 <div class="card-header">
                     لیست پروژه‌ها
@@ -103,7 +103,7 @@
                 <div class="card-body" style="max-height: 300px; overflow-y: auto;">
                     <input type="text" id="projectSearch" class="form-control mb-3" placeholder="جستجو پروژه‌ها..."
                         onkeyup="searchProjects()">
-                    <table class="table table-dark table-hover">
+                    <table class="cutomerListTable table table-dark table-hover">
                         <thead>
                             <tr>
                                 <th>نام پروژه</th>
@@ -139,7 +139,7 @@
                             <div class="image-content">
                                 <img src="/assets/images/main-slider/modernbrik.png" alt="Custom Image">
                             </div>
-                            <p class="testimonial-text">“خدمات شرکت شما بی‌نظیر بود. نصب و راه‌اندازی به موقع و بدونمشکل
+                            <p class="testimonial-text">“خدمات شرکت شما بی‌نظیر بود. نصب و راه‌اندازی به موقع و بدون مشکل
                                 انجام شد.”</p>
 
                             <p class="customer-name"><strong>- شرکت الف</strong></p>
@@ -150,7 +150,7 @@
                             <div class="image-content">
                                 <img src="/assets/images/main-slider/modernbrik.png" alt="Custom Image">
                             </div>
-                            <p class="testimonial-text">“خدمات شرکت شما بی‌نظیر بود. نصب و راه‌اندازی به موقع و بدونمشکل
+                            <p class="testimonial-text">“خدمات شرکت شما بی‌نظیر بود. نصب و راه‌اندازی به موقع و بدون مشکل
                                 انجام شد.”</p>
                             <p class="customer-name"><strong>- شرکت ب</strong></p>
                         </div>
@@ -160,7 +160,7 @@
                             <div class="image-content">
                                 <img src="/assets/images/main-slider/modernbrik.png" alt="Custom Image">
                             </div>
-                            <p class="testimonial-text">“خدمات شرکت شما بی‌نظیر بود. نصب و راه‌اندازی به موقع و بدونمشکل
+                            <p class="testimonial-text">“خدمات شرکت شما بی‌نظیر بود. نصب و راه‌اندازی به موقع و بدون مشکل
                                 انجام شد.”</p>
                             <p class="customer-name"><strong>- شرکت ج</strong></p>
                         </div>
@@ -170,7 +170,7 @@
                             <div class="image-content">
                                 <img src="/assets/images/main-slider/modernbrik.png" alt="Custom Image">
                             </div>
-                            <p class="testimonial-text">“خدمات شرکت شما بی‌نظیر بود. نصب و راه‌اندازی به موقع و بدونمشکل
+                            <p class="testimonial-text">“خدمات شرکت شما بی‌نظیر بود. نصب‌و راه‌اندازی به موقع و بدون مشکل
                                 انجام شد.”</p>
                             <p class="customer-name"><strong>- شرکت د</strong></p>
                         </div>
@@ -338,6 +338,9 @@
             .card-header {
                 background-color: #343a40;
                 border-bottom: 1px solid rgba(0, 0, 0, .125);
+            }
+            .card-body {
+                padding: 0px !important;
             }
         </style>
         @endsection

@@ -1700,6 +1700,10 @@
 		width: 46% !important;
 	}
 
+	.customerList {
+		margin-top: 5%;
+	}
+
 }
 
 @media only screen and (max-width: 599px) {
@@ -2755,7 +2759,9 @@
 	#main-content {
 		font-size: 14px !important;
 	}
-
+	#projectProgressChart {
+		width: 98% !important;
+	}
 }
 
 

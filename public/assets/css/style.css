@@ -7426,3 +7426,24 @@ canvas {
 .customerContent  {
   margin-top: 10% !important;
 }
+.notRegister {
+  text-align: center;
+  direction: rtl;
+}
+.filter-list {
+  display: flex !important;
+  justify-content: center !important;
+  padding: 10% !important;
+}
+/* Customers */
+.cutomerListTable {
+direction: rtl;
+text-align: right;
+}
+#projectSearch {
+  direction: rtl;
+}
+#projectProgressChart {
+  height: 100% !important;
+  width: 100% !important;
+}
