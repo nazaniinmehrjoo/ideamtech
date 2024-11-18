@@ -2768,6 +2768,7 @@ form label.error{
   position: relative;
   padding: 20px 0;
   background: #292c30;
+  width: 100%;
 }
 
 .main-footer .footer-inner{
@@ -7427,11 +7428,6 @@ canvas {
   margin-top: 10% !important;
 }
 .notRegister {
-  text-align: center;
-  direction: rtl;
-}
-.filter-list {
-  display: flex !important;
   justify-content: center !important;
   padding: 10% !important;
 }
