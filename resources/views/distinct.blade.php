@@ -17,7 +17,7 @@
         .main_image {
             width: 100%;
             height: 100vh;
-            /* background-image: url("{{ asset('/assets/images/main-slider/Adl-2.JPG') }}"); */
+            background-image: url("{{ asset('/assets/images/main-slider/Adl-2.jpg') }}");
             background-size: cover;
             background-position: center;
             position: relative;
