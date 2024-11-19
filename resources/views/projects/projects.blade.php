@@ -198,7 +198,7 @@
             document.addEventListener('DOMContentLoaded', function () {
                 // Initialize the Leaflet map with a softer dark-themed tile layer
                 var map = L.map('map').setView([35.6892, 51.3890], 6);
-                L.tileLayer('https://tiles.stadiamaps.com/tiles/alidade_smooth_dark/{z}/{x}/{y}{r}.png', {
+                L.tileLayer('https://tiles.stadiamaps.com/tiles/alidade_smooth_dark/{z}/{x}/{y}{r}.png?api_key=90a4bb17-ce3a-4236-affc-8efc17758dac', {
                     maxZoom: 90,
                     attribution: '© OpenStreetMap contributors, © Stadia Maps'
                 }).addTo(map);
