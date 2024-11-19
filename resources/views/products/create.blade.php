@@ -61,40 +61,8 @@
                                 <select name="category_id" id="category" class="form-control bg-dark text-white @error('category_id') is-invalid @enderror" required>
                                     <option value="">{{ __('-- Select Category --') }}</option>
                                 </select>
-                                @error('category_id')
-                                    <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>
-                                @enderror
                             </div>
                         </div>
-
-                        <!-- Additional Metric Fields for 'khoskkon' Page -->
-                        <div id="khoskkonFields" style="display: none;">
-                            @php
-                                $metrics = [
-                                    'total_cost' => 'هزینه تمام شده',
-                                    'energy_consumption' => 'مصرف انرژی',
-                                    'production_variety' => 'تنوع تولید',
-                                    'occupied_area' => 'مساحت اشغال شده',
-                                    'drying_time' => 'زمان خشک شدن',
-                                    'maintenance_cost' => 'هزینه تعمیر و نگهداری',
-                                    'product_quality' => 'کیفیت محصول',
-                                    'operation_cost' => 'هزینه اپراتوری',
-                                    'machine_quality' => 'کیفیت ماشین آلات'
-                                ];
-                            @endphp
-                            @foreach ($metrics as $field => $label)
-                                <div class="row mb-3">
-                                    <label for="{{ $field }}" class="col-md-4 col-form-label text-md-end">{{ __($label) }}</label>
-                                    <div class="col-md-6">
-                                        <input type="number" name="{{ $field }}" id="{{ $field }}" class="form-control bg-dark text-white @error($field) is-invalid @enderror">
-                                        @error($field)
-                                            <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>
-                                        @enderror
-                                    </div>
-                                </div>
-                            @endforeach
-                        </div>
-
                         <!-- Image Upload -->
                         <div class="row mb-3">
                             <label for="image" class="col-md-4 col-form-label text-md-end">{{ __('تصویر محصول') }}</label>
@@ -118,8 +86,6 @@
         </div>
     </div>
 </div>
-
-<!-- JavaScript to dynamically update categories and show khoskkon fields based on selected page -->
 <script>
     const categories = @json($categories);
     const pageNameSelect = document.getElementById('page_name');
@@ -128,9 +94,6 @@
 
     pageNameSelect.addEventListener('change', function () {
         const selectedPage = this.value;
-        
-        // Show or hide metric fields based on selected page
-        khoskkonFields.style.display = selectedPage === 'khoskkon' ? 'block' : 'none';
 
         // Update category options
         categorySelect.innerHTML = '<option value="">{{ __('-- Select Category --') }}</option>';
