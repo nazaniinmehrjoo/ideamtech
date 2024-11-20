@@ -12,6 +12,7 @@ class Category extends Model
     protected $fillable = [
         'name',
         'page_name',
+        'description',
         'total_cost',
         'energy_consumption',
         'production_variety',

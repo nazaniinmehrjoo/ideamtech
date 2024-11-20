@@ -33,10 +33,9 @@
                 </ul>
             </div>
 
-            <!-- Static Text Box -->
-            <div class="static-text-box" id="staticTextBox"
-                style="padding: 20px; margin: 20px 0; background: #333; border-radius: 8px; text-align: center; display: none; color: #ffffff; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);">
-                <p id="staticTextContent" style="margin: 0; font-size: 16px;"></p>
+            <!-- Description Box -->
+            <div id="categoryDescriptionBox" style="display: none; background: #444; padding: 10px; margin: 20px 0; color: #fff; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);">
+                <p id="descriptionContent"></p>
             </div>
 
             <!-- Product List -->
@@ -81,6 +80,7 @@
         </div>
     </div>
 </section>
+
 <!-- Modal to show product details -->
 <div id="moreProductDtl" class="modal" style="display: none;">
     <div class="modal-content bg-dark text-white">
@@ -93,38 +93,43 @@
         <p id="productDescriptionModal" class="text-light"></p>
     </div>
 </div>
+
 <script>
-    // Static text data for each category
-    const categoryTexts = {
-        1: " لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیازلورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز",
-        2: "لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز",
-        3: "لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز",
-        4: "لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز",
-        // Add or modify texts for each category ID here as needed
-    };
+    // Category descriptions mapped by category ID
+    const categoryDescriptions = {!! json_encode($categories->pluck('description', 'id')) !!};
 
     // Function to update static text and show product list based on selected category
     function showProductList(categoryId) {
         document.getElementById('comparisonChartContainer').style.display = 'none';
         document.getElementById('product-list').style.display = 'flex';
 
-        // Get references to static text elements
-        const staticTextBox = document.getElementById('staticTextBox');
-        const staticTextContent = document.getElementById('staticTextContent');
+        const descriptionBox = document.getElementById('categoryDescriptionBox');
+        const descriptionContent = document.getElementById('descriptionContent');
 
-        // Check if a specific category was selected, and update or hide the static text box accordingly
-        if (categoryId in categoryTexts) {
-            staticTextContent.textContent = categoryTexts[categoryId];
-            staticTextBox.style.display = 'block'; // Show the static text box for specific categories
+        if (categoryDescriptions[categoryId]) {
+            descriptionContent.textContent = categoryDescriptions[categoryId];
+            descriptionBox.style.display = 'block';
         } else {
-            staticTextBox.style.display = 'none'; // Hide the static text box when "نمایش همه" is selected
+            descriptionBox.style.display = 'none';
         }
     }
 
+    // Function to show the comparison chart and hide the product list
+    function showComparisonChart() {
+        document.getElementById('product-list').style.display = 'none';
+        document.getElementById('comparisonChartContainer').style.display = 'block';
+        document.getElementById('categoryDescriptionBox').style.display = 'none';
+    }
+
+    document.addEventListener("DOMContentLoaded", function () {
+        showProductList('all'); 
+    });
+</script>
+<script>
     // Chart setup
     document.addEventListener("DOMContentLoaded", function () {
         const labels = {!! json_encode($criteriaLabels) !!};
-        const datasets = {!! json_encode($productDatasets) !!};
+        const datasets = {!! json_encode($categoryDatasets) !!};
 
         console.log("Labels:", labels);
         console.log("Datasets:", datasets);
@@ -183,43 +188,31 @@
     function showComparisonChart() {
         document.getElementById('product-list').style.display = 'none';
         document.getElementById('comparisonChartContainer').style.display = 'block';
-
-        // Hide the static text box when showing the comparison chart
         document.getElementById('staticTextBox').style.display = 'none';
     }
 </script>
+
 <script>
     // Function to track click and open the modal
     function trackAndOpenModal(productId, productName, productDescription) {
-        // Track the click
         fetch(`/products/${productId}/click`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
-                'X-CSRF-TOKEN': '{{ csrf_token() }}' // Ensure CSRF token is included
+                'X-CSRF-TOKEN': '{{ csrf_token() }}' 
             },
             body: JSON.stringify({})
         })
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error('Network response was not ok');
-                }
-                return response.json(); // Ensure response is JSON
-            })
-            .then(data => {
-                console.log(data.message); // Success message
-
-                // Open the modal with the product information
-                document.getElementById('productNameModal').textContent = productName;
-                document.getElementById('productDescriptionModal').textContent = productDescription;
-                document.getElementById('moreProductDtl').style.display = 'block';
-            })
-            .catch(error => {
-                console.error('Error tracking click:', error);
-            });
+        .then(response => response.json())
+        .then(data => {
+            console.log(data.message);
+            document.getElementById('productNameModal').textContent = productName;
+            document.getElementById('productDescriptionModal').textContent = productDescription;
+            document.getElementById('moreProductDtl').style.display = 'block';
+        })
+        .catch(error => console.error('Error tracking click:', error));
     }
 
-    // Function to close the modal
     function closeModal() {
         document.getElementById('moreProductDtl').style.display = 'none';
     }
@@ -227,5 +220,6 @@
     function startSpin(button) {
         // Add your spinning logic here if needed
     }
+</script>
 </script>
 @endsection

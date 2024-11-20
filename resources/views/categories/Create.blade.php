@@ -19,9 +19,12 @@
 
                         <!-- Category Name Input -->
                         <div class="row mb-3">
-                            <label for="name" class="col-md-4 col-form-label text-md-end">{{ __('نام دسته محصول') }}</label>
+                            <label for="name"
+                                class="col-md-4 col-form-label text-md-end">{{ __('نام دسته محصول') }}</label>
                             <div class="col-md-6">
-                                <input type="text" name="name" id="name" class="form-control bg-dark text-white @error('name') is-invalid @enderror" required>
+                                <input type="text" name="name" id="name"
+                                    class="form-control bg-dark text-white @error('name') is-invalid @enderror"
+                                    required>
                                 @error('name')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -32,9 +35,12 @@
 
                         <!-- Page Name Dropdown -->
                         <div class="row mb-3">
-                            <label for="page_name" class="col-md-4 col-form-label text-md-end">{{ __('نمایش در صفحه') }}</label>
+                            <label for="page_name"
+                                class="col-md-4 col-form-label text-md-end">{{ __('نمایش در صفحه') }}</label>
                             <div class="col-md-6">
-                                <select name="page_name" id="page_name" class="form-control bg-dark text-white @error('page_name') is-invalid @enderror" required onchange="toggleKhoskkonFields(this.value)">
+                                <select name="page_name" id="page_name"
+                                    class="form-control bg-dark text-white @error('page_name') is-invalid @enderror"
+                                    required onchange="toggleKhoskkonFields(this.value)">
                                     <option value="">{{ __('-- انتخاب صفحه --') }}</option>
                                     <option value="khoskkon">خشک کن</option>
                                     <option value="korepokht">کوره پخت</option>
@@ -52,9 +58,11 @@
                         <!-- Additional Fields for Khoskkon -->
                         <div id="khoskkonFields" style="display: none;">
                             <div class="row mb-3">
-                                <label for="total_cost" class="col-md-4 col-form-label text-md-end">هزینه تمام شده</label>
+                                <label for="total_cost" class="col-md-4 col-form-label text-md-end">هزینه تمام
+                                    شده</label>
                                 <div class="col-md-6">
-                                    <input type="number" name="total_cost" id="total_cost" class="form-control bg-dark text-white @error('total_cost') is-invalid @enderror">
+                                    <input type="number" name="total_cost" id="total_cost"
+                                        class="form-control bg-dark text-white @error('total_cost') is-invalid @enderror">
                                     @error('total_cost')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
@@ -64,9 +72,11 @@
                             </div>
 
                             <div class="row mb-3">
-                                <label for="energy_consumption" class="col-md-4 col-form-label text-md-end">مصرف انرژی</label>
+                                <label for="energy_consumption" class="col-md-4 col-form-label text-md-end">مصرف
+                                    انرژی</label>
                                 <div class="col-md-6">
-                                    <input type="number" name="energy_consumption" id="energy_consumption" class="form-control bg-dark text-white @error('energy_consumption') is-invalid @enderror">
+                                    <input type="number" name="energy_consumption" id="energy_consumption"
+                                        class="form-control bg-dark text-white @error('energy_consumption') is-invalid @enderror">
                                     @error('energy_consumption')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
@@ -76,9 +86,11 @@
                             </div>
 
                             <div class="row mb-3">
-                                <label for="production_variety" class="col-md-4 col-form-label text-md-end">تنوع تولید</label>
+                                <label for="production_variety" class="col-md-4 col-form-label text-md-end">تنوع
+                                    تولید</label>
                                 <div class="col-md-6">
-                                    <input type="number" name="production_variety" id="production_variety" class="form-control bg-dark text-white @error('production_variety') is-invalid @enderror">
+                                    <input type="number" name="production_variety" id="production_variety"
+                                        class="form-control bg-dark text-white @error('production_variety') is-invalid @enderror">
                                     @error('production_variety')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
@@ -88,9 +100,11 @@
                             </div>
 
                             <div class="row mb-3">
-                                <label for="drying_time" class="col-md-4 col-form-label text-md-end">زمان خشک شدن</label>
+                                <label for="drying_time" class="col-md-4 col-form-label text-md-end">زمان خشک
+                                    شدن</label>
                                 <div class="col-md-6">
-                                    <input type="number" name="drying_time" id="drying_time" class="form-control bg-dark text-white @error('drying_time') is-invalid @enderror">
+                                    <input type="number" name="drying_time" id="drying_time"
+                                        class="form-control bg-dark text-white @error('drying_time') is-invalid @enderror">
                                     @error('drying_time')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
@@ -100,9 +114,11 @@
                             </div>
 
                             <div class="row mb-3">
-                                <label for="maintenance_cost" class="col-md-4 col-form-label text-md-end">هزینه تعمیر و نگهداری</label>
+                                <label for="maintenance_cost" class="col-md-4 col-form-label text-md-end">هزینه تعمیر و
+                                    نگهداری</label>
                                 <div class="col-md-6">
-                                    <input type="number" name="maintenance_cost" id="maintenance_cost" class="form-control bg-dark text-white @error('maintenance_cost') is-invalid @enderror">
+                                    <input type="number" name="maintenance_cost" id="maintenance_cost"
+                                        class="form-control bg-dark text-white @error('maintenance_cost') is-invalid @enderror">
                                     @error('maintenance_cost')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
@@ -112,10 +128,25 @@
                             </div>
 
                             <div class="row mb-3">
-                                <label for="operation_cost" class="col-md-4 col-form-label text-md-end">هزینه اپراتوری</label>
+                                <label for="operation_cost" class="col-md-4 col-form-label text-md-end">هزینه
+                                    اپراتوری</label>
                                 <div class="col-md-6">
-                                    <input type="number" name="operation_cost" id="operation_cost" class="form-control bg-dark text-white @error('operation_cost') is-invalid @enderror">
+                                    <input type="number" name="operation_cost" id="operation_cost"
+                                        class="form-control bg-dark text-white @error('operation_cost') is-invalid @enderror">
                                     @error('operation_cost')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <label for="description"
+                                    class="col-md-4 col-form-label text-md-end">{{ __('توضیحات') }}</label>
+                                <div class="col-md-6">
+                                    <textarea name="description" id="description"
+                                        class="form-control bg-dark text-white @error('description') is-invalid @enderror">{{ old('description', $category->description ?? '') }}</textarea>
+                                    @error('description')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
                                         </span>

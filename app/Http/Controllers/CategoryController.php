@@ -79,6 +79,8 @@ class CategoryController extends Controller
         $data = $request->validate([
             'name' => 'required|string|max:255',
             'page_name' => 'required|string',
+            'description' => 'nullable|string',
+
         ]);
 
         // Additional validation for khoskkon chart data
@@ -121,6 +123,7 @@ class CategoryController extends Controller
         $data = $request->validate([
             'name' => 'required|string|max:255',
             'page_name' => 'required|string',
+            'description' => 'nullable|string', 
             'total_cost' => 'nullable|integer',
             'energy_consumption' => 'nullable|integer',
             'production_variety' => 'nullable|integer',
