@@ -1,4 +1,4 @@
-<form action="{{ route('cooperations.store') }}" method="POST" enctype="multipart/form-data" class="bg-dark text-white p-4 rounded" style="direction: rtl;">
+<form action="{{ route('cooperations.store') }}" method="POST" enctype="multipart/form-data" class=" text-white p-4 rounded" style="direction: rtl;">
     @csrf
 
     <!-- Company Name -->

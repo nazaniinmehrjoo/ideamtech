@@ -1,5 +1,5 @@
 <form action="{{ route('employment-forms.store') }}" method="POST" enctype="multipart/form-data"
-    class="bg-dark text-white p-4 rounded" style="direction: rtl;">
+    class=" text-white p-4 rounded" style="direction: rtl;">
     @csrf
 
     <!-- First Name -->

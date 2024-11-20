@@ -1,65 +1,65 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container d-flex flex-column align-items-center" style="padding: 3%; direction: rtl;">
-    <!-- Logo and Switch Buttons -->
-    <div class="d-flex align-items-center mb-4">
-        <!-- Custom Styled Button for Employment Form -->
-        <div class="joinUsBtnContainer me-2">
-            <button class="joinUsbtnContent" id="switchToEmployment">
-                <svg width="200px" height="60px" viewBox="0 0 200 60">
-                    <polyline points="199,1 199,59 1,59 1,1 199,1" class="bg-line" />
-                    <polyline points="199,1 199,59 1,59 1,1 199,1" class="hl-line" />
-                </svg>
-                <span>فرم استخدام</span>
-            </button>
+<section class="services-two" style="padding-top: 5%;">
+    <div class="auto-container">
+        <div class="def-title-box">
+            <div class="patt"><span></span></div>
+            
         </div>
 
-        <!-- Custom Styled Button for Cooperation Form -->
-        <div class="joinUsBtnContainer">
-            <button class="joinUsbtnContent" id="switchToCooperation">
-                <svg width="200px" height="60px" viewBox="0 0 200 60">
-                    <polyline points="199,1 199,59 1,59 1,1 199,1" class="bg-line" />
-                    <polyline points="199,1 199,59 1,59 1,1 199,1" class="hl-line" />
-                </svg>
-                <span>فرم همکاری</span>
-            </button>
+        <div class="row parent-row clearfix">
+            <div class="tabs-col col-xl-12 col-lg-12 col-md-12 col-sm-12">
+                <div class="tabs-box def-tabs-box">
+                    <ul class="tab-buttons clearfix">
+                        <li class="tab-btn active-btn" data-tab="#employmentForm"><span>فرم استخدام</span></li>
+                        <li class="tab-btn" data-tab="#cooperationForm"><span>فرم همکاری</span></li>
+                    </ul>
+                    <div class="tabs-content">
+                        <!-- Employment Form Tab -->
+                        <div class="tab active-tab" id="employmentForm">
+                            <div class="formContent">
+                                <div class="form-section">
+                                    @include('employment_form.create')
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Cooperation Form Tab -->
+                        <div class="tab" id="cooperationForm">
+                            <div class="formContent">
+                                <div class="form-section">
+                                    @include('cooperations.create')
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
+</section>
+@endsection
 
-    <!-- Form Container -->
-    <div class="col-md-7 col-lg-8">
-        <!-- Employment Form (Default) -->
-        <div id="employmentForm" class="form-section">
-            @include('employment_form.create')
-        </div>
-
-        <!-- Cooperation Form (Hidden Initially) -->
-        <div id="cooperationForm" class="form-section" style="display: none;">
-            @include('cooperations.create')
-        </div>
-    </div>
-</div>
-
-<!-- JavaScript for toggling forms -->
+@push('scripts')
 <script>
     document.addEventListener('DOMContentLoaded', function () {
-        const switchToCooperation = document.getElementById('switchToCooperation');
-        const switchToEmployment = document.getElementById('switchToEmployment');
+        const tabs = document.querySelectorAll('.tab-btn');
+        const tabContents = document.querySelectorAll('.tab');
 
-        if (switchToCooperation) {
-            switchToCooperation.addEventListener('click', function () {
-                document.getElementById('employmentForm').style.display = 'none';
-                document.getElementById('cooperationForm').style.display = 'block';
-            });
-        }
+        tabs.forEach(tab => {
+            tab.addEventListener('click', function () {
+                const target = this.dataset.tab;
 
-        if (switchToEmployment) {
-            switchToEmployment.addEventListener('click', function () {
-                document.getElementById('cooperationForm').style.display = 'none';
-                document.getElementById('employmentForm').style.display = 'block';
+                // Remove active classes
+                tabs.forEach(t => t.classList.remove('active-btn'));
+                tabContents.forEach(c => c.classList.remove('active-tab'));
+
+                // Activate selected tab and content
+                this.classList.add('active-btn');
+                document.querySelector(target).classList.add('active-tab');
             });
-        }
+        });
     });
 </script>
-@endsection
+@endpush
