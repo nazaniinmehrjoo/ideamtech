@@ -53,6 +53,9 @@ Route::get('/پیوستن-به-خانواده-برناگستر', function () {
     return view('forms.form-selection');
 });
 
+Route::get('/خط-کامل-آجر/محصولات', function () {
+    return view('products.turnkeysolution');
+});
 
 // Blog Routes
 Route::get('/مقالات', [BlogController::class, 'publicIndex'])->name('blog.publicIndex');
