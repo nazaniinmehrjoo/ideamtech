@@ -32,7 +32,7 @@
             </div>
 
             <!-- Dynamic Product List -->
-            <div class="filter-list row clearfix">
+            <div class="filter-list notRegister row clearfix">
                 @forelse ($products as $product)
                 <div class="portfolio-block mix category-{{ $product->category_id }} col-xl-4 col-lg-4 col-md-6 col-sm-12" data-category="{{ $product->category_id }}">
                     <div class="inner-box">
@@ -52,9 +52,7 @@
                     </div>
                 </div>
                 @empty
-                <div class="notRegister">
-                    <p class="text-light">هیچ محصولی ثبت نشده است</p>
-                </div>
+                <p class="text-light">هیچ محصولی ثبت نشده است</p>
                 @endforelse
             </div>
         </div>

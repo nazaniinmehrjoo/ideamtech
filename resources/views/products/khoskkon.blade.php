@@ -68,10 +68,10 @@
             </div>
 
             <!-- Comparison Chart Container -->
-            <div id="comparisonChartContainer" style="display: none; width: 80%; max-width: 700px; margin: 30px auto;">
+            <div id="comparisonChartContainer" class="khoshkkonChartContainer" style="display: none; width: 80%; max-width: 700px; margin: 30px auto;">
                 <div class="chart-box"
                     style="background: #444; border-radius: 8px; padding: 20px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);">
-                    <h4 style="text-align: center; color: #ffffff; margin-bottom: 15px;">نمودار مقایسه‌ای خشک کن‌ها</h4>
+                    <h4 class="khoshkkonChart" style="text-align: center; color: #ffffff; margin-bottom: 15px;">نمودار مقایسه‌ای خشک کن‌ها</h4>
                     <div style="width: 100%; margin: auto;">
                         <canvas id="radarChart"></canvas>
                     </div>
@@ -131,58 +131,72 @@
         const labels = {!! json_encode($criteriaLabels) !!};
         const datasets = {!! json_encode($categoryDatasets) !!};
 
-        console.log("Labels:", labels);
-        console.log("Datasets:", datasets);
+    console.log("Labels:", labels);
+    console.log("Datasets:", datasets);
 
-        if (labels.length && datasets.length) {
-            const ctx = document.getElementById('radarChart').getContext('2d');
+    if (labels.length && datasets.length) {
+        const ctx = document.getElementById('radarChart').getContext('2d');
 
-            new Chart(ctx, {
-                type: 'radar',
-                data: {
-                    labels: labels,
-                    datasets: datasets
+        const chartOptions = {
+            type: 'radar',
+            data: {
+                labels: labels,
+                datasets: datasets
+            },
+            options: {
+                scales: {
+                    r: {
+                        beginAtZero: true,
+                        ticks: {
+                            color: '#ffffff',
+                            backdropColor: 'transparent',
+                            stepSize: 5000,
+                            max: 20000,
+                            maxTicksLimit: 5
+                        },
+                        grid: {
+                            color: 'rgba(255, 255, 255, 0.2)'
+                        },
+                        angleLines: {
+                            color: 'rgba(255, 255, 255, 0.5)'
+                        },
+                        pointLabels: {
+                            color: '#ffffff',
+                            font: { size: 10 }
+                        },
+                        pointRadius: 4
+                    }
                 },
-                options: {
-                    scales: {
-                        r: {
-                            beginAtZero: true,
-                            ticks: {
-                                color: '#ffffff',
-                                backdropColor: 'transparent',
-                                stepSize: 5000,
-                                max: 20000,
-                                maxTicksLimit: 5
-                            },
-                            grid: {
-                                color: 'rgba(255, 255, 255, 0.2)'
-                            },
-                            angleLines: {
-                                color: 'rgba(255, 255, 255, 0.5)'
-                            },
-                            pointLabels: {
-                                color: '#ffffff',
-                                font: { size: 10 }
-                            },
-                            pointRadius: 4
-                        }
-                    },
-                    plugins: {
-                        legend: {
-                            display: true,
-                            position: 'right',
-                            labels: {
-                                color: '#ffffff',
-                                font: { size: 14 }
-                            }
+                plugins: {
+                    legend: {
+                        display: true,
+                        position: 'right', 
+                        labels: {
+                            color: '#ffffff',
+                            font: { size: 14 }
                         }
                     }
                 }
-            });
-        } else {
-            console.error("Chart data is missing or empty.");
+            }
+        };
+
+        function updateLegendPosition() {
+            if (window.innerWidth <= 767) { 
+                chartOptions.options.plugins.legend.position = 'top';
+            } else {
+                chartOptions.options.plugins.legend.position = 'right';
+            }
         }
-    });
+
+        updateLegendPosition();
+        window.addEventListener('resize', updateLegendPosition);
+
+        new Chart(ctx, chartOptions);
+    } else {
+        console.error("Chart data is missing or empty.");
+    }
+});
+
 
     // Function to show the comparison chart and hide the product list
     function showComparisonChart() {
