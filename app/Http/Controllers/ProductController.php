@@ -10,12 +10,27 @@ use Carbon\Carbon;
 
 class ProductController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $products = Product::all()->groupBy('page_name'); 
-        $categories = Category::all();
+        $selectedPage = $request->query('page_name', 'all');
+        $selectedCategory = $request->query('category_id', 'all');
 
-        return view('products.index', compact('products', 'categories'));
+        $categoriesQuery = Category::query();
+        if ($selectedPage !== 'all') {
+            $categoriesQuery->where('page_name', $selectedPage);
+        }
+        $categories = $categoriesQuery->get();
+
+        $productsQuery = Product::query();
+        if ($selectedPage !== 'all') {
+            $productsQuery->where('page_name', $selectedPage);
+        }
+        if ($selectedCategory !== 'all') {
+            $productsQuery->where('category_id', $selectedCategory);
+        }
+        $products = $productsQuery->get()->groupBy('page_name');
+
+        return view('products.index', compact('products', 'categories', 'selectedPage', 'selectedCategory'));
     }
 
     // Helper function to get filtered products and categories by page name and category
@@ -40,15 +55,13 @@ class ProductController extends Controller
             'هزینه تمام شده',
             'مصرف انرژی',
             'تنوع تولید',
-            'مساحت اشغال شده',
             'زمان خشک شدن',
             'هزینه تعمیر و نگهداری',
-            'کیفیت محصول',
             'هزینه اپراتوری',
-            'کیفیت ماشین آلات'
         ];
 
-        $products = Product::where('page_name', 'khoskkon')->get();
+        // Check if the logic is for categories
+        $categories = Category::where('page_name', 'khoskkon')->get();
 
         // Helper function to generate random color
         function randomColor()
@@ -59,22 +72,19 @@ class ProductController extends Controller
             return "rgba($r, $g, $b, 0.2)"; // Background color with 0.2 opacity
         }
 
-        $productDatasets = $products->map(function ($product) {
+        $categoryDatasets = $categories->map(function ($category) {
             $backgroundColor = randomColor();
-            $borderColor = str_replace("0.2", "1", $backgroundColor); // Full opacity for border
+            $borderColor = str_replace("0.2", "1", $backgroundColor);
 
             return [
-                'label' => $product->name,
+                'label' => $category->name,
                 'data' => [
-                    $product->total_cost,
-                    $product->energy_consumption,
-                    $product->production_variety,
-                    $product->occupied_area,
-                    $product->drying_time,
-                    $product->maintenance_cost,
-                    $product->product_quality,
-                    $product->operation_cost,
-                    $product->machine_quality
+                    $category->total_cost,
+                    $category->energy_consumption,
+                    $category->production_variety,
+                    $category->drying_time,
+                    $category->maintenance_cost,
+                    $category->operation_cost,
                 ],
                 'backgroundColor' => $backgroundColor,
                 'borderColor' => $borderColor,
@@ -84,9 +94,10 @@ class ProductController extends Controller
 
         return [
             'criteriaLabels' => $criteriaLabels,
-            'productDatasets' => $productDatasets->toArray()
+            'categoryDatasets' => $categoryDatasets->toArray()
         ];
     }
+
 
 
 

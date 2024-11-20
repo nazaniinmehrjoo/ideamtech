@@ -12,5 +12,15 @@ class Category extends Model
     protected $fillable = [
         'name',
         'page_name',
+        'description',
+        'total_cost',
+        'energy_consumption',
+        'production_variety',
+        'occupied_area',
+        'drying_time',
+        'maintenance_cost',
+        'product_quality',
+        'operation_cost',
+        'machine_quality'
     ];
 }
