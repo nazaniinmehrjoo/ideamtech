@@ -170,7 +170,7 @@ body {
   color: #ffffff;
   line-height: 1.60em;
   font-weight: 400;
-  background: #1a1a23 !important;
+  background: #1a1a1a !important;
   -webkit-font-smoothing: antialiased;
   -moz-font-smoothing: antialiased;
   cursor: none;
@@ -2440,7 +2440,7 @@ form label.error{
 
 .services-two{
   position: relative;
-  margin-bottom: 60px;
+  margin-bottom: 10%;
 }
 
 .services-two .tabs-box{
@@ -2887,6 +2887,13 @@ form label.error{
   -moz-transition: all 300ms ease;
   transition: all 300ms ease;
 }
+
+/* انیمیشن زمانی که موس روی آیکون قرار می‌گیرد */
+.main-footer .info .contactDetail span:hover,
+.main-footer .scroll-top:hover {
+  transform: translateY(-5px); /* جابه‌جایی آیکون به سمت بالا */
+  box-shadow: 0 4px 10px rgba(240, 89, 40, 0.3); /* افزودن سایه برای جلوه بصری */
+} 
 /*** 
 
 ====================================================================
@@ -3690,6 +3697,7 @@ form label.error{
 
 .mixitup-gallery .row{
   margin: 0 -20px;
+  margin-bottom: 10%;
 }
 
 .portfolio-block{
