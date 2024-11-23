@@ -7515,3 +7515,42 @@ text-align: right;
   height: 100% !important;
   width: 100% !important;
 }
+
+/* F & Q */
+.faq {
+    padding: 40px;
+    text-align: center;
+    border-radius: 10px;
+}
+
+.faq__title {
+    text-transform: uppercase;
+    color: #f08d58;
+    font-size: 35px;
+}
+
+details {
+    background-color: #292c30;
+    border-radius: 10px;
+    cursor: pointer;
+    padding: 20px 30px;
+    margin-block: 30px;
+    text-align: right;
+    direction: rtl;
+}
+
+summary,
+p {
+    text-align: right;
+}
+
+summary {
+    margin-inline-start: 1rem;
+    list-style-position: outside;
+    color: #f08d58;
+}
+
+summary::marker {
+    color: #f08d58;
+    font-size: 18px;
+}
