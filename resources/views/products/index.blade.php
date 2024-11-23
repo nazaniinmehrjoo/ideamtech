@@ -37,10 +37,12 @@
                     <div class="row row-cols-1 row-cols-md-3 g-4">
                         @foreach($pageProducts as $product)
                             <div class="col">
-                                <div class="card h-100 border-light shadow-sm">
+                                <div class="card text-white bg-dark w-100 d-flex flex-column">
                                     <!-- Product Image -->
                                     <img src="{{ $product->image ? asset('storage/' . $product->image) : '/assets/images/default-product.png' }}" 
-                                         class="card-img-top img-fluid" alt="{{ $product->name }}">
+                                         class="card-img-top img-fluid" 
+                                         style="height: 200px; object-fit: cover; width: 100%;" 
+                                         alt="{{ $product->name }}">
 
                                     <!-- Product Info -->
                                     <div class="card-body" style="direction: rtl;">
