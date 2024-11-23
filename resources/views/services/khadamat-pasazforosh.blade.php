@@ -3,9 +3,7 @@
 @section('content')
 <!-- Include Bootstrap CSS -->
 <style>
-
     .services,
-    .faq,
     .contact {
         background-color: #282828;
         color: #dcdcdc;
@@ -18,7 +16,6 @@
     }
 
     .service-item,
-    .faq-item,
     .contact form {
         background: #2a2a2a;
         border-radius: 10px;
@@ -26,14 +23,12 @@
         box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
     }
 
-    .service-item:hover,
-    .faq-item:hover {
+    .service-item:hover {
         transform: translateY(-5px);
         box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
     }
 
     .service-item h4,
-    .faq summary,
     .contact h4 {
         color: #f05928;
     }
@@ -50,7 +45,8 @@
 <!-- Hero Section -->
 <section class="hero d-flex flex-column align-items-center justify-content-center text-center">
     <h1>خدمات پس از فروش</h1>
-    <p>به طور کل خدمات پس از فروش مجموعه اطلاعات و خدمات وآموزش ها و راهنمایی ها و ضمانت هایی است که یک شرکت به مشتریان اعلام میکند</p>
+    <p>به طور کل خدمات پس از فروش مجموعه اطلاعات و خدمات وآموزش ها و راهنمایی ها و ضمانت هایی است که یک شرکت به مشتریان
+        اعلام میکند</p>
     <div class="joinUsBtnContainer">
         <button class="joinUsbtnContent">
             <svg width="200px" height="6q0px" viewBox="0 0 200 60">
@@ -73,7 +69,8 @@
                 <details>
                     <summary>ادامه</summary>
                     <p>
-                        شامل خدماتی می باشد که درزمانی که محصول و یا قطعه با مشکل روبرو میشود ،نیرو های متخصص نسبت نعمیر محصول اقدام میکنند
+                        شامل خدماتی می باشد که درزمانی که محصول و یا قطعه با مشکل روبرو میشود ،نیرو های متخصص نسبت نعمیر
+                        محصول اقدام میکنند
                     </p>
                 </details>
             </div>
@@ -84,7 +81,8 @@
                 <details>
                     <summary>ادامه</summary>
                     <p>
-                        شامل خدماتی می باشد که درزمانی که محصول و یا قطعه با مشکل روبرو میشود ،نیرو های متخصص نسبت نعمیر محصول اقدام میکنند
+                        شامل خدماتی می باشد که درزمانی که محصول و یا قطعه با مشکل روبرو میشود ،نیرو های متخصص نسبت نعمیر
+                        محصول اقدام میکنند
                     </p>
                 </details>
             </div>
@@ -94,9 +92,10 @@
                 <h4>تهیه و توزیع قطعات محصول</h4>
                 <details>
                     <summary>ادامه</summary>
-                 <p>
-                    شامل فروش کلیه قطعات مصنوعی محصول میباشد که به صورت کلی و جزیی برای مشتری در اسرع وقت ارسال میگردد
-                 </p>
+                    <p>
+                        شامل فروش کلیه قطعات مصنوعی محصول میباشد که به صورت کلی و جزیی برای مشتری در اسرع وقت ارسال
+                        میگردد
+                    </p>
                 </details>
             </div>
         </div>
@@ -117,7 +116,8 @@
                 <details>
                     <summary>ادامه</summary>
                     <p>
-                        تعدیست که شرکت به مشتریان خود میدهد دراین صورت که در مدت زمان مشخصی و محدودی از زمان خری یا نصب چناچه محصول دچار مشکل شود مشتریان نسبت به تعویض یا تعمیر رایگان اقدام خواهند  کرد
+                        تعدیست که شرکت به مشتریان خود میدهد دراین صورت که در مدت زمان مشخصی و محدودی از زمان خری یا نصب
+                        چناچه محصول دچار مشکل شود مشتریان نسبت به تعویض یا تعمیر رایگان اقدام خواهند کرد
                     </p>
                 </details>
             </div>
@@ -138,7 +138,7 @@
 
 
 <!-- FAQ Section with Accordion Style -->
-<section class="faq text-center">
+<!-- <section class="faq text-center">
     <h2 class="section-title">Frequently Asked Questions</h2>
     <div class="accordion w-75 mx-auto" id="faqAccordion">
         <div class="accordion-item faq-item">
@@ -183,8 +183,34 @@
             </div>
         </div>
     </div>
+</section> -->
+<!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script> -->
+
+<section>
+    <div class="container">
+        <div class="faq">
+            <h2 class="faq__title">سوالات متداول</h2>
+            <details>
+                <summary>What types of services are included?</summary>
+                <p> Our services include setup, maintenance, repairs, and spare parts supply, all tailored to support
+                    your specific needs.</p>
+            </details>
+            <details>
+                <summary> What types of services are included?
+                </summary>
+                <p> Our services include setup, maintenance, repairs, and spare parts supply, all tailored to support
+                    your specific needs.
+                </p>
+            </details>
+            <details>
+                <summary> Do you offer on-site assistance?
+                </summary>
+                <p> Yes, our technicians can provide on-site support when needed. We aim to minimize your equipment
+                    downtime.</p>
+            </details>
+        </div>
+    </div>
 </section>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
 <script>
     function contactSupport() {
