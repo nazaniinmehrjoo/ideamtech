@@ -87,6 +87,11 @@
     .turnKeyText {
         padding: 5%;
         background: #292c30;
+        border-radius: 15px;
+    }
+    .turnKeyTextContent {
+        padding: 5% 10%;
+
     }
 </style>
 <!-- Page Title -->
@@ -112,33 +117,26 @@
             </div>
         </div>
     </div>
+</div>
+</div>
+
+<div class="def-title-box turnKeyTextContent col-xl-12 col-lg-12 col-md-12 col-sm-12">
     <div class="text-center turnKeyText">
-        <div class="def-title-box">
-            <div class="patt"><span></span></div>
-            <div class="subtitle">فرایند خط تولید آجر</div>
-            <p>خط تولید آجر در این کارخانه با استفاده از ماشین‌آلات پیشرفته و سیستم‌های خودکار به تولید انواع آجر با
-                کیفیت بالا پرداخته می‌شود. مراحل تولید شامل انتخاب و آماده‌سازی مواد اولیه، فرایند شکل‌دهی، خشک‌کردن
-                آجرها و در نهایت پخت آنها در کوره‌های صنعتی است. هر مرحله به دقت کنترل می‌شود تا محصول نهایی
-                استانداردهای لازم را داشته باشد. این فرآیند به‌طور مداوم بهبود می‌یابد تا علاوه بر افزایش کیفیت،
-                مصرف انرژی و زمان تولید به حداقل برسد. در نهایت، آجرهای تولید شده برای استفاده در پروژه‌های
-                ساختمانی، به‌ویژه در نما و دیوارها، آماده می‌شوند.</p>
-        </div>
+        <div class="subtitle">فرایند خط تولید آجر</div>
+        <p>خط تولید آجر در این کارخانه با استفاده از ماشین‌آلات پیشرفته و سیستم‌های خودکار به تولید انواع آجر با
+            کیفیت بالا پرداخته می‌شود. مراحل تولید شامل انتخاب و آماده‌سازی مواد اولیه، فرایند شکل‌دهی، خشک‌کردن
+            آجرها و در نهایت پخت آنها در کوره‌های صنعتی است. هر مرحله به دقت کنترل می‌شود تا محصول نهایی
+            استانداردهای لازم را داشته باشد. این فرآیند به‌طور مداوم بهبود می‌یابد تا علاوه بر افزایش کیفیت،
+            مصرف انرژی و زمان تولید به حداقل برسد. در نهایت، آجرهای تولید شده برای استفاده در پروژه‌های
+            ساختمانی، به‌ویژه در نما و دیوارها، آماده می‌شوند.
+        </p>
     </div>
 </div>
-</div>
+
 <section class="image-grid-clean">
     <div class="container">
         <div class="grid-item large">
             <img src="/assets/images/main-slider/khoskkon-araghi.jpg" alt="turnkeysolution">
-        </div>
-        <div class="grid-item small">
-            <img src="/assets/images/main-slider/Home-2.jpg" alt="turnkeysolution">
-        </div>
-        <div class="grid-item small">
-            <img src="/assets/images/main-slider/turnkeysolution.jpg" alt="turnkeysolution">
-        </div>
-        <div class="grid-item small">
-            <img src="/assets/images/main-slider/turnkeysolution.jpg" alt="turnkeysolution">
         </div>
     </div>
 </section>
