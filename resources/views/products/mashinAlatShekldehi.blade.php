@@ -77,7 +77,6 @@
     </div>
 </div>
 
-</div>
 
 <!-- Script for handling modal and tracking clicks -->
 <script>

@@ -5,7 +5,7 @@
     <div class="footer-inner">
         <div class="auto-container">
             <div class="footer-logo">
-                <a href="index.html"><img src="/assets/images/logo2.png" alt=""></a>
+                <a href="index.html"><img src="/assets/images/logo.png" alt="برناگسترپارسی"></a>
             </div>
             <div class="info">
                 <div class="row clearfix">
