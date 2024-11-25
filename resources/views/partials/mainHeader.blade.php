@@ -23,7 +23,7 @@
             <!--Social Links-->
             <div class="social-links">
                 <ul class="clearfix">
-                    <li><a href="#"><span class="fab fa-instagram"></span></a></li>
+                    <li><a href="https://instagram.com/borna_gostar_parsi?utm_source=qr&amp;igshid=MzNlNGNkZWQ4Mg%3D%3D"><span class="fab fa-instagram"></span></a></li>
                     <li><a href="#"><span class="fab fa-whatsapp"></span></a></li>
                     <li><a href="#"><span class="fab fa-facebook-square"></span></a></li>
                 </ul>
