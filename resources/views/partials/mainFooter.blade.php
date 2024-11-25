@@ -32,10 +32,6 @@
                             <br>
                              <span class="icon fa fa-envelope" style="color: #f05928;"></span> 
                             <a href="mailto:info@brickind.com">info@brickind.com</a> 
-                            <br>
-                            <span class="icon fa fa-globe"style="color: #f05928;"></span> 
-                            <a href="https://www.brickind.com">www.brickind.com</a>
-                            
                         </div>
                     </div>
 
