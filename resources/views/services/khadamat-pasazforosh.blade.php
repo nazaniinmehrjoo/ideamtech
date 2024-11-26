@@ -5,7 +5,7 @@
 <style>
     .services,
     .contact {
-        background-color: #282828;
+        /* background-color: #282828; */
         color: #dcdcdc;
         padding: 50px 20px;
     }
@@ -17,7 +17,7 @@
 
     .service-item,
     .contact form {
-        background: #2a2a2a;
+        /* background: #2a2a2a; */
         border-radius: 10px;
         padding: 20px;
         box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);

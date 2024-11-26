@@ -7,7 +7,7 @@
     {{ config('app.name', 'خانه') }}
 </title>
 
-<div class="body-bg-layer" style="background-color: #15181b;"></div>
+<div class="body-bg-layer"></div>
 <!-- Banner Two -->
 <section class="banner-two" id="to-top-div">
     <div class="auto-container">

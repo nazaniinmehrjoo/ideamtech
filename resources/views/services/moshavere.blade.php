@@ -1,20 +1,6 @@
 @extends('layouts.app', ['title' => 'مشاوره'])
 
 @section('content')
-<!-- <style>
-    .image-box .image img {
-        width: 681px; 
-        height: 595px; 
-        object-fit: cover; 
-    }
-
-    .image-box {
-        width: 681px; 
-        height: 595px; 
-        overflow: hidden; 
-    }
-</style> -->
-
 <div class="scroll-container">
     <div class="main-content-container main-responsive-container">
         <!-- Banner Section -->

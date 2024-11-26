@@ -25,6 +25,16 @@
         top: 20%;
         left: 10%;
     }
+
+    .outer-container {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        background-color: #e5703e;
+        color: white;
+        width: 67%;
+        direction: rtl;
+    }
 </style>
 
 <section class="intro_section">

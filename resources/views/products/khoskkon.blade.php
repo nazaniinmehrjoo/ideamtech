@@ -19,6 +19,8 @@
     <div class="auto-container">
         <div class="mixitup-gallery">
             <!-- Filter Section -->
+            <button class="compare-button" onclick="showComparisonChart()" style="color: #ffffff;">مقایسه خشک کن ها</button>
+
             <div class="gallery-filters centered clearfix">
                 <ul class="filter-tabs filter-btns clearfix" style="color: #ffffff;">
                     <li class="filter" data-filter="all" onclick="showProductList('all')" style="color: #ffffff;">نمایش
@@ -29,12 +31,12 @@
                             {{ $category->name }}
                         </li>
                     @endforeach
-                    <li class="filter" onclick="showComparisonChart()" style="color: #ffffff;">مقایسه خشک کن ها</li>
-                </ul>
+                    
+                    </ul>
             </div>
 
             <!-- Description Box -->
-            <div id="categoryDescriptionBox" style="display: none; background: #444; padding: 10px; margin: 20px 0; color: #fff; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);">
+            <div id="categoryDescriptionBox" class="categoryDescriptionBox">
                 <p id="descriptionContent"></p>
             </div>
 
@@ -70,8 +72,8 @@
             <!-- Comparison Chart Container -->
             <div id="comparisonChartContainer" class="khoshkkonChartContainer" style="display: none; width: 80%; max-width: 700px; margin: 30px auto;">
                 <div class="chart-box"
-                    style="background: #444; border-radius: 8px; padding: 20px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);">
-                    <h4 class="khoshkkonChart" style="text-align: center; color: #ffffff; margin-bottom: 15px;">نمودار مقایسه‌ای خشک کن‌ها</h4>
+                    style="">
+                    <h4 class="khoshkkonChart">نمودار مقایسه‌ای خشک کن‌ها</h4>
                     <div style="width: 100%; margin: auto;">
                         <canvas id="radarChart"></canvas>
                     </div>
