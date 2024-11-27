@@ -10,26 +10,43 @@
         {{ config('app.name', '') }}
     </title>
     <meta charset="utf-8">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <meta name="description"
+        content="شرکت برنا گستر پارسی | تجهیزات پیشرفته تولید آجر، خشک‌کن سریع، ربات‌های صنعتی، و ماشین‌آلات پردازش.">
+    <meta name="keywords" content="برنا گستر, تولید آجر, خشک‌کن آجر, ماشین‌آلات صنعتی, تونل پخت آجر">
+    <link rel="canonical" href="{{ url()->current() }}" />
+
+    <!-- Social Sharing -->
+    <meta property="og:title" content="برنا گستر پارسی - تولید آجر و ماشین‌آلات صنعتی">
+    <meta property="og:description" content="شرکت برنا گستر پارسی سازنده ماشین‌آلات صنعتی و تجهیزات پیشرفته تولید آجر.">
+    <meta property="og:image" content="{{ asset('/assets/images/logo.png') }}">
+    <meta property="og:url" content="{{ url()->current() }}">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="/favicon.png">
 
     <!-- Stylesheets -->
     <link href="/assets/css/bootstrap.css" rel="stylesheet">
     <link href="/assets/css/style.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
-    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap-dark-5@1.1.3/dist/css/bootstrap-dark.min.css" rel="stylesheet"> -->
-
-
-
-    <!-- Responsive -->
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <link rel="stylesheet" href="/assets/css/fontiran.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
     <link href="/assets/css/responsive.css" rel="stylesheet">
-
-    <!-- Laravel Auth and App CSS -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <link rel="stylesheet" href="/assets/css/fontiran.css">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "برنا گستر پارسی",
+        "url": "https://ideamtech.ir",
+        "logo": "https://ideamtech.ir/assets/images/logo.png",
+    }
+    </script>
 
-    <!-- CSRF Token -->
-    <meta name="csrf-token" content="{{ csrf_token() }}">
 </head>
 
 <body>
@@ -53,6 +70,9 @@
 
         <div class="scroll-container">
             <div class="main-content-container" id="scroll-container">
+                @section('h1')
+                <h1 class="sr-only">شرکت برنا گستر پارسی - سازنده ماشین آلات تولید آجر</h1>
+                @show
                 @yield('content')
             </div>
         </div>
@@ -85,7 +105,7 @@
             toggleSwitch.classList.remove('night');
             toggleSwitch.classList.add('day');
         } else {
-            body.classList.remove('light-mode'); // Ensure dark mode by default
+            body.classList.remove('light-mode'); 
             toggleSwitch.classList.remove('day');
             toggleSwitch.classList.add('night');
         }
@@ -95,17 +115,17 @@
             if (body.classList.contains('light-mode')) {
                 // Switch to dark mode
                 body.classList.remove('light-mode');
-                body.style.backgroundColor = '#1a1a23'; // Update background to dark
+                body.style.backgroundColor = '#1a1a23';
                 toggleSwitch.classList.remove('day');
                 toggleSwitch.classList.add('night');
-                localStorage.setItem('theme', 'dark'); // Save preference
+                localStorage.setItem('theme', 'dark'); 
             } else {
                 // Switch to light mode
                 body.classList.add('light-mode');
-                body.style.backgroundColor = '#ffffff'; // Update background to light
+                body.style.backgroundColor = '#ffffff';
                 toggleSwitch.classList.remove('night');
                 toggleSwitch.classList.add('day');
-                localStorage.setItem('theme', 'light'); // Save preference
+                localStorage.setItem('theme', 'light'); 
             }
         });
     </script>
@@ -157,6 +177,20 @@
             });
         });
     </script>
+    <!-- Social Share Script -->
+    <script>
+        function shareOnSocial(platform, url) {
+            const encodedUrl = encodeURIComponent(url || window.location.href);
+            let shareUrl = '';
+            if (platform === 'twitter') {
+                shareUrl = `https://twitter.com/share?url=${encodedUrl}`;
+            } else if (platform === 'facebook') {
+                shareUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodedUrl}`;
+            }
+            window.open(shareUrl, '_blank');
+        }
+    </script>
+
 
 </body>
 

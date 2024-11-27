@@ -10,7 +10,7 @@
                                 <!--Slide Item-->
                                 <div class="slide-item">
                                     
-                                    <img src="/assets/images/main-slider/similator1.jpg" class="image-layer" alt="similator1">
+                                    <img src="/assets/images/main-slider/similator1.jpg" class="image-layer" alt="شبیه ساز آجر">
                                     <div class="auto-container">
                                         <div class="content-box">
                                             <div class="content">
@@ -29,7 +29,7 @@
                                 </div>
                                 <!--Slide Item-->
                                 <div class="slide-item">
-                                    <img src="/assets/images/main-slider/similator2.jpg" class="image-layer" alt="similator2">
+                                    <img src="/assets/images/main-slider/similator2.jpg" class="image-layer" alt="شبیه ساز آجر">
                                     <div class="auto-container">
                                         <div class="content-box">
                                             <div class="content">
@@ -48,7 +48,7 @@
                                 </div>
                                 <!--Slide Item-->
                                 <div class="slide-item">
-                                    <img src="/assets/images/main-slider/similatorslider2.jpg" class="image-layer" alt="smilator3">
+                                    <img src="/assets/images/main-slider/similatorslider2.jpg" class="image-layer" alt="شبیه ساز آجر">
                                     <div class="auto-container">
                                         <div class="content-box">
                                             <div class="content">

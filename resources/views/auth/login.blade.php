@@ -6,7 +6,7 @@
         <div class="col-md-8">
             <!-- Logo Image Centered -->
             <div class="text-center mb-4">
-                <img src="/assets/images/logotest2.png" alt="Logo">
+                <img src="/assets/images/logotest2.png" alt="برناگستر پارسی ">
             </div>
 
             <!-- Use Bootstrap Dark Card -->

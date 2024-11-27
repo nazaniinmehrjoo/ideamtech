@@ -15,7 +15,7 @@
             <!--Slide Item-->
             <div class="slide-item">
                 <div class="image-layer"></div>
-                <img class="image-layer" src="/assets/images/main-slider/khoshkon.jpg" alt="">
+                <img class="image-layer" src="/assets/images/main-slider/khoshkon.jpg" alt="خشک کن آجر">
                 <div class="slide-count"><span>01</span></div>
                 <div class="content-box">
                     <div class="content">
@@ -30,7 +30,7 @@
             <!--Slide Item-->
             <div class="slide-item">
                 <div class="image-layer"></div>
-                <img class="image-layer" src="/assets/images/main-slider/14010324_robat-2.jpg" alt="">
+                <img class="image-layer" src="/assets/images/main-slider/14010324_robat-2.jpg" alt="خط تولید تمام مکانیزه برناگستر">
 
                 <div class="slide-count"><span>02</span></div>
                 <div class="content-box">
@@ -46,7 +46,7 @@
             <!--Slide Item-->
             <div class="slide-item">
                 <div class="image-layer"></div>
-                <img class="image-layer" src="/assets/images/main-slider/khoskkon-araghi.jpg" alt="">
+                <img class="image-layer" src="/assets/images/main-slider/khoskkon-araghi.jpg" alt="اولین خشک کن سریع آجر عراقی درجهان">
 
                 <div class="slide-count"><span>03</span></div>
                 <div class="content-box">
@@ -61,7 +61,7 @@
             <!--Slide Item-->
             <div class="slide-item">
                 <div class="image-layer"></div>
-                <img class="image-layer" src="/assets/images/main-slider/koreh-pokhttoneli.jpg" alt="korepokhttoneli">
+                <img class="image-layer" src="/assets/images/main-slider/koreh-pokhttoneli.jpg" alt="طراحی و ساخت تونل پخت">
 
                 <div class="slide-count"><span>04</span></div>
                 <div class="content-box">
@@ -75,7 +75,7 @@
             </div>
             <div class="slide-item ">
                 <div class="image-layer">
-                <img class="image-layer" id="imageLayerFive" src="/assets/images/main-slider/BORNA1-2-2048x821.jpg" alt="bornagostar">
+                <img class="image-layer" id="imageLayerFive" src="/assets/images/main-slider/BORNA1-2-2048x821.jpg" alt="درباره برناگستر">
                 </div>
                 <div class="slide-count"><span>05</span></div>
                 <div class="content-box">
@@ -193,7 +193,7 @@
                             <div class="row clearfix mainTabContainer">
                                 <div class="image-col col-lg-5 col-md-5 col-sm-6">
                                     <div class="image mainAboutUs"><img src="/assets/images/resource/bornagostar.jpg"
-                                            alt="bornagostar"></div>
+                                            alt="برناگستر"></div>
                                 </div>
                                 <div class="text-col aboutBornaText col-lg-7 col-md-7 col-sm-6">
                                     <div class="text purposeContent" style="display:flex">
