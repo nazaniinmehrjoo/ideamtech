@@ -1,0 +1,23 @@
+<?php
+return [
+    'alt_logo' => 'Borna Gostar Parsi Logo',
+    'copyright' => 'BornaGostar-Parsi',
+    'language_english' => 'English',
+    'language_persian' => 'Persian',
+    'machines' => 'Machines',
+    'machines_processing' => 'Processing and Shaping Machines',
+    'machines_equipment' => 'Machinery and Equipment',
+    'projects' => 'Projects',
+    'projects_dryer' => 'Dryer Project',
+    'projects_kiln' => 'Kiln Project',
+    'projects_full_line' => 'Full Brick Line Project',
+    'services' => 'Services',
+    'services_consulting' => 'Consulting',
+    'services_parts' => 'Parts Supply',
+    'services_maintenance' => 'Maintenance and Repairs',
+    'services_engineering' => 'Engineering Services',
+    'services_installation' => 'Installation',
+    'services_after_sales' => 'After-Sales Services',
+    'about_us' => 'About BornaGostar',
+    'contact_us' => 'Contact Us',
+];
