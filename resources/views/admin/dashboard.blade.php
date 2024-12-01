@@ -18,8 +18,8 @@
     <!-- Minimal Card Template -->
     @php
     $sections = [
-      ['icon' => 'fa-box', 'title' => 'محصولات', 'route_create' => 'products.create', 'route_index' => 'products.index'],
       ['icon' => 'fa-tags', 'title' => 'دسته‌بندی‌ها', 'route_create' => 'categories.create', 'route_index' => 'categories.index'],
+      ['icon' => 'fa-box', 'title' => 'محصولات', 'route_create' => 'products.create', 'route_index' => 'products.index'],
       ['icon' => 'fa-concierge-bell', 'title' => 'خدمات', 'route_create' => 'services.create', 'route_index' => 'services.index'],
       ['icon' => 'fa-project-diagram', 'title' => 'پروژه‌ها', 'route_create' => 'projects.create', 'route_index' => 'projects.index'],
       ['icon' => 'fa-blog', 'title' => 'مقالات', 'route_create' => 'blog.create', 'route_index' => 'blog.index'],
