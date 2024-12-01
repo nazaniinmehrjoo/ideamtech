@@ -15,8 +15,15 @@ class CreateCategoriesTable extends Migration
     {
         Schema::create('categories', function (Blueprint $table) {
             $table->id();
-            $table->string('name'); 
-            $table->string('page_name');  
+            $table->json('name');
+            $table->string('page_name');
+            $table->json('description')->nullable();
+            $table->integer('total_cost')->nullable();
+            $table->integer('energy_consumption')->nullable();
+            $table->integer('production_variety')->nullable();
+            $table->integer('drying_time')->nullable();
+            $table->integer('maintenance_cost')->nullable();
+            $table->integer('operation_cost')->nullable();
             $table->timestamps();
         });
     }

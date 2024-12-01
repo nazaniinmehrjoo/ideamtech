@@ -12,16 +12,15 @@ class CategoryController extends Controller
 {
     public function index(Request $request)
     {
-        $filter = $request->input('filter', 'khoskkon');
+        $filter = $request->input('filter', 'khoskkon'); // Default to 'khoskkon' if no filter is provided
 
-        $categories = Category::where('page_name', $filter)->get();
+        $categories = Category::where('page_name', $filter)->get(); // Ensure categories are being retrieved correctly
         $pages = ['khoskkon', 'korepokht', 'mashinAlatShekldehi', 'mashinalatvatajhizat'];
 
+        // Prepare chart data if needed
         $criteriaLabels = [];
         $categoryDatasets = [];
-
         if ($filter === 'khoskkon') {
-            // Define the labels for the radar chart
             $criteriaLabels = [
                 'هزینه تمام شده',
                 'مصرف انرژی',
@@ -31,10 +30,9 @@ class CategoryController extends Controller
                 'هزینه اپراتوری',
             ];
 
-            // Prepare datasets from the categories
             $categoryDatasets = $categories->map(function ($category) {
                 return [
-                    'label' => $category->name,
+                    'label' => $category->getTranslatedName(),
                     'data' => [
                         $category->total_cost ?? 0,
                         $category->energy_consumption ?? 0,
@@ -77,10 +75,13 @@ class CategoryController extends Controller
 
         // Base validation for common fields
         $data = $request->validate([
-            'name' => 'required|string|max:255',
+            'name' => 'required|array',
+            'description' => 'nullable|array',
+            'description.en' => 'nullable|string',
+            'description.fa' => 'nullable|string',
+            'name.en' => 'required|string|max:255',
+            'name.fa' => 'required|string|max:255',
             'page_name' => 'required|string',
-            'description' => 'nullable|string',
-
         ]);
 
         // Additional validation for khoskkon chart data
@@ -121,9 +122,12 @@ class CategoryController extends Controller
         $category = Category::findOrFail($id);
 
         $data = $request->validate([
-            'name' => 'required|string|max:255',
+            'name' => 'required|array',
+            'name.en' => 'required|string|max:255',
+            'name.fa' => 'required|string|max:255',
             'page_name' => 'required|string',
-            'description' => 'nullable|string', 
+            'description.en' => 'nullable|string',
+            'description.fa' => 'nullable|string',
             'total_cost' => 'nullable|integer',
             'energy_consumption' => 'nullable|integer',
             'production_variety' => 'nullable|integer',
