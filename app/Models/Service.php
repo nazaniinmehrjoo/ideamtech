@@ -25,8 +25,25 @@ class Service extends Model
 
     protected $casts = [
         'banner_images' => 'array',
+        'title' => 'array',
+        'category' => 'array',
+        'content' => 'array',
     ];
-
+    public function getTranslatedTitle($locale = null)
+    {
+        $locale = $locale ?? app()->getLocale(); 
+        return $this->title[$locale] ?? $this->title['en'] ?? null; 
+    }
+    public function getTranslatedCategory($locale = null)
+    {
+        $locale = $locale ?? app()->getLocale(); 
+        return $this->category[$locale] ?? $this->category['en'] ?? null; 
+    }
+    public function getTranslatedContent($locale = null)
+    {
+        $locale = $locale ?? app()->getLocale(); 
+        return $this->content[$locale] ?? $this->content['en'] ?? null; 
+    }
     // Accessor to get the display pages for each service
     public function getDisplayPagesAttribute()
     {

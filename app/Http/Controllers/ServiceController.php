@@ -6,9 +6,9 @@ use Illuminate\Http\Request;
 
 class ServiceController extends Controller
 {
-
     public function index(Request $request)
     {
+        $locale = app()->getLocale();
         $validPages = [
             'consulting' => 'show_on_consulting',
             'parts_repairs' => 'show_on_parts_repairs',
@@ -27,10 +27,15 @@ class ServiceController extends Controller
             $pageDisplayName = 'All Services';
         }
 
+        $services = $services->map(function ($service) use ($locale) {
+            $service->title = json_decode($service->title, true)[$locale] ?? '';
+            $service->category = json_decode($service->category, true)[$locale] ?? '';
+            $service->content = json_decode($service->content, true)[$locale] ?? '';
+            return $service;
+        });
+
         return view('services.index', compact('services', 'pageDisplayName'));
     }
-
-
 
     public function create()
     {
@@ -39,12 +44,20 @@ class ServiceController extends Controller
 
     public function store(Request $request)
     {
+        $locale = app()->getLocale();
+
         $request->validate([
-            'title' => 'required',
-            'category' => 'nullable',
-            'content' => 'required',
+            'title' => 'required|array',
+            'title.en' => 'required|string|max:255',
+            'title.fa' => 'required|string|max:255',
+            'category' => 'nullable|array',
+            'category.en' => 'nullable|string|max:255',
+            'category.fa' => 'nullable|string|max:255',
+            'content' => 'required|array',
+            'content.en' => 'required|string',
+            'content.fa' => 'required|string',
             'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:40960',
-            'page_name' => 'required'
+            'page_name' => 'required',
         ]);
 
         if ($request->hasFile('image')) {
@@ -52,9 +65,9 @@ class ServiceController extends Controller
         }
 
         Service::create([
-            'title' => $request->title,
-            'category' => $request->category,
-            'content' => $request->content,
+            'title' => json_encode($request->title), // Save localized data as JSON
+            'category' => json_encode($request->category),
+            'content' => json_encode($request->content),
             'banner_images' => json_encode([$imagePath]),
             'page_name' => $request->page_name,
             'show_on_consulting' => $request->page_name == 'consulting' ? 1 : 0,
@@ -67,37 +80,36 @@ class ServiceController extends Controller
         return redirect()->route('services.index')->with('success', 'Service created successfully.');
     }
 
-    public function edit(Service $service)
-    {
-        return view('services.edit', compact('service'));
-    }
-
     public function update(Request $request, Service $service)
     {
+        $locale = app()->getLocale();
+
         $request->validate([
-            'title' => 'required',
-            'category' => 'nullable|string',
-            'content' => 'required',
+            'title' => 'required|array',
+            'title.en' => 'required|string|max:255',
+            'title.fa' => 'required|string|max:255',
+            'category' => 'nullable|array',
+            'category.en' => 'nullable|string|max:255',
+            'category.fa' => 'nullable|string|max:255',
+            'content' => 'required|array',
+            'content.en' => 'required|string',
+            'content.fa' => 'required|string',
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:40960',
             'page_name' => 'required',
         ]);
 
-        // Handle the image upload if a new image is provided
         if ($request->hasFile('image')) {
             $imagePath = $request->file('image')->store('services_images', 'public');
         } else {
-            // If no new image is uploaded, keep the existing one
-            $imagePath = json_decode($service->banner_images, true)[0]; // Decode JSON to get the existing image path
+            $imagePath = json_decode($service->banner_images, true)[0];
         }
 
-        // Update the service with the new values
         $service->update([
-            'title' => $request->title,
-            'category' => $request->category,
-            'content' => $request->content,
-            'banner_images' => json_encode([$imagePath]), // Store the updated image path
+            'title' => json_encode($request->title),
+            'category' => json_encode($request->category),
+            'content' => json_encode($request->content),
+            'banner_images' => json_encode([$imagePath]),
             'page_name' => $request->page_name,
-            // Set flags based on the selected page_name
             'show_on_consulting' => $request->page_name == 'consulting' ? 1 : 0,
             'show_on_parts_repairs' => $request->page_name == 'parts_repairs' ? 1 : 0,
             'show_on_engineering' => $request->page_name == 'engineering' ? 1 : 0,
@@ -105,8 +117,14 @@ class ServiceController extends Controller
             'show_on_after_sales' => $request->page_name == 'after_sales' ? 1 : 0,
         ]);
 
-        return redirect()->route('services.index')->with('success', 'سرویس با موفقبت ویرایش یافت.');
+        return redirect()->route('services.index')->with('success', 'Service updated successfully.');
     }
+
+    public function edit(Service $service)
+    {
+        return view('services.edit', compact('service'));
+    }
+
 
 
 
@@ -142,8 +160,8 @@ class ServiceController extends Controller
 
     public function afterSales()
     {
-        $services = Service::where('show_on_after_sales', true)->get(); 
-        return view('services.khadamat-pasazforosh', compact('services')); 
+        $services = Service::where('show_on_after_sales', true)->get();
+        return view('services.khadamat-pasazforosh', compact('services'));
     }
 
 }
