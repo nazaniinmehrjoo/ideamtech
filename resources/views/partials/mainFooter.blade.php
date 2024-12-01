@@ -5,41 +5,40 @@
     <div class="footer-inner">
         <div class="auto-container">
             <div class="footer-logo">
-                <a href="index.html"><img src="/assets/images/logo.png" alt="برناگسترپارسی"></a>
+                <a href="index.html"><img src="/assets/images/logo.png" alt="{{ __('footer.alt_logo') }}"></a>
             </div>
             <div class="info">
                 <div class="row clearfix">
-                    <!--Block-->
+                    <!-- Address Block -->
                     <div class="info-block col-lg-6 col-md-6 col-sm-12">
-                        <div class="i-title">آدرس</div>
+                        <div class="i-title">{{ __('footer.address_title') }}</div>
                         <div class="text">
-                            <span>کارخانه 1 :</span>  جاده قدیم قم-کاشان، بعد از پل جمکران  کوچه عدل | 
+                            <span>{{ __('footer.factory_1_label') }}:</span> {{ __('footer.factory_1_address') }} 
                             <br>
-                            <span>کارخانه 2:</span> اتوبان تهران-قم، شهرک صنعتی محمود آباد | 
+                            <span>{{ __('footer.factory_2_label') }}:</span> {{ __('footer.factory_2_address') }} 
                             <br>
-                            <span>دفتر مرکزی تهران:</span> خیابان گاندی، نبش کوچه 8، ساختمان مروارید، طبقه سوم، واحد 9
+                            <span>{{ __('footer.head_office_label') }}:</span> {{ __('footer.head_office_address') }}
                         </div>
                     </div>
-                    <!--Block-->
+                    <!-- Contact Block -->
                     <div class="info-block col-lg-6 col-md-6 col-sm-12">
-                        <div class="i-title">تماس با ما</div>
+                        <div class="i-title">{{ __('footer.contact_title') }}</div>
                         <div class="text contactDetail">
-                            <span class="icon fa fa-phone"style="color: #f05928;"></span> 
-                            <a href="tel:+982188302036">021 88302036-88302037</a> 
+                            <span class="icon fa fa-phone" style="color: #f05928;"></span> 
+                            <a href="tel:+982188302036">{{ __('footer.phone') }}</a> 
                             <br>
-                             <span class="icon fa fa-mobile-alt" style="color: #f05928;"></span> 
-                            <a href="tel:+989011779998">+09011779998</a> 
+                            <span class="icon fa fa-mobile-alt" style="color: #f05928;"></span> 
+                            <a href="tel:+989011779998">{{ __('footer.mobile') }}</a> 
                             <br>
-                             <span class="icon fa fa-envelope" style="color: #f05928;"></span> 
-                            <a href="mailto:info@brickind.com">info@brickind.com</a> 
+                            <span class="icon fa fa-envelope" style="color: #f05928;"></span> 
+                            <a href="mailto:info@brickind.com">{{ __('footer.email') }}</a> 
                         </div>
                     </div>
-
                 </div>
             </div>
             <div class="loc-info">
                 <a href="https://maps.app.goo.gl/4XxYkAToJHVHrEEW9">
-                    <span class="icon fa fa-map-marker-alt"></span> Map & Directions
+                    <span class="icon fa fa-map-marker-alt"></span> {{ __('footer.map_directions') }}
                 </a>
             </div>
         </div>

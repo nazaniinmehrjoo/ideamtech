@@ -1,7 +1,7 @@
 <!-- Main Header Bar-->
 <!--Alt Logo Box-->
 <div class="alt-logo-box">
-    <a href="/"><img src="/assets/images/logotest2.png" alt="لوگوی برنا گستر پارسی"></a>
+    <a href="/"><img src="/assets/images/logotest2.png" alt="{{ __('header.alt_logo') }}"></a>
 </div>
 <header class="main-header-bar">
     <div class="line-one"></div>
@@ -23,17 +23,13 @@
             <!--Social Links-->
             <div class="social-links">
                 <ul class="clearfix">
-                    <li><a
-                            href="https://instagram.com/borna_gostar_parsi?utm_source=qr&amp;igshid=MzNlNGNkZWQ4Mg%3D%3D"><span
-                                class="fab fa-instagram"></span></a></li>
+                    <li><a href="https://instagram.com/borna_gostar_parsi"><span class="fab fa-instagram"></span></a></li>
                     <li><a href="#"><span class="fab fa-whatsapp"></span></a></li>
                     <li><a href="#"><span class="fab fa-facebook-square"></span></a></li>
                 </ul>
             </div>
             <!--Copyright Text-->
-            <div class="copyright">&copy;BornaGostar-Parsi</div>
-
-
+            <div class="copyright">&copy; {{ __('header.copyright') }}</div>
         </div>
 
         <!--Main Nav Outer-->
@@ -45,39 +41,18 @@
                 <div class="main-nav-box" data-scrollbar="">
                     <!--Logo Box-->
                     <div class="main-logo-box">
-                        <a href="/"><img src="/assets/images/logotest2.png" alt="لوگوی برنا گستر پارسی"></a>
+                        <a href="/"><img src="/assets/images/logotest2.png" alt="{{ __('header.alt_logo') }}"></a>
                     </div>
                     <!-- Main Nav -->
-
-
                     <div class="main-nav">
                         <ul class="navigation">
-                            <!-- Authentication Links -->
-                            <!-- <div class="authentication-header">
-                    @guest
-                        <a href="{{ route('login') }}" class="auth-button login-button"><i class="fas fa-sign-in-alt"></i> ورود</a>
-                        @if (Route::has('register'))
-                            <a href="{{ route('register') }}" class="auth-button register-button"><i class="fas fa-user-plus"></i> ثبت نام</a>
-                        @endif
-                    @else
-                        <a href="#" class="auth-button"><i class="fas fa-user"></i> {{ Auth::user()->name }}</a>
-                        <a href="{{ route('logout') }}" class="auth-button logout-button"
-                           onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                           <i class="fas fa-sign-out-alt"></i> خروج
-                        </a>
-                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                            @csrf
-                        </form>
-                    @endguest
-                </div> -->
+                            <!-- Language Switcher -->
                             <div class="header__language">
                                 <a href="{{ url('lang/en') }}">
-                                    <img src="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.4.6/flags/4x3/gb.svg"
-                                        alt="{{ __('header.language_english') }}" style="width:24px; height:24px;">
+                                    <img src="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.4.6/flags/4x3/gb.svg" alt="{{ __('header.language_english') }}" style="width:24px; height:24px;">
                                 </a>
                                 <a href="{{ url('lang/fa') }}">
-                                    <img src="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.4.6/flags/4x3/ir.svg"
-                                        alt="{{ __('header.language_persian') }}" style="width:24px; height:24px;">
+                                    <img src="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.4.6/flags/4x3/ir.svg" alt="{{ __('header.language_persian') }}" style="width:24px; height:24px;">
                                 </a>
                             </div>
 
@@ -85,51 +60,31 @@
                             <div class="divider"></div>
 
                             <!-- Main Navigation Links -->
-                            <!-- <li><a href="/">خانه</a></li> -->
-                            <li class="dropdown"><a href="#">ماشین آلات</a>
+                            <li class="dropdown"><a href="#">{{ __('header.machines') }}</a>
                                 <ul>
-                                    <li><a href="/ماشین_آلات_فرآوری_و_شکل_دهی/محصولات">ماشین آلات فرآوری و شکل دهی</a>
-                                    </li>
-                                    <li><a href="/ماشین_آلات_و_تجهیزات/محصولات">ماشین آلات و تجهیزات</a></li>
+                                    <li><a href="/ماشین_آلات_فرآوری_و_شکل_دهی/محصولات">{{ __('header.machines_processing') }}</a></li>
+                                    <li><a href="/ماشین_آلات_و_تجهیزات/محصولات">{{ __('header.machines_equipment') }}</a></li>
                                 </ul>
                             </li>
-                            <li class="dropdown"><a href="#">پروژه ها</a>
+                            <li class="dropdown"><a href="#">{{ __('header.projects') }}</a>
                                 <ul>
-                                    <li><a href="/خشک-کن/محصولات">پروژه‌ی خشک‌کن</a></li>
-                                    <li><a href="/کوره_پخت/محصولات">پروژه‌ی کوره پخت</a></li>
-                                    <li><a href="/خط-کامل-آجر/محصولات">پروژه‌ی خط کامل آجر</a></li>
-
+                                    <li><a href="/خشک-کن/محصولات">{{ __('header.projects_dryer') }}</a></li>
+                                    <li><a href="/کوره_پخت/محصولات">{{ __('header.projects_kiln') }}</a></li>
+                                    <li><a href="/خط-کامل-آجر/محصولات">{{ __('header.projects_full_line') }}</a></li>
                                 </ul>
                             </li>
-                            <li class="dropdown"><a href="#">خدمات</a>
+                            <li class="dropdown"><a href="#">{{ __('header.services') }}</a>
                                 <ul>
-                                    <li><a href="/مشاوره/خدمات">مشاوره</a></li>
-                                    <li><a href="/تامین_قطعات/خدمات">تامین قطعات</a></li>
-                                    <li><a href="/تامین_قطعات/خدمات">تعمیرات و نگهداری</a></li>
-                                    <li><a href="/خدمات_مهندسی/خدمات">خدمات مهندسی</a></li>
-                                    <li><a href="/نصب_و_راه_اندازی/خدمات">نصب و راه اندازی</a></li>
-                                    <li><a href="/خدمات_پس_از_فروش/خدمات">خدمات پس از فروش</a></li>
+                                    <li><a href="/مشاوره/خدمات">{{ __('header.services_consulting') }}</a></li>
+                                    <li><a href="/تامین_قطعات/خدمات">{{ __('header.services_parts') }}</a></li>
+                                    <li><a href="/تعمیرات/خدمات">{{ __('header.services_maintenance') }}</a></li>
+                                    <li><a href="/خدمات_مهندسی/خدمات">{{ __('header.services_engineering') }}</a></li>
+                                    <li><a href="/نصب_و_راه_اندازی/خدمات">{{ __('header.services_installation') }}</a></li>
+                                    <li><a href="/خدمات_پس_از_فروش/خدمات">{{ __('header.services_after_sales') }}</a></li>
                                 </ul>
                             </li>
-                            <!-- <li class="dropdown"><a href="#">فن آوری و نوآوری</a>
-                    <ul>
-                        <li><a href="#">فن آوری رباتیک و ستینگ</a></li>
-                        <li><a href="#">فن آوری شبیه سازی و آزمایشگاهی</a></li>
-                        <li><a href="#">فن آوری ساخت و اجرا</a></li>
-                        <li><a href="#">تجهیزات نوآورانه</a></li>
-                    </ul>
-                </li> -->
-                            <li class=""><a href="/درباره-ما">درباره‌ی برناگستر</a>
-                                <!-- <ul>
-                        <li><a href="/درباره-ما">درباره ما</a></li>
-                        <li><a href="#">امکانات سخت افزاری و نرم افزاری</a></li>
-                        <li><a href="#">چگونه یک پروژه را انجام میدهیم</a></li>
-                        <li><a href="#">رفرنس لیست</a></li>
-                        <li><a href="#">بیانه ی ارزش ها و ماموریت</a></li>
-                        <li><a href="#">کاتالوگ و مقالات</a></li>
-                    </ul> -->
-                            </li>
-                            <li class=""><a href="/contact">ارتباط با ما</a></li>
+                            <li class=""><a href="/درباره-ما">{{ __('header.about_us') }}</a></li>
+                            <li class=""><a href="/contact">{{ __('header.contact_us') }}</a></li>
                         </ul>
                     </div>
 
