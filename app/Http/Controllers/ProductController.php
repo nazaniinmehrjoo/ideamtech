@@ -12,15 +12,23 @@ class ProductController extends Controller
 {
     public function index(Request $request)
     {
+        $locale = app()->getLocale(); // Get the current locale
         $selectedPage = $request->query('page_name', 'all');
         $selectedCategory = $request->query('category_id', 'all');
 
+        // Fetch categories
         $categoriesQuery = Category::query();
         if ($selectedPage !== 'all') {
             $categoriesQuery->where('page_name', $selectedPage);
         }
-        $categories = $categoriesQuery->get();
+        $categories = $categoriesQuery->get()->map(function ($category) use ($locale) {
+            // Localize category name and description
+            $category->name = $category->getTranslatedName($locale);
+            $category->description = $category->getTranslatedDescription($locale);
+            return $category;
+        });
 
+        // Fetch products
         $productsQuery = Product::query();
         if ($selectedPage !== 'all') {
             $productsQuery->where('page_name', $selectedPage);
@@ -28,10 +36,17 @@ class ProductController extends Controller
         if ($selectedCategory !== 'all') {
             $productsQuery->where('category_id', $selectedCategory);
         }
-        $products = $productsQuery->get()->groupBy('page_name');
+
+        $products = $productsQuery->get()->map(function ($product) use ($locale) {
+            // Localize product name and description
+            $product->name = $product->getTranslatedName($locale);
+            $product->description = $product->getTranslatedDescription($locale);
+            return $product;
+        })->groupBy('page_name');
 
         return view('products.index', compact('products', 'categories', 'selectedPage', 'selectedCategory'));
     }
+
 
     // Helper function to get filtered products and categories by page name and category
     private function getFilteredProductsAndCategories($pageName, $selectedCategory)
@@ -60,43 +75,41 @@ class ProductController extends Controller
             'هزینه اپراتوری',
         ];
 
-        // Check if the logic is for categories
         $categories = Category::where('page_name', 'khoskkon')->get();
 
-        // Helper function to generate random color
-        function randomColor()
-        {
-            $r = rand(0, 255);
-            $g = rand(0, 255);
-            $b = rand(0, 255);
-            return "rgba($r, $g, $b, 0.2)"; // Background color with 0.2 opacity
-        }
-
         $categoryDatasets = $categories->map(function ($category) {
-            $backgroundColor = randomColor();
-            $borderColor = str_replace("0.2", "1", $backgroundColor);
-
             return [
-                'label' => $category->name,
+                'label' => $category->getTranslatedName(app()->getLocale()), // Localized name
                 'data' => [
-                    $category->total_cost,
-                    $category->energy_consumption,
-                    $category->production_variety,
-                    $category->drying_time,
-                    $category->maintenance_cost,
-                    $category->operation_cost,
+                    $category->total_cost ?? 0,
+                    $category->energy_consumption ?? 0,
+                    $category->production_variety ?? 0,
+                    $category->drying_time ?? 0,
+                    $category->maintenance_cost ?? 0,
+                    $category->operation_cost ?? 0,
                 ],
-                'backgroundColor' => $backgroundColor,
-                'borderColor' => $borderColor,
-                'borderWidth' => 2
+                'backgroundColor' => $this->randomColor(),
+                'borderColor' => $this->randomColor(true),
+                'borderWidth' => 2,
             ];
-        });
+        })->toArray(); // Convert to plain array for JavaScript
 
         return [
             'criteriaLabels' => $criteriaLabels,
-            'categoryDatasets' => $categoryDatasets->toArray()
+            'categoryDatasets' => $categoryDatasets,
         ];
     }
+
+    private function randomColor($solid = false)
+    {
+        $opacity = $solid ? 1 : 0.2;
+        $r = rand(0, 255);
+        $g = rand(0, 255);
+        $b = rand(0, 255);
+
+        return "rgba($r, $g, $b, $opacity)";
+    }
+
 
 
 
@@ -111,28 +124,29 @@ class ProductController extends Controller
     // CRUD Methods for Products
     public function create()
     {
-        $categories = Category::all()->groupBy('page_name');
-        return view('products.create', compact('categories'));
+        $categories = Category::all();
+        $pages = [
+            'khoskkon' => 'خشک کن',
+            'korepokht' => 'کوره پخت',
+            'mashinAlatShekldehi' => 'ماشین آلات شکل دهی',
+            'mashinalatvatajhizat' => 'ماشین آلات و تجهیزات',
+        ];
+
+        return view('products.create', compact('categories', 'pages'));
     }
 
     public function store(Request $request)
     {
         $data = $request->validate([
-            'name' => 'required|string|max:255',
-            'description' => 'nullable|string',
+            'name' => 'required|array',
+            'name.en' => 'required|string|max:255',
+            'name.fa' => 'required|string|max:255',
+            'description' => 'nullable|array',
+            'description.en' => 'nullable|string',
+            'description.fa' => 'nullable|string',
             'page_name' => 'required|string',
             'category_id' => 'nullable|integer',
             'image' => 'nullable|image',
-            // Additional fields for khoskkon
-            'total_cost' => 'nullable|integer',
-            'energy_consumption' => 'nullable|integer',
-            'production_variety' => 'nullable|integer',
-            'occupied_area' => 'nullable|integer',
-            'drying_time' => 'nullable|integer',
-            'maintenance_cost' => 'nullable|integer',
-            'product_quality' => 'nullable|integer',
-            'operation_cost' => 'nullable|integer',
-            'machine_quality' => 'nullable|integer'
         ]);
 
         if ($request->hasFile('image')) {
@@ -140,6 +154,7 @@ class ProductController extends Controller
         }
 
         Product::create($data);
+
         return redirect()->route('products.index')->with('success', 'محصول با موفقیت ایجاد شد.');
     }
 
@@ -147,27 +162,37 @@ class ProductController extends Controller
     public function edit($id)
     {
         $product = Product::findOrFail($id);
-        $categories = Category::all();
-        return view('products.edit', compact('product', 'categories'));
+        $locale = app()->getLocale();
+
+        $categories = Category::all()->map(function ($category) use ($locale) {
+            $category->name = $category->getTranslatedName($locale);
+            return $category;
+        });
+
+        $pages = [
+            'khoskkon' => 'خشک کن',
+            'korepokht' => 'کوره پخت',
+            'mashinAlatShekldehi' => 'ماشین آلات شکل دهی',
+            'mashinalatvatajhizat' => 'ماشین آلات و تجهیزات',
+        ];
+
+        return view('products.edit', compact('product', 'categories', 'pages'));
     }
 
-    public function update(Request $request, Product $product)
+    public function update(Request $request, $id)
     {
+        $product = Product::findOrFail($id);
+
         $data = $request->validate([
-            'name' => 'required|string|max:255',
-            'description' => 'nullable|string',
-            'category_id' => 'required|integer',
+            'name' => 'required|array',
+            'name.en' => 'required|string|max:255',
+            'name.fa' => 'required|string|max:255',
+            'description' => 'nullable|array',
+            'description.en' => 'nullable|string',
+            'description.fa' => 'nullable|string',
+            'page_name' => 'required|string',
+            'category_id' => 'nullable|integer',
             'image' => 'nullable|image',
-            // Additional fields for khoskkon
-            'total_cost' => 'nullable|integer',
-            'energy_consumption' => 'nullable|integer',
-            'production_variety' => 'nullable|integer',
-            'occupied_area' => 'nullable|integer',
-            'drying_time' => 'nullable|integer',
-            'maintenance_cost' => 'nullable|integer',
-            'product_quality' => 'nullable|integer',
-            'operation_cost' => 'nullable|integer',
-            'machine_quality' => 'nullable|integer'
         ]);
 
         if ($request->hasFile('image')) {
@@ -175,6 +200,7 @@ class ProductController extends Controller
         }
 
         $product->update($data);
+
         return redirect()->route('products.index')->with('success', 'محصول با موفقیت ویرایش شد.');
     }
 

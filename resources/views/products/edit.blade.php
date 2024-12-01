@@ -4,119 +4,124 @@
 <div class="container" style="padding: 3%;">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <!-- Logo Image Centered -->
+            <!-- Logo -->
             <div class="text-center mb-4">
                 <img src="/assets/images/logotest2.png" alt="Logo">
             </div>
 
+            <!-- Dark Card -->
             <div class="card bg-dark text-white">
-                <div class="card-header text-center">{{ __('ویرایش محصول') }}</div>
+                <div class="card-header text-center">{{ __('productEdit.edit_product') }}</div>
 
                 <div class="card-body">
                     <form action="{{ route('products.update', $product->id) }}" method="POST" enctype="multipart/form-data" style="direction: rtl;">
                         @csrf
                         @method('PUT')
 
-                        <!-- Product Name Input -->
+                        <!-- Product Name (English) -->
                         <div class="row mb-3">
-                            <label for="name" class="col-md-4 col-form-label text-md-end">{{ __('نام محصول') }}</label>
-
+                            <label for="name_en" class="col-md-4 col-form-label text-md-end">{{ __('productEdit.product_name_en') }}</label>
                             <div class="col-md-6">
-                                <input type="text" name="name" id="name" class="form-control bg-dark text-white @error('name') is-invalid @enderror" value="{{ old('name', $product->name) }}" required>
-
-                                @error('name')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
+                                <input type="text" name="name[en]" id="name_en"
+                                    class="form-control bg-dark text-white @error('name.en') is-invalid @enderror"
+                                    value="{{ old('name.en', $product->name['en'] ?? '') }}" required>
+                                @error('name.en')
+                                    <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>
                                 @enderror
                             </div>
                         </div>
 
-                        <!-- Description Input -->
+                        <!-- Product Name (Persian) -->
                         <div class="row mb-3">
-                            <label for="description" class="col-md-4 col-form-label text-md-end">{{ __('توضیحات') }}</label>
-
+                            <label for="name_fa" class="col-md-4 col-form-label text-md-end">{{ __('productEdit.product_name_fa') }}</label>
                             <div class="col-md-6">
-                                <textarea name="description" id="description" class="form-control bg-dark text-white @error('description') is-invalid @enderror">{{ old('description', $product->description) }}</textarea>
+                                <input type="text" name="name[fa]" id="name_fa"
+                                    class="form-control bg-dark text-white @error('name.fa') is-invalid @enderror"
+                                    value="{{ old('name.fa', $product->name['fa'] ?? '') }}" required>
+                                @error('name.fa')
+                                    <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>
+                                @enderror
+                            </div>
+                        </div>
 
-                                @error('description')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
+                        <!-- Product Description (English) -->
+                        <div class="row mb-3">
+                            <label for="description_en" class="col-md-4 col-form-label text-md-end">{{ __('productEdit.description_en') }}</label>
+                            <div class="col-md-6">
+                                <textarea name="description[en]" id="description_en"
+                                    class="form-control bg-dark text-white @error('description.en') is-invalid @enderror">{{ old('description.en', $product->description['en'] ?? '') }}</textarea>
+                                @error('description.en')
+                                    <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <!-- Product Description (Persian) -->
+                        <div class="row mb-3">
+                            <label for="description_fa" class="col-md-4 col-form-label text-md-end">{{ __('productEdit.description_fa') }}</label>
+                            <div class="col-md-6">
+                                <textarea name="description[fa]" id="description_fa"
+                                    class="form-control bg-dark text-white @error('description.fa') is-invalid @enderror">{{ old('description.fa', $product->description['fa'] ?? '') }}</textarea>
+                                @error('description.fa')
+                                    <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>
                                 @enderror
                             </div>
                         </div>
 
                         <!-- Page Name Dropdown -->
                         <div class="row mb-3">
-                            <label for="page_name" class="col-md-4 col-form-label text-md-end">{{ __('نام صفحه') }}</label>
-
+                            <label for="page_name" class="col-md-4 col-form-label text-md-end">{{ __('productEdit.page_name') }}</label>
                             <div class="col-md-6">
-                                <select name="page_name" id="page_name" class="form-control bg-dark text-white @error('page_name') is-invalid @enderror" required>
+                                <select name="page_name" id="page_name"
+                                    class="form-control bg-dark text-white @error('page_name') is-invalid @enderror" required>
                                     <option value="">{{ __('-- Select Page --') }}</option>
-                                    <option value="khoskkon" {{ $product->page_name == 'khoskkon' ? 'selected' : '' }}>خشک کن</option>
-                                    <option value="korepokht" {{ $product->page_name == 'korepokht' ? 'selected' : '' }}>کوره پخت</option>
-                                    <option value="mashinAlatShekldehi" {{ $product->page_name == 'mashinAlatShekldehi' ? 'selected' : '' }}>ماشین آلات شکل دهی</option>
-                                    <option value="mashinalatvatajhizat" {{ $product->page_name == 'mashinalatvatajhizat' ? 'selected' : '' }}>ماشین آلات و تجهیزات</option>
+                                    @foreach($pages as $key => $label)
+                                        <option value="{{ $key }}" {{ old('page_name', $product->page_name) === $key ? 'selected' : '' }}>
+                                            {{ $label }}
+                                        </option>
+                                    @endforeach
                                 </select>
-
                                 @error('page_name')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
+                                    <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>
                                 @enderror
                             </div>
                         </div>
 
                         <!-- Category Dropdown -->
                         <div class="row mb-3">
-                            <label for="category_id" class="col-md-4 col-form-label text-md-end">{{ __('دسته‌بندی') }}</label>
-
+                            <label for="category_id" class="col-md-4 col-form-label text-md-end">{{ __('productEdit.category') }}</label>
                             <div class="col-md-6">
-                                <select name="category_id" id="category" class="form-control bg-dark text-white @error('category_id') is-invalid @enderror" required>
-                                    <option value="">{{ __('-- Select Category --') }}</option>
+                                <select name="category_id" id="category_id"
+                                    class="form-control bg-dark text-white @error('category_id') is-invalid @enderror" required>
+                                    <option value="">{{ __('productEdit.select_category') }}</option>
                                     @foreach($categories as $category)
-                                        <option value="{{ $category->id }}" {{ $product->category_id == $category->id ? 'selected' : '' }}>{{ $category->name }}</option>
+                                        <option value="{{ $category->id }}" {{ old('category_id', $product->category_id) == $category->id ? 'selected' : '' }}>
+                                            {{ $category->name }}
+                                        </option>
                                     @endforeach
                                 </select>
-
                                 @error('category_id')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
+                                    <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>
                                 @enderror
                             </div>
                         </div>
 
-                        <!-- Product Image Input -->
+                        <!-- Image Upload -->
                         <div class="row mb-3">
-                            <label for="image" class="col-md-4 col-form-label text-md-end">{{ __('تصویر محصول') }}</label>
-
+                            <label for="image" class="col-md-4 col-form-label text-md-end">{{ __('productEdit.upload_image') }}</label>
                             <div class="col-md-6">
-                                <input type="file" name="image" id="image" class="form-control bg-dark text-white @error('image') is-invalid @enderror">
-
+                                <input type="file" name="image" id="image"
+                                    class="form-control bg-dark text-white @error('image') is-invalid @enderror">
                                 @error('image')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
+                                    <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>
                                 @enderror
-
-                                <!-- Display Existing Image -->
-                                @if($product->image)
-                                    <div class="mt-3">
-                                        <label>{{ __('Current Image:') }}</label><br>
-                                        <img src="{{ asset('storage/' . $product->image) }}" alt="{{ $product->name }}" class="img-thumbnail" width="150">
-                                    </div>
-                                @endif
                             </div>
                         </div>
 
                         <!-- Submit Button -->
                         <div class="row mb-0">
                             <div class="col-md-8 offset-md-4">
-                                <button type="submit" class="theme-btn btn-style-two">
-                                    {{ __('ویرایش محصول') }}
-                                </button>
+                                <button type="submit" class="btn btn-primary">{{ __('productEdit.submit') }}</button>
                             </div>
                         </div>
                     </form>
@@ -125,14 +130,4 @@
         </div>
     </div>
 </div>
-
-<!-- JavaScript to dynamically show/hide metric fields based on selected page -->
-<script>
-    const pageNameSelect = document.getElementById('page_name');
-    const khoskkonFields = document.getElementById('khoskkonFields');
-
-    pageNameSelect.addEventListener('change', function () {
-        khoskkonFields.style.display = this.value === 'khoskkon' ? 'block' : 'none';
-    });
-</script>
 @endsection
