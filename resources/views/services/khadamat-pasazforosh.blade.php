@@ -44,147 +44,88 @@
 
 <!-- Hero Section -->
 <section class="hero d-flex flex-column align-items-center justify-content-center text-center">
-    <h1>خدمات پس از فروش</h1>
-    <p>به طور کل خدمات پس از فروش مجموعه اطلاعات و خدمات وآموزش ها و راهنمایی ها و ضمانت هایی است که یک شرکت به مشتریان
-        اعلام میکند</p>
+    <h1>{{ __('khadamat-pasazforosh.aftersales.title') }}</h1>
+    <p>{{ __('khadamat-pasazforosh.aftersales.description') }}</p>
     <div class="joinUsBtnContainer">
         <button class="joinUsbtnContent">
-            <svg width="200px" height="6q0px" viewBox="0 0 200 60">
+            <svg width="200px" height="60px" viewBox="0 0 200 60">
                 <polyline points="199,1 199,59 1,59 1,1 199,1" class="bg-line"></polyline>
                 <polyline points="199,1 199,59 1,59 1,1 199,1" class="hl-line"></polyline>
             </svg>
-            <span>پیوستن به خانواده&zwnj;ی برناگستر</span>
+            <span>{{ __('khadamat-pasazforosh.aftersales.join_us_button') }}</span>
         </button>
     </div>
 </section>
 
 
+
 <!-- Services Section with Bootstrap Grid -->
 <section class="services text-center">
-    <h2 class="section-title"></h2>
+    <h2 class="section-title">{{ __('khadamat-pasazforosh.services.section_title') }}</h2>
     <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 justify-content-center">
+        <!-- Service 1 -->
         <div class="col">
             <div class="service-item h-100 p-3">
-                <h4>ارسال. نصب و راه اندازی رایگان </h4>
+                <h4>{{ __('khadamat-pasazforosh.services.free_delivery_and_installation.title') }}</h4>
                 <details>
-                    <summary>ادامه</summary>
-                    <p>
-                        شامل خدماتی می باشد که درزمانی که محصول و یا قطعه با مشکل روبرو میشود ،نیرو های متخصص نسبت نعمیر
-                        محصول اقدام میکنند
-                    </p>
+                    <summary>{{ __('khadamat-pasazforosh.services.details_continue') }}</summary>
+                    <p>{{ __('khadamat-pasazforosh.services.free_delivery_and_installation.description') }}</p>
                 </details>
             </div>
         </div>
+        <!-- Service 2 -->
         <div class="col">
             <div class="service-item h-100 p-3">
-                <h4>تعمیرات و نگهداری محصول</h4>
+                <h4>{{ __('khadamat-pasazforosh.services.repair_and_maintenance.title') }}</h4>
                 <details>
-                    <summary>ادامه</summary>
-                    <p>
-                        شامل خدماتی می باشد که درزمانی که محصول و یا قطعه با مشکل روبرو میشود ،نیرو های متخصص نسبت نعمیر
-                        محصول اقدام میکنند
-                    </p>
+                    <summary>{{ __('khadamat-pasazforosh.services.details_continue') }}</summary>
+                    <p>{{ __('khadamat-pasazforosh.services.repair_and_maintenance.description') }}</p>
                 </details>
             </div>
         </div>
+        <!-- Service 3 -->
         <div class="col">
             <div class="service-item h-100 p-3">
-                <h4>تهیه و توزیع قطعات محصول</h4>
+                <h4>{{ __('khadamat-pasazforosh.services.parts_distribution.title') }}</h4>
                 <details>
-                    <summary>ادامه</summary>
-                    <p>
-                        شامل فروش کلیه قطعات مصنوعی محصول میباشد که به صورت کلی و جزیی برای مشتری در اسرع وقت ارسال
-                        میگردد
-                    </p>
+                    <summary>{{ __('khadamat-pasazforosh.services.details_continue') }}</summary>
+                    <p>{{ __('khadamat-pasazforosh.services.parts_distribution.description') }}</p>
                 </details>
             </div>
         </div>
+        <!-- Service 4 -->
         <div class="col">
             <div class="service-item h-100 p-3">
-                <h4>آموزش</h4>
+                <h4>{{ __('khadamat-pasazforosh.services.training.title') }}</h4>
                 <details>
-                    <summary>ادامه</summary>
-                    <p>
-                        آموزش و ارایه اطلاعات مفید از جمله اطلاعات فنی،عمومی و تخصصی
-                    </p>
+                    <summary>{{ __('khadamat-pasazforosh.services.details_continue') }}</summary>
+                    <p>{{ __('khadamat-pasazforosh.services.training.description') }}</p>
                 </details>
             </div>
         </div>
+        <!-- Service 5 -->
         <div class="col">
             <div class="service-item h-100 p-3">
-                <h4>گارانتی محصول</h4>
+                <h4>{{ __('khadamat-pasazforosh.services.product_warranty.title') }}</h4>
                 <details>
-                    <summary>ادامه</summary>
-                    <p>
-                        تعدیست که شرکت به مشتریان خود میدهد دراین صورت که در مدت زمان مشخصی و محدودی از زمان خری یا نصب
-                        چناچه محصول دچار مشکل شود مشتریان نسبت به تعویض یا تعمیر رایگان اقدام خواهند کرد
-                    </p>
+                    <summary>{{ __('khadamat-pasazforosh.services.details_continue') }}</summary>
+                    <p>{{ __('khadamat-pasazforosh.services.product_warranty.description') }}</p>
                 </details>
             </div>
         </div>
+        <!-- Service 6 -->
         <div class="col">
             <div class="service-item h-100 p-3">
-                <h4>پشتیلبانی آنلاین</h4>
+                <h4>{{ __('khadamat-pasazforosh.services.online_support.title') }}</h4>
                 <details>
-                    <summary>ادامه</summary>
-                    <p>
-                        ارایه خدمات پشتیبانی آنلاین شامل پاسخ گویی سریع به سوالات و ابهامات فوری مشتریان
-                    </p>
+                    <summary>{{ __('khadamat-pasazforosh.services.details_continue') }}</summary>
+                    <p>{{ __('khadamat-pasazforosh.services.online_support.description') }}</p>
                 </details>
             </div>
         </div>
     </div>
 </section>
 
-
-<!-- FAQ Section with Accordion Style -->
-<!-- <section class="faq text-center">
-    <h2 class="section-title">Frequently Asked Questions</h2>
-    <div class="accordion w-75 mx-auto" id="faqAccordion">
-        <div class="accordion-item faq-item">
-            <h3 class="accordion-header">
-                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#faq1">
-                    How do I request service?
-                </button>
-            </h3>
-            <div id="faq1" class="accordion-collapse collapse">
-                <div class="accordion-body">
-                    Contact us using the form below or call our support line for assistance. We're here to help!
-                </div>
-            </div>
-        </div>
-        <div class="accordion-item faq-item">
-            <h3 class="accordion-header">
-                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#faq2">
-                    What types of services are included?
-                </button>
-            </h3>
-            <div id="faq2" class="accordion-collapse collapse">
-                <div class="accordion-body">
-                    Our services include setup, maintenance, repairs, and spare parts supply, all tailored to support
-                    your specific needs.
-                </div>
-            </div>
-        </div>
-        <div class="accordion-item faq-item">
-            <h3 class="accordion-header">
-                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#faq3">
-                    Do you offer on-site assistance?
-                </button>
-            </h3>
-            <div id="faq3" class="accordion-collapse collapse">
-                <div class="accordion-body">
-                    Yes, our technicians can provide on-site support when needed. We aim to minimize your equipment
-                    downtime.
-                </div>
-            </div>
-        </div>
-    </div>
-</section> -->
-<!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script> -->
 
 <section>
     <div class="container">
