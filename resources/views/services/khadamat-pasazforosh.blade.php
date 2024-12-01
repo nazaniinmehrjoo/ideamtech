@@ -21,6 +21,7 @@
         border-radius: 10px;
         padding: 20px;
         box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        background: #292c30;
     }
 
     .service-item:hover {
@@ -31,6 +32,7 @@
     .service-item h4,
     .contact h4 {
         color: #f05928;
+        font-size: 1.5rem;
     }
 
     .contact form input,
@@ -39,6 +41,15 @@
     background-color: #333;
     color: #e0e0e0;
     border: 1px solid #444;
+    }
+    .afterSalesService div {
+        margin-top: 1%;
+    }
+    .service-item details {
+        direction: rtl;
+    }
+    .service-item p {
+        direction: rtl;
     }
 </style>
 
@@ -61,12 +72,11 @@
 
 <!-- Services Section with Bootstrap Grid -->
 <section class="services text-center">
-    <h2 class="section-title">{{ __('khadamat-pasazforosh.services.section_title') }}</h2>
+    <h2 class="section-title"></h2>
     <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 justify-content-center">
-        <!-- Service 1 -->
         <div class="col">
             <div class="service-item h-100 p-3">
-                <h4>{{ __('khadamat-pasazforosh.services.free_delivery_and_installation.title') }}</h4>
+                <h4>ارسال. نصب و راه اندازی رایگان </h4>
                 <details>
                     <summary>{{ __('khadamat-pasazforosh.services.details_continue') }}</summary>
                     <p>{{ __('khadamat-pasazforosh.services.free_delivery_and_installation.description') }}</p>
@@ -76,7 +86,7 @@
         <!-- Service 2 -->
         <div class="col">
             <div class="service-item h-100 p-3">
-                <h4>{{ __('khadamat-pasazforosh.services.repair_and_maintenance.title') }}</h4>
+                <h4>تعمیرات و نگهداری محصول</h4>
                 <details>
                     <summary>{{ __('khadamat-pasazforosh.services.details_continue') }}</summary>
                     <p>{{ __('khadamat-pasazforosh.services.repair_and_maintenance.description') }}</p>
@@ -86,7 +96,7 @@
         <!-- Service 3 -->
         <div class="col">
             <div class="service-item h-100 p-3">
-                <h4>{{ __('khadamat-pasazforosh.services.parts_distribution.title') }}</h4>
+                <h4>تهیه و توزیع قطعات محصول</h4>
                 <details>
                     <summary>{{ __('khadamat-pasazforosh.services.details_continue') }}</summary>
                     <p>{{ __('khadamat-pasazforosh.services.parts_distribution.description') }}</p>
@@ -96,7 +106,7 @@
         <!-- Service 4 -->
         <div class="col">
             <div class="service-item h-100 p-3">
-                <h4>{{ __('khadamat-pasazforosh.services.training.title') }}</h4>
+                <h4>آموزش</h4>
                 <details>
                     <summary>{{ __('khadamat-pasazforosh.services.details_continue') }}</summary>
                     <p>{{ __('khadamat-pasazforosh.services.training.description') }}</p>
@@ -106,7 +116,7 @@
         <!-- Service 5 -->
         <div class="col">
             <div class="service-item h-100 p-3">
-                <h4>{{ __('khadamat-pasazforosh.services.product_warranty.title') }}</h4>
+                <h4>گارانتی محصول</h4>
                 <details>
                     <summary>{{ __('khadamat-pasazforosh.services.details_continue') }}</summary>
                     <p>{{ __('khadamat-pasazforosh.services.product_warranty.description') }}</p>
@@ -116,7 +126,7 @@
         <!-- Service 6 -->
         <div class="col">
             <div class="service-item h-100 p-3">
-                <h4>{{ __('khadamat-pasazforosh.services.online_support.title') }}</h4>
+                <h4>پشتیلبانی آنلاین</h4>
                 <details>
                     <summary>{{ __('khadamat-pasazforosh.services.details_continue') }}</summary>
                     <p>{{ __('khadamat-pasazforosh.services.online_support.description') }}</p>
@@ -128,7 +138,7 @@
 
 
 <section>
-    <div class="container">
+    <div>
         <div class="faq">
             <h2 class="faq__title">سوالات متداول</h2>
             <details>

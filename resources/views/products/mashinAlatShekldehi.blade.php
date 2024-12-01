@@ -33,7 +33,7 @@
             </div>
 
             <!-- Dynamic Product List -->
-            <div class="filter-list notRegister row clearfix">
+            <div class="filter-list row clearfix">
                 @forelse ($products as $product)
                     <div class="portfolio-block mix category-{{ $product->category_id }} col-xl-4 col-lg-4 col-md-6 col-sm-12"
                         data-category="{{ $product->category_id }}">
@@ -57,11 +57,15 @@
                             </div>
                         </div>
                     </div>
-                @empty
-                    <p class="text-light">هیچ محصولی ثبت نشده است</p>
-                @endforelse
             </div>
         </div>
+    </div>
+    @empty
+    <div>
+        <p class="text-light text-center notRegister">هیچ محصولی ثبت نشده است</p>
+    </div>
+        
+    @endforelse
 </section>
 
 <!-- Modal to show product details -->

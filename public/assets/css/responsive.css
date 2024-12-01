@@ -677,6 +677,11 @@
 	/* .main-content-container {
 		padding-left: 50px;
 	} */
+	.sidebar-side .recent-post .post .inner {
+
+		padding-left: 104px;
+
+	}
 
 }
 

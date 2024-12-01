@@ -126,7 +126,7 @@
 
 .content-container p {
     margin-top: 10px;
-    font-size: 15px; 
+    font-size: 16px; 
     color: #dddddd; 
     direction:rtl;
 }
