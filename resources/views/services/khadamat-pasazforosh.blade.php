@@ -21,6 +21,7 @@
         border-radius: 10px;
         padding: 20px;
         box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        background: #292c30;
     }
 
     .service-item:hover {
@@ -31,6 +32,7 @@
     .service-item h4,
     .contact h4 {
         color: #f05928;
+        font-size: 1.5rem;
     }
 
     .contact form input,
@@ -39,6 +41,15 @@
     background-color: #333;
     color: #e0e0e0;
     border: 1px solid #444;
+    }
+    .afterSalesService div {
+        margin-top: 1%;
+    }
+    .service-item details {
+        direction: rtl;
+    }
+    .service-item p {
+        direction: rtl;
     }
 </style>
 
@@ -62,9 +73,9 @@
 <!-- Services Section with Bootstrap Grid -->
 <section class="services text-center">
     <h2 class="section-title"></h2>
-    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 justify-content-center">
+    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 afterSalesService g-4 justify-content-center">
         <div class="col">
-            <div class="service-item h-100 p-3">
+            <div class="service-item h-100 p-4">
                 <h4>ارسال. نصب و راه اندازی رایگان </h4>
                 <details>
                     <summary>ادامه</summary>
@@ -76,7 +87,7 @@
             </div>
         </div>
         <div class="col">
-            <div class="service-item h-100 p-3">
+            <div class="service-item h-100 p-4">
                 <h4>تعمیرات و نگهداری محصول</h4>
                 <details>
                     <summary>ادامه</summary>
@@ -88,7 +99,7 @@
             </div>
         </div>
         <div class="col">
-            <div class="service-item h-100 p-3">
+            <div class="service-item h-100 p-4">
                 <h4>تهیه و توزیع قطعات محصول</h4>
                 <details>
                     <summary>ادامه</summary>
@@ -100,7 +111,7 @@
             </div>
         </div>
         <div class="col">
-            <div class="service-item h-100 p-3">
+            <div class="service-item h-100 p-4">
                 <h4>آموزش</h4>
                 <details>
                     <summary>ادامه</summary>
@@ -111,7 +122,7 @@
             </div>
         </div>
         <div class="col">
-            <div class="service-item h-100 p-3">
+            <div class="service-item h-100 p-4">
                 <h4>گارانتی محصول</h4>
                 <details>
                     <summary>ادامه</summary>
@@ -123,8 +134,8 @@
             </div>
         </div>
         <div class="col">
-            <div class="service-item h-100 p-3">
-                <h4>پشتیلبانی آنلاین</h4>
+            <div class="service-item h-100 p-4">
+                <h4>پشتیبانی آنلاین</h4>
                 <details>
                     <summary>ادامه</summary>
                     <p>
@@ -187,7 +198,7 @@
 <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script> -->
 
 <section>
-    <div class="container">
+    <div>
         <div class="faq">
             <h2 class="faq__title">سوالات متداول</h2>
             <details>

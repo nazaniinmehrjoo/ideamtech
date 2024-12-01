@@ -7541,7 +7541,7 @@ canvas {
     font-size: 35px;
 }
 
-details {
+.faq details {
     background-color: #292c30;
     border-radius: 10px;
     cursor: pointer;
@@ -7551,18 +7551,18 @@ details {
     direction: rtl;
 }
 
-summary,
+.faq summary,
 p {
     text-align: right;
 }
 
-summary {
+.faq summary {
     margin-inline-start: 1rem;
     list-style-position: outside;
     color: #f08d58;
 }
 
-summary::marker {
+.faq summary::marker {
     color: #f08d58;
     font-size: 18px;
 }
@@ -8379,9 +8379,9 @@ body.light-mode .additional-box{
     background-color: rgb(85 65 65 / 20%);
 }
 body.light-mode .faq__title{
-    color: #292c30;
+    color: #f05928;
 }
-body.light-mode details{
+body.light-mode .faq details{
     background-color: #f9f9f9 !important;
 }
 body.light-mode .banner-nine{
@@ -8576,4 +8576,11 @@ body.light-mode  .dashboard-header .download-btn:hover {
   }
 body.light-mode  .dashboard-header .download-btn .spinner {
     background: #ffc7a2;
-  }
+}
+body.light-mode .services {
+    color: #505050 !important;
+}
+
+body.light-mode  .service-item, .contact form {
+    background: #f0f0f0f5;
+}
