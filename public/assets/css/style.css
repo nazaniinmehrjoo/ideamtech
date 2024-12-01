@@ -4493,7 +4493,6 @@ body.light-mode .def-title-box h3 {
 .sidebar-side .recent-post .post .inner {
     position: relative;
     display: block;
-    padding-left: 104px;
     min-height: 88px;
 }
 
@@ -7226,7 +7225,8 @@ CustomerPage
 #map {
     width: 100%;
     height: 400px;
-    margin-top: 20px;
+    /* margin-top: 20px; */
+    border-radius: 0px 0px 18px 18px;
 }
 
 /* Blinking circle styles */
@@ -7281,10 +7281,12 @@ canvas {
     font-size: 1.2rem;
     color: #f8f9fa; /* Light text color for contrast */
     margin: 10px 0;
+    text-align: center;
 }
 .customer-name {
     font-weight: bold;
     color: #ffc107; /* Gold color for customer names */
+    text-align: center;
 }
 .carousel-item {
     transition: transform 0.5s ease;
@@ -7348,9 +7350,11 @@ canvas {
 .action-btns .btn {
     flex: 1;
     text-align: center;
-    padding: 12px 20px;
-    font-size: 1rem;
+    padding: 8px 20px;
+    font-size: 25px;
     border-radius: 10px;
+    height: 50px;
+    width: 100px;
 }
 
 /* Icons */
@@ -7506,8 +7510,9 @@ canvas {
     margin-top: 10% !important;
 }
 .notRegister {
-    justify-content: center !important;
-    padding: 10% !important;
+   margin: 0 auto;
+   text-align: center;
+   margin-top: 10%;
 }
 /* Customers */
 .cutomerListTable {
@@ -8158,6 +8163,63 @@ background-color: #343a403d !important;
 .toggle-switch.night .stars {
     opacity: 1;
 }
+.customerContent {
+    margin: 0 auto;
+    width: 90%;
+    direction: rtl;
+}
+.customerReviews {
+    color: #fff;
+}
+.adminDashboardBoxes h5{
+    font-size: 30px;
+}
+.adminDashboardBoxes .text {
+    height: 75px
+}
+.chart-container {
+    margin-top: 5%;
+}
+.dashboardBtn {
+    color: #6ba382;
+    border-color: #6ba382;
+}
+.dashboardBtn:hover {
+    background-color: #6ba382;
+    color: #fff;
+}
+.dashboard-header a {
+    font-size: 14px;
+    background-color: transparent;
+    border: 1px solid #aaa;
+    color: white;
+    padding: 8px 16px;
+    margin-top: 10px;
+    text-decoration: none;
+    transition: background-color 0.3s;
+    border-radius: 10px;
+  }
+  .dashboard-header a:hover {
+    background-color: #6ba382;
+    color: #fff;
+    border: 1px solid #aaa;
+
+  }
+  .dashboard-header .download-btn {
+    display: initial !important;
+    margin-bottom: 2%;
+  }
+  .dashboard-header p{
+    text-align: center;
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.55);;
+  }
+  .dashboard-header .download-btn:hover {
+    background: #6ba382;
+  }
+  .dashboard-header .download-btn .spinner {
+    background: #6ba382;
+  }
 /* Light mode */
 body.light-mode {
     font-family: "IRANSans";
@@ -8211,17 +8273,21 @@ body.light-mode .def-tabs-box .text-col p {
 }
 
 body.light-mode .service-block .inner-box {
-    background-color: #f9f9f9;
+    background-color: #f0f0f0;
 }
 body.light-mode .service-block .icon-box span {
     vertical-align: middle;
     color: #333333;
 }
+
 body.light-mode .service-block .icon-box {
-    background-color: #ffc7a2;
+    background: #ffc7a2;
 }
-.service-block .inner-box:hover .icon-box {
-    background-color: #ffead2;
+body.light-mode .service-block .inner-box:hover .icon-box {
+    background: #ffa87e;
+}
+body.light-mode .service-block .inner-box:hover .icon-box span {
+    color: #f0f0f0;
 }
 body.light-mode .service-block .inner-box:hover .link-box a {
     background: #ffead2;
@@ -8385,3 +8451,129 @@ body.light-mode .btn-style-two{
     background: #e5703e;
     border: 2px solid #e5703e;
 }
+body.light-mode .services-section {
+    background-image: url("../images/background/plans-lines-Light.png") !important;
+}
+body.light-mode .testimonial {
+    background-color: #f9f9f9;
+}
+body.light-mode .customer-name {
+    color: #f05928;
+}
+body.light-mode .cutomerListTable {
+    color: #333;
+    background-color: #c6c8ca;
+}
+body.light-mode  .stat-box {
+    text-align: center;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+body.light-mode   .card {
+    background-color: #f9f9f9;
+    border: 1px solid rgba(0, 0, 0, .125);
+    border-radius: 18px;
+}
+
+body.light-mode  .card-header {
+    background-color: #ffc7a2;
+    border-bottom: 1px solid rgba(0, 0, 0, .125);
+    border-radius: 18px 18px 0px 0px !important;
+}
+body.light-mode .counter {
+    color: #666666;
+}
+body.light-mode .customerContent h2 {
+    color: #333;
+}
+body.light-mode  .customerReviews {
+    color: #333;
+}
+body.light-mode .carousel-control-next-icon,
+body.light-mode .carousel-control-prev-icon {
+    filter: invert(84%) sepia(26%) saturate(444%) hue-rotate(313deg) brightness(104%) contrast(101%);
+}
+body.light-mode .inner-box {
+    background-color: #f0f0f0;
+    color: #333;
+    border: 1px solid #f0f0f0;
+}
+body.light-mode .news-block h4 a {
+    color: #333;
+}
+body.light-mode .image-info {
+    color: #8b8b8b;
+}
+body.light-mode a.theme-btn {
+    background-color: #ffc7a2; 
+    color: #333333; 
+}
+
+body.light-mode a.theme-btn:hover {
+    background-color: #ffa87e; 
+}
+body.light-mode .news-block:hover .link-box a {
+    background: #ffa87e;
+}
+body.light-mode .sidebar-page-container .content-side .content-inner {
+    background-color: #f0f0f0;
+    color: #333;
+}
+body.light-mode .blog-details .lower h3 {
+    color: #8c8c8c;
+}
+body.light-mode .blog-details .text-content {
+    color: rgba(67, 67, 67, 0.55);
+}
+body.light-mode .sidebar-side .sidebar-title  h5,.sidebar-side .sidebar-title h4 {
+    color: #6e6e6e;
+}
+body.light-mode .sidebar-side .recent-post .post .text a {
+    color: #333;
+    font-weight: 500;
+}
+body.light-mode .sidebar-side .categories ul li a {
+    color: #333;
+    font-weight: 500;
+}
+body.light-mode  .dashboard-card {
+    background-color: #f0f0f0;
+    color: #333;
+}
+body.light-mode .dashboardBtn {
+    color: #ffa87e;
+    border-color: #ffa87e;
+}
+body.light-mode .dashboardBtn:hover {
+    background-color: #ffa87e;
+    color: #fff;
+}
+body.light-mode .dashboard-header h2 {
+    color: #333333 !important;
+}
+body.light-mode .download-btn {
+    background: #f0f0f0;
+    color: #555;
+}
+body.light-mode .download-btn:hover {
+    background: #f05928;
+    color: #fff;
+}
+
+body.light-mode  .dashboard-header a:hover {
+    background-color: #ffc7a2;
+    color: #343a40;
+    border: 1px solid #ccc;
+
+}
+body.light-mode .dashboard-header a {
+    border: 1px solid #ccc;
+
+}
+body.light-mode  .dashboard-header .download-btn:hover {
+    background: #ffc7a2;
+  }
+body.light-mode  .dashboard-header .download-btn .spinner {
+    background: #ffc7a2;
+  }
