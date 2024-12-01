@@ -32,7 +32,7 @@
             </div>
 
             <!-- Dynamic Product List -->
-            <div class="filter-list notRegister row clearfix">
+            <div class="filter-list row clearfix">
                 @forelse ($products as $product)
                 <div class="portfolio-block mix category-{{ $product->category_id }} col-xl-4 col-lg-4 col-md-6 col-sm-12" data-category="{{ $product->category_id }}">
                     <div class="inner-box">
@@ -51,12 +51,14 @@
                         </div>
                     </div>
                 </div>
-                @empty
-                <p class="text-light">هیچ محصولی ثبت نشده است</p>
-                @endforelse
+
             </div>
         </div>
     </div>
+
+    @empty
+        <p class="text-light notRegister">هیچ محصولی ثبت نشده است</p>
+    @endforelse
 </section>
 
 <!-- The Modal -->
