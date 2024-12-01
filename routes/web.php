@@ -22,6 +22,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::get('/lang/{locale}', function ($locale) {
+    if (in_array($locale, ['en', 'fa'])) { // Only allow supported languages
+        session(['locale' => $locale]);
+        app()->setLocale($locale);
+    }
+    return redirect()->back();
+})->name('setLanguage');
+
 // Home Route
 Route::get('/', function () {
     return view('index');
@@ -59,7 +67,7 @@ Route::get('/خط-کامل-آجر/محصولات', function () {
 
 // Blog Routes
 Route::get('/مقالات', [BlogController::class, 'publicIndex'])->name('blog.publicIndex');
-Route::get('/مقالات/{id}', [BlogController::class, 'show'])->name('blog.show'); 
+Route::get('/مقالات/{id}', [BlogController::class, 'show'])->name('blog.show');
 
 // Track product clicks
 Route::post('/products/{product}/click', [ProductController::class, 'trackClick'])->name('products.trackClick');
@@ -126,7 +134,7 @@ Route::middleware(['isAdmin'])->group(function () {
     Route::get('employment-forms/{id}/edit', [EmploymentFormController::class, 'edit'])->name('employment-forms.edit');
     Route::put('employment-forms/{id}', [EmploymentFormController::class, 'update'])->name('employment-forms.update');
     Route::delete('employment-forms/{id}', [EmploymentFormController::class, 'destroy'])->name('employment-forms.destroy');
-    
+
 
 
 
@@ -134,10 +142,10 @@ Route::middleware(['isAdmin'])->group(function () {
     Route::post('/customer/export', [CustomerFormController::class, 'export'])->name('customer.export');
 
     // Blog management for admins
-    
+
 });
 
 // No-access route for users without admin privileges
 Route::get('/no-access', function () {
-    return view('no-access');  
+    return view('no-access');
 })->name('no-access');

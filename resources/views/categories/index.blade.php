@@ -67,7 +67,9 @@
                                 <div class="col-md-4 mb-4">
                                     <div class="card bg-dark text-white h-100">
                                         <div class="card-body d-flex flex-column">
-                                            <h5 class="card-title text-end" style="direction: rtl;">{{ $category->name }}</h5>
+                                            <h5 class="card-title text-end" style="direction: rtl;">
+                                                {{ $category->getTranslatedName() }}
+                                            </h5>
                                             <div class="mt-auto text-end">
                                                 <a href="{{ route('categories.edit', $category->id) }}"
                                                     class="btn btn-warning btn-sm">ویرایش</a>

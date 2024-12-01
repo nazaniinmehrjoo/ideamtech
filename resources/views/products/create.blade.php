@@ -4,34 +4,87 @@
 <div class="container" style="padding: 3%;">
     <div class="row justify-content-center">
         <div class="col-md-8">
+            <!-- Logo -->
             <div class="text-center mb-4">
                 <img src="/assets/images/logotest2.png" alt="Logo">
             </div>
 
+            <!-- Dark Card -->
             <div class="card bg-dark text-white">
-                <div class="card-header text-center">{{ __('ایجاد محصول جدید') }}</div>
+                <div class="card-header text-center">{{ __('productCreate.create_new_product') }}</div>
 
                 <div class="card-body">
-                    <form action="{{ route('products.store') }}" method="POST" enctype="multipart/form-data" style="direction: rtl;">
+                    <form action="{{ route('products.store') }}" method="POST" enctype="multipart/form-data"
+                        style="direction: rtl;">
                         @csrf
 
-                        <!-- Product Name Input -->
+                        <!-- Product Name Input (Localized) -->
                         <div class="row mb-3">
-                            <label for="name" class="col-md-4 col-form-label text-md-end">{{ __('نام محصول') }}</label>
+                            <label for="name_en"
+                                class="col-md-4 col-form-label text-md-end">{{ __('productCreate.product_name_en') }}</label>
                             <div class="col-md-6">
-                                <input type="text" name="name" id="name" class="form-control bg-dark text-white @error('name') is-invalid @enderror" required>
-                                @error('name')
+                                <input type="text" name="name[en]" id="name_en"
+                                    class="form-control bg-dark text-white @error('name.en') is-invalid @enderror"
+                                    required>
+                                @error('name.en')
                                     <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>
                                 @enderror
                             </div>
                         </div>
 
-                        <!-- Description Input -->
                         <div class="row mb-3">
-                            <label for="description" class="col-md-4 col-form-label text-md-end">{{ __('توضیحات') }}</label>
+                            <label for="name_fa"
+                                class="col-md-4 col-form-label text-md-end">{{ __('productCreate.product_name_fa') }}</label>
                             <div class="col-md-6">
-                                <textarea name="description" id="description" class="form-control bg-dark text-white @error('description') is-invalid @enderror"></textarea>
-                                @error('description')
+                                <input type="text" name="name[fa]" id="name_fa"
+                                    class="form-control bg-dark text-white @error('name.fa') is-invalid @enderror"
+                                    required>
+                                @error('name.fa')
+                                    <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <!-- Description Input (Localized) -->
+                        <div class="row mb-3">
+                            <label for="description_en"
+                                class="col-md-4 col-form-label text-md-end">{{ __('productCreate.description_en') }}</label>
+                            <div class="col-md-6">
+                                <textarea name="description[en]" id="description_en"
+                                    class="form-control bg-dark text-white @error('description.en') is-invalid @enderror"></textarea>
+                                @error('description.en')
+                                    <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <label for="description_fa"
+                                class="col-md-4 col-form-label text-md-end">{{ __('productCreate.description_fa') }}</label>
+                            <div class="col-md-6">
+                                <textarea name="description[fa]" id="description_fa"
+                                    class="form-control bg-dark text-white @error('description.fa') is-invalid @enderror"></textarea>
+                                @error('description.fa')
+                                    <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <!-- Category Dropdown -->
+                        <div class="row mb-3">
+                            <label for="category_id"
+                                class="col-md-4 col-form-label text-md-end">{{ __('productCreate.select_category') }}</label>
+                            <div class="col-md-6">
+                                <select name="category_id" id="category_id"
+                                    class="form-control bg-dark text-white @error('category_id') is-invalid @enderror"
+                                    required>
+                                    <option value="">{{ __('productCreate.choose_category') }}</option>
+                                    @foreach($categories as $category)
+                                        <option value="{{ $category->id }}">
+                                            {{ $category->name[app()->getLocale()] ?? $category->name['en'] }}</option>
+                                    @endforeach
+                                </select>
+                                @error('category_id')
                                     <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>
                                 @enderror
                             </div>
@@ -39,9 +92,12 @@
 
                         <!-- Page Name Dropdown -->
                         <div class="row mb-3">
-                            <label for="page_name" class="col-md-4 col-form-label text-md-end">{{ __('نام صفحه') }}</label>
+                            <label for="page_name"
+                                class="col-md-4 col-form-label text-md-end">{{ __('نام صفحه') }}</label>
                             <div class="col-md-6">
-                                <select name="page_name" id="page_name" class="form-control bg-dark text-white @error('page_name') is-invalid @enderror" required>
+                                <select name="page_name" id="page_name"
+                                    class="form-control bg-dark text-white @error('page_name') is-invalid @enderror"
+                                    required>
                                     <option value="">{{ __('-- Select Page --') }}</option>
                                     <option value="khoskkon">خشک کن</option>
                                     <option value="korepokht">کوره پخت</option>
@@ -54,20 +110,14 @@
                             </div>
                         </div>
 
-                        <!-- Category Dropdown -->
-                        <div class="row mb-3">
-                            <label for="category_id" class="col-md-4 col-form-label text-md-end">{{ __('دسته‌بندی') }}</label>
-                            <div class="col-md-6">
-                                <select name="category_id" id="category" class="form-control bg-dark text-white @error('category_id') is-invalid @enderror" required>
-                                    <option value="">{{ __('-- Select Category --') }}</option>
-                                </select>
-                            </div>
-                        </div>
+
                         <!-- Image Upload -->
                         <div class="row mb-3">
-                            <label for="image" class="col-md-4 col-form-label text-md-end">{{ __('تصویر محصول') }}</label>
+                            <label for="image"
+                                class="col-md-4 col-form-label text-md-end">{{ __('productCreate.upload_image') }}</label>
                             <div class="col-md-6">
-                                <input type="file" name="image" id="image" class="form-control bg-dark text-white @error('image') is-invalid @enderror">
+                                <input type="file" name="image" id="image"
+                                    class="form-control bg-dark text-white @error('image') is-invalid @enderror">
                                 @error('image')
                                     <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>
                                 @enderror
@@ -77,7 +127,7 @@
                         <!-- Submit Button -->
                         <div class="row mb-0">
                             <div class="col-md-8 offset-md-4">
-                                <button type="submit" class="theme-btn btn-style-two">{{ __('ثبت') }}</button>
+                                <button type="submit" class="btn btn-primary">{{ __('productCreate.submit') }}</button>
                             </div>
                         </div>
                     </form>
@@ -86,25 +136,4 @@
         </div>
     </div>
 </div>
-<script>
-    const categories = @json($categories);
-    const pageNameSelect = document.getElementById('page_name');
-    const categorySelect = document.getElementById('category');
-    const khoskkonFields = document.getElementById('khoskkonFields');
-
-    pageNameSelect.addEventListener('change', function () {
-        const selectedPage = this.value;
-
-        // Update category options
-        categorySelect.innerHTML = '<option value="">{{ __('-- Select Category --') }}</option>';
-        if (categories[selectedPage]) {
-            categories[selectedPage].forEach(function (category) {
-                const option = document.createElement('option');
-                option.value = category.id;
-                option.textContent = category.name;
-                categorySelect.appendChild(option);
-            });
-        }
-    });
-</script>
 @endsection

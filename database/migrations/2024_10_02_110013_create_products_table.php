@@ -9,9 +9,9 @@ class CreateProductsTable extends Migration
     {
         Schema::create('products', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
+            $table->json('name'); 
             $table->unsignedBigInteger('category_id');
-            $table->text('description')->nullable();
+            $table->json('description')->nullable(); // Change to JSON for multilingual support
             $table->string('image')->nullable();
             $table->string('page_name');
             $table->integer('views')->default(0);
