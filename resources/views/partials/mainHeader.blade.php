@@ -71,6 +71,8 @@
                                     <li><a href="/خشک-کن/محصولات">{{ __('header.projects_dryer') }}</a></li>
                                     <li><a href="/کوره_پخت/محصولات">{{ __('header.projects_kiln') }}</a></li>
                                     <li><a href="/خط-کامل-آجر/محصولات">{{ __('header.projects_full_line') }}</a></li>
+                                    <li><a href="/مشتریان-ما">لیست پروژه ها</a></li>
+
                                 </ul>
                             </li>
                             <li class="dropdown"><a href="#">{{ __('header.services') }}</a>
