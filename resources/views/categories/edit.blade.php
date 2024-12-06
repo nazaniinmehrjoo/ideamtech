@@ -51,12 +51,10 @@
                             <div class="col-md-6">
                                 <select name="page_name" id="page_name"
                                     class="form-control bg-dark text-white @error('page_name') is-invalid @enderror"
-                                    required>
+                                    required onchange="toggleAdditionalFields(this.value)">
                                     <option value="">{{ __('categoryEdit.select_page') }}</option>
                                     @foreach($pages as $page)
-                                        <option value="{{ $page }}" {{ $category->page_name === $page ? 'selected' : '' }}>
-                                            {{ __('pages.'.$page) }}
-                                        </option>
+                                        <option value="{{ $page }}" {{ $category->page_name === $page ? 'selected' : '' }}>{{ __('pages.'.$page) }}</option>
                                     @endforeach
                                 </select>
                                 @error('page_name')
@@ -94,6 +92,26 @@
                             </div>
                         </div>
 
+                        <!-- Additional Fields for 'خشک کن' -->
+                        <div id="additionalFields" style="display: {{ $category->page_name === 'khoskkon' ? 'block' : 'none' }};">
+                            @foreach(['total_cost', 'energy_consumption', 'production_variety', 'drying_time', 'maintenance_cost', 'operation_cost'] as $field)
+                                <div class="row mb-3">
+                                    <label for="{{ $field }}"
+                                        class="col-md-4 col-form-label text-md-end">{{ __('categoryEdit.' . $field) }}</label>
+                                    <div class="col-md-6">
+                                        <input type="number" name="{{ $field }}" id="{{ $field }}"
+                                            class="form-control bg-dark text-white @error($field) is-invalid @enderror"
+                                            value="{{ old($field, $category->{$field} ?? '') }}">
+                                        @error($field)
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                        @enderror
+                                    </div>
+                                </div>
+                            @endforeach
+                        </div>
+
                         <!-- Submit Button -->
                         <div class="row mb-0">
                             <div class="col-md-8 offset-md-4">
@@ -108,4 +126,11 @@
         </div>
     </div>
 </div>
+
+<script>
+    function toggleAdditionalFields(value) {
+        const additionalFields = document.getElementById('additionalFields');
+        additionalFields.style.display = value === 'khoskkon' ? 'block' : 'none';
+    }
+</script>
 @endsection
