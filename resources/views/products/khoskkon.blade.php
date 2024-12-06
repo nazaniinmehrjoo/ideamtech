@@ -20,13 +20,13 @@
         <div class="mixitup-gallery">
             <!-- Filter Section -->
             <button class="compare-button" onclick="showComparisonChart()" style="color: #ffffff;">
-            {{ __('khoskkon.compare_dryers') }}
+                {{ __('khoskkon.compare_dryers') }}
             </button>
 
             <div class="gallery-filters centered clearfix">
                 <ul class="filter-tabs filter-btns clearfix" style="color: #ffffff;">
                     <li class="filter" data-filter="all" onclick="showCategoryList('all')" style="color: #ffffff;">
-                    {{ __('khoskkon.show_all') }}
+                        {{ __('khoskkon.show_all') }}
                     </li>
                     @foreach($categories as $category)
                         <li class="filter" data-filter=".category-{{ $category->id }}"
@@ -45,13 +45,16 @@
             <!-- Product List -->
             <div id="category-list" class="filter-list row clearfix">
                 @foreach ($products as $product)
-                    <div class="portfolio-block mix category-{{ $product->category_id }} col-xl-4 col-lg-4 col-md-6 col-sm-12" data-category="{{ $product->category_id }}">
+                    <div class="portfolio-block mix category-{{ $product->category_id }} col-xl-4 col-lg-4 col-md-6 col-sm-12"
+                        data-category="{{ $product->category_id }}">
                         <div class="inner-box">
                             <div class="image">
-                                <img src="{{ asset('storage/' . $product->image) }}" class="img-fluid" alt="{{ $product->name[app()->getLocale()] ?? $product->name['en'] }}">
+                                <img src="{{ asset('storage/' . $product->image) }}" class="img-fluid"
+                                    alt="{{ $product->name[app()->getLocale()] ?? $product->name['en'] }}">
                             </div>
                             <div class="overlay">
-                                <div class="more-link" onclick="trackAndOpenModal({{ $product->id }}, '{{ $product->name[app()->getLocale()] ?? $product->name['en'] }}', '{{ $product->description[app()->getLocale()] ?? $product->description['en'] }}')">
+                                <div class="more-link"
+                                    onclick="trackAndOpenModal({{ $product->id }}, '{{ $product->name[app()->getLocale()] ?? $product->name['en'] }}', '{{ $product->description[app()->getLocale()] ?? $product->description['en'] }}')">
                                     <i class="fa-solid fa-bars-staggered theme-btn"></i>
                                 </div>
                                 <div class="inner">
@@ -59,7 +62,8 @@
                                         <span>{{ $product->category->name[app()->getLocale()] ?? $product->category->name['en'] }}</span>
                                     </div>
                                     <h5 id="productName">
-                                        <a href="#" class="text-light">{{ $product->name[app()->getLocale()] ?? $product->name['en'] }}</a>
+                                        <a href="#"
+                                            class="text-light">{{ $product->name[app()->getLocale()] ?? $product->name['en'] }}</a>
                                     </h5>
                                 </div>
                             </div>
@@ -69,10 +73,11 @@
             </div>
 
             <!-- Comparison Chart Container -->
-            <div id="comparisonChartContainer" class="chart-container" style="display: none; width: 80%; max-width: 700px; margin: 30px auto;">
+            <div id="comparisonChartContainer" class="chart-container"
+                style="display: none; width: 80%; max-width: 700px; margin: 30px auto;">
                 <div class="chart-box">
-                <h4 class="chart-title">{{ __('khoskkon.compare_chart_title') }}</h4>
-                <div style="width: 100%; margin: auto;">
+                    <h4 class="chart-title">{{ __('khoskkon.compare_chart_title') }}</h4>
+                    <div style="width: 100%; margin: auto;">
                         <canvas id="radarChart"></canvas>
                     </div>
                 </div>
@@ -82,8 +87,14 @@
 </section>
 
 <script>
-    // Category descriptions mapped by category ID
-    const categoryDescriptions = {!! json_encode($categories->pluck('description', 'id')->toArray(), JSON_UNESCAPED_UNICODE) !!};
+    // Map category descriptions with translations
+    const categoryDescriptions = {!! json_encode(
+    $categories->pluck('description', 'id')->toArray(),
+    JSON_UNESCAPED_UNICODE
+) !!};
+
+    // Get the current locale dynamically
+    const currentLocale = "{{ app()->getLocale() }}";
 
     // Function to update static text and show category list based on selected category
     function showCategoryList(categoryId) {
@@ -99,10 +110,12 @@
         // Update description
         if (categoryId === 'all') {
             descriptionBox.style.display = 'none';
-        } else if (categoryDescriptions[categoryId]) {
-            descriptionContent.textContent = categoryDescriptions[categoryId];
+        } else if (categoryDescriptions[categoryId] && categoryDescriptions[categoryId][currentLocale]) {
+            // Display the description in the current locale
+            descriptionContent.textContent = categoryDescriptions[categoryId][currentLocale];
             descriptionBox.style.display = 'block';
         } else {
+            // Fallback if no description exists for the category or locale
             descriptionContent.textContent = '{{ __('هیچ توضیحی برای این دسته‌بندی وجود ندارد.') }}';
             descriptionBox.style.display = 'block';
         }
@@ -120,6 +133,7 @@
         showCategoryList('all');
     });
 </script>
+
 
 <script>
     document.addEventListener("DOMContentLoaded", function () {
