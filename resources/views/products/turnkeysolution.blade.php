@@ -1,29 +1,29 @@
-@extends('layouts.app', ['title' => 'خط کامل آجر'])
+@extends('layouts.app', ['title' => __('turnkeysolution.page_title')])
 
 @section('content')
 
 <!-- Page Title -->
 <section class="page-title" id="to-top-div">
     <div class="auto-container">
-        <h1><span>خط کامل آجر</span></h1>
+        <h1><span>{{ __('turnkeysolution.page_title') }}</span></h1>
         <div class="bread-crumb">
             <ul class="clearfix">
-                <li><a href="/">خانه</a></li>
-                <li class="active">خط کامل آجر</li>
+                <li><a href="/">{{ __('turnkeysolution.home') }}</a></li>
+                <li class="active">{{ __('turnkeysolution.page_title') }}</li>
             </ul>
         </div>
     </div>
 </section>
+
 <section>
     <div class="turnKeyContainer">
         <div class="patt"><span></span></div>
         <div class="mt-5">
             <div class="">
                 <div class="slider">
-                    <img src="/assets/images/main-slider/turnkeysolution.png" alt="Turnkey Solution">
+                    <img src="/assets/images/main-slider/turnkeysolution.png" alt="{{ __('turnkeysolution.page_title') }}">
                 </div>
             </div>
-
         </div>
     </div>
 </section>
@@ -34,87 +34,67 @@
     <div class="outer-container">
         <div class="content-wrapper">
             <div class="panel-content">
-                <h2 class="toAnim toDown anim">خط کامل آجر:</h2>
+                <h2 class="toAnim toDown anim">{{ __('turnkeysolution.section_title') }}</h2>
                 <div class="content">
-                    <p>خط تولید آجر در این کارخانه با استفاده از ماشین‌آلات پیشرفته و سیستم‌های خودکار به تولید انواع
-                        آجر با
-                        کیفیت بالا پرداخته می‌شود. مراحل تولید شامل انتخاب و آماده‌سازی مواد اولیه، فرایند شکل‌دهی،
-                        خشک‌کردن
-                        آجرها و در نهایت پخت آنها در کوره‌های صنعتی است. هر مرحله به دقت کنترل می‌شود تا محصول نهایی
-                        استانداردهای لازم را داشته باشد. این فرآیند به‌طور مداوم بهبود می‌یابد تا علاوه بر افزایش کیفیت،
-                        مصرف انرژی و زمان تولید به حداقل برسد. در نهایت، آجرهای تولید شده برای استفاده در پروژه‌های
-                        ساختمانی، به‌ویژه در نما و دیوارها، آماده می‌شوند.
-                    </p>
+                    <p>{{ __('turnkeysolution.intro_text') }}</p>
                 </div>
             </div>
         </div>
     </div>
-    <div class="additional-box">
-    </div>
+    <div class="additional-box"></div>
 </section>
-
-
-
 
 <section class="image-grid-clean">
     <div class="turnKeyGridContainer">
-        <h3>خط کامل آجر</h3>
+        <h3>{{ __('turnkeysolution.page_title') }}</h3>
         <div class="row">
             <div class="grid-item large col-xl-4 col-lg-4 col-md-4 col-sm-12">
                 <div class="image">
-                    <img src="/assets/images/main-slider/khoskkon-araghi.jpg" alt="turnkeysolution">
+                    <img src="/assets/images/main-slider/khoskkon-araghi.jpg" alt="{{ __('turnkeysolution.material_preparation') }}">
                 </div>
-                <p class="grid-item-title">آماده‌سازی مواد اولیه</p>
+                <p class="grid-item-title">{{ __('turnkeysolution.material_preparation') }}</p>
                 <hr>
-                <p class="text-right">مواد اولیه با دقت انتخاب و آماده می‌شوند تا کیفیت نهایی آجر تضمین شود.
-                </p>
+                <p class="text-right">{{ __('turnkeysolution.material_preparation_desc') }}</p>
             </div>
             <div class="grid-item grid-item-center large col-xl-4 col-lg-4 col-md-4 col-sm-12">
                 <div class="image-center">
-                    <img src="/assets/images/main-slider/koreh-pokhttoneli.jpg" alt="turnkeysolution">
+                    <img src="/assets/images/main-slider/koreh-pokhttoneli.jpg" alt="{{ __('turnkeysolution.drying') }}">
                 </div>
-                <p class="grid-item-title">خشک‌کردن آجرها</p>
+                <p class="grid-item-title">{{ __('turnkeysolution.drying') }}</p>
                 <hr>
-                <p class="text-right"> آجرها برای کاهش ترک‌خوردگی و افزایش دوام با دقت خشک می‌شوند.
-                </p>
+                <p class="text-right">{{ __('turnkeysolution.drying_desc') }}</p>
             </div>
             <div class="grid-item large col-xl-4 col-lg-4 col-md-4 col-sm-12">
                 <div class="image">
-                    <img src="/assets/images/main-slider/14010324_robat-2.jpg" alt="turnkeysolution">
+                    <img src="/assets/images/main-slider/14010324_robat-2.jpg" alt="{{ __('turnkeysolution.baking') }}">
                 </div>
-                <p class="grid-item-title"> پخت در کوره صنعتی</p>
+                <p class="grid-item-title">{{ __('turnkeysolution.baking') }}</p>
                 <hr>
-                <p class="text-right">آجرها در کوره‌های مدرن پخته می‌شوند تا استحکام و رنگ عالی داشته باشند.
-                </p>
+                <p class="text-right">{{ __('turnkeysolution.baking_desc') }}</p>
             </div>
         </div>
     </div>
 </section>
+
 <section>
     <div class="row">
         <div class="faq">
-            <h2 class="faq__title">سوالات متداول</h2>
+            <h2 class="faq__title">{{ __('turnkeysolution.faq_title') }}</h2>
             <details>
-                <summary> چگونه مواد اولیه برای تولید آجر انتخاب می‌شود؟</summary>
-                <p> مواد اولیه مانند خاک رس و ماسه با دقت از منابع معتبر انتخاب و آزمایش می‌شوند تا کیفیت بالای
-                    آجرها
-                    تضمین شود.</p>
+                <summary>{{ __('turnkeysolution.faq1_question') }}</summary>
+                <p>{{ __('turnkeysolution.faq1_answer') }}</p>
             </details>
             <details>
-                <summary> آجرها چگونه خشک می‌شوند؟</summary>
-                <p> آجرها با استفاده از خشک‌کن‌های پیشرفته صنعتی یا روش‌های طبیعی خشک می‌شوند تا دوام آنها افزایش
-                    یابد.
-                </p>
+                <summary>{{ __('turnkeysolution.faq2_question') }}</summary>
+                <p>{{ __('turnkeysolution.faq2_answer') }}</p>
             </details>
             <details>
-                <summary> آیا خط تولید قابلیت شخصی‌سازی دارد؟</summary>
-                <p> بله، خط تولید می‌تواند بر اساس نیازهای پروژه شما و نوع محصول نهایی شخصی‌سازی شود.</p>
+                <summary>{{ __('turnkeysolution.faq3_question') }}</summary>
+                <p>{{ __('turnkeysolution.faq3_answer') }}</p>
             </details>
         </div>
     </div>
 </section>
-
-
 
 <script>
     document.addEventListener("DOMContentLoaded", () => {
@@ -128,6 +108,6 @@
             image.style.transform = 'translateX(0)';
         });
     });
-
 </script>
+
 @endsection
