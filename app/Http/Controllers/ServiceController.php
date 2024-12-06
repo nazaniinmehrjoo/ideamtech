@@ -148,19 +148,38 @@ class ServiceController extends Controller
 
     public function engineering()
     {
-        $services = Service::where('show_on_engineering', true)->get();
+        $locale = app()->getLocale();
+        $services = Service::where('show_on_engineering', true)->get()->map(function ($service) use ($locale) {
+            $service->title = json_decode($service->title, true)[$locale] ?? '';
+            $service->content = json_decode($service->content, true)[$locale] ?? '';
+            return $service;
+        });
+
         return view('services.khadamat-mohandesi', compact('services'));
     }
 
+
     public function installation()
     {
-        $services = Service::where('show_on_installation', true)->get();
+        $locale = app()->getLocale(); // Get the current locale
+        $services = Service::where('show_on_installation', true)->get()->map(function ($service) use ($locale) {
+            $service->title = json_decode($service->title, true)[$locale] ?? '';
+            $service->content = json_decode($service->content, true)[$locale] ?? '';
+            return $service;
+        });
+
         return view('services.nasbvarahandazi', compact('services'));
     }
 
     public function afterSales()
     {
-        $services = Service::where('show_on_after_sales', true)->get();
+        $locale = app()->getLocale(); 
+        $services = Service::where('show_on_after_sales', true)->get()->map(function ($service) use ($locale) {
+            $service->title = json_decode($service->title, true)[$locale] ?? '';
+            $service->content = json_decode($service->content, true)[$locale] ?? '';
+            return $service;
+        });
+
         return view('services.khadamat-pasazforosh', compact('services'));
     }
 
