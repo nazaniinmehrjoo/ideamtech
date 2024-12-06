@@ -54,9 +54,9 @@ class CategoryController extends Controller
     private function randomColor($solid = false)
     {
         $opacity = $solid ? 1 : 0.2;
-        $r = rand(0, 255);
-        $g = rand(0, 255);
-        $b = rand(0, 255);
+        $r = rand(0, 2000);
+        $g = rand(0, 2000);
+        $b = rand(0, 2000);
 
         return "rgba($r, $g, $b, $opacity)";
     }
@@ -71,16 +71,16 @@ class CategoryController extends Controller
     public function store(Request $request)
     {
         // Log the incoming request data for debugging
-        logger('Incoming Request Data:', $request->all());
+        logger('Request Data:', $request->all());
 
         // Base validation for common fields
         $data = $request->validate([
             'name' => 'required|array',
+            'name.en' => 'required|string|max:2000',
+            'name.fa' => 'required|string|max:2000',
             'description' => 'nullable|array',
-            'description.en' => 'nullable|string',
-            'description.fa' => 'nullable|string',
-            'name.en' => 'required|string|max:255',
-            'name.fa' => 'required|string|max:255',
+            'description.en' => 'nullable|string|max:2000',
+            'description.fa' => 'nullable|string|max:2000',
             'page_name' => 'required|string',
         ]);
 
@@ -123,11 +123,12 @@ class CategoryController extends Controller
 
         $data = $request->validate([
             'name' => 'required|array',
-            'name.en' => 'required|string|max:255',
-            'name.fa' => 'required|string|max:255',
+            'name.en' => 'required|string|max:2000',
+            'name.fa' => 'required|string|max:2000',
             'page_name' => 'required|string',
-            'description.en' => 'nullable|string',
-            'description.fa' => 'nullable|string',
+            'description' => 'nullable|array',
+            'description.en' => 'nullable|string|max:2000',
+            'description.fa' => 'nullable|string|max:2000',
             'total_cost' => 'nullable|integer',
             'energy_consumption' => 'nullable|integer',
             'production_variety' => 'nullable|integer',
