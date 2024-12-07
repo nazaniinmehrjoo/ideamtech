@@ -25,46 +25,46 @@ return [
     ],
     // =============================================
     'services' => [
-        'title' => 'Our Stories and Achievements',
+        'title' => 'Our Histories & Consequences',
         'customer_satisfaction' => [
             'title' => 'Customer Satisfaction',
-            'description' => 'Customer satisfaction is our priority. Borna Gostar team provides professional services and ongoing support to ensure a reliable and satisfying experience for you.',
+            'description' => 'Customer satisfaction is our priority. Borna Gostar team provides professional services and ongoing support to ensure a reliable and satisfactory experience for you.',
         ],
         'news_and_events' => [
-            'title' => 'News and Events',
-            'description' => 'Stay updated with the latest news and events in the brick industry. Learn about the newest projects, developments, and achievements of our team in this field.',
+            'title' => 'News & Events',
+            'description' => 'Follow the latest news and events in the brick industry with Borna Gostar Parsi Co. Learn about the latest projects, developments, and achievements of our team in this field.',
         ],
         'distinct' => [
-            'title' => 'Distinct From Others',
-            'description' => 'We stand by you from the beginning to the end and beyond.',
+            'title' => 'Different From Others',
+            'description' => 'We are beside you from the beginning to the end and beyond the project.',
         ],
         'simulator' => [
-            'title' => 'Simulator',
-            'description' => 'This device predicts the drying time of various bricks and tiles based on temperature, humidity, and airspeed.',
+            'title' => 'Dryer Simulator',
+            'description' => 'This machine is a mini portable Dryer which is able to anticipate the drying time of various bricks and tiles based on determined temperature, humidity, and airspeed.',
         ],
     ],
     // ====================================================================
     'services_two' => [
         'subtitle' => 'Borna Gostar Path',
-        'title' => 'Insight, Values, and Achievements',
+        'title' => 'Insight, Values & Achievements',
         'tabs' => [
             'about' => [
-                'title' => 'About Borna Gostar',
-                'content' => 'Since 2006, Borna Gostar Parsian has utilized skilled experts and modern knowledge to localize technical knowledge and optimize production line equipment for bricks and similar products. Our expertise spans consultancy, factory establishment, production line optimization, and more, with unique products and patents in rotary dryers, robots, and related machinery.',
-                'button_text' => 'Join the Borna Gostar Family',
+                'title' => 'About Borna Gostar Parsi Co',
+                'content' => 'Since 2006, Noavaran Borna Gostar Parsi co. has utilized skilled experts and modern knowledge to localize technical knowledge and optimize production line equipment for bricks and similar products. Our expertise spans consultancy, factory establishment, production line optimization, and more, with unique products. The products of this company have a patent certificate in the field of rotary dryer and loading and unloading robot.',
+                'button_text' => 'Join the Borna Gostar Parsi co. Family',
                 'button_link' => 'join-borna-gostar-family',
             ],
             'catalog' => [
-                'title' => 'Catalog',
-                'content' => 'Download our comprehensive catalog to explore Borna Gostar’s products and services. The catalog contains detailed information on our innovative solutions, technical specifications, and unique features to help you make the best choices for your projects.',
+                'title' => 'Catalogue',
+                'content' => 'To learn more about the various products and services of Borna Gostar co, download our comprehensive catalogue. The catalogue contains detailed information on our innovative solutions, technical specifications, and unique features to help you make the best choices for your projects.',
                 'download_text' => 'Download Catalog',
                 'download_link' => '/assets/catalog/catalog.pdf',
             ],
             'values' => [
-                'title' => 'Values and Mission',
+                'title' => 'Vision and Mission',
                 'content' => [
                     'goals' => 'Our goal is to revive the brick industry in the country and create distinctive products.',
-                    'beliefs' => 'We believe in honesty, integrity, and respect as organizational values. Our profits come from fostering enthusiasm in convergent communities. Innovation is woven into the fabric of our products and services, paving the way to hope.',
+                    'beliefs' => 'Truth, honesty and respect are the current character of our organizational values. We seek our profit in increasing business energy. Innovation is in warp and woof of our products and services.',
                 ],
             ],
         ],
