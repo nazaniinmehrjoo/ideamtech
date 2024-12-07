@@ -51,13 +51,11 @@
 
 <body>
     <div class="body-bg-layer"></div>
-    <div class="toggle-switch day" id="toggleSwitch">
-        <div class="switch"></div>
-        <div class="sun">☀️</div>
-        <div class="cloud">☁️</div>
-        <div class="moon">🌙</div>
-        <div class="stars">✨</div>
-    </div>
+
+
+    <!-- add ionicons - icon-->
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 
     <div class="site-container">
         <div class="cursor"></div>
@@ -95,41 +93,6 @@
     <script src="/assets/js/chart.js"></script>
     <script src="/assets/js/leaflet.js"></script>
 
-    <script>
-        const toggleSwitch = document.getElementById('toggleSwitch');
-        const body = document.body;
-
-        // Check if there's a saved theme in localStorage and apply it
-        const savedTheme = localStorage.getItem('theme');
-        if (savedTheme === 'light') {
-            body.classList.add('light-mode');
-            toggleSwitch.classList.remove('night');
-            toggleSwitch.classList.add('day');
-        } else {
-            body.classList.remove('light-mode'); // Ensure dark mode by default
-            toggleSwitch.classList.remove('day');
-            toggleSwitch.classList.add('night');
-        }
-
-        // Toggle between light and dark mode on click
-        toggleSwitch.addEventListener('click', function () {
-            if (body.classList.contains('light-mode')) {
-                // Switch to dark mode
-                body.classList.remove('light-mode');
-                body.style.backgroundColor = '#1a1a23'; // Update background to dark
-                toggleSwitch.classList.remove('day');
-                toggleSwitch.classList.add('night');
-                localStorage.setItem('theme', 'dark'); // Save preference
-            } else {
-                // Switch to light mode
-                body.classList.add('light-mode');
-                body.style.backgroundColor = '#ffffff'; // Update background to light
-                toggleSwitch.classList.remove('night');
-                toggleSwitch.classList.add('day');
-                localStorage.setItem('theme', 'light'); // Save preference
-            }
-        });
-    </script>
 
     <!-- Laravel Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
