@@ -1,4 +1,4 @@
-@extends('layouts.app', ['title' => 'مشاوره'])
+@extends('layouts.app', ['title' => __('مشاوره')])
 
 @section('content')
 <div class="scroll-container">
@@ -18,15 +18,24 @@
                                             <div class="inner">
                                                 <div class="image-box">
                                                     <div class="image">
-                                                        <img src="{{ asset('storage/' . json_decode($service->banner_images)[0]) }}" alt="{{ $service->title }}">
+                                                        <img src="{{ asset('storage/' . json_decode($service->banner_images)[0]) }}" 
+                                                             alt="{{ json_decode($service->title, true)[app()->getLocale()] }}">
                                                     </div>
                                                 </div>
-                                                <div class="slide-count"><span class="current">{{ $key + 1 }}</span><span class="line"></span><span class="total">{{ count($services) }}</span></div>
+                                                <div class="slide-count">
+                                                    <span class="current">{{ $key + 1 }}</span>
+                                                    <span class="line"></span>
+                                                    <span class="total">{{ count($services) }}</span>
+                                                </div>
                                                 <div class="text-content">
                                                     <div class="inner-box">
                                                         <div class="text">
-                                                            <div class="ttl"><strong>{{ $service->title }}</strong></div>
-                                                            <p style="text-align: right;">{{ $service->content }}</p>
+                                                            <div class="ttl">
+                                                                <strong>{{ json_decode($service->title, true)[app()->getLocale()] }}</strong>
+                                                            </div>
+                                                            <p style="text-align: right;">
+                                                                {{ json_decode($service->content, true)[app()->getLocale()] }}
+                                                            </p>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -42,8 +51,6 @@
             </div>
         </section>
         <!-- End Banner Section -->
-
     </div>
 </div>
-
 @endsection

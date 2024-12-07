@@ -41,52 +41,51 @@
 
     <!-- Tabs Navigation -->
     <ul class="nav nav-tabs" role="tablist">
+        @php
+            $currentPageName = request('page_name', 'all_services');
+        @endphp
+        <li class="nav-item">
+            <a class="nav-link {{ $currentPageName == 'all_services' ? 'active' : '' }}"
+                href="{{ route('services.index', ['page_name' => 'all_services']) }}">
+                همه سرویس‌ها
+            </a>
+        </li>
         @foreach($categories as $categoryName => $columnName)
             <li class="nav-item">
-                <a class="nav-link {{ $loop->first ? 'active' : '' }}" data-bs-toggle="tab"
-                    href="#{{ \Str::slug($categoryName) }}" role="tab">{{ $categoryName }}</a>
+                <a class="nav-link {{ $currentPageName == \Str::slug($categoryName) ? 'active' : '' }}"
+                    href="{{ route('services.index', ['page_name' => \Str::slug($categoryName)]) }}">
+                    {{ $categoryName }}
+                </a>
             </li>
         @endforeach
     </ul>
 
     <!-- Tab Content -->
     <div class="tab-content mt-4">
-        @foreach($categories as $categoryName => $columnName)
-            <div class="tab-pane fade {{ $loop->first ? 'show active' : '' }}" id="{{ \Str::slug($categoryName) }}"
-                role="tabpanel">
-                <div class="category-section mb-5 p-4 border rounded shadow bg-darck">
-                    <h2 class="categoryName">{{ $categoryName }}</h2>
+        @if ($currentPageName == 'all_services')
+            <div class="tab-pane fade show active" id="all_services" role="tabpanel">
+                <div class="category-section mb-5 p-4 border rounded shadow bg-dark">
+                    <h2 class="text-primary">همه سرویس‌ها</h2>
                     <div class="row">
-                        @forelse($services->where($columnName, true) as $service)
+                        @forelse($services as $service)
                             <div class="col-md-4 mb-4 d-flex">
                                 <div class="card text-white bg-dark w-100 d-flex flex-column">
                                     <div class="card-header">
                                         <h5>{{ $service->title }}</h5>
                                     </div>
                                     <div class="card-body flex-grow-1" style="direction:rtl;">
-                                        <h6>Category: {{ $service->category }}</h6>
+                                        <h6>دسته‌بندی: {{ $service->category }}</h6>
                                         <p>{{ \Illuminate\Support\Str::limit($service->content, 100) }}</p>
                                         <div class="d-flex flex-wrap">
-                                            {{-- Display banner images --}}
                                             @foreach(json_decode($service->banner_images) as $image)
-                                                <img src="{{ asset('storage/' . $image) }}" alt="Banner Image" style="width: 50px;"
+                                                <img src="{{ asset('storage/' . $image) }}" alt="تصویر" style="width: 50px;"
                                                     class="img-thumbnail mb-2">
                                             @endforeach
                                         </div>
-                                        {{-- Display pages where this service appears --}}
-                                        <p><strong>Displayed on Pages:</strong>
-                                            @if(is_array($service->display_pages) && count($service->display_pages) > 0)
-                                                {{ implode(', ', $service->display_pages) }}
-                                            @else
-                                                N/A
-                                            @endif
-                                        </p>
                                     </div>
                                     <div class="card-footer text-center">
                                         <a href="{{ route('services.edit', $service->id) }}"
                                             class="btn btn-warning btn-sm">ویرایش</a>
-
-                                        {{-- Inline delete form --}}
                                         <form action="{{ route('services.destroy', $service->id) }}" method="POST"
                                             style="display:inline-block;">
                                             @csrf
@@ -97,12 +96,55 @@
                                 </div>
                             </div>
                         @empty
-                            <p class="text-muted">هیچ سرویس پیدا نشد {{ $categoryName }}.</p>
+                            <p class="text-muted">هیچ سرویسی موجود نیست.</p>
+                        @endforelse
+                    </div>
+                </div>
+            </div>
+        @endif
+
+        @foreach($categories as $categoryName => $columnName)
+            <div class="tab-pane fade {{ $currentPageName == \Str::slug($categoryName) ? 'show active' : '' }}"
+                id="{{ \Str::slug($categoryName) }}" role="tabpanel">
+                <div class="category-section mb-5 p-4 border rounded shadow bg-dark">
+                    <h2 class="text-primary">{{ $categoryName }}</h2>
+                    <div class="row">
+                        @forelse($services->where($columnName, true) as $service)
+                            <div class="col-md-4 mb-4 d-flex">
+                                <div class="card text-white bg-dark w-100 d-flex flex-column">
+                                    <div class="card-header">
+                                        <h5>{{ $service->title }}</h5>
+                                    </div>
+                                    <div class="card-body flex-grow-1" style="direction:rtl;">
+                                        <h6>دسته‌بندی: {{ $service->category }}</h6>
+                                        <p>{{ \Illuminate\Support\Str::limit($service->content, 100) }}</p>
+                                        <div class="d-flex flex-wrap">
+                                            @foreach(json_decode($service->banner_images) as $image)
+                                                <img src="{{ asset('storage/' . $image) }}" alt="تصویر" style="width: 50px;"
+                                                    class="img-thumbnail mb-2">
+                                            @endforeach
+                                        </div>
+                                    </div>
+                                    <div class="card-footer text-center">
+                                        <a href="{{ route('services.edit', $service->id) }}"
+                                            class="btn btn-warning btn-sm">ویرایش</a>
+                                        <form action="{{ route('services.destroy', $service->id) }}" method="POST"
+                                            style="display:inline-block;">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button type="submit" class="btn btn-danger btn-sm">حذف</button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        @empty
+                            <p class="text-muted">هیچ سرویسی در {{ $categoryName }} یافت نشد.</p>
                         @endforelse
                     </div>
                 </div>
             </div>
         @endforeach
     </div>
+
 </div>
 @endsection

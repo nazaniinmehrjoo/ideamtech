@@ -17,14 +17,14 @@
                     <form action="{{ route('categories.store') }}" method="POST" style="direction: rtl;">
                         @csrf
 
-                        <!-- Category Name Inputs (Localized) -->
+                        <!-- Category Name Inputs -->
                         <div class="row mb-3">
                             <label for="name_en"
                                 class="col-md-4 col-form-label text-md-end">{{ __('categoryCreate.category_name_en') }}</label>
                             <div class="col-md-6">
                                 <input type="text" name="name[en]" id="name_en"
                                     class="form-control bg-dark text-white @error('name.en') is-invalid @enderror"
-                                    required>
+                                    value="{{ old('name.en') }}" required>
                                 @error('name.en')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -39,7 +39,7 @@
                             <div class="col-md-6">
                                 <input type="text" name="name[fa]" id="name_fa"
                                     class="form-control bg-dark text-white @error('name.fa') is-invalid @enderror"
-                                    required>
+                                    value="{{ old('name.fa') }}" required>
                                 @error('name.fa')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -48,27 +48,28 @@
                             </div>
                         </div>
 
-                        <!-- Description Input -->
+                        <!-- Description Inputs -->
                         <div class="row mb-3">
-                            <label for="description"
-                                class="col-md-4 col-form-label text-md-end">{{ __('categoryCreate.description_en') }}</label>
+                            <label for="description_fa"
+                                class="col-md-4 col-form-label text-md-end">{{ __('categoryCreate.description_fa') }}</label>
                             <div class="col-md-6">
-                                <textarea name="description" id="description"
-                                    class="form-control bg-dark text-white @error('description') is-invalid @enderror"></textarea>
-                                @error('description')
+                                <textarea name="description[fa]" id="description_fa"
+                                    class="form-control bg-dark text-white @error('description.fa') is-invalid @enderror">{{ old('description.fa') }}</textarea>
+                                @error('description.fa')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
                             </div>
                         </div>
+
                         <div class="row mb-3">
-                            <label for="description"
-                                class="col-md-4 col-form-label text-md-end">{{ __('categoryCreate.description_fa') }}</label>
+                            <label for="description_en"
+                                class="col-md-4 col-form-label text-md-end">{{ __('categoryCreate.description_en') }}</label>
                             <div class="col-md-6">
-                                <textarea name="description" id="description"
-                                    class="form-control bg-dark text-white @error('description') is-invalid @enderror"></textarea>
-                                @error('description')
+                                <textarea name="description[en]" id="description_en"
+                                    class="form-control bg-dark text-white @error('description.en') is-invalid @enderror">{{ old('description.en') }}</textarea>
+                                @error('description.en')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
@@ -86,7 +87,7 @@
                                     required onchange="toggleAdditionalFields(this.value)">
                                     <option value="">{{ __('categoryCreate.select_page') }}</option>
                                     @foreach($pages as $page)
-                                        <option value="{{ $page }}">{{ __('pages.' . $page) }}</option>
+                                        <option value="{{ $page }}" {{ old('page_name') == $page ? 'selected' : '' }}>{{ __('pages.' . $page) }}</option>
                                     @endforeach
                                 </select>
                                 @error('page_name')
@@ -99,89 +100,22 @@
 
                         <!-- Additional Fields for 'خشک کن' -->
                         <div id="additionalFields" style="display: none;">
-                            <div class="row mb-3">
-                                <label for="total_cost"
-                                    class="col-md-4 col-form-label text-md-end">{{ __('categoryCreate.total_cost') }}</label>
-                                <div class="col-md-6">
-                                    <input type="number" name="total_cost" id="total_cost"
-                                        class="form-control bg-dark text-white @error('total_cost') is-invalid @enderror">
-                                    @error('total_cost')
-                                        <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $message }}</strong>
-                                        </span>
-                                    @enderror
+                            @foreach(['total_cost', 'energy_consumption', 'production_variety', 'drying_time', 'maintenance_cost', 'operation_cost'] as $field)
+                                <div class="row mb-3">
+                                    <label for="{{ $field }}"
+                                        class="col-md-4 col-form-label text-md-end">{{ __('categoryCreate.' . $field) }}</label>
+                                    <div class="col-md-6">
+                                        <input type="number" name="{{ $field }}" id="{{ $field }}"
+                                            class="form-control bg-dark text-white @error($field) is-invalid @enderror"
+                                            value="{{ old($field) }}">
+                                        @error($field)
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                        @enderror
+                                    </div>
                                 </div>
-                            </div>
-
-                            <div class="row mb-3">
-                                <label for="energy_consumption"
-                                    class="col-md-4 col-form-label text-md-end">{{ __('categoryCreate.energy_consumption') }}</label>
-                                <div class="col-md-6">
-                                    <input type="number" name="energy_consumption" id="energy_consumption"
-                                        class="form-control bg-dark text-white @error('energy_consumption') is-invalid @enderror">
-                                    @error('energy_consumption')
-                                        <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $message }}</strong>
-                                        </span>
-                                    @enderror
-                                </div>
-                            </div>
-
-                            <div class="row mb-3">
-                                <label for="production_variety"
-                                    class="col-md-4 col-form-label text-md-end">{{ __('categoryCreate.production_variety') }}</label>
-                                <div class="col-md-6">
-                                    <input type="number" name="production_variety" id="production_variety"
-                                        class="form-control bg-dark text-white @error('production_variety') is-invalid @enderror">
-                                    @error('production_variety')
-                                        <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $message }}</strong>
-                                        </span>
-                                    @enderror
-                                </div>
-                            </div>
-
-                            <div class="row mb-3">
-                                <label for="drying_time"
-                                    class="col-md-4 col-form-label text-md-end">{{ __('categoryCreate.drying_time') }}</label>
-                                <div class="col-md-6">
-                                    <input type="number" name="drying_time" id="drying_time"
-                                        class="form-control bg-dark text-white @error('drying_time') is-invalid @enderror">
-                                    @error('drying_time')
-                                        <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $message }}</strong>
-                                        </span>
-                                    @enderror
-                                </div>
-                            </div>
-
-                            <div class="row mb-3">
-                                <label for="maintenance_cost"
-                                    class="col-md-4 col-form-label text-md-end">{{ __('categoryCreate.maintenance_cost') }}</label>
-                                <div class="col-md-6">
-                                    <input type="number" name="maintenance_cost" id="maintenance_cost"
-                                        class="form-control bg-dark text-white @error('maintenance_cost') is-invalid @enderror">
-                                    @error('maintenance_cost')
-                                        <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $message }}</strong>
-                                        </span>
-                                    @enderror
-                                </div>
-                            </div>
-
-                            <div class="row mb-3">
-                                <label for="operation_cost"
-                                    class="col-md-4 col-form-label text-md-end">{{ __('categoryCreate.operation_cost') }}</label>
-                                <div class="col-md-6">
-                                    <input type="number" name="operation_cost" id="operation_cost"
-                                        class="form-control bg-dark text-white @error('operation_cost') is-invalid @enderror">
-                                    @error('operation_cost')
-                                        <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $message }}</strong>
-                                        </span>
-                                    @enderror
-                                </div>
-                            </div>
+                            @endforeach
                         </div>
 
                         <!-- Submit Button -->

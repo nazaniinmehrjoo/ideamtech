@@ -12,7 +12,7 @@ class ProductController extends Controller
 {
     public function index(Request $request)
     {
-        $locale = app()->getLocale(); // Get the current locale
+        $locale = app()->getLocale(); 
         $selectedPage = $request->query('page_name', 'all');
         $selectedCategory = $request->query('category_id', 'all');
 

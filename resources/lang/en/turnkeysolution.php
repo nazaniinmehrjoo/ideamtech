@@ -1,0 +1,20 @@
+<?php
+return [
+    'page_title' => 'turnkeysolution',
+    'home' => 'Home',
+    'section_title' => 'turnkeysolution:',
+    'intro_text' => 'The brick production line in this factory uses advanced machinery and automated systems to produce high-quality bricks. The production stages include selecting and preparing raw materials, shaping, drying the bricks, and finally baking them in industrial kilns. Each stage is carefully controlled to ensure the final product meets the required standards. This process is continuously improved to enhance quality while minimizing energy consumption and production time. The produced bricks are then prepared for use in construction projects, especially for facades and walls.',
+    'material_preparation' => 'Material Preparation',
+    'material_preparation_desc' => 'Raw materials are carefully selected and prepared to ensure the final quality of the bricks.',
+    'drying' => 'Brick Drying',
+    'drying_desc' => 'The bricks are carefully dried to reduce cracking and increase durability.',
+    'baking' => 'Industrial Kiln Baking',
+    'baking_desc' => 'The bricks are baked in modern kilns to achieve excellent strength and color.',
+    'faq_title' => 'Frequently Asked Questions',
+    'faq1_question' => 'How are raw materials selected for brick production?',
+    'faq1_answer' => 'Raw materials such as clay and sand are carefully chosen from reliable sources and tested to ensure high quality.',
+    'faq2_question' => 'How are the bricks dried?',
+    'faq2_answer' => 'The bricks are dried using advanced industrial dryers or natural methods to enhance their durability.',
+    'faq3_question' => 'Can the production line be customized?',
+    'faq3_answer' => 'Yes, the production line can be customized based on your project needs and the final product type.',
+];

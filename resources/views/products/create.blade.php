@@ -57,7 +57,6 @@
                                 @enderror
                             </div>
                         </div>
-
                         <div class="row mb-3">
                             <label for="description_fa"
                                 class="col-md-4 col-form-label text-md-end">{{ __('productCreate.description_fa') }}</label>
@@ -81,7 +80,8 @@
                                     <option value="">{{ __('productCreate.choose_category') }}</option>
                                     @foreach($categories as $category)
                                         <option value="{{ $category->id }}">
-                                            {{ $category->name[app()->getLocale()] ?? $category->name['en'] }}</option>
+                                            {{ $category->name[app()->getLocale()] ?? $category->name['en'] }}
+                                        </option>
                                     @endforeach
                                 </select>
                                 @error('category_id')

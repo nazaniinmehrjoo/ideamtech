@@ -5,11 +5,11 @@
 <!-- Page Title -->
 <section class="page-title text-center" id="to-top-div">
     <div class="auto-container">
-        <h1 class="text-light"><span>ماشین آلات شکل دهی و فرآوری</span></h1>
+        <h1 class="text-light"><span>{{ __('mashinAlatSheklDehi.title') }}</span></h1>
         <div class="bread-crumb">
             <ul>
-                <li><a href="/" class="text-light">خانه</a></li>
-                <li class="active">ماشین آلات شکل دهی و فرآوری</li>
+                <li><a href="/" class="text-light">{{ __('mashinAlatSheklDehi.home') }}</a></li>
+                <li class="active">{{ __('mashinAlatSheklDehi.title') }}</li>
             </ul>
         </div>
     </div>
@@ -20,19 +20,17 @@
     <div class="auto-container">
         <div class="mixitup-gallery">
 
-            <!-- Dynamic Filter Categories -->
             <div class="gallery-filters centered clearfix">
                 <ul class="filter-tabs filter-btns clearfix">
-                    <li class="filter" data-filter="all">نمایش همه</li>
+                    <li class="filter" data-filter="all">{{ __('mashinAlatSheklDehi.show_all') }}</li>
                     @foreach($categories as $category)
                         <li class="filter" data-filter=".category-{{ $category->id }}">
-                            {{ $category->name }}
+                            {{ $category->name[app()->getLocale()] ?? $category->name['en'] }}
                         </li>
                     @endforeach
                 </ul>
             </div>
 
-            <!-- Dynamic Product List -->
             <div class="filter-list row clearfix">
                 @forelse ($products as $product)
                     <div class="portfolio-block mix category-{{ $product->category_id }} col-xl-4 col-lg-4 col-md-6 col-sm-12"
@@ -41,31 +39,33 @@
                             <div class="card-body inner-box p-0">
                                 <div class="image">
                                     <img src="{{ asset('storage/' . $product->image) }}" class="img-fluid"
-                                        alt="{{ $product->name }}">
+                                        alt="{{ $product->name[app()->getLocale()] ?? $product->name['en'] }}">
                                 </div>
                                 <div class="overlay">
                                     <div class="more-link"
-                                        onclick="trackAndOpenModal({{ $product->id }}, '{{ $product->name }}', '{{ $product->description }}')">
+                                        onclick="trackAndOpenModal({{ $product->id }}, '{{ $product->name[app()->getLocale()] ?? $product->name['en'] }}', '{{ $product->description[app()->getLocale()] ?? $product->description['en'] }}')">
                                         <i class="fa-solid fa-bars-staggered theme-btn"></i>
                                     </div>
                                     <div class="inner">
-                                        <div class="cat"><span>{{ $product->category->name }}</span></div>
-                                        <h5 id="productName"><a href="#" class="text-light">{{ $product->name }}</a>
+                                        <div class="cat">
+                                            <span>{{ $product->category->name[app()->getLocale()] ?? $product->category->name['en'] }}</span>
+                                        </div>
+                                        <h5 id="productName"><a href="#"
+                                                class="text-light">{{ $product->name[app()->getLocale()] ?? $product->name['en'] }}</a>
                                         </h5>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
+                @empty
+                    <div>
+                        <p class="text-light text-center notRegister">{{ __('mashinAlatSheklDehi.no_products') }}</p>
+                    </div>
+                @endforelse
             </div>
         </div>
     </div>
-    @empty
-    <div>
-        <p class="text-light text-center notRegister">هیچ محصولی ثبت نشده است</p>
-    </div>
-        
-    @endforelse
 </section>
 
 <!-- Modal to show product details -->
