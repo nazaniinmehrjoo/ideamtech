@@ -6,7 +6,7 @@
     <h2 class="text-light mb-3">داشبورد مدیریت</h2>
 
     <p>دانلود راهنمای داشبورد مدیریت</p>
-    <button class="download-btn" onclick="startSpin(this, '/assets/catalog/catalog.pdf')">
+    <button class="download-btn" onclick="startSpin(this, '/assets/documents/adminDashboard.pdf')">
       <i class="fa-light fa-download download" id="download"></i>
       <div class="spinner"></div>
     </button>
