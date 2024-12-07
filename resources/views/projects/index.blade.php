@@ -11,7 +11,7 @@
 
     <!-- Create Button -->
     <div class="text-center mb-4">
-        <a href="{{ route('projects.create') }}" class="btn btn-outline-primary">
+        <a href="{{ route('projects.create') }}" class="btn create-object-btn">
             <i class="fas fa-plus"></i> ایجاد پروژه جدید
         </a>
     </div>
@@ -19,7 +19,7 @@
     <!-- Projects Table -->
     <div class="table-responsive">
         <table class="table table-bordered table-hover table-striped text-center">
-            <thead class="table-dark">
+            <thead class="table-dark project-table">
                 <tr>
                     <th>نام پروژه</th>
                     <th>کارفرما</th>

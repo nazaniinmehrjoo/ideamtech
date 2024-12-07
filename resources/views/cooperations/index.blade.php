@@ -3,7 +3,7 @@
 @section('content')
 
 <div class="container mt-5" dir="rtl">
-    <h1 class="mb-4 text-primary text-center">مدیریت فرم همکاری‌</h1>
+    <h1 class="mb-4 text-center">مدیریت فرم همکاری‌</h1>
 
     <!-- Success Message -->
     @if(session('success'))
@@ -15,7 +15,7 @@
 
     <!-- Create Button -->
     <div class="text-center mb-4">
-        <a href="{{ route('cooperations.create') }}" class="btn btn-outline-primary btn-lg">افزودن فرم جدید</a>
+        <a href="{{ route('cooperations.create') }}" class="btn create-object-btn btn-lg">افزودن فرم جدید</a>
     </div>
 
     <!-- Search Form -->

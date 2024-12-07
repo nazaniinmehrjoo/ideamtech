@@ -22,7 +22,7 @@
         </div>
     @endif
     <div class="text-center mb-4">
-        <a href="{{ route('services.create') }}" class="btn btn-outline-primary btn-lg d-inline-block"
+        <a href="{{ route('services.create') }}" class="btn create-object-btn btn-lg d-inline-block"
             style="font-size: 1.25rem; padding: 0.5rem 2rem;">
             ایجاد سرویس جدید
         </a>
@@ -55,7 +55,7 @@
             <div class="tab-pane fade {{ $loop->first ? 'show active' : '' }}" id="{{ \Str::slug($categoryName) }}"
                 role="tabpanel">
                 <div class="category-section mb-5 p-4 border rounded shadow bg-darck">
-                    <h2 class="text-primary">{{ $categoryName }}</h2>
+                    <h2 class="categoryName">{{ $categoryName }}</h2>
                     <div class="row">
                         @forelse($services->where($columnName, true) as $service)
                             <div class="col-md-4 mb-4 d-flex">

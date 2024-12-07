@@ -11,7 +11,7 @@
 
     <!-- Create Button -->
     <div class="text-center mb-4">
-        <a href="{{ route('blog.create') }}" class="btn btn-outline-primary btn-lg">ایجاد پست جدید</a>
+        <a href="{{ route('blog.create') }}" class="btn create-object-btn btn-lg">ایجاد پست جدید</a>
     </div>
 
     <!-- Blog Posts Grid -->

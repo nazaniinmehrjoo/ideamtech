@@ -13,7 +13,7 @@
 
     <!-- Button to Add New Product -->
     <div class="text-center mb-4">
-        <a href="{{ route('products.create') }}" class="btn btn-outline-primary btn-lg" style="font-size: 1.25rem; padding: 0.5rem 2rem;">
+        <a href="{{ route('products.create') }}" class="btn create-object-btn btn-lg" style="font-size: 1.25rem; padding: 0.5rem 2rem;">
             افزودن محصول جدید
         </a>
     </div>

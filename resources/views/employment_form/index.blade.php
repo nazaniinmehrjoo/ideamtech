@@ -3,7 +3,7 @@
 @section('content')
 
 <div class="container mt-5" dir="rtl">
-    <h1 class="mb-4 text-primary text-center">مدیریت فرم‌های استخدام</h1>
+    <h1 class="mb-4 text-center">مدیریت فرم‌های استخدام</h1>
 
     <!-- Success Message -->
     @if(session('success'))
@@ -17,7 +17,7 @@
 
     <!-- Create Button -->
     <div class="text-center mb-4">
-        <a href="{{ route('employment-forms.create') }}" class="btn btn-outline-primary btn-lg">افزودن فرم جدید</a>
+        <a href="{{ route('employment-forms.create') }}" class="btn create-object-btn btn-lg">افزودن فرم جدید</a>
     </div>
 
     <!-- Employment Forms Table -->
