@@ -458,4 +458,21 @@
 	});
 
 
+        const body = document.body;
+        const toggle = document.querySelector('#toggle');
+
+        // Set default theme
+        if (!localStorage.getItem('theme')) {
+            localStorage.setItem('theme', 'dark');
+        }
+        body.classList.toggle('light-mode', localStorage.getItem('theme') === 'light');
+        toggle.checked = localStorage.getItem('theme') === 'light';
+
+        // Listen for toggle change
+        toggle.addEventListener('change', () => {
+            const isLightMode = toggle.checked;
+            body.classList.toggle('light-mode', isLightMode);
+            localStorage.setItem('theme', isLightMode ? 'light' : 'dark');
+        });
+
 })(window.jQuery);

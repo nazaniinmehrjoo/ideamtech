@@ -1,4 +1,12 @@
 <!-- Main Header Bar-->
+<div class="lightAndDarkModeBtn">
+    <input class="checkbox" type="checkbox" id="toggle" />
+    <label class="toggle" for="toggle">
+        <ion-icon class="icon icon--light" name="sunny-outline"></ion-icon>
+        <ion-icon class="icon icon--dark" name="moon-outline"></ion-icon>
+        <span class="ball"></span>
+    </label>
+</div>
 <header class="main-header-bar">
     <div class="line-one"></div>
     <div class="line-two"></div>
