@@ -18,8 +18,8 @@
                         @csrf
 
                         <!-- Email Input -->
-                        <div class="row mb-3">
-                            <label for="email" class="col-md-4 col-form-label text-md-end">{{ __('آدرس ایمیل') }}</label>
+                        <div class="row mb-3 justify-content-center">
+                            <label for="email" class="col-md-4 col-form-label text-md-end text-center">{{ __('آدرس ایمیل') }}</label>
 
                             <div class="col-md-6">
                                 <input id="email" type="email" class="form-control bg-dark text-white @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
@@ -33,8 +33,8 @@
                         </div>
 
                         <!-- Password Input -->
-                        <div class="row mb-3">
-                            <label for="password" class="col-md-4 col-form-label text-md-end">{{ __('رمز عبور') }}</label>
+                        <div class="row mb-3 justify-content-center">
+                            <label for="password" class="col-md-4 col-form-label text-md-end text-center">{{ __('رمز عبور') }}</label>
 
                             <div class="col-md-6">
                                 <input id="password" type="password" class="form-control bg-dark text-white @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
@@ -48,13 +48,13 @@
                         </div>
 
                         <!-- Remember Me Checkbox -->
-                        <div class="row mb-3">
-                            <div class="col-md-6 offset-md-4">
-                                <div class="form-check">
-                                    <input class="form-check-input bg-dark text-white" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
+                        <div class="row mb-3 justify-content-center">
+                            <div class="col-md-8">
+                                <div class="form-check d-flex align-items-center gap-2">
+                                    <input class="form-check-input bg-dark text-white" type="checkbox" name="remember" id="remember">
 
-                                    <label class="form-check-label" for="remember">
-                                        {{ __('من را به خاطر بسپار') }}
+                                    <label class="form-check-label fw-bold mb-0" for="remember">
+                                        مرا به خاطر بسپار
                                     </label>
                                 </div>
                             </div>  
