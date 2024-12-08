@@ -1,14 +1,14 @@
-@extends('layouts.app', ['title' => 'کوره پخت'])
+@extends('layouts.app', ['title' => __('khoorpokht.title')])
 
 @section('content')
 <!-- Page Title -->
 <section class="page-title" id="to-top-div">
     <div class="auto-container">
-        <h1><span>کوره پخت</span></h1>
+        <h1><span>{{ __('khoorpokht.title') }}</span></h1>
         <div class="bread-crumb">
             <ul class="clearfix">
-                <li><a href="/">خانه</a></li>
-                <li class="active">کوره پخت</li>
+                <li><a href="/">{{ __('khoorpokht.home') }}</a></li>
+                <li class="active">{{ __('khoorpokht.title') }}</li>
             </ul>
         </div>
     </div>
@@ -21,10 +21,10 @@
             <!-- Dynamic Filter Categories -->
             <div class="gallery-filters centered clearfix">
                 <ul class="filter-tabs filter-btns clearfix">
-                    <li class="filter" data-filter="all">نمایش همه</li>
+                    <li class="filter" data-filter="all">{{ __('khoorpokht.show_all') }}</li>
                     @foreach($categories as $category)
                     <li class="filter" data-filter=".category-{{ $category->id }}">
-                        {{ $category->name }}
+                        {{ $category->name[app()->getLocale()] ?? $category->name['en'] }}
                     </li>
                     @endforeach
                 </ul>
@@ -36,15 +36,15 @@
                 <div class="portfolio-block mix category-{{ $product->category_id }} col-xl-4 col-lg-4 col-md-6 col-sm-12" data-category="{{ $product->category_id }}">
                     <div class="inner-box">
                         <div class="image">
-                            <img src="{{ asset('storage/' . $product->image) }}" class="img-fluid" alt="{{ $product->name }}">
+                            <img src="{{ asset('storage/' . $product->image) }}" class="img-fluid" alt="{{ $product->name[app()->getLocale()] ?? $product->name['en'] }}">
                         </div>
                         <div class="overlay">
-                            <div class="more-link" onclick="trackAndOpenModal({{ $product->id }}, '{{ $product->name }}', '{{ $product->description }}')">
+                            <div class="more-link" onclick="trackAndOpenModal({{ $product->id }}, '{{ $product->name[app()->getLocale()] ?? $product->name['en'] }}', '{{ $product->description[app()->getLocale()] ?? $product->description['en'] }}')">
                                 <i class="fa-solid fa-bars-staggered theme-btn"></i>
                             </div>
                             <div class="inner">
-                                <div class="cat"><span>{{ $product->category->name }}</span></div>
-                                <h5 id="prodoctName"><a href="#" class="text-light">{{ $product->name }}</a></h5>
+                                <div class="cat"><span>{{ $product->category->name[app()->getLocale()] ?? $product->category->name['en'] }}</span></div>
+                                <h5 id="prodoctName"><a href="#" class="text-light">{{ $product->name[app()->getLocale()] ?? $product->name['en'] }}</a></h5>
                             </div>
                         </div>
                     </div>
@@ -76,7 +76,7 @@
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
-                'X-CSRF-TOKEN': '{{ csrf_token() }}' // Ensure CSRF token is included
+                'X-CSRF-TOKEN': '{{ csrf_token() }}' 
             },
             body: JSON.stringify({})
         })
@@ -84,10 +84,10 @@
             if (!response.ok) {
                 throw new Error('Network response was not ok');
             }
-            return response.json(); // Ensure response is JSON
+            return response.json(); 
         })
         .then(data => {
-            console.log(data.message); // Success message
+            console.log(data.message); 
 
             // Open the modal with the product information
             document.getElementById('productNameModal').textContent = productName;
@@ -104,5 +104,4 @@
         document.getElementById('moreProductDtl').style.display = 'none';
     }
 </script>
-
 @endsection

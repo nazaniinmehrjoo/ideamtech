@@ -1,14 +1,14 @@
-@extends('layouts.app', ['title' => 'ماشین آلات و تجهیزات'])
+@extends('layouts.app', ['title' => __('machines_equipments.title')])
 
 @section('content')
 <!-- Page Title -->
 <section class="page-title text-center" id="to-top-div">
     <div class="auto-container">
-        <h1><span>ماشین آلات و تجهیزات</span></h1>
+        <h1><span>{{ __('machines_equipments.title') }}</span></h1>
         <div class="bread-crumb">
             <ul>
-                <li><a href="/" class="text-light">خانه</a></li>
-                <li class="active">ماشین آلات و تجهیزات</li>
+                <li><a href="/" class="text-light">{{ __('machines_equipments.home') }}</a></li>
+                <li class="active">{{ __('machines_equipments.title') }}</li>
             </ul>
         </div>
     </div>
@@ -22,10 +22,10 @@
         <div class="mixitup-gallery">
             <div class="gallery-filters centered clearfix">
                 <ul class="filter-tabs filter-btns clearfix">
-                    <li class="filter" data-filter="all">نمایش همه</li>
+                    <li class="filter" data-filter="all">{{ __('machines_equipments.show_all') }}</li>
                     @foreach($categories as $category)
                     <li class="filter" data-filter=".category-{{ $category->id }}">
-                        {{ $category->name }}
+                        {{ $category->name[app()->getLocale()] ?? $category->name['en'] }}
                     </li>
                     @endforeach
                 </ul>
@@ -37,28 +37,26 @@
                 <div class="portfolio-block mix category-{{ $product->category_id }} col-xl-4 col-lg-4 col-md-6 col-sm-12" data-category="{{ $product->category_id }}">
                     <div class="inner-box">
                         <div class="image">
-                            <img src="{{ asset('storage/' . $product->image) }}" class="img-fluid" alt="{{ $product->name }}">
+                            <img src="{{ asset('storage/' . $product->image) }}" class="img-fluid" alt="{{ $product->name[app()->getLocale()] ?? $product->name['en'] }}">
                         </div>
                         <div class="overlay">
-                            <div class="more-link" onclick="trackAndOpenModal({{ $product->id }}, '{{ $product->name }}', '{{ $product->description }}')">
+                            <div class="more-link" onclick="trackAndOpenModal({{ $product->id }}, '{{ $product->name[app()->getLocale()] ?? $product->name['en'] }}', '{{ $product->description[app()->getLocale()] ?? $product->description['en'] }}')">
                                 <i class="fa-solid fa-bars-staggered theme-btn"></i>
                             </div>
                             <div class="inner">
-                                <div class="cat"><span>{{ $product->category->name }}</span></div>
-                                <h5 id="productName"><a href="#" class="text-light">{{ $product->name }}</a></h5>
-                                <p class="text-light">{{ Str::limit($product->description, 100) }}</p> 
+                                <div class="cat"><span>{{ $product->category->name[app()->getLocale()] ?? $product->category->name['en'] }}</span></div>
+                                <h5 id="productName"><a href="#" class="text-light">{{ $product->name[app()->getLocale()] ?? $product->name['en'] }}</a></h5>
+                                <p class="text-light">{{ Str::limit($product->description[app()->getLocale()] ?? $product->description['en'], 100) }}</p> 
                             </div>
                         </div>
                     </div>
                 </div>
-
+                @empty
+                    <p class="text-light notRegister">{{ __('machines_equipments.no_products') }}</p>
+                @endforelse
             </div>
         </div>
     </div>
-
-    @empty
-        <p class="text-light notRegister">هیچ محصولی ثبت نشده است</p>
-    @endforelse
 </section>
 
 <!-- The Modal -->
@@ -82,7 +80,7 @@
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
-                'X-CSRF-TOKEN': '{{ csrf_token() }}' // Ensure CSRF token is included
+                'X-CSRF-TOKEN': '{{ csrf_token() }}' 
             },
             body: JSON.stringify({})
         })
@@ -107,7 +105,6 @@
     function closeModal() {
         document.getElementById('moreProductDtl').style.display = 'none';
     }
-
 </script>
 
 @endsection
