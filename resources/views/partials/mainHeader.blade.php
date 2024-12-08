@@ -1,18 +1,11 @@
 <!-- Main Header Bar-->
 <!--Alt Logo Box-->
+
+
 <div class="alt-logo-box">
     <a href="/"><img src="/assets/images/logotest2.png" alt="{{ __('header.alt_logo') }}"></a>
 </div>
 
-
-<div class="lightAndDarkModeBtn">
-    <input class="checkbox" type="checkbox" id="toggle" />
-    <label class="toggle" for="toggle">
-        <ion-icon class="icon icon--light" name="sunny-outline"></ion-icon>
-        <ion-icon class="icon icon--dark" name="moon-outline"></ion-icon>
-        <span class="ball"></span>
-    </label>
-</div>
 <header class="main-header-bar">
     <div class="line-one"></div>
     <div class="line-two"></div>
@@ -33,7 +26,8 @@
             <!--Social Links-->
             <div class="social-links">
                 <ul class="clearfix">
-                    <li><a href="https://instagram.com/borna_gostar_parsi"><span class="fab fa-instagram"></span></a></li>
+                    <li><a href="https://instagram.com/borna_gostar_parsi"><span class="fab fa-instagram"></span></a>
+                    </li>
                     <li><a href="#"><span class="fab fa-whatsapp"></span></a></li>
                     <li><a href="#"><span class="fab fa-facebook-square"></span></a></li>
                 </ul>
@@ -57,14 +51,16 @@
                     <div class="main-nav">
                         <ul class="navigation">
                             <!-- Language Switcher -->
-                            <div class="header__language">
+                            <!-- <div class="header__language">
                                 <a href="{{ url('lang/en') }}">
-                                    <img src="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.4.6/flags/4x3/gb.svg" alt="{{ __('header.language_english') }}" style="width:24px; height:24px;">
+                                    <img src="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.4.6/flags/4x3/gb.svg"
+                                        alt="{{ __('header.language_english') }}" style="width:24px; height:24px;">
                                 </a>
                                 <a href="{{ url('lang/fa') }}">
-                                    <img src="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.4.6/flags/4x3/ir.svg" alt="{{ __('header.language_persian') }}" style="width:24px; height:24px;">
+                                    <img src="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.4.6/flags/4x3/ir.svg"
+                                        alt="{{ __('header.language_persian') }}" style="width:24px; height:24px;">
                                 </a>
-                            </div>
+                            </div> -->
 
                             <!-- Divider -->
                             <div class="divider"></div>
@@ -72,8 +68,12 @@
                             <!-- Main Navigation Links -->
                             <li class="dropdown"><a href="#">{{ __('header.machines') }}</a>
                                 <ul>
-                                    <li><a href="/ماشین_آلات_فرآوری_و_شکل_دهی/محصولات">{{ __('header.machines_processing') }}</a></li>
-                                    <li><a href="/ماشین_آلات_و_تجهیزات/محصولات">{{ __('header.machines_equipment') }}</a></li>
+                                    <li><a
+                                            href="/ماشین_آلات_فرآوری_و_شکل_دهی/محصولات">{{ __('header.machines_processing') }}</a>
+                                    </li>
+                                    <li><a
+                                            href="/ماشین_آلات_و_تجهیزات/محصولات">{{ __('header.machines_equipment') }}</a>
+                                    </li>
                                 </ul>
                             </li>
                             <li class="dropdown"><a href="#">{{ __('header.projects') }}</a>
@@ -91,8 +91,10 @@
                                     <li><a href="/تامین_قطعات/خدمات">{{ __('header.services_parts') }}</a></li>
                                     <li><a href="/تعمیرات/خدمات">{{ __('header.services_maintenance') }}</a></li>
                                     <li><a href="/خدمات_مهندسی/خدمات">{{ __('header.services_engineering') }}</a></li>
-                                    <li><a href="/نصب_و_راه_اندازی/خدمات">{{ __('header.services_installation') }}</a></li>
-                                    <li><a href="/خدمات_پس_از_فروش/خدمات">{{ __('header.services_after_sales') }}</a></li>
+                                    <li><a href="/نصب_و_راه_اندازی/خدمات">{{ __('header.services_installation') }}</a>
+                                    </li>
+                                    <li><a href="/خدمات_پس_از_فروش/خدمات">{{ __('header.services_after_sales') }}</a>
+                                    </li>
                                 </ul>
                             </li>
                             <li class=""><a href="/درباره-ما">{{ __('header.about_us') }}</a></li>
@@ -104,4 +106,5 @@
             </div>
         </div>
     </div>
+
 </header>

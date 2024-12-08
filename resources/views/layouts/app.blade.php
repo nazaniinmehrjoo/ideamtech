@@ -26,6 +26,7 @@
     <meta property="og:url" content="{{ url()->current() }}">
     <meta property="og:type" content="website">
     <meta name="twitter:card" content="summary_large_image">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
 
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="/favicon.png">
@@ -53,9 +54,39 @@
     <div class="body-bg-layer"></div>
 
 
-    <!-- add ionicons - icon-->
-    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
-    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <div class="dropdown">
+        <div class="btn toggle-icon" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+            <i class="fa-regular fa-moon-stars"></i>
+        </div>
+        <ul class="dropdown-menu dropdownMenuButtonItems" aria-labelledby="dropdownMenuButton">
+            <li><a class="dropdown-item" href="#" data-theme="light"><i class="fa-regular fa-brightness"></i> Light</a>
+            </li>
+            <li><a class="dropdown-item" href="#" data-theme="dark"><i class="fa-regular fa-moon-stars"></i> Dark</a>
+            </li>
+            <li><a class="dropdown-item" href="#" data-theme="system"><i class="fa-regular fa-display"></i> System</a>
+            </li>
+        </ul>
+    </div>
+    <div class="dropdown">
+        <div class="btn toggle-icon dropdown-toggle" id="languageDropdown" data-bs-toggle="dropdown"
+            aria-expanded="false">
+            <ion-icon name="earth-outline"></ion-icon>
+            <span id="currentLanguage"><img
+                    src="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.4.6/flags/4x3/ir.svg"
+                    alt="{{ __('header.language_persian') }}" style="width:24px; height:24px;"></span>
+        </div>
+
+        <ul class="dropdown-menu dropdownLanguageMenuItems" aria-labelledby="languageDropdown">
+            <li><a class="dropdown-item" href="#" data-lang="en"><img
+                        src="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.4.6/flags/4x3/gb.svg"
+                        alt="{{ __('header.language_english') }}" style="width:24px; height:24px;"> English</a></li>
+            <li><a class="dropdown-item" href="#" data-lang="fa"><img
+                        src="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.4.6/flags/4x3/ir.svg"
+                        alt="{{ __('header.language_persian') }}" style="width:24px; height:24px;">
+                    فارسی</a></li>
+        </ul>
+    </div>
+
 
     <div class="site-container">
         <div class="cursor"></div>
@@ -96,7 +127,83 @@
 
     <!-- Laravel Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
+    <script>
 
+        function changeTheme(theme) {
+
+            localStorage.setItem('selectedTheme', theme);
+
+
+            applyTheme(theme);
+        }
+
+
+        function applyTheme(theme) {
+
+            document.body.classList.remove('light-mode', 'dark-mode');
+
+
+            const themeButtonIcon = document.querySelector('#dropdownMenuButton i');
+
+            if (theme === 'light') {
+                document.body.classList.add('light-mode');
+                themeButtonIcon.setAttribute('class', 'fa-regular fa-brightness');
+            } else if (theme === 'dark') {
+                document.body.classList.add('dark-mode');
+                themeButtonIcon.setAttribute('class', 'fa-regular fa-moon-stars');
+            } else if (theme === 'system') {
+                const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)').matches;
+                if (prefersDarkScheme) {
+                    document.body.classList.add('dark-mode');
+                    themeButtonIcon.setAttribute('class', 'fa-regular fa-moon-stars');
+                } else {
+                    document.body.classList.add('light-mode');
+                    themeButtonIcon.setAttribute('class', 'fa-regular fa-brightness');
+                }
+            }
+        }
+
+        function changeLanguage(lang) {
+            localStorage.setItem('selectedLanguage', lang);
+
+            const currentUrl = new URL(window.location.href);
+            currentUrl.pathname = `/lang/${lang}`;
+            window.location.href = currentUrl.toString();
+        }
+
+        function loadSettings() {
+            const selectedLang = localStorage.getItem('selectedLanguage') || 'fa';
+            const currentLanguage = document.querySelector('#currentLanguage');
+            const buttonIcon = document.querySelector('#languageDropdown ion-icon');
+
+            currentLanguage.textContent = selectedLang.toUpperCase();
+            buttonIcon.setAttribute('name', selectedLang === 'en' ? 'earth-outline' : 'flag-outline');
+
+            const selectedTheme = localStorage.getItem('selectedTheme') || 'system';
+            applyTheme(selectedTheme);
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            loadSettings();
+
+            document.querySelectorAll('.dropdown-item[data-theme]').forEach(item => {
+                item.addEventListener('click', (event) => {
+                    event.preventDefault();
+                    const theme = item.getAttribute('data-theme');
+                    changeTheme(theme);
+                });
+            });
+
+            document.querySelectorAll('.dropdownLanguageMenuItems .dropdown-item').forEach(item => {
+                item.addEventListener('click', (event) => {
+                    event.preventDefault();
+                    const lang = item.getAttribute('data-lang');
+                    changeLanguage(lang);
+                });
+            });
+        });
+
+    </script>
     <!-- Click Tracking Function -->
     <script>
         function trackClick(productId) {
