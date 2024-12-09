@@ -1,4 +1,4 @@
-@extends('layouts.app2', ['title' => 'تامین قطعات و تعمیرات'])
+@extends('layouts.app2', ['title' => __('tamin-ghatat.supply_and_repair')])
 
 @section('content')
 
@@ -18,7 +18,7 @@
                         <div class="overlay">
                             <div class="inner">
                                 <h5><a href="#">{{ $service->title }}</a></h5>
-                                <div class="cat"><span>{{ $service->category ?? 'بدون دسته‌بندی' }}</span></div>
+                                <div class="cat"><span>{{ $service->category ?? __('tamin-ghatat.no_category') }}</span></div>
                             </div>
                         </div>
                     </div>
@@ -36,13 +36,13 @@
     display: flex;
     justify-content: center;
     align-items: center;
-}
+    }
 
-.service-image {
-    width: 354px;
-    height: 296px;
-    object-fit: cover; 
-}
+    .service-image {
+        width: 354px;
+        height: 296px;
+        object-fit: cover; 
+    }
 </style>
 
 @endsection
