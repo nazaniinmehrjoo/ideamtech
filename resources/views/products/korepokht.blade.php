@@ -21,17 +21,25 @@
             <!-- Dynamic Filter Categories -->
             <div class="gallery-filters centered clearfix">
                 <ul class="filter-tabs filter-btns clearfix">
-                    <li class="filter" data-filter="all">{{ __('khoorpokht.show_all') }}</li>
+                    <li class="filter" data-filter="all" onclick="showCategoryList('all')">
+                        {{ __('khoorpokht.show_all') }}
+                    </li>
                     @foreach($categories as $category)
-                    <li class="filter" data-filter=".category-{{ $category->id }}">
+                    <li class="filter" data-filter=".category-{{ $category->id }}" 
+                        onclick="showCategoryList({{ $category->id }})">
                         {{ $category->name[app()->getLocale()] ?? $category->name['en'] }}
                     </li>
                     @endforeach
                 </ul>
             </div>
 
+            <!-- Description Box -->
+            <div id="categoryDescriptionBox" class="categoryDescriptionBox" style="margin-bottom: 20px; display: none;">
+                <p id="descriptionContent" class="text-light"></p>
+            </div>
+
             <!-- Dynamic Product List -->
-            <div class="filter-list row clearfix">
+            <div id="category-list" class="filter-list row clearfix">
                 @foreach ($products as $product)
                 <div class="portfolio-block mix category-{{ $product->category_id }} col-xl-4 col-lg-4 col-md-6 col-sm-12" data-category="{{ $product->category_id }}">
                     <div class="inner-box">
@@ -69,6 +77,40 @@
 </div>
 
 <script>
+    // Map category descriptions with translations
+    const categoryDescriptions = {!! json_encode(
+        $categories->pluck('description', 'id')->toArray(),
+        JSON_UNESCAPED_UNICODE
+    ) !!};
+
+    // Get the current locale dynamically
+    const currentLocale = "{{ app()->getLocale() }}";
+
+    // Function to update static text and show category list based on selected category
+    function showCategoryList(categoryId) {
+        const descriptionBox = document.getElementById('categoryDescriptionBox');
+        const descriptionContent = document.getElementById('descriptionContent');
+        const categoryList = document.getElementById('category-list');
+
+        // Update description
+        if (categoryId === 'all') {
+            descriptionBox.style.display = 'none';
+        } else if (categoryDescriptions[categoryId] && categoryDescriptions[categoryId][currentLocale]) {
+            // Display the description in the current locale
+            descriptionContent.textContent = categoryDescriptions[categoryId][currentLocale];
+            descriptionBox.style.display = 'block';
+        } else {
+            // Fallback if no description exists for the category or locale
+            descriptionContent.textContent = '{{ __('هیچ توضیحی برای این دسته‌بندی وجود ندارد.') }}';
+            descriptionBox.style.display = 'block';
+        }
+    }
+
+    // Initialize with all categories
+    document.addEventListener("DOMContentLoaded", function () {
+        showCategoryList('all');
+    });
+
     // Function to track click and open the modal
     function trackAndOpenModal(productId, productName, productDescription) {
         // Track the click
