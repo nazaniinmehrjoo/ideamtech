@@ -4,8 +4,8 @@ return [
     'copyright' => 'برناگستر پارسی',
     'language_english' => 'انگلیسی',
     'language_persian' => 'فارسی',
-    'machines' => 'ماشین آلات',
-    'machines_processing' => 'ماشین آلات فرآوری و شکل دهی',
+    'machines' => 'ماشین‌آلات',
+    'machines_processing' => 'ماشین‌آلات فرآوری و شکل دهی',
     'machines_equipment' => 'ماشین آلات و تجهیزات',
     'projects' => 'پروژه‌ها',
     'projects_dryer' => 'پروژه‌ی خشک‌کن',
@@ -16,8 +16,10 @@ return [
     'services_parts' => 'تامین قطعات',
     'services_maintenance' => 'تعمیرات و نگهداری',
     'services_engineering' => 'خدمات مهندسی',
-    'services_installation' => 'نصب و راه اندازی',
+    'services_installation' => 'نصب‌و راه اندازی',
     'services_after_sales' => 'خدمات پس از فروش',
     'about_us' => 'درباره‌ی برناگستر',
-    'contact_us' => 'ارتباط با ما',
+    'contact_us' => 'ارتباط با‌ما',
+    'project-list' => 'لیست پروژه‌ها',
+
 ];

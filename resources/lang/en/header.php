@@ -20,4 +20,5 @@ return [
     'services_after_sales' => 'After-Sales Services',
     'about_us' => 'About BornaGostar',
     'contact_us' => 'Contact Us',
+    'project-list' => 'Project List',
 ];
