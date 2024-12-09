@@ -8,11 +8,11 @@
         <!-- Page Title -->
         <section class="page-title" id="to-top-div">
             <div class="auto-container">
-                <h1><span>اخبارورویداد ها</span></h1>
+                <h1><span>@lang('blog.news_and_events')</span></h1>
                 <div class="bread-crumb">
                     <ul class="clearfix">
-                        <li><a href="{{ route('home') }}">خانه</a></li>
-                        <li class="current">اخبارورویداد ها</li>
+                        <li><a href="{{ route('home') }}">@lang('blog.home')</a></li>
+                        <li class="current">@lang('blog.news_and_events')</li>
                     </ul>
                 </div>
             </div>
@@ -37,7 +37,7 @@
                                                 <i class="far fa-folder"></i> {{ $post->category }}
                                             </div>
                                             <div class="time">
-                                                <i class="far fa-clock"></i> {{ \Carbon\Carbon::parse($post->created_at)->diffForHumans() }}
+                                                <i class="far fa-clock"></i> {{ \Carbon\Carbon::parse($post->getRawOriginal('created_at'))->diffForHumans() }}
                                             </div>
                                         </div>
                                     </div>
@@ -51,7 +51,7 @@
                                         <p>{{ Str::limit($post->content, 150) }}</p>
                                         <div class="link-box">
                                             <a href="{{ route('blog.show', $post->id) }}" class="theme-btn">
-                                                ادامه مطلب <i class="far fa-long-arrow-alt-right"></i>
+                                                @lang('blog.read_more') <i class="far fa-long-arrow-alt-right"></i>
                                             </a>
                                         </div>
                                     </div>
@@ -63,7 +63,7 @@
 
                 <!-- Pagination -->
                 <div class="styled-pagination">
-                    {{ $posts->links('vendor.pagination.default') }}
+                    {{ $posts->links() }}
                 </div>
             </div>
         </section>
