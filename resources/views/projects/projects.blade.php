@@ -5,9 +5,8 @@
 <div class="customerContent">
     <!-- Introduction Section -->
     <div class="intro-section text-center">
-        <h2>مشتریان ما</h2>
-        <p class="text-center">ما با افتخار پروژه‌های متعدد در زمینه‌های مختلف برای مشتریانمان انجام داده‌ایم. از خدمات مهندسی گرفته تا نصب
-            و راه‌اندازی، در این صفحه می‌توانید پروژه‌های انجام‌شده و در حال انجام ما را مشاهده کنید.</p>
+        <h2>{{ __('projects.aftersales.title') }}</h2>
+        <p class="text-center">{{ __('projects.aftersales.description') }}</p>
     </div>
 
     <!-- Map Section -->
@@ -15,7 +14,7 @@
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header">
-                    نقشه پروژه‌ها
+                    {{ __('projects.customerMap.title') }}
                 </div>
                 <div class="card-body mapContainer">
                     <div id="map" style="height: 500px;"></div>
@@ -30,11 +29,11 @@
         <div class="col-md-4">
             <div class="card stat-box border-success">
                 <div class="card-header bg-success text-black text-center">
-                    <i class="fas fa-check-circle"></i> پروژه‌های انجام‌شده
+                    <i class="fas fa-check-circle"></i>{{ __('projects.customerContent.finishedProjects.title') }} 
                 </div>
                 <div class="card-body">
                     <div class="counter" id="completedProjectsCounter">{{ $completedProjects }}</div>
-                    <p class="card-text">پروژه‌های تکمیل‌شده</p>
+                    <p class="card-text">{{ __('projects.customerContent.finishedProjects.description') }} </p>
                     <div class="progress">
                         <div class="progress-bar bg-success" role="progressbar"
                             style="width: {{ ($completedProjects / max($totalProjects, 1)) * 100 }}%"
@@ -49,11 +48,11 @@
         <div class="col-md-4">
             <div class="card stat-box border-warning">
                 <div class="card-header bg-warning text-white text-center">
-                    <i class="fas fa-tasks"></i> پروژه‌های در حال انجام
+                    <i class="fas fa-tasks"></i> {{ __('projects.customerContent.todoProjects.title') }} 
                 </div>
                 <div class="card-body">
                     <div class="counter" id="ongoingProjectsCounter">{{ $ongoingProjects }}</div>
-                    <p class="card-text">پروژه‌های فعال</p>
+                    <p class="card-text">{{ __('projects.customerContent.todoProjects.title') }} </p>
                     <div class="progress">
                         <div class="progress-bar bg-warning" role="progressbar"
                             style="width: {{ ($ongoingProjects / max($totalProjects, 1)) * 100 }}%"
@@ -68,11 +67,11 @@
         <div class="col-md-4">
             <div class="card stat-box border-primary">
                 <div class="card-header bg-primary text-white text-center">
-                    <i class="fas fa-project-diagram"></i> تعداد کل پروژه‌ها
+                    <i class="fas fa-project-diagram"></i> {{ __('projects.customerContent.allProject.title') }} 
                 </div>
                 <div class="card-body">
                     <div class="counter" id="totalProjectsCounter">{{ $totalProjects }}</div>
-                    <p class="card-text">مجموع پروژه‌ها</p>
+                    <p class="card-text">{{ __('projects.customerContent.allProject.title') }} </p>
                     <div class="progress">
                         <div class="progress-bar bg-primary" role="progressbar" style="width: 100%" aria-valuenow="100"
                             aria-valuemin="0" aria-valuemax="100"></div>
@@ -88,7 +87,7 @@
         <div class="col-md-6 col-sm-12">
             <div class="card">
                 <div class="card-header">
-                    نمودار پیشرفت پروژه‌ها
+                {{ __('projects.customerChart.title') }} 
                 </div>
                 <div class="card-body">
                     <canvas id="projectProgressChart"></canvas>
@@ -98,18 +97,18 @@
         <div class="customerList col-md-6 col-sm-12">
             <div class="card">
                 <div class="card-header">
-                    لیست پروژه‌ها
+                {{ __('projects.customerList.title') }} 
                 </div>
                 <div class="card-body" style="max-height:419px ; overflow-y: auto;">
-                    <input type="text" id="projectSearch" class="form-control mb-3" placeholder="جستجو پروژه‌ها..."
+                    <input type="text" id="projectSearch" class="form-control mb-3" placeholder="  {{ __('projects.searchPlaceholder') }} ..."
                         onkeyup="searchProjects()">
                     <table class="cutomerListTable table table-dark table-hover">
                         <thead>
                             <tr>
-                                <th>نام پروژه</th>
-                                <th>تاریخ شروع</th>
-                                <th>تاریخ پایان</th>
-                                <th>وضعیت</th>
+                                <th>{{ __('projects.table.projectName') }}</th>
+                                <th>{{ __('projects.table.startDate') }}</th>
+                                <th>{{ __('projects.table.endDate') }}</th>
+                                <th>{{ __('projects.table.status') }}</th>
                             </tr>
                         </thead>
                         <tbody id="projectTable">
@@ -130,7 +129,7 @@
 
     <div class="row mt-5">
         <div class="col-md-12">
-            <h3 class="customerReviews" style="text-align: center;padding: 10px;">نظر مشتریان ما</h3>
+            <h3 class="customerReviews" style="text-align: center;padding: 10px;">{{ __('projects.customers.Feedback') }} </h3>
 
             <div id="testimonialCarousel" class="carousel slide" data-ride="carousel">
                 <div class="carousel-inner">
@@ -139,11 +138,9 @@
                             <div class="image-content">
                                 <img src="/assets/images/main-slider/modernbrik.png" alt="Custom Image">
                             </div>
-                            <p class="testimonial-text">“خدمات شرکت شما بی‌نظیر بود. نصب و راه‌اندازی به موقع و بدون
-                                مشکل
-                                انجام شد.”</p>
+                            <p class="testimonial-text">“{{ __('projects.customers.customerAFeadback') }}”</p>
 
-                            <p class="customer-name"><strong>- شرکت الف</strong></p>
+                            <p class="customer-name"><strong>- {{ __('projects.customers.customerAtitle') }}</strong></p>
                         </div>
                     </div>
                     <div class="carousel-item">
@@ -151,10 +148,8 @@
                             <div class="image-content">
                                 <img src="/assets/images/main-slider/modernbrik.png" alt="Custom Image">
                             </div>
-                            <p class="testimonial-text">“خدمات شرکت شما بی‌نظیر بود. نصب و راه‌اندازی به موقع و بدون
-                                مشکل
-                                انجام شد.”</p>
-                            <p class="customer-name"><strong>- شرکت ب</strong></p>
+                            <p class="testimonial-text">“{{ __('projects.customers.customerBFeadback') }}”</p>
+                            <p class="customer-name"><strong>- {{ __('projects.customers.customerBtitle') }}</strong></p>
                         </div>
                     </div>
                     <div class="carousel-item">
@@ -162,10 +157,8 @@
                             <div class="image-content">
                                 <img src="/assets/images/main-slider/modernbrik.png" alt="Custom Image">
                             </div>
-                            <p class="testimonial-text">“خدمات شرکت شما بی‌نظیر بود. نصب و راه‌اندازی به موقع و بدون
-                                مشکل
-                                انجام شد.”</p>
-                            <p class="customer-name"><strong>- شرکت ج</strong></p>
+                            <p class="testimonial-text">“{{ __('projects.customers.customerCFeadback') }}”</p>
+                            <p class="customer-name"><strong>- {{ __('projects.customers.customerCtitle') }}</strong></p>
                         </div>
                     </div>
                     <div class="carousel-item">
@@ -173,10 +166,8 @@
                             <div class="image-content">
                                 <img src="/assets/images/main-slider/modernbrik.png" alt="Custom Image">
                             </div>
-                            <p class="testimonial-text">“خدمات شرکت شما بی‌نظیر بود. نصب‌و راه‌اندازی به موقع و بدون
-                                مشکل
-                                انجام شد.”</p>
-                            <p class="customer-name"><strong>- شرکت د</strong></p>
+                            <p class="testimonial-text">“{{ __('projects.customers.customerDFeadback') }}”</p>
+                            <p class="customer-name"><strong>- {{ __('projects.customers.customerDtitle') }}</strong></p>
                         </div>
                     </div>
                 </div>
@@ -193,12 +184,7 @@
         <div style="padding: 6%"></div>
     </div>
 </div>
-<!-- Leaflet CSS and JS for map -->
-<link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
-<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
 
-<!-- Chart.js for charts -->
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 <script>
     document.addEventListener('DOMContentLoaded', function () {
@@ -310,13 +296,13 @@
             labels: labels,
             datasets: [
                 {
-                    label: 'پروژه‌های تکمیل‌شده',
+                    label: '{{ __('projects.chartsdtl.ongoingProjects') }}',
                     backgroundColor: 'rgba(54, 162, 235, 0.5)',
                     borderColor: 'rgb(54, 162, 235)',
                     data: completedData,
                 },
                 {
-                    label: 'پروژه‌های درحال انجام',
+                    label: '{{ __('projects.chartsdtl.completedProjects') }}',
                     backgroundColor: 'rgba(255, 206, 86, 0.5)',
                     borderColor: 'rgb(255, 206, 86)',
                     data: ongoingData,
