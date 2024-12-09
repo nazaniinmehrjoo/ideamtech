@@ -8297,16 +8297,16 @@ body.light-mode .service-block .inner-box:hover .icon-box span {
     color: #f0f0f0;
 }
 body.light-mode .service-block .inner-box:hover .link-box a {
-    background: #ffead2;
-    border-color: #ffead2;
+    background: #ffa87e;
+    border-color: #ffa87e;
     color: #292c30;
 }
 body.light-mode .service-block .link-box a {
-    color: #ffc7a2;
+    color: #ffa87e;
+    border: 1px solid #ffa87e;
 }
 body.light-mode .service-block .text {
     color: #303336;
-    font-size: 18px;
 }
 body.light-mode p {
     color: #303336;
@@ -8660,7 +8660,6 @@ body.light-mode .dropdown-item:focus, body.light-mode .dropdown-item:hover {
     color: #f0f0f0;
     position: absolute;
     right: 64px;
-    top: 45px;
     z-index: 1050;
     font-size: 25px;
 }
@@ -8692,7 +8691,6 @@ body.light-mode .dropdown-item:focus, body.light-mode .dropdown-item:hover {
     color: #f0f0f0;
     position: absolute;
     right: 120px;
-    top: 42px;
     z-index: 1050;
     font-size: 20px;
 }
@@ -8725,4 +8723,11 @@ body.light-mode .dropdown-item:focus, body.light-mode .dropdown-item:hover {
 .language-icon {
     width: 24px;
     height: 24px;
+}
+.menueDropdown{
+    display: flex;
+    justify-content: end;
+    margin-top: 45px;
+    align-items: center;
+    float: right;
 }

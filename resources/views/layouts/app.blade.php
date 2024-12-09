@@ -53,39 +53,44 @@
 <body>
     <div class="body-bg-layer"></div>
 
-
-    <div class="dropdown">
-        <div class="btn toggle-icon" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
-            <i class="fa-regular fa-moon-stars"></i>
+    <div class="menueDropdown">
+        <div class="dropdown">
+            <div class="btn toggle-icon" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                <i class="fa-regular fa-moon-stars"></i>
+            </div>
+            <ul class="dropdown-menu dropdownMenuButtonItems" aria-labelledby="dropdownMenuButton">
+                <li><a class="dropdown-item" href="#" data-theme="light"><i class="fa-regular fa-brightness"></i>
+                        Light</a>
+                </li>
+                <li><a class="dropdown-item" href="#" data-theme="dark"><i class="fa-regular fa-moon-stars"></i>
+                        Dark</a>
+                </li>
+                <li><a class="dropdown-item" href="#" data-theme="system"><i class="fa-regular fa-display"></i>
+                        System</a>
+                </li>
+            </ul>
         </div>
-        <ul class="dropdown-menu dropdownMenuButtonItems" aria-labelledby="dropdownMenuButton">
-            <li><a class="dropdown-item" href="#" data-theme="light"><i class="fa-regular fa-brightness"></i> Light</a>
-            </li>
-            <li><a class="dropdown-item" href="#" data-theme="dark"><i class="fa-regular fa-moon-stars"></i> Dark</a>
-            </li>
-            <li><a class="dropdown-item" href="#" data-theme="system"><i class="fa-regular fa-display"></i> System</a>
-            </li>
-        </ul>
-    </div>
-    <div class="dropdown">
-        <div class="btn toggle-icon dropdown-toggle" id="languageDropdown" data-bs-toggle="dropdown"
-            aria-expanded="false">
-            <ion-icon name="earth-outline"></ion-icon>
-            <span id="currentLanguage"><img
-                    src="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.4.6/flags/4x3/ir.svg"
-                    alt="{{ __('header.language_persian') }}" style="width:24px; height:24px;"></span>
-        </div>
-
-        <ul class="dropdown-menu dropdownLanguageMenuItems" aria-labelledby="languageDropdown">
-            <li><a class="dropdown-item" href="#" data-lang="en"><img
-                        src="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.4.6/flags/4x3/gb.svg"
-                        alt="{{ __('header.language_english') }}" style="width:24px; height:24px;"> English</a></li>
-            <li><a class="dropdown-item" href="#" data-lang="fa"><img
+        <div class="dropdown">
+            <div class="btn toggle-icon dropdown-toggle" id="languageDropdown" data-bs-toggle="dropdown"
+                aria-expanded="false">
+                <ion-icon name="earth-outline"></ion-icon>
+                <span id="currentLanguage"><img
                         src="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.4.6/flags/4x3/ir.svg"
-                        alt="{{ __('header.language_persian') }}" style="width:24px; height:24px;">
-                    فارسی</a></li>
-        </ul>
+                        alt="{{ __('header.language_persian') }}" style="width:24px; height:24px;"></span>
+            </div>
+
+            <ul class="dropdown-menu dropdownLanguageMenuItems" aria-labelledby="languageDropdown">
+                <li><a class="dropdown-item" href="#" data-lang="en"><img
+                            src="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.4.6/flags/4x3/gb.svg"
+                            alt="{{ __('header.language_english') }}" style="width:24px; height:24px;"> English</a></li>
+                <li><a class="dropdown-item" href="#" data-lang="fa"><img
+                            src="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.4.6/flags/4x3/ir.svg"
+                            alt="{{ __('header.language_persian') }}" style="width:24px; height:24px;">
+                        فارسی</a></li>
+            </ul>
+        </div>
     </div>
+
 
 
     <div class="site-container">
