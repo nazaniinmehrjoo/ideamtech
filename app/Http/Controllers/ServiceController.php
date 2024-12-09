@@ -142,10 +142,16 @@ class ServiceController extends Controller
 
     public function partsRepairs()
     {
-        $services = Service::where('show_on_parts_repairs', true)->get();
+        $locale = app()->getLocale(); // Get the current locale
+        $services = Service::where('show_on_parts_repairs', true)->get()->map(function ($service) use ($locale) {
+            $service->title = json_decode($service->title, true)[$locale] ?? ''; 
+            $service->category = json_decode($service->category, true)[$locale] ?? ''; 
+            $service->content = json_decode($service->content, true)[$locale] ?? ''; 
+            return $service;
+        });
+    
         return view('services.taminghatat', compact('services'));
     }
-
     public function engineering()
     {
         $locale = app()->getLocale();
