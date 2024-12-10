@@ -29,7 +29,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
 
     <!-- Favicon -->
-    <link rel="icon" type="image/png" href="/favicon.png">
+    <link rel="icon" type="image/png" href="/assets/images/favicon.png" alt="لوگوبرناگسترپارسی-logobornagostarparsi">
 
     <!-- Stylesheets -->
     <link href="/assets/css/bootstrap.css" rel="stylesheet">
