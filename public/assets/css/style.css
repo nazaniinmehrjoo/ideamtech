@@ -1148,7 +1148,7 @@ form label.error {
 .alt-logo-box {
     position: absolute;
     left: 184px;
-    top: 45px;
+    top: 26px;
     /* display: none; */
     z-index: 9999;
 }
@@ -1161,7 +1161,7 @@ form label.error {
     /* width: 192px;
   max-width: none; */
     max-width: 340px;
-    height: 48px;
+    height: 73px;
 }
 
 .main-nav-outer {
