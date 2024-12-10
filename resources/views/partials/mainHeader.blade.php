@@ -1,9 +1,8 @@
 <!-- Main Header Bar-->
 <!--Alt Logo Box-->
 
-
 <div class="alt-logo-box">
-    <a href="/"><img src="/assets/images/logotest2.png" alt="{{ __('header.alt_logo') }}"></a>
+    <a href="/"><img src="/assets/images/bornagostar.png" alt="{{ __('header.alt_logo') }}"></a>
 </div>
 
 <header class="main-header-bar">
