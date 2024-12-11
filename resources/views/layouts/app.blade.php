@@ -27,7 +27,7 @@
     <meta name="twitter:card" content="summary_large_image">
 
     <!-- Favicon -->
-    <link rel="icon" type="image/png" href="/favicon.png">
+    <link rel="icon" type="image/png" href="/assets/images/favicon.png" alt="لوگوبرناگسترپارسی-logobornagostarparsi">
 
     <!-- Stylesheets -->
     <link href="/assets/css/bootstrap.css" rel="stylesheet">

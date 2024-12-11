@@ -59,8 +59,8 @@
                         </div>
                     </div>
                 @empty
-                    <div>
-                        <p class="text-light text-center notRegister">{{ __('mashinAlatSheklDehi.no_products') }}</p>
+                    <div class="notRegister">
+                        <p class="text-light text-center">{{ __('mashinAlatSheklDehi.no_products') }}</p>
                     </div>
                 @endforelse
             </div>

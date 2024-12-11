@@ -1148,7 +1148,7 @@ form label.error {
 .alt-logo-box {
     position: absolute;
     left: 184px;
-    top: 45px;
+    top: 26px;
     /* display: none; */
     z-index: 9999;
 }
@@ -1161,7 +1161,7 @@ form label.error {
     /* width: 192px;
   max-width: none; */
     max-width: 340px;
-    height: 48px;
+    height: 73px;
 }
 
 .main-nav-outer {
@@ -2147,7 +2147,10 @@ body.light-mode .def-title-box h3 {
     text-align: justify;
     text-align-last: right;
     direction: rtl;
-    height: 130px;
+    hyphens: auto;
+    -webkit-hyphens: auto;
+    word-spacing: -0.05em;
+    overflow-wrap: break-word;
 }
 
 .service-block .link-box {
@@ -8645,6 +8648,26 @@ body.light-mode .dropdownMenuButtonItems .dropdown-item {
 body.light-mode .dropdown-item:focus, body.light-mode .dropdown-item:hover {
     background-color: #f0f0f0 !important;
 }
+body.light-mode .flow-list {
+    color: #333;
+    background-color: #f0f0f0;
+}
+body.light-mode .flow-step {
+    color: #333;
+    background-color: #f0f0f0;
+}
+body.light-mode .flow-explain .content p {
+    color: #333;
+}
+body.light-mode .flow-explain h2 {
+    color: #333;
+}
+body.light-mode .flow-step {
+    border: 4px solid #ffa87e
+}
+body.light-mode .graphics::before{
+    background: linear-gradient( to right, rgba(227, 6, 19, 0.5), #ffa87e, rgba(227, 6, 19, 0.5) );
+}   
 /* Menu Language and Theme style */
 .dropdown-item:focus, .dropdown-item:hover {
     background-color: #292c30 !important;
