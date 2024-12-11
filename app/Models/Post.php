@@ -14,6 +14,29 @@ class Post extends Model
     protected $fillable = [
         'title', 'content', 'category', 'image'
     ];
+    protected $casts = [
+        'title' => 'array', 
+        'content' => 'array', 
+        'category' => 'array', 
+    ];
+
+    public function getTranslatedtitle($locale = null)
+    {
+        $locale = $locale ?? app()->getLocale(); 
+        return $this->title[$locale] ?? $this->title['en'] ?? null; 
+    }
+    public function getTranslatedcontent($locale = null)
+    {
+        $locale = $locale ?? app()->getLocale(); 
+        return $this->content[$locale] ?? $this->content['en'] ?? null; 
+    }
+
+    public function getTranslatedcategory($locale = null)
+    {
+        $locale = $locale ?? app()->getLocale(); 
+        return $this->category[$locale] ?? $this->category['en'] ?? null; 
+    }
+
     public function images()
     {
         return $this->hasMany(PostImage::class);

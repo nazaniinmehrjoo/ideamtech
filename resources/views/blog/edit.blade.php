@@ -15,34 +15,64 @@
                         @csrf
                         @method('PUT')
 
-                        <!-- Blog Title -->
+                        <!-- Blog Title (EN & FA) -->
                         <div class="row mb-3">
-                            <label for="title" class="col-md-4 col-form-label text-md-end">{{ __('عنوان مقاله') }}</label>
+                            <label for="title_en" class="col-md-4 col-form-label text-md-end">{{ __('عنوان مقاله (انگلیسی)') }}</label>
                             <div class="col-md-6">
-                                <input type="text" name="title" id="title" value="{{ old('title', $post->title) }}" class="form-control bg-dark text-white @error('title') is-invalid @enderror" required>
-                                @error('title')
+                                <input type="text" name="title[en]" id="title_en" value="{{ old('title.en', $post->title['en'] ?? '') }}" class="form-control bg-dark text-white @error('title.en') is-invalid @enderror" required>
+                                @error('title.en')
                                     <span class="invalid-feedback" role="alert">{{ $message }}</span>
                                 @enderror
                             </div>
                         </div>
 
-                        <!-- Blog Category -->
                         <div class="row mb-3">
-                            <label for="category" class="col-md-4 col-form-label text-md-end">{{ __('دسته‌بندی') }}</label>
+                            <label for="title_fa" class="col-md-4 col-form-label text-md-end">{{ __('عنوان مقاله (فارسی)') }}</label>
                             <div class="col-md-6">
-                                <input type="text" name="category" id="category" value="{{ old('category', $post->category) }}" class="form-control bg-dark text-white @error('category') is-invalid @enderror" required>
-                                @error('category')
+                                <input type="text" name="title[fa]" id="title_fa" value="{{ old('title.fa', $post->title['fa'] ?? '') }}" class="form-control bg-dark text-white @error('title.fa') is-invalid @enderror" required>
+                                @error('title.fa')
                                     <span class="invalid-feedback" role="alert">{{ $message }}</span>
                                 @enderror
                             </div>
                         </div>
 
-                        <!-- Blog Content -->
+                        <!-- Blog Category (EN & FA) -->
                         <div class="row mb-3">
-                            <label for="content" class="col-md-4 col-form-label text-md-end">{{ __('محتوای مقاله') }}</label>
+                            <label for="category_en" class="col-md-4 col-form-label text-md-end">{{ __('دسته‌بندی (انگلیسی)') }}</label>
                             <div class="col-md-6">
-                                <textarea name="content" id="content" rows="5" class="form-control bg-dark text-white @error('content') is-invalid @enderror" required>{{ old('content', $post->content) }}</textarea>
-                                @error('content')
+                                <input type="text" name="category[en]" id="category_en" value="{{ old('category.en', $post->category['en'] ?? '') }}" class="form-control bg-dark text-white @error('category.en') is-invalid @enderror" required>
+                                @error('category.en')
+                                    <span class="invalid-feedback" role="alert">{{ $message }}</span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <label for="category_fa" class="col-md-4 col-form-label text-md-end">{{ __('دسته‌بندی (فارسی)') }}</label>
+                            <div class="col-md-6">
+                                <input type="text" name="category[fa]" id="category_fa" value="{{ old('category.fa', $post->category['fa'] ?? '') }}" class="form-control bg-dark text-white @error('category.fa') is-invalid @enderror" required>
+                                @error('category.fa')
+                                    <span class="invalid-feedback" role="alert">{{ $message }}</span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <!-- Blog Content (EN & FA) -->
+                        <div class="row mb-3">
+                            <label for="content_en" class="col-md-4 col-form-label text-md-end">{{ __('محتوای مقاله (انگلیسی)') }}</label>
+                            <div class="col-md-6">
+                                <textarea name="content[en]" id="content_en" rows="5" class="form-control bg-dark text-white @error('content.en') is-invalid @enderror" required>{{ old('content.en', $post->content['en'] ?? '') }}</textarea>
+                                @error('content.en')
+                                    <span class="invalid-feedback" role="alert">{{ $message }}</span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <label for="content_fa" class="col-md-4 col-form-label text-md-end">{{ __('محتوای مقاله (فارسی)') }}</label>
+                            <div class="col-md-6">
+                                <textarea name="content[fa]" id="content_fa" rows="5" class="form-control bg-dark text-white @error('content.fa') is-invalid @enderror" required>{{ old('content.fa', $post->content['fa'] ?? '') }}</textarea>
+                                @error('content.fa')
                                     <span class="invalid-feedback" role="alert">{{ $message }}</span>
                                 @enderror
                             </div>
@@ -56,7 +86,7 @@
                                     <div class="d-flex align-items-center mb-2">
                                         <img src="{{ asset('storage/' . $post->image) }}" alt="Main Image" class="img-fluid" style="max-width: 100px; margin-right: 10px;" id="main-image-preview">
                                         <span class="text-danger large-dash" onclick="document.getElementById('delete_main_image').checked = true;">&ndash;</span>
-                                        <input type="checkbox" name="delete_images[]" value="{{ $post->id }}" id="delete_main_image" class="d-none">
+                                        <input type="checkbox" name="delete_main_image" value="1" id="delete_main_image" class="d-none">
                                     </div>
                                 @endif
                                 <input type="file" name="main_image" id="main_image" class="d-none" onchange="addMainImage(event)">
@@ -87,7 +117,7 @@
                             <div class="col-md-6 d-flex flex-wrap">
                                 <div id="new-image-preview" class="d-flex flex-wrap mt-2"></div>
                                 <button type="button" class="btn btn-primary mb-2" onclick="document.getElementById('images').click()">+</button>
-                                <input type="file" id="images" class="d-none" multiple onchange="addImages(event)">
+                                <input type="file" id="images" name="images[]" class="d-none" multiple onchange="addImages(event)">
                                 @error('images.*')
                                     <span class="invalid-feedback" role="alert">{{ $message }}</span>
                                 @enderror
@@ -97,7 +127,7 @@
                         <!-- Submit Button -->
                         <div class="row mb-0">
                             <div class="col-md-8 offset-md-4">
-                                <button type="button" onclick="submitForm()" class="theme-btn btn-style-two">{{ __('ویرایش') }}</button>
+                                <button type="submit" class="btn btn-primary">{{ __('ویرایش') }}</button>
                             </div>
                         </div>
                     </form>
@@ -106,6 +136,7 @@
         </div>
     </div>
 </div>
+
 
 <style>
     .large-dash {
@@ -124,33 +155,36 @@
 let selectedFiles = [];
 let mainImageFile = null;
 
-// Mark an existing image for deletion
-function markImageForDeletion(imageId) {
-    const deleteCheckbox = document.getElementById('delete_image_' + imageId);
-    deleteCheckbox.checked = !deleteCheckbox.checked;
-    const imageDiv = document.getElementById('existing-image-' + imageId);
-    imageDiv.style.opacity = deleteCheckbox.checked ? "0.5" : "1";
-}
-
-// Function to add main image
 function addMainImage(event) {
-    mainImageFile = event.target.files[0]; // Store the selected main image
+    const file = event.target.files[0];
     const reader = new FileReader();
     reader.onload = function(e) {
-        const previewDiv = document.createElement('div');
-        previewDiv.classList.add('d-flex', 'align-items-center', 'mb-2');
-        previewDiv.innerHTML = `<img src="${e.target.result}" alt="Main Image" class="img-fluid" style="max-width: 100px; margin-right: 10px;">`;
-        const mainImagePreview = document.getElementById('main-image-preview');
-        mainImagePreview.replaceWith(previewDiv); // Replace the existing image with the new preview
+        document.getElementById('main-image-preview').src = e.target.result;
     };
-    reader.readAsDataURL(mainImageFile); // Read the image as a data URL
+    reader.readAsDataURL(file);
 }
 
-// Function to add new images
+function markImageForDeletion(imageId) {
+    const checkbox = document.getElementById('delete_image_' + imageId);
+    checkbox.checked = !checkbox.checked;
+    const container = document.getElementById('existing-image-' + imageId);
+    container.style.opacity = checkbox.checked ? "0.5" : "1";
+}
+
 function addImages(event) {
-    const newFiles = Array.from(event.target.files);
-    selectedFiles = selectedFiles.concat(newFiles);
-    renderNewPreviews();
+    const files = event.target.files;
+    const previewContainer = document.getElementById('new-image-preview');
+    previewContainer.innerHTML = '';
+    Array.from(files).forEach(file => {
+        const reader = new FileReader();
+        reader.onload = function(e) {
+            const img = document.createElement('img');
+            img.src = e.target.result;
+            img.className = 'img-fluid preview-image';
+            previewContainer.appendChild(img);
+        };
+        reader.readAsDataURL(file);
+    });
 }
 
 // Function to render new images previews
