@@ -15,7 +15,7 @@ use App\Http\Controllers\{
 use Illuminate\Support\Facades\Route;
 
 /*
-|--------------------------------------------------------------------------
+|---------------------------------------------------------------------------
 | Web Routes
 |--------------------------------------------------------------------------
 | Here is where you can register web routes for your application. These
@@ -47,7 +47,7 @@ Route::group(['prefix' => '{locale}', 'middleware' => 'locale'], function () {
     Route::view('/شبیه-ساز', 'simulator')->name("simulator");
     Route::view('/متمایزازدیگران', 'distinct')->name("distinct");
     Route::view('/پیوستن-به-خانواده-برناگستر', 'forms.form-selection')->name("form-selection");
-    Route::view('/خط-کامل-آجر/محصولات', 'products.turnkeysolution')->name("turnkeysolution");
+    Route::view('/خط-کامل-آجر/محصولات', 'products.turnkeysolution')->name('products.turnkeysolution');
     Route::view('/contact', 'contact')->name("contact");
     Route::view('/درباره-ما', 'about')->name("about");
 
@@ -66,7 +66,7 @@ Route::group(['prefix' => '{locale}', 'middleware' => 'locale'], function () {
     Route::post('/track-time-spent', [TrackingController::class, 'trackTimeSpent']);
 
     // Public "Our Clients" Page
-    Route::get('/مشتریان-ما', [ProjectController::class, 'customerView']);
+    Route::get('/مشتریان-ما', [ProjectController::class, 'customerView'])->name('products.customerView');
 
     // Service Routes
     Route::get('/مشاوره/خدمات', [ServiceController::class, 'consulting'])->name('services.consulting');

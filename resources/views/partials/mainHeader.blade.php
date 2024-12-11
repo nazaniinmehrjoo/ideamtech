@@ -76,8 +76,8 @@
                                 <ul>
                                     <li><a href="{{ route('products.khoskkon', ['locale' => app()->getLocale()]) }}">{{ __('header.projects_dryer') }}</a></li>
                                     <li><a href="{{ route('products.korepokht', ['locale' => app()->getLocale()]) }}">{{ __('header.projects_kiln') }}</a></li>
-                                    <li><a href="{{ route('home', ['locale' => app()->getLocale()]) }}">{{ __('header.projects_full_line') }}</a></li>
-                                    <li><a href="{{ route('home', ['locale' => app()->getLocale()]) }}">{{ __('header.project-list') }}</a></li>
+                                    <li><a href="{{ route('products.turnkeysolution', ['locale' => app()->getLocale()]) }}">{{ __('header.projects_full_line') }}</a></li>
+                                    <li><a href="{{ route('products.customerView', ['locale' => app()->getLocale()]) }}">{{ __('header.project-list') }}</a></li>
                                 </ul>
                             </li>
                             <li class="dropdown"><a href="#">{{ __('header.services') }}</a>
