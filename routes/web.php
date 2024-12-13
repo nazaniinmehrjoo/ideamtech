@@ -66,7 +66,7 @@ Route::group(['prefix' => '{locale}', 'middleware' => 'locale'], function () {
     Route::post('/track-time-spent', [TrackingController::class, 'trackTimeSpent']);
 
     // Public "Our Clients" Page
-    Route::get('/مشتریان-ما', [ProjectController::class, 'customerView'])->name('products.customerView');
+    Route::get('/مشتریان-ما', [ProjectController::class, 'customerView'])->name('projects.projects');
 
     // Service Routes
     Route::get('/مشاوره/خدمات', [ServiceController::class, 'consulting'])->name('services.consulting');
