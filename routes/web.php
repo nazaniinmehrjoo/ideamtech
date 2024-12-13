@@ -56,7 +56,7 @@ Route::group(['prefix' => '{locale}', 'middleware' => 'locale'], function () {
     Route::view('/no-access', 'no-access')->name('no-access');
 
     // Blog Routes
-    Route::get('/مقالات', [BlogController::class, 'publicIndex'])->name('blog.publicIndex');
+    Route::get('/مقالات', [BlogController::class, 'publicIndex'])->name('blog.blogs');
     Route::get('/مقالات/{id}', [BlogController::class, 'show'])->name('blog.show');
 
     // Product Click Tracking
@@ -66,7 +66,7 @@ Route::group(['prefix' => '{locale}', 'middleware' => 'locale'], function () {
     Route::post('/track-time-spent', [TrackingController::class, 'trackTimeSpent']);
 
     // Public "Our Clients" Page
-    Route::get('/مشتریان-ما', [ProjectController::class, 'customerView']);
+    Route::get('/مشتریان-ما', [ProjectController::class, 'customerView'])->name("projects.projects");
 
     // Service Routes
     Route::get('/مشاوره/خدمات', [ServiceController::class, 'consulting'])->name('services.consulting');

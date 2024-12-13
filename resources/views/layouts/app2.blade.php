@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="fa">
+<html lang="{{ app()->getLocale() }}">
 
 <head>
     <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -7,10 +7,9 @@
         @isset($title)
             {{ $title }} |
         @endisset
-        {{ config('app.name', '') }}
+        {{ config('app.name', 'برنا گستر پارسی') }}
     </title>
     <meta charset="utf-8">
-    <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
@@ -26,7 +25,6 @@
     <meta property="og:url" content="{{ url()->current() }}">
     <meta property="og:type" content="website">
     <meta name="twitter:card" content="summary_large_image">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
 
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="/favicon.png">
@@ -36,66 +34,62 @@
     <link href="/assets/css/style.css" rel="stylesheet">
     <link href="/assets/css/responsive.css" rel="stylesheet">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css">
     <link rel="stylesheet" href="/assets/css/fontiran.css">
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "Organization",
-        "name": "برنا گستر پارسی",
-        "url": "https://ideamtech.ir",
-        "logo": "https://ideamtech.ir/assets/images/logo.png",
-    }
-    </script>
 
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
 </head>
 
 <body>
     <div class="body-bg-layer"></div>
 
-
-    <div class="menueDropdown">
+    <!-- Language and Theme Switchers -->
+    <div class="menuDropdown">
+        <!-- Theme Switcher -->
         <div class="dropdown">
             <div class="btn toggle-icon" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
                 <i class="fa-regular fa-moon-stars"></i>
             </div>
             <ul class="dropdown-menu dropdownMenuButtonItems" aria-labelledby="dropdownMenuButton">
                 <li><a class="dropdown-item" href="#" data-theme="light"><i class="fa-regular fa-brightness"></i>
-                        Light</a>
-                </li>
+                        Light</a></li>
                 <li><a class="dropdown-item" href="#" data-theme="dark"><i class="fa-regular fa-moon-stars"></i>
-                        Dark</a>
-                </li>
+                        Dark</a></li>
                 <li><a class="dropdown-item" href="#" data-theme="system"><i class="fa-regular fa-display"></i>
-                        System</a>
-                </li>
+                        System</a></li>
             </ul>
         </div>
+        <!-- Language Switcher -->
         <div class="dropdown">
             <div class="btn toggle-icon dropdown-toggle" id="languageDropdown" data-bs-toggle="dropdown"
                 aria-expanded="false">
                 <ion-icon name="earth-outline"></ion-icon>
-                <span id="currentLanguage"><img
-                        src="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.4.6/flags/4x3/ir.svg"
-                        alt="{{ __('header.language_persian') }}" style="width:24px; height:24px;"></span>
+                <span id="currentLanguage">
+                    <img src="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.4.6/flags/4x3/{{ app()->getLocale() == 'en' ? 'gb' : 'ir' }}.svg"
+                        alt="{{ app()->getLocale() == 'en' ? __('header.language_english') : __('header.language_persian') }}"
+                        style="width:24px; height:24px;">
+                </span>
             </div>
-
             <ul class="dropdown-menu dropdownLanguageMenuItems" aria-labelledby="languageDropdown">
-                <li><a class="dropdown-item" href="#" data-lang="en"><img
-                            src="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.4.6/flags/4x3/gb.svg"
-                            alt="{{ __('header.language_english') }}" style="width:24px; height:24px;"> English</a></li>
-                <li><a class="dropdown-item" href="#" data-lang="fa"><img
-                            src="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.4.6/flags/4x3/ir.svg"
-                            alt="{{ __('header.language_persian') }}" style="width:24px; height:24px;">
-                        فارسی</a></li>
+                <li>
+                    <a class="dropdown-item" href="#" data-lang="en">
+                        <img src="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.4.6/flags/4x3/gb.svg"
+                            alt="{{ __('header.language_english') }}" style="width:24px; height:24px;"> English
+                    </a>
+                </li>
+                <li>
+                    <a class="dropdown-item" href="#" data-lang="fa">
+                        <img src="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.4.6/flags/4x3/ir.svg"
+                            alt="{{ __('header.language_persian') }}" style="width:24px; height:24px;"> فارسی
+                    </a>
+                </li>
             </ul>
         </div>
     </div>
 
-
+    <!-- Site Container -->
     <div class="site-container">
         <div class="cursor"></div>
-        <!-- Preloader -->
         <div class="preloader"></div>
         <div class="menu-backdrop"></div>
 
@@ -127,27 +121,19 @@
     <script src="/assets/js/modal.js"></script>
     <script src="/assets/js/chart.js"></script>
     <script src="/assets/js/leaflet.js"></script>
-
-
-    <!-- Laravel Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
+
+    <!-- Theme and Language Scripts -->
     <script>
-
+        // Theme Change Functions
         function changeTheme(theme) {
-
-            localStorage.setItem('selectedTheme', theme);
-
-
+            localStorage.setItem('selectedTheme', theme); // Save theme in localStorage
             applyTheme(theme);
         }
 
-
         function applyTheme(theme) {
-
-            document.body.classList.remove('light-mode', 'dark-mode');
-
-
-            const themeButtonIcon = document.querySelector('#dropdownMenuButton i');
+            document.body.classList.remove('light-mode', 'dark-mode'); // Remove existing theme classes
+            const themeButtonIcon = document.querySelector('#dropdownMenuButton i'); // Theme icon
 
             if (theme === 'light') {
                 document.body.classList.add('light-mode');
@@ -155,7 +141,7 @@
             } else if (theme === 'dark') {
                 document.body.classList.add('dark-mode');
                 themeButtonIcon.setAttribute('class', 'fa-regular fa-moon-stars');
-            } else if (theme === 'system') {
+            } else { // System preference
                 const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)').matches;
                 if (prefersDarkScheme) {
                     document.body.classList.add('dark-mode');
@@ -167,103 +153,67 @@
             }
         }
 
+        // Language Change Functions
         function changeLanguage(lang) {
-            localStorage.setItem('selectedLanguage', lang);
-
+            // Update URL to include the selected language
             const currentUrl = new URL(window.location.href);
-            currentUrl.pathname = `/lang/${lang}`;
-            window.location.href = currentUrl.toString();
+            const pathParts = currentUrl.pathname.split('/');
+
+            // Replace the first path segment with the new language or add it if missing
+            if (pathParts[1] === 'en' || pathParts[1] === 'fa') {
+                pathParts[1] = lang;
+            } else {
+                pathParts.unshift(lang);
+            }
+
+            // Redirect to the updated URL
+            const newUrl = pathParts.join('/');
+            window.location.href = `${currentUrl.origin}${newUrl}`;
+        }
+
+        function applyLanguageSettings() {
+            // Load selected language from localStorage
+            const selectedLang = localStorage.getItem('selectedLanguage') || '{{ app()->getLocale() }}';
+
+            // Update the language dropdown to reflect the current language
+            const currentLanguage = document.querySelector('#currentLanguage');
+            currentLanguage.innerHTML = `
+            <img src="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.4.6/flags/4x3/${selectedLang === 'en' ? 'gb' : 'ir'}.svg"
+                 alt="${selectedLang === 'en' ? 'English' : 'فارسی'}" style="width:24px; height:24px;">
+        `;
         }
 
         function loadSettings() {
-            const selectedLang = localStorage.getItem('selectedLanguage') || 'fa';
-            const currentLanguage = document.querySelector('#currentLanguage');
-            const buttonIcon = document.querySelector('#languageDropdown ion-icon');
-
-            currentLanguage.textContent = selectedLang.toUpperCase();
-            buttonIcon.setAttribute('name', selectedLang === 'en' ? 'earth-outline' : 'flag-outline');
-
+            // Apply theme settings
             const selectedTheme = localStorage.getItem('selectedTheme') || 'system';
             applyTheme(selectedTheme);
+
+            // Apply language settings
+            applyLanguageSettings();
         }
 
         document.addEventListener('DOMContentLoaded', () => {
-            loadSettings();
+            loadSettings(); // Load theme and language settings on page load
 
-            document.querySelectorAll('.dropdown-item[data-theme]').forEach(item => {
-                item.addEventListener('click', (event) => {
+            // Theme dropdown event listeners
+            document.querySelectorAll('.dropdownMenuButtonItems .dropdown-item').forEach(item => {
+                item.addEventListener('click', event => {
                     event.preventDefault();
                     const theme = item.getAttribute('data-theme');
                     changeTheme(theme);
                 });
             });
 
+            // Language dropdown event listeners
             document.querySelectorAll('.dropdownLanguageMenuItems .dropdown-item').forEach(item => {
-                item.addEventListener('click', (event) => {
+                item.addEventListener('click', event => {
                     event.preventDefault();
                     const lang = item.getAttribute('data-lang');
+                    localStorage.setItem('selectedLanguage', lang); // Save selected language to localStorage
                     changeLanguage(lang);
                 });
             });
         });
-
-    </script>
-    <!-- Click Tracking Function -->
-    <script>
-        function trackClick(productId) {
-            fetch(`/products/${productId}/click`, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'X-CSRF-TOKEN': '{{ csrf_token() }}'
-                },
-                body: JSON.stringify({})
-            })
-                .then(response => {
-                    if (!response.ok) {
-                        throw new Error('Network response was not ok');
-                    }
-                    return response.json();
-                })
-                .then(data => {
-                    console.log(data.message);
-                })
-                .catch(error => {
-                    console.error('Error tracking click:', error);
-                });
-        }
-    </script>
-    <script>
-        let pageLoadTime = performance.now();
-
-        // When the user leaves the page or closes the tab
-        window.addEventListener('beforeunload', function () {
-            let pageCloseTime = performance.now();
-            let timeSpent = (pageCloseTime - pageLoadTime) / 1000; // Time in seconds
-
-            // Send the time spent to the server using the Fetch API
-            fetch('/track-time-spent', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
-                },
-                body: JSON.stringify({ timeSpent: timeSpent })
-            });
-        });
-    </script>
-    <!-- Social Share Script -->
-    <script>
-        function shareOnSocial(platform, url) {
-            const encodedUrl = encodeURIComponent(url || window.location.href);
-            let shareUrl = '';
-            if (platform === 'twitter') {
-                shareUrl = `https://twitter.com/share?url=${encodedUrl}`;
-            } else if (platform === 'facebook') {
-                shareUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodedUrl}`;
-            }
-            window.open(shareUrl, '_blank');
-        }
     </script>
 
 
