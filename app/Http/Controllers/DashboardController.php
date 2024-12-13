@@ -15,7 +15,8 @@ class DashboardController extends Controller
 {
     public function index()
     {
-        // Fetch products, categories, services, projects, and posts
+        $locale = app()->getLocale(); 
+        // Fetch products, categories, services, projects, and posts$locale = app()->getLocale(); 
         $products = Product::all();
         $categories = Category::all();
         $services = Service::all();
