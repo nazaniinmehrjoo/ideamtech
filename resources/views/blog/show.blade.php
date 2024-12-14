@@ -7,7 +7,7 @@
         <h1><span>{{ $post->title }}</span></h1>
         <div class="bread-crumb">
             <ul class="clearfix">
-                <li><a href="{{ route('home') }}">@lang('blog.home')</a></li>
+                <li><a href="{{ route('home', ['locale' => app()->getLocale()]) }}">@lang('blog.home')</a></li>
                 <li class="current">@lang('blog.blog')</li>
             </ul>
         </div>
@@ -24,7 +24,7 @@
                     <div class="blog-details">
                         <!-- Main Image -->
                         <div class="image-box mb-4">
-                            <img src="{{ asset('storage/' . $post->image) }}" alt="{{ $post->title }}" class="img-fluid rounded">
+                        <img src="{{ asset('storage/' . $post->image) }}" alt="{{ $post->title }}" class="img-fluid rounded">
                         </div>
 
                         <!-- Additional Images Grid -->
@@ -78,7 +78,7 @@
                                 <div class="post">
                                     <div class="inner">
                                         <div class="image">
-                                            <a href="{{ route('blog.show', $latestPost->id) }}">
+                                            <a href="{{ route('blog.show', ['locale' => app()->getLocale(), 'id' => $latestPost->id]) }}">
                                                 <img src="{{ asset('storage/' . $latestPost->image) }}" alt="{{ $latestPost->title }}">
                                             </a>
                                         </div>
@@ -86,7 +86,7 @@
                                             <span>{{ \Carbon\Carbon::parse($latestPost->getRawOriginal('created_at'))->format('d.m.Y') }}</span>
                                         </div>
                                         <div class="text">
-                                            <a href="{{ route('blog.show', $latestPost->id) }}">{{ Str::limit($latestPost->title, 50) }}</a>
+                                            <a href="{{ route('blog.show', ['locale' => app()->getLocale(), 'id' => $latestPost->id]) }}">{{ Str::limit($latestPost->title, 50) }}</a>
                                         </div>
                                     </div>
                                 </div>

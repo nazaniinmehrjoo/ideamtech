@@ -24,13 +24,13 @@ class BlogController extends Controller
 
         return view('blog.blogs', compact('posts'));
     }
-    
+
 
     public function index()
     {
         $locale = app()->getLocale();
         $posts = Post::latest()->paginate(6); // 6 posts per page
-    
+
         // Map translated fields (optional)
         $posts->getCollection()->transform(function ($post) use ($locale) {
             $post->title = $post->getTranslatedtitle($locale);
@@ -38,7 +38,7 @@ class BlogController extends Controller
             $post->category = $post->getTranslatedcategory($locale);
             return $post;
         });
-    
+
         return view('blog.index', compact('posts'));
     }
     public function create()
@@ -77,11 +77,10 @@ class BlogController extends Controller
 
         return redirect()->route('blog.index')->with('success', 'Post created successfully!');
     }
-
-    public function show($id)
+    public function show(Post $post)
     {
         $locale = app()->getLocale();
-        $post = Post::with('images')->findOrFail($id);
+
         $post->title = $post->getTranslatedtitle($locale);
         $post->content = $post->getTranslatedcontent($locale);
         $post->category = $post->getTranslatedcategory($locale);
@@ -98,6 +97,7 @@ class BlogController extends Controller
 
         return view('blog.show', compact('post', 'latestPosts', 'categories'));
     }
+
 
     public function edit($id)
     {
