@@ -57,7 +57,7 @@ Route::group(['prefix' => '{locale}', 'middleware' => 'locale'], function () {
 
     // Blog Routes
     Route::get('/مقالات', [BlogController::class, 'publicIndex'])->name('blog.blogs');
-    Route::get('/مقالات/{id}', [BlogController::class, 'show'])->name('blog.show');
+    Route::get('/مقالات/{post}', [BlogController::class, 'show'])->name('blog.show');
 
     // Product Click Tracking
     Route::post('/products/{product}/click', [ProductController::class, 'trackClick'])->name('products.trackClick');
@@ -94,6 +94,7 @@ Route::group(['prefix' => '{locale}', 'middleware' => 'locale'], function () {
     Route::middleware(['auth', 'isAdmin'])->group(function () {
         // Dashboard
         Route::get('/dashboard', [DashboardController::class, 'showDashboard'])->name('dashboard');
+        Route::resource('categories', CategoryController::class);
 
         // Resource Management
         Route::resources([

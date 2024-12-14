@@ -77,10 +77,9 @@ class BlogController extends Controller
 
         return redirect()->route('blog.index')->with('success', 'Post created successfully!');
     }
-    public function show(Post $post)
+    public function show($locale, Post $post)
     {
         $locale = app()->getLocale();
-
         $post->title = $post->getTranslatedtitle($locale);
         $post->content = $post->getTranslatedcontent($locale);
         $post->category = $post->getTranslatedcategory($locale);
@@ -97,6 +96,7 @@ class BlogController extends Controller
 
         return view('blog.show', compact('post', 'latestPosts', 'categories'));
     }
+
 
 
     public function edit($id)

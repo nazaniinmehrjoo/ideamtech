@@ -23,22 +23,28 @@
                 <div class="content-inner">
                     <div class="blog-details">
                         <!-- Main Image -->
-                        <div class="image-box mb-4">
-                        <img src="{{ asset('storage/' . $post->image) }}" alt="{{ $post->title }}" class="img-fluid rounded">
-                        </div>
+                        @if($post->image)
+                            <div class="image-box mb-4">
+                                <img src="{{ asset('storage/' . $post->image) }}" alt="{{ $post->title }}"
+                                    class="img-fluid rounded">
+                            </div>
+                        @endif
 
                         <!-- Additional Images Grid -->
-                        <div class="image-grid">
-                            <div class="row row-cols-2 row-cols-md-3 g-3">
-                                @foreach($post->images as $image)
-                                    <div class="col">
-                                        <div class="img-container">
-                                            <img src="{{ asset('storage/' . $image->image_path) }}" class="img-fluid rounded shadow-sm" alt="Image">
+                        @if($post->images->isNotEmpty())
+                            <div class="image-grid">
+                                <div class="row row-cols-2 row-cols-md-3 g-3">
+                                    @foreach($post->images as $image)
+                                        <div class="col">
+                                            <div class="img-container">
+                                                <img src="{{ asset('storage/' . $image->image_path) }}"
+                                                    class="img-fluid rounded shadow-sm" alt="Image">
+                                            </div>
                                         </div>
-                                    </div>
-                                @endforeach
+                                    @endforeach
+                                </div>
                             </div>
-                        </div>
+                        @endif
 
                         <!-- Post Content -->
                         <div class="lower mt-4">
@@ -46,7 +52,8 @@
                             <div class="info mb-2">
                                 <div class="cat i-block"><i class="far fa-folder"></i> {{ $post->category }}</div>
                                 <div class="time i-block">
-                                    <i class="far fa-clock"></i> {{ \Carbon\Carbon::parse($post->getRawOriginal('created_at'))->diffForHumans() }}
+                                    <i class="far fa-clock"></i>
+                                    {{ \Carbon\Carbon::parse($post->getRawOriginal('created_at'))->diffForHumans() }}
                                 </div>
                             </div>
                             <div class="text-content text">
@@ -72,31 +79,37 @@
                 <div class="sidebar">
                     <!-- Latest Posts -->
                     <div class="sidebar-widget recent-post">
-                        <div class="sidebar-title"><h5>@lang('blog.latest_posts')</h5></div>
+                        <div class="sidebar-title">
+                            <h5>@lang('blog.latest_posts')</h5>
+                        </div>
                         <div class="posts">
                             @foreach($latestPosts as $latestPost)
                                 <div class="post">
                                     <div class="inner">
                                         <div class="image">
-                                            <a href="{{ route('blog.show', ['locale' => app()->getLocale(), 'id' => $latestPost->id]) }}">
-                                                <img src="{{ asset('storage/' . $latestPost->image) }}" alt="{{ $latestPost->title }}">
+                                            <a
+                                                href="{{ route('blog.show', ['locale' => app()->getLocale(), 'post' => $latestPost->id]) }}">
+                                                <img src="{{ asset('storage/' . $latestPost->image) }}"
+                                                    alt="{{ $latestPost->title }}">
                                             </a>
                                         </div>
                                         <div class="date">
                                             <span>{{ \Carbon\Carbon::parse($latestPost->getRawOriginal('created_at'))->format('d.m.Y') }}</span>
                                         </div>
                                         <div class="text">
-                                            <a href="{{ route('blog.show', ['locale' => app()->getLocale(), 'id' => $latestPost->id]) }}">{{ Str::limit($latestPost->title, 50) }}</a>
+                                            <a
+                                                href="{{ route('blog.show', ['locale' => app()->getLocale(), 'post' => $latestPost->id]) }}">{{ Str::limit($latestPost->title, 50) }}</a>
                                         </div>
                                     </div>
                                 </div>
                             @endforeach
                         </div>
                     </div>
-
                     <!-- Categories -->
                     <div class="sidebar-widget cat-widget">
-                        <div class="sidebar-title"><h5>@lang('blog.categories')</h5></div>
+                        <div class="sidebar-title">
+                            <h5>@lang('blog.categories')</h5>
+                        </div>
                         <div class="categories">
                             <ul>
                                 @foreach($categories as $category)
