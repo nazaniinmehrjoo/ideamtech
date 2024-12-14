@@ -24,7 +24,8 @@
                     <div class="content">
                         <div class="inner">
                             <div class="cat">
-                                <a href="خشک-کن/محصولات">{{ __('index.slider.slide_1.cat') }}</a>
+                                <a
+                                    href="{{ route('products.khoskkon', ['locale' => app()->getLocale()]) }}">{{ __('index.slider.slide_1.cat') }}</a>
                             </div>
                             <h4><span>{{ __('index.slider.slide_1.title') }}</span></h4>
                         </div>
@@ -78,7 +79,8 @@
                     <div class="content">
                         <div class="inner">
                             <div class="cat">
-                                <a href="/کوره_پخت/محصولات">{{ __('index.slider.slide_4.cat') }}</a>
+                                <a
+                                    href="{{ route('products.korepokht', ['locale' => app()->getLocale()]) }}">{{ __('index.slider.slide_4.cat') }}</a>
                             </div>
                             <h3><span>{{ __('index.slider.slide_4.title') }}</span></h3>
                         </div>
@@ -97,7 +99,8 @@
                     <div class="content">
                         <div class="inner">
                             <div class="cat">
-                                <a href="/درباره-ما">{{ __('index.slider.slide_5.cat') }}</a>
+                                <a
+                                    href="{{ route('about', ['locale' => app()->getLocale()]) }}">{{ __('index.slider.slide_5.cat') }}</a>
                             </div>
                             <span class="sliderSesc">{{ __('index.slider.slide_5.desc') }}</span>
                         </div>
@@ -129,7 +132,8 @@
                                 <p>{{ __('index.services.customer_satisfaction.description') }}</p>
                             </div>
                             <div class="link-box">
-                                <a href="/مشتریان-ما"><span class="far fa-angle-right"></span></a>
+                                <a href="{{ route('projects.projects', ['locale' => app()->getLocale()]) }}"><span
+                                        class="far fa-angle-right"></span></a>
                             </div>
                         </div>
                     </div>
@@ -144,7 +148,8 @@
                                 <p>{{ __('index.services.news_and_events.description') }}</p>
                             </div>
                             <div class="link-box">
-                                <a href="/مقالات"><span class="far fa-angle-right"></span></a>
+                                <a href="{{ route('blog.blogs', ['locale' => app()->getLocale()]) }}"><span
+                                        class="far fa-angle-right"></span></a>
                             </div>
                         </div>
                     </div>
@@ -159,7 +164,8 @@
                                 <p>{{ __('index.services.distinct.description') }}</p>
                             </div>
                             <div class="link-box">
-                                <a href="/متمایزازدیگران"><span class="far fa-angle-right"></span></a>
+                                <a href="{{ route('distinct', ['locale' => app()->getLocale()]) }}"><span
+                                        class="far fa-angle-right"></span></a>
                             </div>
                         </div>
                     </div>
@@ -174,7 +180,8 @@
                                 <p>{{ __('index.services.simulator.description') }}</p>
                             </div>
                             <div class="link-box">
-                                <a href="/شبیه-ساز"><span class="far fa-angle-right"></span></a>
+                                <a href="{{ route('simulator', ['locale' => app()->getLocale()]) }}"><span
+                                        class="far fa-angle-right"></span></a>
                             </div>
                         </div>
                     </div>

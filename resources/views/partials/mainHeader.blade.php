@@ -50,17 +50,7 @@
                     <!-- Main Nav -->
                     <div class="main-nav">
                         <ul class="navigation">
-                            <!-- Language Switcher -->
-                            <div class="header__language">
-                                <a href="{{ route('home', ['locale' => 'en']) }}">
-                                    <img src="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.4.6/flags/4x3/gb.svg" alt="{{ __('header.language_english') }}" style="width:24px; height:24px;">
-                                </a>
-                                <a href="{{ route('home', ['locale' => 'fa']) }}">
-                                    <img src="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.4.6/flags/4x3/ir.svg" alt="{{ __('header.language_persian') }}" style="width:24px; height:24px;">
-                                </a>
-                            </div>
-
-                            <!-- Divider -->
+        
                             <div class="divider"></div>
 
                             <!-- Main Navigation Links -->
@@ -74,8 +64,8 @@
                                 <ul>
                                     <li><a href="{{ route('products.khoskkon', ['locale' => app()->getLocale()]) }}">{{ __('header.projects_dryer') }}</a></li>
                                     <li><a href="{{ route('products.korepokht', ['locale' => app()->getLocale()]) }}">{{ __('header.projects_kiln') }}</a></li>
-                                    <li><a href="{{ route('home', ['locale' => app()->getLocale()]) }}">{{ __('header.projects_full_line') }}</a></li>
-                                    <li><a href="{{ route('home', ['locale' => app()->getLocale()]) }}">{{ __('header.project-list') }}</a></li>
+                                    <li><a href="{{ route('products.turnkeysolution', ['locale' => app()->getLocale()]) }}">{{ __('header.projects_full_line') }}</a></li>
+                                    <li><a href="{{ route('projects.projects', ['locale' => app()->getLocale()]) }}">{{ __('header.project-list') }}</a></li>
                                 </ul>
                             </li>
                             <li class="dropdown"><a href="#">{{ __('header.services') }}</a>

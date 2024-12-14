@@ -39,9 +39,14 @@ class LoginController extends Controller
     }
     protected function authenticated($request, $user)
     {
+        $locale = app()->getLocale(); 
+
         if ($user->is_admin) {
-            return redirect('/dashboard');
+            return redirect("/{$locale}/dashboard");
         }
-        return redirect('/');
+
+        return redirect("/{$locale}/");
     }
+
+
 }

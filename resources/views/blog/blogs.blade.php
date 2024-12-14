@@ -11,7 +11,9 @@
                 <h1><span>@lang('blog.news_and_events')</span></h1>
                 <div class="bread-crumb">
                     <ul class="clearfix">
-                        <li><a href="{{ route('home') }}">@lang('blog.home')</a></li>
+                        <li>
+                            <a href="{{ route('home', ['locale' => app()->getLocale()]) }}">@lang('blog.home')</a>
+                        </li>
                         <li class="current">@lang('blog.news_and_events')</li>
                     </ul>
                 </div>
@@ -29,7 +31,7 @@
                                 <div class="inner-box d-flex custom-bg-color">
                                     <!-- Image on the left side with category and date under it -->
                                     <div class="custom-image-container">
-                                        <a href="{{ route('blog.show', $post->id) }}">
+                                        <a href="{{ route('blog.show', ['locale' => app()->getLocale(), 'id' => $post->id]) }}">
                                             <img src="{{ asset('storage/' . $post->image) }}" alt="{{ $post->title }}">
                                         </a>
                                         <div class="image-info">
@@ -44,13 +46,13 @@
                                     <!-- Description on the right side -->
                                     <div class="content-container">
                                         <h4>
-                                            <a href="{{ route('blog.show', $post->id) }}">
+                                            <a href="{{ route('blog.show', ['locale' => app()->getLocale(), 'id' => $post->id]) }}">
                                                 {{ $post->title }}
                                             </a>
                                         </h4>
                                         <p>{{ Str::limit($post->content, 150) }}</p>
                                         <div class="link-box">
-                                            <a href="{{ route('blog.show', $post->id) }}" class="theme-btn">
+                                            <a href="{{ route('blog.show', ['locale' => app()->getLocale(), 'id' => $post->id]) }}" class="theme-btn">
                                                 @lang('blog.read_more') <i class="far fa-long-arrow-alt-right"></i>
                                             </a>
                                         </div>
@@ -63,7 +65,7 @@
 
                 <!-- Pagination -->
                 <div class="styled-pagination">
-                    {{ $posts->links() }}
+                    {{ $posts->withQueryString()->links() }}
                 </div>
             </div>
         </section>
@@ -144,6 +146,5 @@
 .link-box a.theme-btn:hover {
     background-color: #555555; 
 }
-
 </style>
 @endsection
