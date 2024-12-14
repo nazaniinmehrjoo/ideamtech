@@ -2,45 +2,46 @@
 return [
     'alt_text' => 'Borna Gostar',
     'title' => 'About Borna Gostar',
-    'paragraph_1' => 'Since 2006, Novavaran Borna Gostar Parsi, leveraging skilled specialists and investing in research and development, started its operations as a machinery manufacturer. During this time, it has successfully innovated and created new and distinctive products in the brick industry. These innovations have focused on localizing and optimizing brick production lines. Borna Gostar also operates in other industries such as robotics, copper, steel, and glass wool. The company provides diverse services in consulting, design, construction, and implementation for establishing brick manufacturing plants and similar products, addressing customer needs from feasibility studies to maintenance. Special attention to energy optimization and the development of brick dryer designs to reduce gas and electricity consumption are among the organizations competitive advantages.',
-    'paragraph_2' => 'Another key strength of the company is providing diverse services in areas such as consulting, design, construction, and implementation for establishing brick manufacturing plants and similar products like glass wool production lines, cement blocks, tiles, and ceramics. From economic and technical feasibility studies, site selection, production line establishment, and optimization to maintenance, Novavaran Borna Gostar Parsian remains committed to supporting industry professionals from design to execution.',
-    'list_item_1' => 'Leader in designing brick manufacturing machinery',
-    'list_item_2' => 'Innovator in modern technology',
-    'list_item_3' => 'Consulting on brick factory construction',
+    'paragraph_1' => 'Barna Gostar Parsi Innovative Company has been able to localize and optimize the equipment of the brick production line since 2005, by using capable experts and investing in research and development.
+    This company meets to the various requests of customers by providing various services in consulting, designing, manufacturing, installation and implementation in the field of turnkey brick factories and similar products, from the planning stages to maintenance. Paying special attention to optimizing energy consumption and developing brick dryer designs to reduce gas and electricity consumption is one of the organization\'s competitive advantages.',
+    'paragraph_2' => 'One of the most important factors that have made this company capable is the provision of various services in various sectors such as consulting, designing, manufacturing and operation in the field of installation a factory for the production of bricks and similar products such as production lines of glass wool, cement blocks, tiles and ceramics from the phase of financial estimation and technical (explanatory plan), Finding the right place, production line construction, modification and optimization of existing lines and their maintenance. The innovators of Borna Gostar Parsi co. will be committed with respectable artisans from design up to execution.',
+    'list_item_1' => 'Leader in design & manufacturing of brick machineries',
+    'list_item_2' => 'Leader in the world\'s modern technology',
+    'list_item_3' => 'Consulting in manufacturing of brick plants',
     'list_item_4' => 'Commitment to after-sales services',
 
     'certificates' => [
-        'subtitle' => 'Certificates and Patents',
-        'title' => 'Top Certificates',
+        'subtitle' => 'Certificates and patents',
+        'title' => 'Top certificates',
         'items' => [
             [
-                'title' => 'Fan Blade Design and Manufacture',
+                'title' => 'Designing and manufacturing of fan blades',
                 'code' => '024554 A/89',
             ],
             [
-                'title' => 'Mechanized Device',
+                'title' => 'Mechanized machine',
                 'code' => '029235 A/89',
             ],
             [
-                'title' => 'Brick Loading Robot',
+                'title' => 'Clay loading robot',
                 'code' => '024554 A/89',
             ],
         ],
     ],
 
     'services_section' => [
-        'title' => 'Our Stories and Achievements',
+        'title' => 'Our histories and achievements',
         'customer_satisfaction' => [
-            'title' => 'Customer Satisfaction',
+            'title' => 'Customer satisfaction',
             'alt_text' => 'Customer Image',
-            'description' => 'Customer satisfaction is our priority. BornaGostar’s team provides professional services and continuous support to ensure a reliable and satisfying experience for you.',
+            'description' => 'Customer satisfaction is our priority. The Borna Gostar Parsi co. team provides you with a reliable and satisfactory experience with professional services and continuous support.',
             'link_url' => '/our-customers',
         ],
     ],
 
     'services_section_two' => [
-        'subtitle' => 'From Mission and Values to Catalogs and Technical Approvals',
-        'title' => 'Borna Gostar Achievements and Values',
+        'subtitle' => 'From mission and valus up to catalogue and technical approvals',
+        'title' => 'Borna Gostar\'s achievements and values',
         'tabs' => [
             'tab-1' => [
                 'title' => 'Catalog',
@@ -65,12 +66,12 @@ return [
         ],
         'accordions' => [
             [
-                'title' => 'Technical Expertise',
+                'title' => 'Acquisition of technical knowledge',
                 'icon' => 'fa-regular fa-trophy',
                 'items' => [
-                    'Acquiring technical knowledge of various dryers.',
-                    'Acquiring technical knowledge for building industrial robots.',
-                    'Designing axial fans with the highest efficiency for tunnel dryers.',
+                    'Acquiring technical knowledge of all kind of dryer types.',
+                    'Acquiring  technical knowledge of manufacturing of all kind of industrial robots.',
+                    'Acquiring technical knowledge and manufacturing an axial fan with the highest efficiency for use in the dryer tunnel ',
                     'Modeling brick manufacturing factories before construction.',
                     'Providing design, consulting, and optimization for brick production lines.',
                 ],

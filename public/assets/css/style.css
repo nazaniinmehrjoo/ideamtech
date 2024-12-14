@@ -8684,6 +8684,7 @@ body.light-mode .graphics::before{
     position: absolute;
     right: 64px;
     z-index: 1050;
+    margin-top: 45px;
     font-size: 25px;
 }
 
@@ -8716,6 +8717,7 @@ body.light-mode .graphics::before{
     right: 120px;
     z-index: 1050;
     font-size: 20px;
+    margin-top: 45px;
 }
 
 .dropdownLanguageMenuItems .dropdown-item {
