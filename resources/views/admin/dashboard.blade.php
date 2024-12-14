@@ -14,69 +14,66 @@
   <!-- Dashboard Grid -->
   <div class="dashboard-grid">
 
-    <!-- Minimal Card Template -->
     @php
-    $locale = app()->getLocale(); // Get the current locale
-
     $sections = [
       [
       'icon' => 'fa-tags',
       'title' => __('dashboard.sections.categories'),
-      'route_create' => route('categories.create', ['locale' => $locale]),
-      'route_index' => route('categories.index', ['locale' => $locale]),
+      'route_create' => 'categories.create', // Route name only
+      'route_index' => 'categories.index',  // Route name only
       ],
       [
       'icon' => 'fa-box',
       'title' => __('dashboard.sections.products'),
-      'route_create' => route('products.create', ['locale' => $locale]),
-      'route_index' => route('products.index', ['locale' => $locale]),
+      'route_create' => 'products.create',
+      'route_index' => 'products.index',
       ],
       [
       'icon' => 'fa-concierge-bell',
       'title' => __('dashboard.sections.services'),
-      'route_create' => route('services.create', ['locale' => $locale]),
-      'route_index' => route('services.index', ['locale' => $locale]),
+      'route_create' => 'services.create',
+      'route_index' => 'services.index',
       ],
       [
       'icon' => 'fa-project-diagram',
       'title' => __('dashboard.sections.projects'),
-      'route_create' => route('projects.create', ['locale' => $locale]),
-      'route_index' => route('projects.index', ['locale' => $locale]),
+      'route_create' => 'projects.create',
+      'route_index' => 'projects.index',
       ],
       [
       'icon' => 'fa-blog',
       'title' => __('dashboard.sections.articles'),
-      'route_create' => route('blog.create', ['locale' => $locale]),
-      'route_index' => route('blog.index', ['locale' => $locale]),
+      'route_create' => 'blog.create',
+      'route_index' => 'blog.index',
       ],
       [
       'icon' => 'fa-user-tie',
       'title' => __('dashboard.sections.employment_forms'),
-      'route_index' => route('employment-forms.index', ['locale' => $locale]),
+      'route_index' => 'employment-forms.index',
       ],
       [
       'icon' => 'fa-handshake',
       'title' => __('dashboard.sections.cooperation_forms'),
-      'route_index' => route('cooperations.index', ['locale' => $locale]),
+      'route_index' => 'cooperations.index',
       ],
     ];
-  @endphp
+    @endphp
 
     @foreach ($sections as $section)
     <div class="adminDashboardBoxes service-block col-xl-12 col-lg-12 col-md-12 col-sm-12">
       <div class="inner-box">
       <div class="inner">
-        <div class="icon-box"> <span class="fas {{ $section['icon'] }}"></span></div>
+        <div class="icon-box"><span class="fas {{ $section['icon'] }}"></span></div>
         <h5>{{ $section['title'] }}</h5>
         <div class="action-btns d-flex justify-content-center gap-2">
         @isset($section['route_create'])
-      <a href="{{ route($section['route_create']) }}" class="btn dashboardBtn btn-sm"
-        title="{{ __('dashboard.create_new') }}">
+      <a href="{{ route($section['route_create'], ['locale' => app()->getLocale()]) }}"
+        class="btn dashboardBtn btn-sm" title="{{ __('dashboard.create_new') }}">
         <i class="fas fa-plus"></i>
       </a>
     @endisset
-        <a href="{{ route($section['route_index']) }}" class="btn dashboardBtn btn-sm"
-          title="{{ __('dashboard.view') }}">
+        <a href="{{ route($section['route_index'], ['locale' => app()->getLocale()]) }}"
+          class="btn dashboardBtn btn-sm" title="{{ __('dashboard.view') }}">
           <i class="fas fa-eye"></i>
         </a>
         </div>
