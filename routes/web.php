@@ -17,7 +17,7 @@ use Illuminate\Support\Facades\Route;
 /*
 |---------------------------------------------------------------------------
 | Web Routes
-|--------------------------------------------------------------------------
+|---------------------------------------------------------------------------
 | Here is where you can register web routes for your application. These
 | routes are loaded by the RouteServiceProvider within a group which
 | contains the "web" middleware group. Now create something great!
@@ -81,6 +81,11 @@ Route::group(['prefix' => '{locale}', 'middleware' => 'locale'], function () {
     Route::get('/خشک-کن/محصولات', [ProductController::class, 'khoskkon'])->name('products.khoskkon');
     Route::get('/کوره_پخت/محصولات', [ProductController::class, 'korepokht'])->name('products.korepokht');
 
+    // Categories Resource Route
+    Route::resource('categories', CategoryController::class)->parameters([
+        'categories' => 'category',
+    ]);
+
     // Employment and Cooperation Forms
     Route::get('cooperations/create', [CooperationController::class, 'create'])->name('cooperations.create');
     Route::post('cooperations', [CooperationController::class, 'store'])->name('cooperations.store');
@@ -94,12 +99,10 @@ Route::group(['prefix' => '{locale}', 'middleware' => 'locale'], function () {
     Route::middleware(['auth', 'isAdmin'])->group(function () {
         // Dashboard
         Route::get('/dashboard', [DashboardController::class, 'showDashboard'])->name('dashboard');
-        Route::resource('categories', CategoryController::class);
 
         // Resource Management
         Route::resources([
             'products' => ProductController::class,
-            'categories' => CategoryController::class,
             'services' => ServiceController::class,
             'projects' => ProjectController::class,
             'customer' => CustomerFormController::class,
@@ -126,6 +129,8 @@ Route::group(['prefix' => '{locale}', 'middleware' => 'locale'], function () {
 
     // Fallback Route for Undefined Routes
     Route::fallback(function () {
-        return view('404');
+        $locale = request()->route('locale') ?? app()->getLocale();
+        return redirect()->route('notfound', ['locale' => $locale]);
     });
+    
 });
