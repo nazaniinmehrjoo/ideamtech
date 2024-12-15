@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 
 class ServiceController extends Controller
 {
-    public function index(Request $request)
+    public function index(Request $request, $locale)
     {
         $locale = app()->getLocale();
         $validPages = [
@@ -34,7 +34,7 @@ class ServiceController extends Controller
             return $service;
         });
 
-        return view('services.index', compact('services', 'pageDisplayName'));
+        return view('services.index', compact('locale', 'services', 'pageDisplayName'));
     }
 
     public function create()
@@ -77,10 +77,10 @@ class ServiceController extends Controller
             'show_on_after_sales' => $request->page_name == 'after_sales' ? 1 : 0,
         ]);
 
-        return redirect()->route('services.index')->with('success', 'Service created successfully.');
+        return redirect()->route('services.index', ['locale' => app()->getLocale()])->with('success', 'Service created successfully.');
     }
 
-    public function update(Request $request, Service $service)
+    public function update(Request $request, $locale, Service $service)
     {
         $locale = app()->getLocale();
 
@@ -117,21 +117,19 @@ class ServiceController extends Controller
             'show_on_after_sales' => $request->page_name == 'after_sales' ? 1 : 0,
         ]);
 
-        return redirect()->route('services.index')->with('success', 'Service updated successfully.');
+        return redirect()->route('services.index', ['locale' => $locale])->with('success', 'Service updated successfully.');
     }
 
-    public function edit(Service $service)
+    public function edit($locale, Service $service)
     {
         return view('services.edit', compact('service'));
     }
 
 
-
-
-    public function destroy(Service $service)
+    public function destroy($locale, Service $service)
     {
         $service->delete();
-        return redirect()->route('services.index')->with('success', 'Service deleted successfully.');
+        return redirect()->route('services.index', ['locale' => app()->getLocale()])->with('success', 'Service deleted successfully.');
     }
 
     public function consulting()
@@ -144,12 +142,12 @@ class ServiceController extends Controller
     {
         $locale = app()->getLocale(); // Get the current locale
         $services = Service::where('show_on_parts_repairs', true)->get()->map(function ($service) use ($locale) {
-            $service->title = json_decode($service->title, true)[$locale] ?? ''; 
-            $service->category = json_decode($service->category, true)[$locale] ?? ''; 
-            $service->content = json_decode($service->content, true)[$locale] ?? ''; 
+            $service->title = json_decode($service->title, true)[$locale] ?? '';
+            $service->category = json_decode($service->category, true)[$locale] ?? '';
+            $service->content = json_decode($service->content, true)[$locale] ?? '';
             return $service;
         });
-    
+
         return view('services.taminghatat', compact('services'));
     }
     public function engineering()
@@ -179,7 +177,7 @@ class ServiceController extends Controller
 
     public function afterSales()
     {
-        $locale = app()->getLocale(); 
+        $locale = app()->getLocale();
         $services = Service::where('show_on_after_sales', true)->get()->map(function ($service) use ($locale) {
             $service->title = json_decode($service->title, true)[$locale] ?? '';
             $service->content = json_decode($service->content, true)[$locale] ?? '';

@@ -21,9 +21,11 @@
             </ul>
         </div>
     @endif
+
+    {{-- Button to create a new service --}}
     <div class="text-center mb-4">
-        <a href="{{ route('services.create') }}" class="btn create-object-btn btn-lg d-inline-block"
-            style="font-size: 1.25rem; padding: 0.5rem 2rem;">
+        <a href="{{ route('services.create', ['locale' => app()->getLocale()]) }}"
+            class="btn create-object-btn btn-lg d-inline-block" style="font-size: 1.25rem; padding: 0.5rem 2rem;">
             ایجاد سرویس جدید
         </a>
     </div>
@@ -37,23 +39,21 @@
             'نصب و راه اندازی' => 'show_on_installation',
             'خدمات پس از فروش' => 'show_on_after_sales',
         ];
+        $currentPageName = request('page_name', 'all_services');
     @endphp
 
     <!-- Tabs Navigation -->
     <ul class="nav nav-tabs" role="tablist">
-        @php
-            $currentPageName = request('page_name', 'all_services');
-        @endphp
         <li class="nav-item">
             <a class="nav-link {{ $currentPageName == 'all_services' ? 'active' : '' }}"
-                href="{{ route('services.index', ['page_name' => 'all_services']) }}">
+                href="{{ route('services.index', ['locale' => app()->getLocale(), 'page_name' => 'all_services']) }}">
                 همه سرویس‌ها
             </a>
         </li>
         @foreach($categories as $categoryName => $columnName)
             <li class="nav-item">
                 <a class="nav-link {{ $currentPageName == \Str::slug($categoryName) ? 'active' : '' }}"
-                    href="{{ route('services.index', ['page_name' => \Str::slug($categoryName)]) }}">
+                    href="{{ route('services.index', ['locale' => app()->getLocale(), 'page_name' => \Str::slug($categoryName)]) }}">
                     {{ $categoryName }}
                 </a>
             </li>
@@ -62,6 +62,7 @@
 
     <!-- Tab Content -->
     <div class="tab-content mt-4">
+        {{-- All Services --}}
         @if ($currentPageName == 'all_services')
             <div class="tab-pane fade show active" id="all_services" role="tabpanel">
                 <div class="category-section mb-5 p-4 border rounded shadow bg-dark">
@@ -84,10 +85,13 @@
                                         </div>
                                     </div>
                                     <div class="card-footer text-center">
-                                        <a href="{{ route('services.edit', $service->id) }}"
-                                            class="btn btn-warning btn-sm">ویرایش</a>
-                                        <form action="{{ route('services.destroy', $service->id) }}" method="POST"
-                                            style="display:inline-block;">
+                                        <a href="{{ route('services.edit', ['locale' => app()->getLocale(), 'service' => $service->id]) }}"
+                                            class="btn btn-warning btn-sm">
+                                            ویرایش
+                                        </a>
+                                        <form
+                                            action="{{ route('services.destroy', ['locale' => app()->getLocale(), 'service' => $service->id]) }}"
+                                            method="POST" style="display:inline-block;">
                                             @csrf
                                             @method('DELETE')
                                             <button type="submit" class="btn btn-danger btn-sm">حذف</button>
@@ -103,6 +107,7 @@
             </div>
         @endif
 
+        {{-- Category Specific Services --}}
         @foreach($categories as $categoryName => $columnName)
             <div class="tab-pane fade {{ $currentPageName == \Str::slug($categoryName) ? 'show active' : '' }}"
                 id="{{ \Str::slug($categoryName) }}" role="tabpanel">
@@ -126,10 +131,13 @@
                                         </div>
                                     </div>
                                     <div class="card-footer text-center">
-                                        <a href="{{ route('services.edit', $service->id) }}"
-                                            class="btn btn-warning btn-sm">ویرایش</a>
-                                        <form action="{{ route('services.destroy', $service->id) }}" method="POST"
-                                            style="display:inline-block;">
+                                        <a href="{{ route('services.edit', ['locale' => app()->getLocale(), 'service' => $service->id]) }}"
+                                            class="btn btn-warning btn-sm">
+                                            ویرایش
+                                        </a>
+                                        <form
+                                            action="{{ route('services.destroy', ['locale' => app()->getLocale(), 'service' => $service->id]) }}"
+                                            method="POST" style="display:inline-block;">
                                             @csrf
                                             @method('DELETE')
                                             <button type="submit" class="btn btn-danger btn-sm">حذف</button>
@@ -145,6 +153,5 @@
             </div>
         @endforeach
     </div>
-
 </div>
 @endsection
