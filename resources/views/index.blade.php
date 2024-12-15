@@ -274,13 +274,9 @@
                                 </div>
                                 <div class="text-col col-lg-7 col-md-7 col-sm-6">
                                     <div class="text purposeContent">
-                                        <p>
-                                            <span
-                                                class="purposeText">{{ __('index.services_two.tabs.values.content.goals') }}</span>
+                                        <p class="">{{ __('index.services_two.tabs.values.content.goals') }}
                                         </p>
-                                        <p>
-                                            <span
-                                                class="purposeText">{{ __('index.services_two.tabs.values.content.beliefs') }}</span>
+                                        <p class="">{{ __('index.services_two.tabs.values.content.beliefs') }}
                                         </p>
                                     </div>
                                 </div>
