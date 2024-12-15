@@ -143,6 +143,19 @@
         if (labels.length && datasets.length) {
             const ctx = document.getElementById('radarChart').getContext('2d');
 
+            const getColors = () => {
+                const isLightMode = document.body.classList.contains('light-mode');
+                return {
+                    tickColor: isLightMode ? '#333333' : '#ffffff',
+                    gridColor: isLightMode ? 'rgba(0, 0, 0, 0.2)' : 'rgba(255, 255, 255, 0.2)',
+                    angleLineColor: isLightMode ? 'rgba(0, 0, 0, 0.5)' : 'rgba(255, 255, 255, 0.5)',
+                    pointLabelColor: isLightMode ? '#333333' : '#ffffff',
+                    legendLabelColor: isLightMode ? '#333333' : '#ffffff',
+                };
+            };
+
+            const colors = getColors();
+
             const chartOptions = {
                 type: 'radar',
                 data: {
@@ -154,20 +167,20 @@
                         r: {
                             beginAtZero: true,
                             ticks: {
-                                color: '#ffffff',
+                                color: colors.tickColor,
                                 backdropColor: 'transparent',
                                 stepSize: 5000,
                                 max: 20000,
                                 maxTicksLimit: 5,
                             },
                             grid: {
-                                color: 'rgba(255, 255, 255, 0.2)',
+                                color: colors.gridColor,
                             },
                             angleLines: {
-                                color: 'rgba(255, 255, 255, 0.5)',
+                                color: colors.angleLineColor,
                             },
                             pointLabels: {
-                                color: '#ffffff',
+                                color: colors.pointLabelColor,
                                 font: { size: 10 },
                             },
                             pointRadius: 4,
@@ -178,7 +191,7 @@
                             display: true,
                             position: 'right',
                             labels: {
-                                color: '#ffffff',
+                                color: colors.legendLabelColor,
                                 font: { size: 14 },
                             },
                         },
@@ -186,11 +199,29 @@
                 },
             };
 
-            new Chart(ctx, chartOptions);
+            const radarChart = new Chart(ctx, chartOptions);
+
+            const observer = new MutationObserver(() => {
+                const updatedColors = getColors(); 
+
+                radarChart.options.scales.r.ticks.color = updatedColors.tickColor;
+                radarChart.options.scales.r.grid.color = updatedColors.gridColor;
+                radarChart.options.scales.r.angleLines.color = updatedColors.angleLineColor;
+                radarChart.options.scales.r.pointLabels.color = updatedColors.pointLabelColor;
+                radarChart.options.plugins.legend.labels.color = updatedColors.legendLabelColor;
+
+                radarChart.update();
+            });
+
+            observer.observe(document.body, {
+                attributes: true,
+                attributeFilter: ['class'], 
+            });
         } else {
             console.error("Chart data is missing or empty.");
         }
     });
 </script>
+
 
 @endsection
