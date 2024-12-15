@@ -14,7 +14,11 @@
                 <div class="card-header text-center">{{ __('productEdit.edit_product') }}</div>
 
                 <div class="card-body">
-                    <form action="{{ route('products.update', $product->id) }}" method="POST" enctype="multipart/form-data" style="direction: rtl;">
+                    <!-- Form -->
+                    <form action="{{ route('products.update', ['locale' => app()->getLocale(), 'product' => $product->id]) }}" 
+                          method="POST" 
+                          enctype="multipart/form-data" 
+                          style="direction: rtl;">
                         @csrf
                         @method('PUT')
 
@@ -115,6 +119,9 @@
                                 @error('image')
                                     <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>
                                 @enderror
+                                @if($product->image)
+                                    <img src="{{ asset('storage/' . $product->image) }}" alt="Product Image" class="img-thumbnail mt-2" style="max-width: 200px;">
+                                @endif
                             </div>
                         </div>
 

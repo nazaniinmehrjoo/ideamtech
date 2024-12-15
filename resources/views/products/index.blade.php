@@ -12,7 +12,7 @@
     @endif
 
     <!-- Filter Section -->
-    <form method="GET" action="{{ route('products.index') }}" class="row g-3 align-items-center mb-5">
+    <form method="GET" action="{{ route('products.index', ['locale' => app()->getLocale()]) }}" class="row g-3 align-items-center mb-5">
         <div class="col-md-4">
             <label for="page_name" class="form-label">صفحه</label>
             <select name="page_name" id="page_name" class="form-select">
@@ -48,7 +48,10 @@
     <ul class="nav nav-tabs mb-4" role="tablist">
         @foreach($products as $pageName => $pageProducts)
             <li class="nav-item">
-                <a class="nav-link {{ $selectedPage == $pageName ? 'active' : '' }}" data-bs-toggle="tab" href="#{{ Str::slug($pageName) }}" role="tab">
+                <a class="nav-link {{ $selectedPage == $pageName ? 'active' : '' }}" 
+                   data-bs-toggle="tab" 
+                   href="#{{ Str::slug($pageName) }}" 
+                   role="tab">
                     {{ __("pages.$pageName") }}
                 </a>
             </li>
@@ -78,13 +81,17 @@
 
                                     <!-- Action Buttons -->
                                     <div class="card-footer bg-light d-flex justify-content-around">
-                                        <a href="{{ route('products.show', $product->id) }}" class="btn btn-sm btn-info">
+                                        <a href="{{ route('products.show', ['locale' => app()->getLocale(), 'product' => $product->id]) }}" 
+                                           class="btn btn-sm btn-info">
                                             <i class="bi bi-eye"></i> مشاهده
                                         </a>
-                                        <a href="{{ route('products.edit', $product->id) }}" class="btn btn-sm btn-warning">
+                                        <a href="{{ route('products.edit', ['locale' => app()->getLocale(), 'product' => $product->id]) }}" 
+                                           class="btn btn-sm btn-warning">
                                             <i class="bi bi-pencil"></i> ویرایش
                                         </a>
-                                        <form action="{{ route('products.destroy', $product->id) }}" method="POST" onsubmit="return confirm('آیا مطمئن هستید که می‌خواهید این محصول را حذف کنید؟');">
+                                        <form action="{{ route('products.destroy', ['locale' => app()->getLocale(), 'product' => $product->id]) }}" 
+                                              method="POST" 
+                                              onsubmit="return confirm('آیا مطمئن هستید که می‌خواهید این محصول را حذف کنید؟');">
                                             @csrf
                                             @method('DELETE')
                                             <button type="submit" class="btn btn-sm btn-danger">

@@ -23,29 +23,19 @@
 
                 <!-- Button to create a new category -->
                 <div class="text-center mb-4">
-                    <a href="{{ route('categories.create') }}" class="theme-btn btn-style-two">ایجاد دسته بندی جدید</a>
+                    <a href="{{ route('categories.create', ['locale' => app()->getLocale()]) }}" class="theme-btn btn-style-two">ایجاد دسته بندی جدید</a>
                 </div>
 
                 <!-- Tabs for Switching Between Categories -->
                 <ul class="nav nav-tabs" role="tablist">
-                    <li class="nav-item">
-                        <a class="nav-link {{ $filter === 'khoskkon' ? 'active' : '' }}"
-                            href="{{ route('categories.index', ['filter' => 'khoskkon']) }}">خشک کن</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link {{ $filter === 'korepokht' ? 'active' : '' }}"
-                            href="{{ route('categories.index', ['filter' => 'korepokht']) }}">کوره پخت</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link {{ $filter === 'mashinAlatShekldehi' ? 'active' : '' }}"
-                            href="{{ route('categories.index', ['filter' => 'mashinAlatShekldehi']) }}">ماشین آلات شکل
-                            دهی</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link {{ $filter === 'mashinalatvatajhizat' ? 'active' : '' }}"
-                            href="{{ route('categories.index', ['filter' => 'mashinalatvatajhizat']) }}">ماشین آلات و
-                            تجهیزات</a>
-                    </li>
+                    @foreach($pages as $page)
+                        <li class="nav-item">
+                            <a class="nav-link {{ $filter === $page ? 'active' : '' }}"
+                                href="{{ route('categories.index', ['locale' => app()->getLocale(), 'filter' => $page]) }}">
+                                {{ __('pages.' . $page) }}
+                            </a>
+                        </li>
+                    @endforeach
                 </ul>
 
                 <!-- Tab Content -->
@@ -71,9 +61,9 @@
                                                 {{ $category->getTranslatedName() }}
                                             </h5>
                                             <div class="mt-auto text-end">
-                                                <a href="{{ route('categories.edit', $category->id) }}"
+                                                <a href="{{ route('categories.edit', ['locale' => app()->getLocale(), 'category' => $category->id]) }}"
                                                     class="btn btn-warning btn-sm">ویرایش</a>
-                                                <form action="{{ route('categories.destroy', $category->id) }}" method="POST"
+                                                <form action="{{ route('categories.destroy', ['locale' => app()->getLocale(), 'category' => $category->id]) }}" method="POST"
                                                     class="d-inline-block"
                                                     onsubmit="return confirm('آیا مطمئن هستید که می‌خواهید این دسته بندی را حذف کنید؟');">
                                                     @csrf
@@ -86,7 +76,7 @@
                                 </div>
                             @endforeach
                         @else
-                            <p class="text-center">هیچ دسته‌بندی‌ای برای {{ $filter }} موجود نیست.</p>
+                            <p class="text-center">هیچ دسته‌بندی‌ای برای {{ __('pages.' . $filter) }} موجود نیست.</p>
                         @endif
                     </div>
                 </div>
@@ -98,12 +88,8 @@
 @if ($filter === 'khoskkon')
     <script>
         document.addEventListener("DOMContentLoaded", function () {
-            // Ensure data is being passed correctly
             const labels = {!! json_encode($criteriaLabels) !!};
             const datasets = {!! json_encode($categoryDatasets) !!};
-
-            console.log("Labels:", labels); // Debugging labels
-            console.log("Datasets:", datasets); // Debugging datasets
 
             if (!labels.length || !datasets.length) {
                 console.error("No data available for the chart.");
@@ -150,5 +136,4 @@
         });
     </script>
 @endif
-
 @endsection

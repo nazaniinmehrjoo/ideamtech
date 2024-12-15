@@ -4,20 +4,16 @@ namespace App\Http\Controllers;
 
 use App\Models\Category;
 use App\Models\Product;
-
-use App\Http\Controllers\ProductController;
 use Illuminate\Http\Request;
 
 class CategoryController extends Controller
 {
     public function index(Request $request)
     {
-        $filter = $request->input('filter', 'khoskkon'); // Default to 'khoskkon' if no filter is provided
-
-        $categories = Category::where('page_name', $filter)->get(); // Ensure categories are being retrieved correctly
+        $filter = $request->input('filter', 'khoskkon');
+        $categories = Category::where('page_name', $filter)->get();
         $pages = ['khoskkon', 'korepokht', 'mashinAlatShekldehi', 'mashinalatvatajhizat'];
 
-        // Prepare chart data if needed
         $criteriaLabels = [];
         $categoryDatasets = [];
         if ($filter === 'khoskkon') {
@@ -54,70 +50,59 @@ class CategoryController extends Controller
     private function randomColor($solid = false)
     {
         $opacity = $solid ? 1 : 0.2;
-        $r = rand(0, 2000);
-        $g = rand(0, 2000);
-        $b = rand(0, 2000);
+        $r = rand(50, 255);
+        $g = rand(50, 255);
+        $b = rand(50, 255);
 
         return "rgba($r, $g, $b, $opacity)";
     }
-
-
 
     public function create()
     {
         $pages = ['khoskkon', 'korepokht', 'mashinAlatShekldehi', 'mashinalatvatajhizat'];
         return view('categories.create', compact('pages'));
     }
-    public function store(Request $request)
-    {
-        // Log the incoming request data for debugging
-        logger('Request Data:', $request->all());
 
-        // Base validation for common fields
+    public function store(Request $request, $locale)
+    {
         $data = $request->validate([
             'name' => 'required|array',
             'name.en' => 'required|string|max:2000',
             'name.fa' => 'required|string|max:2000',
+            'page_name' => 'required|string',
             'description' => 'nullable|array',
             'description.en' => 'nullable|string|max:2000',
             'description.fa' => 'nullable|string|max:2000',
-            'page_name' => 'required|string',
+            'total_cost' => 'nullable|integer',
+            'energy_consumption' => 'nullable|integer',
+            'production_variety' => 'nullable|integer',
+            'drying_time' => 'nullable|integer',
+            'maintenance_cost' => 'nullable|integer',
+            'operation_cost' => 'nullable|integer',
         ]);
 
-        // Additional validation for khoskkon chart data
-        if ($request->input('page_name') === 'khoskkon') {
-            $chartData = $request->validate([
-                'total_cost' => 'nullable|integer|min:0',
-                'energy_consumption' => 'nullable|integer|min:0',
-                'production_variety' => 'nullable|integer|min:0',
-                'drying_time' => 'nullable|integer|min:0',
-                'maintenance_cost' => 'nullable|integer|min:0',
-                'operation_cost' => 'nullable|integer|min:0',
-            ]);
-
-            // Merge the chart data with the base data
-            $data = array_merge($data, $chartData);
-        }
-
-        // Log the final data to be saved
-        logger('Final Data for Category:', $data);
-
-        // Create the category
         Category::create($data);
 
-        // Redirect back with success message
-        return redirect()->route('categories.index')->with('success', 'دسته بندی جدید با موفقیت ایجاد شد.');
+        return redirect()->route('categories.index', ['locale' => $locale])
+            ->with('success', 'دسته‌بندی با موفقیت ایجاد شد.');
     }
 
-
-    public function edit($id)
+    public function edit($locale, $category)
     {
-        $category = Category::findOrFail($id);
+        if (!is_numeric($category)) {
+            return redirect()->route('notfound', ['locale' => $locale]);
+        }
+
+        $category = Category::find($category);
+        if (!$category) {
+            return redirect()->route('notfound', ['locale' => $locale]);
+        }
+
         $pages = ['khoskkon', 'korepokht', 'mashinAlatShekldehi', 'mashinalatvatajhizat'];
         return view('categories.edit', compact('category', 'pages'));
     }
 
-    public function update(Request $request, $id)
+    public function update(Request $request, $locale, $id)
     {
         $category = Category::findOrFail($id);
 
@@ -139,10 +124,11 @@ class CategoryController extends Controller
 
         $category->update($data);
 
-        return redirect()->route('categories.index')->with('success', 'دسته‌بندی با موفقیت ویرایش شد.');
+        return redirect()->route('categories.index', ['locale' => $locale])
+            ->with('success', 'دسته‌بندی با موفقیت ویرایش شد.');
     }
 
-    public function destroy($id)
+    public function destroy($locale, $id)
     {
         $category = Category::findOrFail($id);
 
@@ -152,7 +138,7 @@ class CategoryController extends Controller
 
         $category->delete();
 
-        return redirect()->route('categories.index')->with('success', 'دسته‌بندی با موفقیت حذف شد.');
+        return redirect()->route('categories.index', ['locale' => $locale])
+            ->with('success', 'دسته‌بندی با موفقیت حذف شد.');
     }
-
 }

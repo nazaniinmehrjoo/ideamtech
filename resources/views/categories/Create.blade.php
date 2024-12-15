@@ -14,7 +14,8 @@
                 <div class="card-header text-center">{{ __('categoryCreate.create_category') }}</div>
 
                 <div class="card-body">
-                    <form action="{{ route('categories.store') }}" method="POST" style="direction: rtl;">
+                    <form action="{{ route('categories.store', ['locale' => app()->getLocale()]) }}" method="POST"
+                        style="direction: rtl;">
                         @csrf
 
                         <!-- Category Name Inputs -->
@@ -87,7 +88,8 @@
                                     required onchange="toggleAdditionalFields(this.value)">
                                     <option value="">{{ __('categoryCreate.select_page') }}</option>
                                     @foreach($pages as $page)
-                                        <option value="{{ $page }}" {{ old('page_name') == $page ? 'selected' : '' }}>{{ __('pages.' . $page) }}</option>
+                                        <option value="{{ $page }}" {{ old('page_name') == $page ? 'selected' : '' }}>
+                                            {{ __('pages.' . $page) }}</option>
                                     @endforeach
                                 </select>
                                 @error('page_name')
