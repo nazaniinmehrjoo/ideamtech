@@ -1147,10 +1147,12 @@ form label.error {
 
 .alt-logo-box {
     position: absolute;
-    left: 184px;
+    left: 7%;
     top: 26px;
     /* display: none; */
-    z-index: 9999;
+    /* z-index: 9999; */
+    padding: 0px 20px;
+    margin: 0 auto;
 }
 
 .alt-logo .alt-logo-box {
@@ -8693,7 +8695,7 @@ body.light-mode .accordionslider-box .block .content .text {
     float: right;
     color: #f0f0f0;
     position: absolute;
-    right: 64px;
+    right: 3%;
     z-index: 1050;
     margin-top: 45px;
     font-size: 25px;
@@ -8725,12 +8727,15 @@ body.light-mode .accordionslider-box .block .content .text {
     float: right;
     color: #f0f0f0;
     position: absolute;
-    right: 120px;
+    right: 6%;
     z-index: 1050;
     font-size: 20px;
     margin-top: 45px;
 }
-
+.menuDropdown {
+    padding: 0px 20px;
+    margin: 0 auto;
+}
 .dropdownLanguageMenuItems .dropdown-item {
     text-align: right;
     direction: rtl;
@@ -8770,7 +8775,6 @@ body.light-mode .accordionslider-box .block .content .text {
 .categoryDescriptionBox .text-light {
     color: #333 !important;
 }
-
 
 /* Not Found Page */
 ::selection {

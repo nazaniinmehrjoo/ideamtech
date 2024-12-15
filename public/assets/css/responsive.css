@@ -682,6 +682,10 @@
 		padding-left: 104px;
 
 	}
+	#languageDropdown {
+		right: 8%;
+
+	}
 
 }
 
@@ -1759,6 +1763,9 @@
 		left: 45%;
 		bottom: 290px;
 	}
+	#languageDropdown {
+		right: 12%;
+	}
 }
 
 @media only screen and (max-width: 599px) {
@@ -2416,13 +2423,10 @@
 	}
 
 	/* Responsive Logo  */
-	.alt-logo-box {
-		left: 64px !important;
-  		top: 45px !important;
-	}
+
 	.alt-logo-box img {
-		max-width: 195px !important;
-  		height: 30px !important;
+		
+  		height: 58px !important;
 	}
 	
 	/* Our customers Reponsive */
@@ -2780,11 +2784,7 @@
 	.banner-seven .slide-item .content {
 		padding-left: 5px;
 	}
-	/* Responsive Logo */ 
-	.alt-logo-box img {
-		max-width: 293px;
-  		height: 40px;
-	}
+
 	/* Home page responsive */
 	.sliderSesc {
 		font-size: 20px;
@@ -2832,6 +2832,9 @@
 	.khoshkkonChartContainer {
 		width: 95% !important;
 	} 
+	#languageDropdown {
+		right: 15%;
+	}
 }
 
 
