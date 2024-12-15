@@ -71,7 +71,7 @@
                             <li class="dropdown"><a href="#">{{ __('header.services') }}</a>
                                 <ul>
                                     <li><a href="{{ route('services.consulting', ['locale' => app()->getLocale()]) }}">{{ __('header.services_consulting') }}</a></li>
-                                    <li><a href="{{ route('services.partsRepairs', ['locale' => app()->getLocale()]) }}">{{ __('header.services_parts') }}</a></li>
+                                    <!-- <li><a href="{{ route('services.partsRepairs', ['locale' => app()->getLocale()]) }}">{{ __('header.services_parts') }}</a></li> -->
                                     <li><a href="{{ route('services.engineering', ['locale' => app()->getLocale()]) }}">{{ __('header.services_engineering') }}</a></li>
                                     <li><a href="{{ route('services.installation', ['locale' => app()->getLocale()]) }}">{{ __('header.services_installation') }}</a></li>
                                     <li><a href="{{ route('services.khadamat-pasazforosh', ['locale' => app()->getLocale()]) }}">{{ __('header.services_after_sales') }}</a></li>
