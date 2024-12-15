@@ -15,17 +15,18 @@
 
                 <div class="card-body">
                     <!-- Form to Edit a Project -->
-                    <form action="{{ route('projects.update', $project->id) }}" method="POST" enctype="multipart/form-data" style="direction: rtl;">
+                    <form action="{{ route('projects.update', ['locale' => $locale, 'project' => $project->id]) }}"
+                        method="POST" enctype="multipart/form-data" style="direction: rtl;">
                         @csrf
                         @method('PUT')
 
                         <!-- Project Name Input -->
                         <div class="row mb-3">
                             <label for="name" class="col-md-4 col-form-label text-md-end">{{ __('نام پروژه') }}</label>
-
                             <div class="col-md-6">
-                                <input type="text" name="name" id="name" class="form-control bg-dark text-white @error('name') is-invalid @enderror" value="{{ $project->name }}" required>
-                                
+                                <input type="text" name="name" id="name"
+                                    class="form-control bg-dark text-white @error('name') is-invalid @enderror"
+                                    value="{{ old('name', $project->name) }}" required>
                                 @error('name')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -37,10 +38,10 @@
                         <!-- Capacity Input -->
                         <div class="row mb-3">
                             <label for="capacity" class="col-md-4 col-form-label text-md-end">{{ __('ظرفیت') }}</label>
-
                             <div class="col-md-6">
-                                <input type="text" name="capacity" id="capacity" class="form-control bg-dark text-white @error('capacity') is-invalid @enderror" value="{{ $project->capacity }}" required>
-                                
+                                <input type="text" name="capacity" id="capacity"
+                                    class="form-control bg-dark text-white @error('capacity') is-invalid @enderror"
+                                    value="{{ old('capacity', $project->capacity) }}" required>
                                 @error('capacity')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -52,10 +53,10 @@
                         <!-- Client Input -->
                         <div class="row mb-3">
                             <label for="client" class="col-md-4 col-form-label text-md-end">{{ __('کارفرما') }}</label>
-
                             <div class="col-md-6">
-                                <input type="text" name="client" id="client" class="form-control bg-dark text-white @error('client') is-invalid @enderror" value="{{ $project->client }}" required>
-                                
+                                <input type="text" name="client" id="client"
+                                    class="form-control bg-dark text-white @error('client') is-invalid @enderror"
+                                    value="{{ old('client', $project->client) }}" required>
                                 @error('client')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -66,11 +67,12 @@
 
                         <!-- Start Date Input -->
                         <div class="row mb-3">
-                            <label for="start_date" class="col-md-4 col-form-label text-md-end">{{ __('تاریخ شروع') }}</label>
-
+                            <label for="start_date"
+                                class="col-md-4 col-form-label text-md-end">{{ __('تاریخ شروع') }}</label>
                             <div class="col-md-6">
-                                <input type="date" name="start_date" id="start_date" class="form-control bg-dark text-white @error('start_date') is-invalid @enderror" value="{{ $project->start_date }}" required>
-                                
+                                <input type="date" name="start_date" id="start_date"
+                                    class="form-control bg-dark text-white @error('start_date') is-invalid @enderror"
+                                    value="{{ old('start_date', $project->start_date) }}" required>
                                 @error('start_date')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -81,11 +83,12 @@
 
                         <!-- End Date Input -->
                         <div class="row mb-3">
-                            <label for="end_date" class="col-md-4 col-form-label text-md-end">{{ __('تاریخ پایان (اختیاری)') }}</label>
-
+                            <label for="end_date"
+                                class="col-md-4 col-form-label text-md-end">{{ __('تاریخ پایان (اختیاری)') }}</label>
                             <div class="col-md-6">
-                                <input type="date" name="end_date" id="end_date" class="form-control bg-dark text-white @error('end_date') is-invalid @enderror" value="{{ $project->end_date }}">
-                                
+                                <input type="date" name="end_date" id="end_date"
+                                    class="form-control bg-dark text-white @error('end_date') is-invalid @enderror"
+                                    value="{{ old('end_date', $project->end_date) }}">
                                 @error('end_date')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -97,13 +100,12 @@
                         <!-- Status Input -->
                         <div class="row mb-3">
                             <label for="status" class="col-md-4 col-form-label text-md-end">{{ __('وضعیت') }}</label>
-
                             <div class="col-md-6">
-                                <select name="status" id="status" class="form-control bg-dark text-white @error('status') is-invalid @enderror">
-                                    <option value="تکمیل شده" {{ $project->status == 'تکمیل شده' ? 'selected' : '' }}>تکمیل شده</option>
-                                    <option value="در حال انجام" {{ $project->status == 'در حال انجام' ? 'selected' : '' }}>در حال انجام</option>
+                                <select name="status" id="status"
+                                    class="form-control bg-dark text-white @error('status') is-invalid @enderror">
+                                    <option value="تکمیل شده" {{ old('status', $project->status) == 'تکمیل شده' ? 'selected' : '' }}>تکمیل شده</option>
+                                    <option value="در حال انجام" {{ old('status', $project->status) == 'در حال انجام' ? 'selected' : '' }}>در حال انجام</option>
                                 </select>
-
                                 @error('status')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -112,13 +114,13 @@
                             </div>
                         </div>
 
-                        <!-- Project Type Input -->
+                        <!-- Type, Latitude, and Longitude Inputs -->
                         <div class="row mb-3">
                             <label for="type" class="col-md-4 col-form-label text-md-end">{{ __('نوع پروژه') }}</label>
-
                             <div class="col-md-6">
-                                <input type="text" name="type" id="type" class="form-control bg-dark text-white @error('type') is-invalid @enderror" value="{{ $project->type }}" required>
-                                
+                                <input type="text" name="type" id="type"
+                                    class="form-control bg-dark text-white @error('type') is-invalid @enderror"
+                                    value="{{ old('type', $project->type) }}" required>
                                 @error('type')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -126,14 +128,13 @@
                                 @enderror
                             </div>
                         </div>
-
-                        <!-- Latitude Input -->
                         <div class="row mb-3">
-                            <label for="lat" class="col-md-4 col-form-label text-md-end">{{ __('عرض جغرافیایی (Latitude)') }}</label>
-
+                            <label for="lat"
+                                class="col-md-4 col-form-label text-md-end">{{ __('عرض جغرافیایی (Latitude)') }}</label>
                             <div class="col-md-6">
-                                <input type="text" name="lat" id="lat" class="form-control bg-dark text-white @error('lat') is-invalid @enderror" value="{{ $project->lat }}" required>
-                                
+                                <input type="text" name="lat" id="lat"
+                                    class="form-control bg-dark text-white @error('lat') is-invalid @enderror"
+                                    value="{{ old('lat', $project->lat) }}" required>
                                 @error('lat')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -141,14 +142,13 @@
                                 @enderror
                             </div>
                         </div>
-
-                        <!-- Longitude Input -->
                         <div class="row mb-3">
-                            <label for="lng" class="col-md-4 col-form-label text-md-end">{{ __('طول جغرافیایی (Longitude)') }}</label>
-
+                            <label for="lng"
+                                class="col-md-4 col-form-label text-md-end">{{ __('طول جغرافیایی (Longitude)') }}</label>
                             <div class="col-md-6">
-                                <input type="text" name="lng" id="lng" class="form-control bg-dark text-white @error('lng') is-invalid @enderror" value="{{ $project->lng }}" required>
-                                
+                                <input type="text" name="lng" id="lng"
+                                    class="form-control bg-dark text-white @error('lng') is-invalid @enderror"
+                                    value="{{ old('lng', $project->lng) }}" required>
                                 @error('lng')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -160,10 +160,10 @@
                         <!-- Submit Button -->
                         <div class="row mb-0">
                             <div class="col-md-8 offset-md-4">
-                                <button type="submit" class="theme-btn btn-style-two">
-                                    {{ __('بروزرسانی پروژه') }}
-                                </button>
-                                <a href="{{ route('projects.index') }}" class="btn btn-secondary">{{ __('لغو') }}</a>
+                                <button type="submit"
+                                    class="theme-btn btn-style-two">{{ __('بروزرسانی پروژه') }}</button>
+                                <a href="{{ route('projects.index', ['locale' => $locale]) }}"
+                                    class="btn btn-secondary">{{ __('لغو') }}</a>
                             </div>
                         </div>
                     </form>

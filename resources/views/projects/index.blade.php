@@ -11,7 +11,7 @@
 
     <!-- Create Button -->
     <div class="text-center mb-4">
-        <a href="{{ route('projects.create') }}" class="btn create-object-btn">
+        <a href="{{ route('projects.create', ['locale' => app()->getLocale()]) }}" class="btn create-object-btn">
             <i class="fas fa-plus"></i> ایجاد پروژه جدید
         </a>
     </div>
@@ -36,13 +36,19 @@
                         <td>{{ $project->start_date }}</td>
                         <td>{{ $project->status }}</td>
                         <td>
-                            <a href="{{ route('projects.edit', $project->id) }}" class="btn btn-sm btn-warning mx-1">
+                            <!-- Edit Button -->
+                            <a href="{{ route('projects.edit', ['locale' => app()->getLocale(), 'project' => $project->id]) }}"
+                                class="btn btn-sm btn-warning mx-1">
                                 <i class="fas fa-edit"></i> ویرایش
                             </a>
-                            <form action="{{ route('projects.destroy', $project->id) }}" method="POST" style="display:inline-block;">
+
+                            <!-- Delete Form -->
+                            <form action="{{ route('projects.destroy', ['locale' => app()->getLocale(), 'project' => $project->id]) }}"
+                                method="POST" style="display:inline-block;">
                                 @csrf
                                 @method('DELETE')
-                                <button type="submit" class="btn btn-sm btn-danger mx-1" onclick="return confirm('آیا مطمئن هستید که می‌خواهید این پروژه را حذف کنید؟')">
+                                <button type="submit" class="btn btn-sm btn-danger mx-1"
+                                    onclick="return confirm('آیا مطمئن هستید که می‌خواهید این پروژه را حذف کنید؟')">
                                     <i class="fas fa-trash-alt"></i> حذف
                                 </button>
                             </form>

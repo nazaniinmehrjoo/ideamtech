@@ -8,7 +8,7 @@ class ProjectController extends Controller
 {
     public function index()
     {
-        $projects = Project::paginate(10); 
+        $projects = Project::paginate(10);
         return view('projects.index', compact('projects'));
     }
     public function create()
@@ -35,9 +35,10 @@ class ProjectController extends Controller
         Project::create($validated);
 
         // Redirect back with success message
-        return redirect()->back()->with('success', 'Project created successfully!');
+        return redirect()->route('projects.index', ['locale' => app()->getLocale()])
+            ->with('success', 'پروژه با موفقیت ایجاد شد!');
     }
-    public function update(Request $request, $id)
+    public function update(Request $request, $locale, $id)
     {
         // Find the project by ID
         $project = Project::findOrFail($id);
@@ -59,33 +60,49 @@ class ProjectController extends Controller
         $project->update($validated);
 
         // Redirect back with success message
-        return redirect()->route('dashboard')->with('success', ' با موفقیت ایجاد شد.');
+        // Redirect to the localized projects index with a success message
+        return redirect()->route('projects.index', ['locale' => $locale])
+            ->with('success', 'پروژه با موفقیت به‌روزرسانی شد.');
     }
-    public function edit($id)
+    public function edit($locale, $id)
     {
         $project = Project::findOrFail($id);
 
-        return view('projects.edit', compact('project'));
+        return view('projects.edit', compact('project', 'locale'));
     }
-        public function destroy($id)
+    public function destroy($locale, $id)
     {
-        // Find the project by ID
-        $project = Project::findOrFail($id);
+        try {
+            // Find the project by ID or fail with 404
+            $project = Project::findOrFail($id);
 
-        // Delete the project from the database
-        $project->delete();
+            // Delete the project from the database
+            $project->delete();
 
-        // Redirect back with success message
-        return redirect()->route('dashboard')->with('success', ' با موفقیت ایجاد شد.');
+            // Redirect to the localized projects index with a success message
+            return redirect()->route('projects.index', ['locale' => $locale])
+                ->with('success', 'پروژه با موفقیت حذف شد!');
+        } catch (\Exception $e) {
+            // Log the error for debugging
+            \Log::error('Error deleting project:', [
+                'error' => $e->getMessage(),
+                'trace' => $e->getTraceAsString(),
+            ]);
+
+            // Redirect back with an error message
+            return redirect()->route('projects.index', ['locale' => $locale])
+                ->withErrors(['error' => 'خطا در حذف پروژه. لطفاً مجدداً تلاش کنید.']);
+        }
     }
+
     public function customerView()
     {
-        
+
         $completedProjects = Project::where('status', 'تکمیل شده')->count();
         $ongoingProjects = Project::where('status', 'در حال انجام')->count();
         $totalProjects = Project::count();
 
-        
+
         $projects = Project::all();
 
         // Pass the data to the view
