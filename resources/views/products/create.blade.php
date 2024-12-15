@@ -14,18 +14,19 @@
                 <div class="card-header text-center">{{ __('productCreate.create_new_product') }}</div>
 
                 <div class="card-body">
-                    <form action="{{ route('products.store') }}" method="POST" enctype="multipart/form-data"
-                        style="direction: rtl;">
+                    <form action="{{ route('products.store', ['locale' => app()->getLocale()]) }}" 
+                          method="POST" 
+                          enctype="multipart/form-data" 
+                          style="direction: rtl;">
                         @csrf
 
                         <!-- Product Name Input (Localized) -->
                         <div class="row mb-3">
-                            <label for="name_en"
-                                class="col-md-4 col-form-label text-md-end">{{ __('productCreate.product_name_en') }}</label>
+                            <label for="name_en" class="col-md-4 col-form-label text-md-end">{{ __('productCreate.product_name_en') }}</label>
                             <div class="col-md-6">
                                 <input type="text" name="name[en]" id="name_en"
                                     class="form-control bg-dark text-white @error('name.en') is-invalid @enderror"
-                                    required>
+                                    value="{{ old('name.en') }}" required>
                                 @error('name.en')
                                     <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>
                                 @enderror
@@ -33,12 +34,11 @@
                         </div>
 
                         <div class="row mb-3">
-                            <label for="name_fa"
-                                class="col-md-4 col-form-label text-md-end">{{ __('productCreate.product_name_fa') }}</label>
+                            <label for="name_fa" class="col-md-4 col-form-label text-md-end">{{ __('productCreate.product_name_fa') }}</label>
                             <div class="col-md-6">
                                 <input type="text" name="name[fa]" id="name_fa"
                                     class="form-control bg-dark text-white @error('name.fa') is-invalid @enderror"
-                                    required>
+                                    value="{{ old('name.fa') }}" required>
                                 @error('name.fa')
                                     <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>
                                 @enderror
@@ -47,22 +47,21 @@
 
                         <!-- Description Input (Localized) -->
                         <div class="row mb-3">
-                            <label for="description_en"
-                                class="col-md-4 col-form-label text-md-end">{{ __('productCreate.description_en') }}</label>
+                            <label for="description_en" class="col-md-4 col-form-label text-md-end">{{ __('productCreate.description_en') }}</label>
                             <div class="col-md-6">
                                 <textarea name="description[en]" id="description_en"
-                                    class="form-control bg-dark text-white @error('description.en') is-invalid @enderror"></textarea>
+                                    class="form-control bg-dark text-white @error('description.en') is-invalid @enderror">{{ old('description.en') }}</textarea>
                                 @error('description.en')
                                     <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>
                                 @enderror
                             </div>
                         </div>
+
                         <div class="row mb-3">
-                            <label for="description_fa"
-                                class="col-md-4 col-form-label text-md-end">{{ __('productCreate.description_fa') }}</label>
+                            <label for="description_fa" class="col-md-4 col-form-label text-md-end">{{ __('productCreate.description_fa') }}</label>
                             <div class="col-md-6">
                                 <textarea name="description[fa]" id="description_fa"
-                                    class="form-control bg-dark text-white @error('description.fa') is-invalid @enderror"></textarea>
+                                    class="form-control bg-dark text-white @error('description.fa') is-invalid @enderror">{{ old('description.fa') }}</textarea>
                                 @error('description.fa')
                                     <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>
                                 @enderror
@@ -71,15 +70,13 @@
 
                         <!-- Category Dropdown -->
                         <div class="row mb-3">
-                            <label for="category_id"
-                                class="col-md-4 col-form-label text-md-end">{{ __('productCreate.select_category') }}</label>
+                            <label for="category_id" class="col-md-4 col-form-label text-md-end">{{ __('productCreate.select_category') }}</label>
                             <div class="col-md-6">
                                 <select name="category_id" id="category_id"
-                                    class="form-control bg-dark text-white @error('category_id') is-invalid @enderror"
-                                    required>
+                                    class="form-control bg-dark text-white @error('category_id') is-invalid @enderror" required>
                                     <option value="">{{ __('productCreate.choose_category') }}</option>
                                     @foreach($categories as $category)
-                                        <option value="{{ $category->id }}">
+                                        <option value="{{ $category->id }}" {{ old('category_id') == $category->id ? 'selected' : '' }}>
                                             {{ $category->name[app()->getLocale()] ?? $category->name['en'] }}
                                         </option>
                                     @endforeach
@@ -92,17 +89,15 @@
 
                         <!-- Page Name Dropdown -->
                         <div class="row mb-3">
-                            <label for="page_name"
-                                class="col-md-4 col-form-label text-md-end">{{ __('نام صفحه') }}</label>
+                            <label for="page_name" class="col-md-4 col-form-label text-md-end">{{ __('productCreate.page_name') }}</label>
                             <div class="col-md-6">
                                 <select name="page_name" id="page_name"
-                                    class="form-control bg-dark text-white @error('page_name') is-invalid @enderror"
-                                    required>
-                                    <option value="">{{ __('-- Select Page --') }}</option>
-                                    <option value="khoskkon">خشک کن</option>
-                                    <option value="korepokht">کوره پخت</option>
-                                    <option value="mashinAlatShekldehi">ماشین آلات شکل دهی</option>
-                                    <option value="mashinalatvatajhizat">ماشین آلات و تجهیزات</option>
+                                    class="form-control bg-dark text-white @error('page_name') is-invalid @enderror" required>
+                                    <option value="">{{ __('productCreate.choose_page') }}</option>
+                                    <option value="khoskkon" {{ old('page_name') == 'khoskkon' ? 'selected' : '' }}>خشک کن</option>
+                                    <option value="korepokht" {{ old('page_name') == 'korepokht' ? 'selected' : '' }}>کوره پخت</option>
+                                    <option value="mashinAlatShekldehi" {{ old('page_name') == 'mashinAlatShekldehi' ? 'selected' : '' }}>ماشین آلات شکل دهی</option>
+                                    <option value="mashinalatvatajhizat" {{ old('page_name') == 'mashinalatvatajhizat' ? 'selected' : '' }}>ماشین آلات و تجهیزات</option>
                                 </select>
                                 @error('page_name')
                                     <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>
@@ -110,11 +105,9 @@
                             </div>
                         </div>
 
-
                         <!-- Image Upload -->
                         <div class="row mb-3">
-                            <label for="image"
-                                class="col-md-4 col-form-label text-md-end">{{ __('productCreate.upload_image') }}</label>
+                            <label for="image" class="col-md-4 col-form-label text-md-end">{{ __('productCreate.upload_image') }}</label>
                             <div class="col-md-6">
                                 <input type="file" name="image" id="image"
                                     class="form-control bg-dark text-white @error('image') is-invalid @enderror">

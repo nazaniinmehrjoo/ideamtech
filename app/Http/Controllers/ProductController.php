@@ -12,7 +12,7 @@ class ProductController extends Controller
 {
     public function index(Request $request)
     {
-        $locale = app()->getLocale(); 
+        $locale = app()->getLocale();
         $selectedPage = $request->query('page_name', 'all');
         $selectedCategory = $request->query('category_id', 'all');
 
@@ -135,7 +135,7 @@ class ProductController extends Controller
         return view('products.create', compact('categories', 'pages'));
     }
 
-    public function store(Request $request)
+    public function store(Request $request, $locale)
     {
         $data = $request->validate([
             'name' => 'required|array',
@@ -155,15 +155,14 @@ class ProductController extends Controller
 
         Product::create($data);
 
-        return redirect()->route('products.index')->with('success', 'محصول با موفقیت ایجاد شد.');
+        return redirect()->route('products.index', ['locale' => $locale])->with('success', 'محصول با موفقیت ایجاد شد.');
     }
 
-
-    public function edit($id)
+    public function edit($locale, $id)
     {
         $product = Product::findOrFail($id);
-        $locale = app()->getLocale();
 
+        // Ensure the passed $locale is being used for translations
         $categories = Category::all()->map(function ($category) use ($locale) {
             $category->name = $category->getTranslatedName($locale);
             return $category;
@@ -176,13 +175,15 @@ class ProductController extends Controller
             'mashinalatvatajhizat' => 'ماشین آلات و تجهیزات',
         ];
 
-        return view('products.edit', compact('product', 'categories', 'pages'));
+        return view('products.edit', compact('product', 'categories', 'pages', 'locale'));
     }
 
-    public function update(Request $request, $id)
+
+    public function update(Request $request, $locale, $id)
     {
         $product = Product::findOrFail($id);
 
+        // Validate input data
         $data = $request->validate([
             'name' => 'required|array',
             'name.en' => 'required|string|max:255',
@@ -191,24 +192,28 @@ class ProductController extends Controller
             'description.en' => 'nullable|string',
             'description.fa' => 'nullable|string',
             'page_name' => 'required|string',
-            'category_id' => 'nullable|integer',
-            'image' => 'nullable|image',
+            'category_id' => 'nullable|integer|exists:categories,id',
+            'image' => 'nullable|image|max:2048',
         ]);
 
+        // Handle image upload
         if ($request->hasFile('image')) {
+            // Delete old image if exists
+            if ($product->image) {
+                Storage::disk('public')->delete($product->image);
+            }
             $data['image'] = $request->file('image')->store('products', 'public');
         }
 
+        // Update product
         $product->update($data);
 
-        return redirect()->route('products.index')->with('success', 'محصول با موفقیت ویرایش شد.');
+        return redirect()->route('products.index', ['locale' => $locale])->with('success', 'محصول با موفقیت ویرایش شد.');
     }
-
-
-    public function destroy(Product $product)
+    public function destroy($locale, Product $product)
     {
         $product->delete();
-        return redirect()->route('dashboard')->with('success', 'محصول با موفقیت حذف شد.');
+        return redirect()->route('products.index', ['locale' => $locale])->with('success', 'محصول با موفقیت حذف شد.');
     }
 
     public function show(Product $product)
