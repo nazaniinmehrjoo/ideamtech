@@ -3749,7 +3749,7 @@ body.light-mode .def-title-box h3 {
     font-size: 16px;
     line-height: 30px;
     padding: 25px 10px;
-    border-right: 1px solid rgba(255, 255, 255, 0.1);
+    border-right: 1px solid rgba(255, 255, 255, 0.1) !important;
     text-transform: capitalize;
     cursor: pointer;
 }
@@ -8231,6 +8231,8 @@ background-color: #343a403d !important;
       color: #212529;
   }
 /* Light mode */
+
+
 body.light-mode {
     font-family: "IRANSans";
     font-size: 16px;
@@ -8365,7 +8367,10 @@ body.light-mode .categoryDescriptionBox {
     box-shadow: 0 4px 8px rgb(197 193 193 / 50%);
 }
 body.light-mode .chart-box {
-    background-color: #4a4a4a;
+    background-color: #f0f0f0;
+}
+body.light-mode .chart-box .chart-title {
+    color: #333 !important;
 }
 body.light-mode h1 {
     color: #333333;
@@ -8374,7 +8379,7 @@ body.light-mode .page-title .bread-crumb ul li{
     color: gray;
 }
 body.light-mode .page-title .bread-crumb ul li a {
-    color: gray;
+    color: gray !important;
 }
 body.light-mode .portfolio-block:hover .overlay{
     background-color: #ffead2;
@@ -8668,6 +8673,12 @@ body.light-mode .flow-step {
 body.light-mode .graphics::before{
     background: linear-gradient( to right, rgba(227, 6, 19, 0.5), #ffa87e, rgba(227, 6, 19, 0.5) );
 }   
+body.light-mode .accordionslider-box .block .accbox-content {
+    border: 1px solid #f0f0f06e;
+}
+body.light-mode .accordionslider-box .block .content .text {
+    color: #363636;
+}
 /* Menu Language and Theme style */
 .dropdown-item:focus, .dropdown-item:hover {
     background-color: #292c30 !important;
@@ -8755,4 +8766,291 @@ body.light-mode .graphics::before{
     margin-top: 45px;
     align-items: center;
     float: right;
+}
+.categoryDescriptionBox .text-light {
+    color: #333 !important;
+}
+
+
+/* Not Found Page */
+::selection {
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+::-moz-selection {
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+
+#navigation a {
+    color: white;
+    text-decoration: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+    transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    -webkit-transition: all 0.5s ease;
+    margin-right: 10px;
+    direction: rtl;
+    text-align: right;
+    border-radius: 15px;
+}
+
+#navigation a:last-child {
+    margin-right: 0px;
+}
+
+#navigation a:hover {
+    text-shadow: 0px 0px 1px rgba(255, 255, 255, .5);
+    border-bottom: 1px solid rgba(255, 255, 255, 1);
+}
+
+#noscript-warning {
+    width: 100%;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.2);
+    font-weight: 300;
+    color: white;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+
+
+/* === WRAP === */
+
+#wrap {
+    width: 80%;
+    /* max-width: 1400px; */
+    margin: 0 auto;
+    height: auto;
+    position: relative;
+    margin-top: 8%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+
+
+/* === MAIN TEXT CONTENT === */
+
+#main-content {
+    float: right;
+    max-width: 50%;
+    color: white;
+    font-weight: 300;
+    font-size: 18px;
+    padding-bottom: 40px;
+    line-height: 28px;
+    direction: rtl;
+}
+
+#main-content h1 {
+    margin: 0px;
+    font-weight: bold;
+    font-size: 30px;
+    margin-bottom: 30px;
+    line-height: normal;
+}
+
+
+
+/* === NAVIGATION BUTTONS === */
+
+#navigation {
+    margin-top: 2%;
+}
+
+#navigation a.navigation {
+    display: block;
+    float: right;
+    background-color: rgba(0, 0, 0, 0.2);
+    padding-left: 15px;
+    padding-right: 15px;
+    color: white;
+    height: 45px;
+    line-height: 45px;
+    text-decoration: none;
+    font-size: 16px;
+    transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    -webkit-transition: all 0.5s ease;
+    margin-right: 2%;
+    margin-bottom: 2%;
+    border-bottom: none;
+}
+
+#navigation a.navigation i {
+    line-height: 41px;
+}
+
+#navigation a.navigation:hover {
+    background-color: #f05928;
+    border-bottom: none;
+}
+
+
+
+/* === WORDSEARCH === */
+
+#wordsearch {
+    width: 45%;
+    float: left;
+}
+
+#wordsearch ul {
+    margin: 0px;
+    padding: 0px;
+}
+
+#wordsearch ul li {
+    float: left;
+    width: 12%;
+    background-color: rgba(0, 0, 0, .2);
+    list-style: none;
+    margin-right: 0.5%;
+    margin-bottom: 0.5%;
+    padding: 0;
+    display: block;
+    text-align: center;
+    color: rgba(255, 255, 255, 0.7);
+    text-transform: uppercase;
+    overflow: hidden;
+    font-size: 24px;
+    font-size: 1.6vw;
+    font-weight: 300;
+    transition: background-color 0.75s ease;
+    -moz-transition: background-color 0.75s ease;
+    -webkit-transition: background-color 0.75s ease;
+    -o-transition: background-color 0.75s ease;
+}
+
+#wordsearch ul li.selected {
+    background-color: #f05928;
+    color: rgba(255, 255, 255, 1);
+    font-weight: 400;
+}
+
+
+
+/* === SEARCH FORM === */
+
+#search {
+    margin-top: 30px;
+}
+
+#search input[type='text'] {
+    width: 88%;
+    height: 41px;
+    padding-left: 15px;
+    padding-rigt: 15px;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    background-color: rgba(0, 0, 0, 0.2);
+    border: none;
+    outline: none;
+    -webkit-appearance: none;
+    font-size: 16px;
+    font-weight: 300;
+    color: white;
+    font-family: 'Source Sans Pro', sans-serif;
+    transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    -webkit-transition: all 0.5s ease;
+    border-radius: 0px;
+}
+
+#search .input-search {
+    width: 10%;
+    float: right;
+    height: 41px;
+    background-color: rgba(0, 0, 0, 0.2);
+    outline: none;
+    border: none;
+    -webkit-appearance: none;
+    color: white;
+    font-weight: 300;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    -webkit-transition: all 0.5s ease;
+    text-align: center;
+}
+
+#search .input-search:hover {
+    background-color: #f05928;
+}
+
+
+
+/* === RESPONSIVE CSS === */
+
+@media all and (max-width: 899px) {
+    #wrap {
+        width: 90%;
+    }
+}
+
+@media all and (max-width: 799px) {
+    #wrap {
+        width: 90%;
+        height: 100%;
+        margin-top: 40px;
+        top: 0%;
+    }
+
+    #wordsearch {
+        width: 90%;
+        float: none;
+        margin: 0 auto;
+    }
+
+    #wordsearch ul li {
+        font-size: 4vw;
+    }
+
+    #main-content {
+        float: none;
+        width: 90%;
+        max-width: 90%;
+        margin: 0 auto;
+        margin-top: 30px;
+        text-align: justify;
+    }
+
+    /* #main-content h1 {
+        text-align: left;
+    } */
+
+    #search input[type='text'] {
+        width: 84%;
+    }
+
+    #search .input-search {
+        width: 15%;
+    }
+}
+
+@media all and (max-width: 499px) {
+    #main-content h1 {
+        font-size: 28px;
+    }
+}
+
+.sadRobot {
+    width: 170px;
+    height: 100%;
+}
+
+.notFoundPageContainer {
+    text-align: right;
+}
+
+#navigation a.navigation {
+    text-align: center;
 }
