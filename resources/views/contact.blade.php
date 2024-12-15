@@ -65,7 +65,7 @@
 
         <div class="contact-box" style="background-color:#343a40;border-radius: 18px;">
             <div class="row clearfix">
-                <div class="form-col col-xl-8 col-lg-12 col-md-12 col-sm-12">
+                <div class="form-col col-xl-8 col-lg-12 col-md-12 col-sm-12 pt-5">
                     @if ($errors->any())
                         <div class="alert alert-danger">
                             <ul>
