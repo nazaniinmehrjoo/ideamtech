@@ -62,8 +62,8 @@
     <p>{{ __('khadamat-pasazforosh.aftersales.description') }}</p>
     <div class="joinUsBtnContainer">
         <button class="joinUsbtnContent"
-        onclick="window.location.href='{{ url(__('khadamat-pasazforosh.aftersales.button_link')) }}'">
-        <svg width="200px" height="60px" viewBox="0 0 200 60">
+            onclick="window.location.href='{{ url(__('khadamat-pasazforosh.aftersales.button_link')) }}'">
+            <svg width="200px" height="60px" viewBox="0 0 200 60">
                 <polyline points="199,1 199,59 1,59 1,1 199,1" class="bg-line"></polyline>
                 <polyline points="199,1 199,59 1,59 1,1 199,1" class="hl-line"></polyline>
             </svg>
@@ -75,12 +75,13 @@
 
 
 <!-- Services Section with Bootstrap Grid -->
+<!-- Services Section with Bootstrap Grid -->
 <section class="services text-center">
-    <h2 class="section-title"></h2>
+    <h2 class="section-title">{{ __('khadamat-pasazforosh.services.section_title') }}</h2>
     <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 justify-content-center">
         <div class="col mb-3">
             <div class="service-item h-100 p-3">
-                <h4>ارسال. نصب و راه اندازی رایگان </h4>
+                <h4>{{ __('khadamat-pasazforosh.services.free_delivery_and_installation.title') }}</h4>
                 <details>
                     <summary>{{ __('khadamat-pasazforosh.services.details_continue') }}</summary>
                     <p>{{ __('khadamat-pasazforosh.services.free_delivery_and_installation.description') }}</p>
@@ -90,7 +91,7 @@
         <!-- Service 2 -->
         <div class="col mb-3">
             <div class="service-item h-100 p-3">
-                <h4>تعمیرات و نگهداری محصول</h4>
+                <h4>{{ __('khadamat-pasazforosh.services.repair_and_maintenance.title') }}</h4>
                 <details>
                     <summary>{{ __('khadamat-pasazforosh.services.details_continue') }}</summary>
                     <p>{{ __('khadamat-pasazforosh.services.repair_and_maintenance.description') }}</p>
@@ -100,7 +101,7 @@
         <!-- Service 3 -->
         <div class="col mb-3">
             <div class="service-item h-100 p-3">
-                <h4>تهیه و توزیع قطعات محصول</h4>
+                <h4>{{ __('khadamat-pasazforosh.services.parts_distribution.title') }}</h4>
                 <details>
                     <summary>{{ __('khadamat-pasazforosh.services.details_continue') }}</summary>
                     <p>{{ __('khadamat-pasazforosh.services.parts_distribution.description') }}</p>
@@ -110,7 +111,7 @@
         <!-- Service 4 -->
         <div class="col">
             <div class="service-item h-100 p-3">
-                <h4>آموزش</h4>
+                <h4>{{ __('khadamat-pasazforosh.services.training.title') }}</h4>
                 <details>
                     <summary>{{ __('khadamat-pasazforosh.services.details_continue') }}</summary>
                     <p>{{ __('khadamat-pasazforosh.services.training.description') }}</p>
@@ -120,7 +121,7 @@
         <!-- Service 5 -->
         <div class="col">
             <div class="service-item h-100 p-3">
-                <h4>گارانتی محصول</h4>
+                <h4>{{ __('khadamat-pasazforosh.services.product_warranty.title') }}</h4>
                 <details>
                     <summary>{{ __('khadamat-pasazforosh.services.details_continue') }}</summary>
                     <p>{{ __('khadamat-pasazforosh.services.product_warranty.description') }}</p>
@@ -130,7 +131,7 @@
         <!-- Service 6 -->
         <div class="col">
             <div class="service-item h-100 p-3">
-                <h4>پشتیبانی آنلاین</h4>
+                <h4>{{ __('khadamat-pasazforosh.services.online_support.title') }}</h4>
                 <details>
                     <summary>{{ __('khadamat-pasazforosh.services.details_continue') }}</summary>
                     <p>{{ __('khadamat-pasazforosh.services.online_support.description') }}</p>
@@ -144,38 +145,61 @@
 <section>
     <div>
         <div class="faq">
-            <h2 class="faq__title">سوالات متداول</h2>
-            <details>
-                <summary>What types of services are included?</summary>
-                <div class="faqText">
-                    <p> Our services include setup, maintenance, repairs, and spare parts supply, all tailored to
-                        support
-                        your specific needs.</p>
-                </div>
+            <!-- FAQ Section Title -->
+            <h2 class="faq__title">{{ __('khadamat-pasazforosh.aftersales.title') }}</h2>
 
-            </details>
+            <!-- FAQ Details 1 -->
             <details>
-                <summary> What types of services are included?
-                </summary>
+                <summary>{{ __('khadamat-pasazforosh.services.free_delivery_and_installation.title') }}</summary>
                 <div class="faqText">
-                    <p> Our services include setup, maintenance, repairs, and spare parts supply, all tailored to
-                        support
-                        your specific needs.
-                    </p>
+                    <p>{{ __('khadamat-pasazforosh.services.free_delivery_and_installation.description') }}</p>
                 </div>
             </details>
-            <details>
-                <summary> Do you offer on-site assistance?
-                </summary>
-                <div class="faqText">
-                    <p> Yes, our technicians can provide on-site support when needed. We aim to minimize your equipment
-                        downtime.</p>
-                </div>
 
+            <!-- FAQ Details 2 -->
+            <details>
+                <summary>{{ __('khadamat-pasazforosh.services.repair_and_maintenance.title') }}</summary>
+                <div class="faqText">
+                    <p>{{ __('khadamat-pasazforosh.services.repair_and_maintenance.description') }}</p>
+                </div>
+            </details>
+
+            <!-- FAQ Details 3 -->
+            <details>
+                <summary>{{ __('khadamat-pasazforosh.services.parts_distribution.title') }}</summary>
+                <div class="faqText">
+                    <p>{{ __('khadamat-pasazforosh.services.parts_distribution.description') }}</p>
+                </div>
+            </details>
+
+            <!-- FAQ Details 4 -->
+            <details>
+                <summary>{{ __('khadamat-pasazforosh.services.training.title') }}</summary>
+                <div class="faqText">
+                    <p>{{ __('khadamat-pasazforosh.services.training.description') }}</p>
+                </div>
+            </details>
+
+            <!-- FAQ Details 5 -->
+            <details>
+                <summary>{{ __('khadamat-pasazforosh.services.product_warranty.title') }}</summary>
+                <div class="faqText">
+                    <p>{{ __('khadamat-pasazforosh.services.product_warranty.description') }}</p>
+                </div>
+            </details>
+
+            <!-- FAQ Details 6 -->
+            <details>
+                <summary>{{ __('khadamat-pasazforosh.services.online_support.title') }}</summary>
+                <div class="faqText">
+                    <p>{{ __('khadamat-pasazforosh.services.online_support.description') }}</p>
+                </div>
             </details>
         </div>
     </div>
 </section>
+
+
 
 <script>
     function contactSupport() {
