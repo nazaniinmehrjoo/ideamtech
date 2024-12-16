@@ -86,6 +86,7 @@
         </div>
 
         <div class="flow-lists">
+            <!-- Before Execution Section -->
             <div class="flow-list list-1 toAnim toDown anim">
                 <div class="flow-step-header">
                     <div class="flow-step">{{ __('distinct.before_execution') }}</div>
@@ -94,20 +95,21 @@
                 <h4 title="Think" class="box-header">{{ __('distinct.design_introduction') }}</h4>
                 <div class="content">
                     <ol>
-                        <li>در نظر گرفتن توسعه برنامه کارخانه در سال‌های آینده برای طراحی لیوت</li>
+                        <li>{{ __('distinct.before_execution_item_1') }}</li>
                         <div class="divider"></div>
-                        <li>در نظر گرفتن محل چینش گاز و برق برای کاهش هزینه در اجرا</li>
+                        <li>{{ __('distinct.before_execution_item_2') }}</li>
                         <div class="divider"></div>
-                        <li>در نظر گرفتن دسترسی ها و جاده ها به منظور تسهیل در عبور و مرور ماشین آلات</li>
+                        <li>{{ __('distinct.before_execution_item_3') }}</li>
                         <div class="divider"></div>
-                        <li>در نظر گرفتن نقشه توپوگرافی و جهت باد برای کاهش هزینه‌های انرژی و ساخت</li>
+                        <li>{{ __('distinct.before_execution_item_4') }}</li>
                         <div class="divider"></div>
-                        <li>در نظر گرفتن تعمیرات و نگهداری آسان و دردسترس</li>
+                        <li>{{ __('distinct.before_execution_item_5') }}</li>
                         <div class="divider"></div>
                     </ol>
                 </div>
             </div>
 
+            <!-- During Execution Section -->
             <div class="flow-list list-2 toAnim toDown anim">
                 <div class="flow-step-header">
                     <div class="flow-step">{{ __('distinct.during_execution') }}</div>
@@ -115,22 +117,23 @@
                 <h4 title="Design" class="box-header">{{ __('distinct.execution_method') }}</h4>
                 <div class="content">
                     <ol>
-                        <li>طراحی مطابق استاندارد های جهانی</li>
+                        <li>{{ __('distinct.during_execution_item_1') }}</li>
                         <div class="divider"></div>
-                        <li>کیفیت ساخت بالای قطعات</li>
+                        <li>{{ __('distinct.during_execution_item_2') }}</li>
                         <div class="divider"></div>
-                        <li>انتخاب متریال کارشناسی شده براساس محل کاربرد</li>
+                        <li>{{ __('distinct.during_execution_item_3') }}</li>
                         <div class="divider"></div>
-                        <li>دقت بالا در فرآیندهای ماشین‌کاری</li>
+                        <li>{{ __('distinct.during_execution_item_4') }}</li>
                         <div class="divider"></div>
-                        <li>داشتن تیم قوی مدیریت پروژه براساس PMBOK</li>
+                        <li>{{ __('distinct.during_execution_item_5') }}</li>
                         <div class="divider"></div>
-                        <li>خدمات نصب و راه‌اندازی با دقت و سرعت بالا</li>
+                        <li>{{ __('distinct.during_execution_item_6') }}</li>
                         <div class="divider"></div>
                     </ol>
                 </div>
             </div>
 
+            <!-- After Delivery Section -->
             <div class="flow-list list-3 toAnim toDown anim">
                 <div class="flow-step-header">
                     <div class="flow-step">{{ __('distinct.after_delivery') }}</div>
@@ -138,13 +141,13 @@
                 <h4 title="Build" class="box-header">{{ __('distinct.sustainable_production') }}</h4>
                 <div class="content">
                     <ol>
-                        <li>مراقبت از کیفیت و کمیت تولید شما</li>
+                        <li>{{ __('distinct.after_delivery_item_1') }}</li>
                         <div class="divider"></div>
-                        <li>مشاوره و رفع ایراد در تمامی مراحل خط تولید</li>
+                        <li>{{ __('distinct.after_delivery_item_2') }}</li>
                         <div class="divider"></div>
-                        <li>بازدیدهای دوره‌ای از خط تولید</li>
+                        <li>{{ __('distinct.after_delivery_item_3') }}</li>
                         <div class="divider"></div>
-                        <li>مشتریان ما تنها خریدار محصولات ما نیستند بلکه عضو خانواده برنا گستر می‌شوند</li>
+                        <li>{{ __('distinct.after_delivery_item_4') }}</li>
                         <div class="divider"></div>
                     </ol>
                 </div>
