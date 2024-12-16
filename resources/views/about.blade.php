@@ -101,7 +101,7 @@
                                     <p class="text">{{ __('about.services_section.customer_satisfaction.description') }}
                                     </p>
                                     <div class="link-box">
-                                        <a href="{{ __('about.services_section.customer_satisfaction.link_url') }}">
+                                        <a href="{{ url(__('about.services_section.customer_satisfaction.link_url')) }}">
                                             <span class="far fa-angle-right"></span>
                                         </a>
                                     </div>

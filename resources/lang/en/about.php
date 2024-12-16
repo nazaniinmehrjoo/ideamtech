@@ -35,7 +35,7 @@ return [
             'title' => 'Customer satisfaction',
             'alt_text' => 'Customer Image',
             'description' => 'Customer satisfaction is our priority. The Borna Gostar Parsi co. team provides you with a reliable and satisfactory experience with professional services and continuous support.',
-            'link_url' => '/our-customers',
+            'link_url' => 'en/مشتریان-ما',
         ],
     ],
 
