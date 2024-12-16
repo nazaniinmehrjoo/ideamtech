@@ -61,8 +61,11 @@
         </div>
 
         <div class="button-group-outside">
-            <button class="custom-button">{{ __('distinct.view_video') }}</button>
-            <button class="custom-button">{{ __('distinct.download_brochure') }}</button>
+            <button class="custom-button" onclick="window.location.href='{{ url(__('distinct.link_video')) }}'" >
+            {{ __('distinct.view_video') }}
+            </button>
+            <button class="custom-button" onclick="window.location.href='{{ url(__('distinct.brochure-link')) }}'" >
+            {{ __('distinct.download_brochure') }}</button>
         </div>
     </div>
 
@@ -138,7 +141,7 @@
                 <div class="flow-step-header">
                     <div class="flow-step">{{ __('distinct.after_delivery') }}</div>
                 </div>
-                <h4 title="Build" class="box-header">{{ __('distinct.sustainable_production') }}</h4>
+                <h4 class="box-header">{{ __('distinct.sustainable_production') }}</h4>
                 <div class="content">
                     <ol>
                         <li>{{ __('distinct.after_delivery_item_1') }}</li>
