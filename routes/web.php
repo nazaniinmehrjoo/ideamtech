@@ -47,6 +47,8 @@ Route::group(['prefix' => '{locale}', 'middleware' => 'locale'], function () {
     Route::view('/شبیه-ساز', 'simulator')->name("simulator");
     Route::view('/متمایزازدیگران', 'distinct')->name("distinct");
     Route::view('/پیوستن-به-خانواده-برناگستر', 'forms.form-selection')->name("form-selection");
+    Route::view('/join-borna-gostar-family', 'forms.form-selection')->name('join-family');
+
     Route::view('/خط-کامل-آجر/محصولات', 'products.turnkeysolution')->name('products.turnkeysolution');
     Route::view('/contact', 'contact')->name("contact");
     Route::view('/درباره-ما', 'about')->name("about");

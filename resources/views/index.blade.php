@@ -9,7 +9,8 @@
 @if(session('success'))
     <div class="alert alert-success alert-dismissible fade show text-center" role="alert">
         {{ session('success') }}
-        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="{{ __('messages.close_button') }}"></button>
+        <button type="button" class="btn-close" data-bs-dismiss="alert"
+            aria-label="{{ __('messages.close_button') }}"></button>
     </div>
 @endif
 
@@ -243,8 +244,9 @@
                                             </svg>
                                             <span>{{ __('index.services_two.tabs.about.button_text') }}</span>
                                         </button>
-
                                     </div>
+
+
                                 </div>
                             </div>
                         </div>
