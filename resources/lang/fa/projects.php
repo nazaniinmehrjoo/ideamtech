@@ -33,7 +33,7 @@ return [
         'endDate' => 'تاریخ پایان',
         'status' => 'وضعیت',
     ],
-    'searchPlaceholder' => 'جستجو در میان پروژه‌ها...',
+    'searchPlaceholder' => 'جستجوی پروژه‌ها',
     'customers' => [
         'Feedback' => 'نظر مشتریان ما',
         'customerAtitle' => 'شرکت الف',

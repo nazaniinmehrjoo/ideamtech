@@ -33,7 +33,7 @@ return [
         'endDate' => 'End Date',
         'status' => 'Status',
     ],
-    'searchPlaceholder' => 'Search among projects...',
+    'searchPlaceholder' => 'Project Search',
     'customers' => [
         'Feedback' => 'Our Customers Feedback',
         'customerAtitle' => 'Company A',
