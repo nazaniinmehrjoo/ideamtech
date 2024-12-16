@@ -11,8 +11,9 @@ class EmploymentFormController extends Controller
     {
         $forms = EmploymentForm::paginate(10);
 
-        return view('employment_form.index', compact('forms'));
+        return view('employment_form.index', compact('forms'))->with('locale', app()->getLocale());
     }
+
 
 
     // Show the form for creating a new form
@@ -26,13 +27,12 @@ class EmploymentFormController extends Controller
     {
         $validated = $this->validateRequest($request);
 
-        // Handle file uploads (same as before)
+        // Handle file uploads
         $validated = $this->handleFileUploads($request, $validated);
 
         EmploymentForm::create($validated);
 
-        return redirect('/')->with('success', 'با موفقیت ثبت شد.');
-
+        return redirect()->route('home', ['locale' => app()->getLocale()])->with('success', __('messages.success'));
     }
 
     // // Display the specified form
@@ -44,27 +44,29 @@ class EmploymentFormController extends Controller
     // Show the form for editing the specified form
     public function edit(EmploymentForm $employmentForm)
     {
-        return view('employment_form.edit', compact('employmentForm'));
+        return view('employment_form.edit', compact('employmentForm'))->with('locale', app()->getLocale());
     }
+
 
     // Update the specified form in storage
     public function update(Request $request, EmploymentForm $employmentForm)
     {
         $validated = $this->validateRequest($request);
 
-        // Handle file uploads (same as before)
+        // Handle file uploads
         $validated = $this->handleFileUploads($request, $validated);
 
         $employmentForm->update($validated);
 
-        return redirect()->route('employment-forms.index')->with('success', 'Form updated successfully!');
+        return redirect()->route('employment-forms.index', ['locale' => app()->getLocale()])->with('success', __('messages.updated_successfully'));
     }
+
 
     // Remove the specified form from storage
     public function destroy(EmploymentForm $employmentForm)
     {
         $employmentForm->delete();
-        return redirect()->route('employment-forms.index')->with('success', 'Form deleted successfully!');
+        return redirect()->route('employment-forms.index', ['locale' => app()->getLocale()])->with('success', __('messages.deleted_successfully'));
     }
 
     // Validate the request
