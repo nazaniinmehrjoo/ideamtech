@@ -4,7 +4,9 @@ return [
     'aftersales' => [
         'title' => 'After-Sales Services',
         'description' => 'In general, after-sales services are a set of information, services, training, guidance, and guarantees that a company provides to its customers.',
-        'join_us_button' => 'Join the BornaGostar Family',
+        'join_us_button' => 'About Borna Gostar',
+        'button_link' => 'en/درباره-ما',
+
     ],
     'services' => [
         'section_title' => 'After-Sales Services',

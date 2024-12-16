@@ -82,15 +82,21 @@
             <h2 class="faq__title">{{ __('turnkeysolution.faq_title') }}</h2>
             <details>
                 <summary>{{ __('turnkeysolution.faq1_question') }}</summary>
-                <p>{{ __('turnkeysolution.faq1_answer') }}</p>
+                <div class="faqText">
+                    <p>{{ __('turnkeysolution.faq1_answer') }}</p>
+                </div>
             </details>
             <details>
                 <summary>{{ __('turnkeysolution.faq2_question') }}</summary>
-                <p>{{ __('turnkeysolution.faq2_answer') }}</p>
+                <div class="faqText">
+                    <p>{{ __('turnkeysolution.faq2_answer') }}</p>
+                </div>
             </details>
             <details>
                 <summary>{{ __('turnkeysolution.faq3_question') }}</summary>
-                <p>{{ __('turnkeysolution.faq3_answer') }}</p>
+                <div class="faqText">
+                    <p>{{ __('turnkeysolution.faq3_answer') }}</p>
+                </div>
             </details>
         </div>
     </div>
