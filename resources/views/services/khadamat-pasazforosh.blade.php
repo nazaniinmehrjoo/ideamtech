@@ -42,12 +42,15 @@
     color: #e0e0e0;
     border: 1px solid #444;
     }
+
     .afterSalesService div {
         margin-top: 1%;
     }
+
     .service-item details {
         direction: rtl;
     }
+
     .service-item p {
         direction: rtl;
     }
@@ -58,8 +61,9 @@
     <h1>{{ __('khadamat-pasazforosh.aftersales.title') }}</h1>
     <p>{{ __('khadamat-pasazforosh.aftersales.description') }}</p>
     <div class="joinUsBtnContainer">
-        <button class="joinUsbtnContent">
-            <svg width="200px" height="60px" viewBox="0 0 200 60">
+        <button class="joinUsbtnContent"
+        onclick="window.location.href='{{ url(__('khadamat-pasazforosh.aftersales.button_link')) }}'">
+        <svg width="200px" height="60px" viewBox="0 0 200 60">
                 <polyline points="199,1 199,59 1,59 1,1 199,1" class="bg-line"></polyline>
                 <polyline points="199,1 199,59 1,59 1,1 199,1" class="hl-line"></polyline>
             </svg>
@@ -74,7 +78,7 @@
 <section class="services text-center">
     <h2 class="section-title"></h2>
     <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 justify-content-center">
-        <div class="col">
+        <div class="col mb-3">
             <div class="service-item h-100 p-3">
                 <h4>ارسال. نصب و راه اندازی رایگان </h4>
                 <details>
@@ -84,7 +88,7 @@
             </div>
         </div>
         <!-- Service 2 -->
-        <div class="col">
+        <div class="col mb-3">
             <div class="service-item h-100 p-3">
                 <h4>تعمیرات و نگهداری محصول</h4>
                 <details>
@@ -94,7 +98,7 @@
             </div>
         </div>
         <!-- Service 3 -->
-        <div class="col">
+        <div class="col mb-3">
             <div class="service-item h-100 p-3">
                 <h4>تهیه و توزیع قطعات محصول</h4>
                 <details>
@@ -126,7 +130,7 @@
         <!-- Service 6 -->
         <div class="col">
             <div class="service-item h-100 p-3">
-                <h4>پشتیلبانی آنلاین</h4>
+                <h4>پشتیبانی آنلاین</h4>
                 <details>
                     <summary>{{ __('khadamat-pasazforosh.services.details_continue') }}</summary>
                     <p>{{ __('khadamat-pasazforosh.services.online_support.description') }}</p>
@@ -143,21 +147,31 @@
             <h2 class="faq__title">سوالات متداول</h2>
             <details>
                 <summary>What types of services are included?</summary>
-                <p> Our services include setup, maintenance, repairs, and spare parts supply, all tailored to support
-                    your specific needs.</p>
+                <div class="faqText">
+                    <p> Our services include setup, maintenance, repairs, and spare parts supply, all tailored to
+                        support
+                        your specific needs.</p>
+                </div>
+
             </details>
             <details>
                 <summary> What types of services are included?
                 </summary>
-                <p> Our services include setup, maintenance, repairs, and spare parts supply, all tailored to support
-                    your specific needs.
-                </p>
+                <div class="faqText">
+                    <p> Our services include setup, maintenance, repairs, and spare parts supply, all tailored to
+                        support
+                        your specific needs.
+                    </p>
+                </div>
             </details>
             <details>
                 <summary> Do you offer on-site assistance?
                 </summary>
-                <p> Yes, our technicians can provide on-site support when needed. We aim to minimize your equipment
-                    downtime.</p>
+                <div class="faqText">
+                    <p> Yes, our technicians can provide on-site support when needed. We aim to minimize your equipment
+                        downtime.</p>
+                </div>
+
             </details>
         </div>
     </div>
