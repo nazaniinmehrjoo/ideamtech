@@ -1,10 +1,11 @@
-<form action="{{ route('employment-forms.store') }}" method="POST" enctype="multipart/form-data"
-    class=" text-white p-4 rounded" style="direction: rtl;">
+<form action="{{ route('employment-forms.store', ['locale' => app()->getLocale()]) }}" method="POST"
+    enctype="multipart/form-data" class="text-white p-4 rounded" style="direction: rtl;">
+    
     @csrf
 
     <!-- First Name -->
     <div class="row mb-3">
-        <label for="first_name" class="col-md-4 col-form-label text-md-end">{{ __('نام') }}</label>
+        <label for="first_name" class="col-md-4 col-form-label text-md-end">{{ __('employment_form.first_name') }}</label>
         <div class="col-md-6">
             <input type="text" name="first_name" id="first_name"
                 class="form-control bg-dark text-white @error('first_name') is-invalid @enderror" required>
@@ -18,7 +19,7 @@
 
     <!-- Last Name -->
     <div class="row mb-3">
-        <label for="last_name" class="col-md-4 col-form-label text-md-end">{{ __('نام خانوادگی') }}</label>
+        <label for="last_name" class="col-md-4 col-form-label text-md-end">{{ __('employment_form.last_name') }}</label>
         <div class="col-md-6">
             <input type="text" name="last_name" id="last_name"
                 class="form-control bg-dark text-white @error('last_name') is-invalid @enderror" required>
@@ -32,13 +33,13 @@
 
     <!-- Gender -->
     <div class="row mb-3">
-        <label for="gender" class="col-md-4 col-form-label text-md-end">{{ __('جنسیت') }}</label>
+        <label for="gender" class="col-md-4 col-form-label text-md-end">{{ __('employment_form.gender') }}</label>
         <div class="col-md-6">
             <select name="gender" id="gender"
                 class="form-control bg-dark text-white @error('gender') is-invalid @enderror" required>
-                <option value="">{{ __('-- انتخاب جنسیت --') }}</option>
-                <option value="male">مرد</option>
-                <option value="female">زن</option>
+                <option value="">{{ __('employment_form.select_gender') }}</option>
+                <option value="male">{{ __('employment_form.male') }}</option>
+                <option value="female">{{ __('employment_form.female') }}</option>
             </select>
             @error('gender')
                 <span class="invalid-feedback" role="alert">
@@ -50,13 +51,13 @@
 
     <!-- Marital Status -->
     <div class="row mb-3">
-        <label for="marital_status" class="col-md-4 col-form-label text-md-end">{{ __('وضعیت تعاهل') }}</label>
+        <label for="marital_status" class="col-md-4 col-form-label text-md-end">{{ __('employment_form.marital_status') }}</label>
         <div class="col-md-6">
             <select name="marital_status" id="marital_status"
                 class="form-control bg-dark text-white @error('marital_status') is-invalid @enderror" required>
-                <option value="">{{ __('-- انتخاب وضعیت تعاهل --') }}</option>
-                <option value="single">مجرد</option>
-                <option value="married">متاهل</option>
+                <option value="">{{ __('employment_form.select_marital_status') }}</option>
+                <option value="single">{{ __('employment_form.single') }}</option>
+                <option value="married">{{ __('employment_form.married') }}</option>
             </select>
             @error('marital_status')
                 <span class="invalid-feedback" role="alert">
@@ -68,14 +69,14 @@
 
     <!-- Military Status -->
     <div class="row mb-3">
-        <label for="military_status" class="col-md-4 col-form-label text-md-end">{{ __('وضعیت سربازی') }}</label>
+        <label for="military_status" class="col-md-4 col-form-label text-md-end">{{ __('employment_form.military_status') }}</label>
         <div class="col-md-6">
             <select name="military_status" id="military_status"
                 class="form-control bg-dark text-white @error('military_status') is-invalid @enderror" required>
-                <option value="">{{ __('-- انتخاب وضعیت سربازی --') }}</option>
-                <option value="completed">پایان خدمت</option>
-                <option value="exempt">معافیت</option>
-                <option value="postponed">معافیت تحصیلی</option>
+                <option value="">{{ __('employment_form.select_military_status') }}</option>
+                <option value="completed">{{ __('employment_form.completed') }}</option>
+                <option value="exempt">{{ __('employment_form.exempt') }}</option>
+                <option value="postponed">{{ __('employment_form.postponed') }}</option>
             </select>
             @error('military_status')
                 <span class="invalid-feedback" role="alert">
@@ -87,7 +88,7 @@
 
     <!-- Phone -->
     <div class="row mb-3">
-        <label for="phone" class="col-md-4 col-form-label text-md-end">{{ __('تلفن') }}</label>
+        <label for="phone" class="col-md-4 col-form-label text-md-end">{{ __('employment_form.phone') }}</label>
         <div class="col-md-6">
             <input type="text" name="phone" id="phone"
                 class="form-control bg-dark text-white @error('phone') is-invalid @enderror" required>
@@ -101,7 +102,7 @@
 
     <!-- Email -->
     <div class="row mb-3">
-        <label for="email" class="col-md-4 col-form-label text-md-end">{{ __('ایمیل') }}</label>
+        <label for="email" class="col-md-4 col-form-label text-md-end">{{ __('employment_form.email') }}</label>
         <div class="col-md-6">
             <input type="email" name="email" id="email"
                 class="form-control bg-dark text-white @error('email') is-invalid @enderror" required>
@@ -115,7 +116,7 @@
 
     <!-- Location -->
     <div class="row mb-3">
-        <label for="location" class="col-md-4 col-form-label text-md-end">{{ __('محل سکونت') }}</label>
+        <label for="location" class="col-md-4 col-form-label text-md-end">{{ __('employment_form.location') }}</label>
         <div class="col-md-6">
             <input type="text" name="location" id="location"
                 class="form-control bg-dark text-white @error('location') is-invalid @enderror" required>
@@ -130,7 +131,7 @@
     <!-- Experience Years -->
     <div class="row mb-3">
         <label for="experience_years"
-            class="col-md-4 col-form-label text-md-end">{{ __('میزان سابقه کار (سال)') }}</label>
+            class="col-md-4 col-form-label text-md-end">{{ __('employment_form.experience_years') }}</label>
         <div class="col-md-6">
             <input type="number" name="experience_years" id="experience_years"
                 class="form-control bg-dark text-white @error('experience_years') is-invalid @enderror" required>
@@ -144,7 +145,7 @@
 
     <!-- Education History -->
     <div class="row mb-3">
-        <label for="education_history" class="col-md-4 col-form-label text-md-end">{{ __('سوابق تحصیلی') }}</label>
+        <label for="education_history" class="col-md-4 col-form-label text-md-end">{{ __('employment_form.education_history') }}</label>
         <div class="col-md-6">
             <textarea name="education_history" id="education_history"
                 class="form-control bg-dark text-white @error('education_history') is-invalid @enderror"
@@ -160,7 +161,7 @@
     <!-- Training Courses -->
     <div class="row mb-3">
         <label for="training_courses"
-            class="col-md-4 col-form-label text-md-end">{{ __('دوره های آموزشی (اختیاری)') }}</label>
+            class="col-md-4 col-form-label text-md-end">{{ __('employment_form.training_courses') }}</label>
         <div class="col-md-6">
             <textarea name="training_courses" id="training_courses"
                 class="form-control bg-dark text-white @error('training_courses') is-invalid @enderror"></textarea>
@@ -175,7 +176,7 @@
     <!-- Training Certificate -->
     <div class="row mb-3">
         <label for="training_certificate"
-            class="col-md-4 col-form-label text-md-end">{{ __('مدرک دوره آموزشی (اختیاری)') }}</label>
+            class="col-md-4 col-form-label text-md-end">{{ __('employment_form.training_certificate') }}</label>
         <div class="col-md-6">
             <input type="file" name="training_certificate" id="training_certificate"
                 class="form-control bg-dark text-white @error('training_certificate') is-invalid @enderror">
@@ -189,7 +190,7 @@
 
     <!-- Work Experience -->
     <div class="row mb-3">
-        <label for="work_experience" class="col-md-4 col-form-label text-md-end">{{ __('سوابق کاری') }}</label>
+        <label for="work_experience" class="col-md-4 col-form-label text-md-end">{{ __('employment_form.work_experience') }}</label>
         <div class="col-md-6">
             <textarea name="work_experience" id="work_experience"
                 class="form-control bg-dark text-white @error('work_experience') is-invalid @enderror"></textarea>
@@ -204,7 +205,7 @@
     <!-- Work Experience Photo -->
     <div class="row mb-3">
         <label for="work_experience_photo"
-            class="col-md-4 col-form-label text-md-end">{{ __('مدرک سوابق کاری (اختیاری)') }}</label>
+            class="col-md-4 col-form-label text-md-end">{{ __('employment_form.work_experience_photo') }}</label>
         <div class="col-md-6">
             <input type="file" name="work_experience_photo" id="work_experience_photo"
                 class="form-control bg-dark text-white @error('work_experience_photo') is-invalid @enderror">
@@ -218,7 +219,7 @@
 
     <!-- Foreign Language -->
     <div class="row mb-3">
-        <label for="foreign_language" class="col-md-4 col-form-label text-md-end">{{ __('زبان خارجی') }}</label>
+        <label for="foreign_language" class="col-md-4 col-form-label text-md-end">{{ __('employment_form.foreign_language') }}</label>
         <div class="col-md-6">
             <input type="text" name="foreign_language" id="foreign_language"
                 class="form-control bg-dark text-white @error('foreign_language') is-invalid @enderror" required>
@@ -233,7 +234,7 @@
     <!-- Language Proficiency -->
     <div class="row mb-3">
         <label for="language_proficiency"
-            class="col-md-4 col-form-label text-md-end">{{ __('تسلط به زبان خارجی (1-5)') }}</label>
+            class="col-md-4 col-form-label text-md-end">{{ __('employment_form.language_proficiency') }}</label>
         <div class="col-md-6">
             <input type="number" name="language_proficiency" id="language_proficiency"
                 class="form-control bg-dark text-white @error('language_proficiency') is-invalid @enderror" min="1"
@@ -249,7 +250,7 @@
     <!-- Software Skills -->
     <div class="row mb-3">
         <label for="software_skills"
-            class="col-md-4 col-form-label text-md-end">{{ __('آشنایی با نرم افزارها') }}</label>
+            class="col-md-4 col-form-label text-md-end">{{ __('employment_form.software_skills') }}</label>
         <div class="col-md-6">
             <textarea name="software_skills" id="software_skills"
                 class="form-control bg-dark text-white @error('software_skills') is-invalid @enderror"></textarea>
@@ -263,7 +264,7 @@
 
     <!-- About Me -->
     <div class="row mb-3">
-        <label for="about_me" class="col-md-4 col-form-label text-md-end">{{ __('درباره من') }}</label>
+        <label for="about_me" class="col-md-4 col-form-label text-md-end">{{ __('employment_form.about_me') }}</label>
         <div class="col-md-6">
             <textarea name="about_me" id="about_me"
                 class="form-control bg-dark text-white @error('about_me') is-invalid @enderror"></textarea>
@@ -274,12 +275,12 @@
             @enderror
         </div>
     </div>
-    
+
     <!-- Submit Button -->
     <div class="row mb-0 mt-3">
         <div class="col-md-8 offset-md-4">
             <button type="submit" class="btn btn-primary">
-                {{ __('ارسال فرم') }}
+                {{ __('employment_form.submit_button') }}
             </button>
         </div>
     </div>

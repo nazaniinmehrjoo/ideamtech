@@ -69,4 +69,8 @@ return [
             ],
         ],
     ],
+    'employment_form' => 'Employment Form',
+    'cooperation_form' => 'Cooperation Form',
+    'form_created_successfully' => 'The form was created successfully.',
+
 ];

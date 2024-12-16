@@ -5,15 +5,14 @@
     <div class="auto-container">
         <div class="def-title-box">
             <div class="patt"><span></span></div>
-            
         </div>
 
         <div class="row parent-row clearfix">
             <div class="tabs-col col-xl-12 col-lg-12 col-md-12 col-sm-12">
                 <div class="tabs-box def-tabs-box">
                     <ul class="tab-buttons clearfix">
-                        <li class="tab-btn active-btn" data-tab="#employmentForm"><span>فرم استخدام</span></li>
-                        <li class="tab-btn" data-tab="#cooperationForm"><span>فرم همکاری</span></li>
+                        <li class="tab-btn active-btn" data-tab="#employmentForm"><span>{{ __('index.employment_form') }}</span></li>
+                        <li class="tab-btn" data-tab="#cooperationForm"><span>{{ __('index.cooperation_form') }}</span></li>
                     </ul>
                     <div class="tabs-content">
                         <!-- Employment Form Tab -->
