@@ -8628,6 +8628,7 @@ body.light-mode .tab-content div h4 {
 }
 body.light-mode .form-control {
     background-color: #fff !important;
+    color: #333 !important;
 }
 body.light-mode .col-form-label {
     color: #333333;
