@@ -6,6 +6,12 @@
     @endisset
     {{ config('app.name', 'خانه') }}
 </title>
+@if(session('success'))
+    <div class="alert alert-success alert-dismissible fade show text-center" role="alert">
+        {{ session('success') }}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="{{ __('messages.close_button') }}"></button>
+    </div>
+@endif
 
 <div class="body-bg-layer"></div>
 <!-- Banner Two -->
@@ -230,13 +236,14 @@
                                     </div>
                                     <div class="joinUsBtnContainer">
                                         <button class="joinUsbtnContent"
-                                            onclick="window.location.href='{{ url(__('index.services_two.tabs.about.button_link')) }}'">
+                                            onclick="window.location.href='{{ url(app()->getLocale() . '/' . __('index.services_two.tabs.about.button_link')) }}'">
                                             <svg width="200px" height="60px" viewBox="0 0 200 60">
                                                 <polyline points="199,1 199,59 1,59 1,1 199,1" class="bg-line" />
                                                 <polyline points="199,1 199,59 1,59 1,1 199,1" class="hl-line" />
                                             </svg>
                                             <span>{{ __('index.services_two.tabs.about.button_text') }}</span>
                                         </button>
+
                                     </div>
                                 </div>
                             </div>

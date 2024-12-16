@@ -69,4 +69,8 @@ return [
             ],
         ],
     ],
+    'employment_form' => 'فرم استخدام',
+    'cooperation_form' => 'فرم همکاری',
+    'form_created_successfully' => 'فرم با موفقیت ایجاد شد.',
+
 ];
