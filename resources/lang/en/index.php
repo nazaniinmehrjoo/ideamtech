@@ -2,8 +2,8 @@
 return [
     'slider' => [
         'slide_1' => [
-            'cat' => 'Dryer',
-            'title' => 'Faster production with optimized energy consumption',
+            'cat' => 'Rapid Dryer',
+            'title' => 'Faster production with optimal energy consumption',
         ],
         'slide_2' => [
             'cat' => 'Robot',
@@ -11,15 +11,15 @@ return [
         ],
         'slide_3' => [
             'cat' => 'Iraqi Brick Dryer',
-            'desc' => 'The first rapid Iraqi brick dryer in the world',
+            'desc' => 'The first rapid dryer of Iraqi brick in the world',
         ],
         'slide_4' => [
             'cat' => 'Tunnel Kiln',
-            'title' => 'Design and construction of tunnel kilns',
+            'title' => 'Designing and Manufacturing of tunnel kilns',
         ],
         'slide_5' => [
-            'cat' => 'About Borna Gostar',
-            'desc' => 'Ideas for design and construction',
+            'cat' => 'About Borna Gostar Parsi Co.',
+            'desc' => 'Concept , Designing , Manufacturing',
         ],
 
     ],
