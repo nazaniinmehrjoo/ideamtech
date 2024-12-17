@@ -5,7 +5,7 @@
   <div class="dashboard-header text-center">
     <h2 class="text-light mb-3">{{ __('dashboard.title') }}</h2>
     <p>{{ __('dashboard.download_guide') }}</p>
-    <button class="download-btn" onclick="startSpin(this, '/assets/catalog/catalog.pdf')">
+    <button class="download-btn" onclick="startSpin(this, '/assets/documents/adminDashboard.pdf')">
       <i class="fa-light fa-download download" id="download"></i>
       <div class="spinner"></div>
     </button>
@@ -57,7 +57,7 @@
       'route_index' => 'cooperations.index',
       ],
     ];
-    @endphp
+  @endphp
 
     @foreach ($sections as $section)
     <div class="adminDashboardBoxes service-block col-xl-12 col-lg-12 col-md-12 col-sm-12">
@@ -65,6 +65,9 @@
       <div class="inner">
         <div class="icon-box"><span class="fas {{ $section['icon'] }}"></span></div>
         <h5>{{ $section['title'] }}</h5>
+        <div class="text">
+            <p></p>
+        </div>
         <div class="action-btns d-flex justify-content-center gap-2">
         @isset($section['route_create'])
       <a href="{{ route($section['route_create'], ['locale' => app()->getLocale()]) }}"
@@ -88,6 +91,9 @@
         <div class="inner">
           <div class="icon-box"><span class="fas fa-chart-bar"></span></div>
           <h5>{{ __('dashboard.most_clicked_products') }}</h5>
+          <div class="text">
+            <p></p>
+          </div>
         </div>
         <div class="chart-container">
           <canvas id="mostClickedProductsChart"></canvas>
@@ -100,6 +106,9 @@
         <div class="inner">
           <div class="icon-box"><span class="fas fa-globe"></span></div>
           <h5>{{ __('dashboard.country_visits') }}</h5>
+          <div class="text">
+            <p></p>
+          </div>
         </div>
         <div class="chart-container">
           <canvas id="countryVisitsChart"></canvas>
