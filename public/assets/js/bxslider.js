@@ -1689,34 +1689,55 @@
     // returns the current jQuery object
     return this;
   };
-  $(document).ready(function() {
+  $(document).ready(function () {
     let popupTimeout;
 
-    $(".certificateZoomIn").on("click", function() {
-        clearTimeout(popupTimeout); 
-        const imageUrl = $(this).closest('.sertificate-box').find('.image-layer').css('background-image');
-        $(".popup-overlay").css({
-            'background-image': imageUrl,
-            'display': 'block'
-        }).fadeIn(300);
-    });
+    
+    function showImagePopup(imageUrl) {
+        if (imageUrl) {
+            $(".popup-overlay").css({
+                "background-image": `url(${imageUrl})`,
+                "display": "block"
+            }).fadeIn(300);
+        }
+    }
 
-    $(".popup-overlay").on("click", function() {
-        popupTimeout = setTimeout(function() {
-            $(".popup-overlay").fadeOut(300);
-        }, 100); 
+    
+    $(".certificateZoomIn").on("click", function (event) {
+        event.stopPropagation(); 
+        clearTimeout(popupTimeout);
+        const $imageLayer = $(this).closest(".sertificate-box").find(".image-layer");
+        if ($imageLayer.length) {
+            const imageUrl = $imageLayer.css("background-image")
+                .replace(/^url\(['"]?/,'') 
+                .replace(/['"]?\)$/,'');   
+            showImagePopup(imageUrl);
+        }
     });
 
     
-    $(".popup-overlay").hover(
-        function() {
-            clearTimeout(popupTimeout);
-        },
-        function() {
-            $(this).fadeOut(300);
+    $(".mainAboutBorna .certificateZoomIn").on("click", function (event) {
+        event.stopPropagation(); 
+        clearTimeout(popupTimeout);
+        const $img = $(this).siblings("img");
+        if ($img.length) {
+            const imageUrl = $img.attr("src");
+            showImagePopup(imageUrl);
         }
-    );
+    });
+
+    
+    $(document).on("click", function () {
+        $(".popup-overlay").fadeOut(300);
+    });
+
+    
+    $(".popup-overlay").on("click", function () {
+        $(this).fadeOut(300);
+    });
 });
+
+
 
 
 })(jQuery);

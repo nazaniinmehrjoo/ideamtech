@@ -101,7 +101,8 @@
                                     <p class="text">{{ __('about.services_section.customer_satisfaction.description') }}
                                     </p>
                                     <div class="link-box">
-                                        <a href="{{ url(__('about.services_section.customer_satisfaction.link_url')) }}">
+                                        <a
+                                            href="{{ url(__('about.services_section.customer_satisfaction.link_url')) }}">
                                             <span class="far fa-angle-right"></span>
                                         </a>
                                     </div>
@@ -144,9 +145,14 @@
                                         <div class="image-col col-lg-5 col-md-5 col-sm-6">
                                             <div class="image mainAboutBorna">
                                                 <img src="{{ $tab['image'] ?? '' }}" alt="{{ $tab['title'] ?? '' }}">
+                                                @if($key == 'tab-2')
+                                                    <div class="certificateZoomIn">
+                                                        <i class="fa-sharp fa-regular fa-arrows-maximize"></i>
+                                                    </div>
+                                                @endif
                                             </div>
                                         </div>
-                                        <div class="text-col col-lg-7 col-md-7 col-sm-6">
+                                        <div class="text-col col-lg-7 col-md-7 col-sm-6 catalogContent ">
                                             <div class="text purposeContent">
                                                 <p>{{ $tab['description'] ?? '' }}</p>
                                             </div>
