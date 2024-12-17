@@ -1150,7 +1150,7 @@ form label.error {
     left: 7%;
     top: 26px;
     /* display: none; */
-    /* z-index: 9999; */
+    z-index: 9999;
     padding: 0px 20px;
     margin: 0 auto;
 }
@@ -6909,7 +6909,7 @@ body.light-mode .def-title-box h3 {
 .form-control {
     border-radius: 4px;
     border: 1px solid #ced4da;
-    padding: 10px;
+    /* padding: 10px; */
     font-size: 16px;
 }
 
@@ -7471,6 +7471,8 @@ canvas {
     letter-spacing: 4px;
     border-radius: 20px;
     font-size: 20px;
+    line-height: 36px;
+    direction: ltr;
 }
 .certificateZoomIn i {
     vertical-align: middle;
