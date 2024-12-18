@@ -68,11 +68,10 @@
                     </div>
                 </div>
 
-                <!-- Pagination -->
-                <div class="styled-pagination">
-                    {{ $posts->withQueryString()->links() }}
+                <div class="d-flex justify-content-center mt-4">
+                    {{ $posts->links('vendor.pagination.default') }}
                 </div>
-            </div>
+
         </section>
     </div>
 </div>
