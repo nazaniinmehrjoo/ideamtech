@@ -55,7 +55,7 @@
                         @if($categories->count() > 0)
                             @foreach($categories as $category)
                                 <div class="col-md-4 mb-4">
-                                    <div class="card bg-dark text-white h-100">
+                                    <div class="card bg-dark text-white h-100 text-right">
                                         <div class="card-body d-flex flex-column">
                                             <h5 class="card-title text-end" style="direction: rtl;">
                                                 {{ $category->getTranslatedName() }}
@@ -86,54 +86,84 @@
 </div>
 
 @if ($filter === 'khoskkon')
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            const labels = {!! json_encode($criteriaLabels) !!};
-            const datasets = {!! json_encode($categoryDatasets) !!};
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const labels = {!! json_encode($criteriaLabels) !!};
+        const datasets = {!! json_encode($categoryDatasets) !!};
 
-            if (!labels.length || !datasets.length) {
-                console.error("No data available for the chart.");
-                return;
-            }
+        if (!labels.length || !datasets.length) {
+            console.error("No data available for the chart.");
+            return;
+        }
 
-            const ctx = document.getElementById('khoskkonChart').getContext('2d');
-            new Chart(ctx, {
-                type: 'radar',
-                data: {
-                    labels: labels,
-                    datasets: datasets,
-                },
-                options: {
-                    scales: {
-                        r: {
-                            beginAtZero: true,
-                            ticks: {
-                                color: '#ffffff',
-                                backdropColor: 'transparent',
-                            },
-                            grid: {
-                                color: 'rgba(255, 255, 255, 0.2)',
-                            },
-                            angleLines: {
-                                color: 'rgba(255, 255, 255, 0.5)',
-                            },
-                            pointLabels: {
-                                color: '#ffffff',
-                            },
+        const getColorConfig = () => {
+            const isLightMode = document.body.classList.contains('light-mode');
+            return {
+                textColor: isLightMode ? '#000000' : '#ffffff',
+                gridColor: isLightMode ? 'rgba(0, 0, 0, 0.2)' : 'rgba(255, 255, 255, 0.2)',
+                angleLineColor: isLightMode ? 'rgba(0, 0, 0, 0.5)' : 'rgba(255, 255, 255, 0.5)',
+            };
+        };
+
+        // Initialize chart with dynamic color settings
+        const ctx = document.getElementById('khoskkonChart').getContext('2d');
+        const colorConfig = getColorConfig();
+
+        const khoskkonChart = new Chart(ctx, {
+            type: 'radar',
+            data: {
+                labels: labels,
+                datasets: datasets,
+            },
+            options: {
+                scales: {
+                    r: {
+                        beginAtZero: true,
+                        ticks: {
+                            color: colorConfig.textColor,
+                            backdropColor: 'transparent',
+                        },
+                        grid: {
+                            color: colorConfig.gridColor,
+                        },
+                        angleLines: {
+                            color: colorConfig.angleLineColor,
+                        },
+                        pointLabels: {
+                            color: colorConfig.textColor,
                         },
                     },
-                    plugins: {
-                        legend: {
-                            display: true,
-                            position: 'right',
-                            labels: {
-                                color: '#ffffff',
-                            },
+                },
+                plugins: {
+                    legend: {
+                        display: true,
+                        position: 'right',
+                        labels: {
+                            color: colorConfig.textColor,
                         },
                     },
                 },
-            });
+            },
         });
-    </script>
+
+        // Update chart colors when mode changes
+        const updateChartColors = () => {
+            const colorConfig = getColorConfig();
+            khoskkonChart.options.scales.r.ticks.color = colorConfig.textColor;
+            khoskkonChart.options.scales.r.grid.color = colorConfig.gridColor;
+            khoskkonChart.options.scales.r.angleLines.color = colorConfig.angleLineColor;
+            khoskkonChart.options.scales.r.pointLabels.color = colorConfig.textColor;
+            khoskkonChart.options.plugins.legend.labels.color = colorConfig.textColor;
+            khoskkonChart.update();
+        };
+
+        // Watch for light-mode toggle
+        const observer = new MutationObserver(() => {
+            updateChartColors();
+        });
+        observer.observe(document.body, { attributes: true, attributeFilter: ['class'] });
+    });
+</script>
+
 @endif
 @endsection
