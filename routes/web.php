@@ -118,12 +118,12 @@ Route::group(['prefix' => '{locale}', 'middleware' => 'locale'], function () {
         Route::post('/customer/export', [CustomerFormController::class, 'export'])->name('customer.export');
 
         // Cooperation and Employment Forms
-        // Route::get('cooperations', [CooperationController::class, 'index'])->name('cooperations.index');
-        Route::get('cooperations/{id}/edit', [CooperationController::class, 'edit'])->name('cooperations.edit');
+        Route::get('cooperations', [CooperationController::class, 'index'])->name('cooperations.index');
+        Route::get('cooperations/{id}/edit', [CooperationController::class, 'e dit'])->name('cooperations.edit');
         Route::put('cooperations/{id}', [CooperationController::class, 'update'])->name('cooperations.update');
         Route::delete('cooperations/{id}', [CooperationController::class, 'destroy'])->name('cooperations.destroy');
 
-        // Route::get('employment-forms', [EmploymentFormController::class, 'index'])->name('employment-forms.index');
+        Route::get('employment-forms', [EmploymentFormController::class, 'index'])->name('employment-forms.index');
         Route::get('employment-forms/{id}/edit', [EmploymentFormController::class, 'edit'])->name('employment-forms.edit');
         Route::put('employment-forms/{id}', [EmploymentFormController::class, 'update'])->name('employment-forms.update');
         Route::delete('employment-forms/{id}', [EmploymentFormController::class, 'destroy'])->name('employment-forms.destroy');
