@@ -137,7 +137,7 @@
                         <div class="row mb-0">
                             <div class="col-md-8 offset-md-4">
                                 <button type="submit" class="theme-btn btn-style-two">{{ __('ذخیره پروژه') }}</button>
-                                <a href="{{ route('projects.index', ['locale' => app()->getLocale()]) }}" class="btn btn-secondary">{{ __('لغو') }}</a>
+                                <a href="{{ route('projects.index', ['locale' => app()->getLocale()]) }}" class="btn exiteButton">{{ __('لغو') }}</a>
                             </div>
                         </div>
                     </form>
