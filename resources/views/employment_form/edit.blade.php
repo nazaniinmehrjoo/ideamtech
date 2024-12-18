@@ -17,7 +17,7 @@
         @csrf
         @method('PUT')
         @include('employment_form.partials.form', ['form' => $employmentForm])
-        <button type="submit" class="btn btn-primary">ذخیره تغییرات</button>
+        <button type="submit" class="btn theme-btn btn-style-two">ذخیره تغییرات</button>
     </form>
 </div>
 @endsection

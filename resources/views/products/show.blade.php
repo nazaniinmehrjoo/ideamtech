@@ -20,7 +20,7 @@
                     <p class="card-text">تعداد بازدیدها: {{ $product->views }}</p>
                 </div>
                 <div class="card-footer">
-                    <a href="{{ route('products.index') }}" class="btn btn-primary">بازگشت به لیست محصولات</a>
+                    <a href="{{ route('products.index') }}" class="btn theme-btn btn-style-two">بازگشت به لیست محصولات</a>
                 </div>
             </div>
         </div>

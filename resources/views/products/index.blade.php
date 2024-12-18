@@ -38,7 +38,7 @@
         </div>
 
         <div class="col-md-4 d-flex align-items-end">
-            <button type="submit" class="btn btn-primary w-100">
+            <button type="submit" class="btn theme-btn btn-style-two w-100">
                 <i class="bi bi-funnel"></i> فیلتر
             </button>
         </div>

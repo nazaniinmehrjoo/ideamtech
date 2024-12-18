@@ -90,7 +90,7 @@
                                     </div>
                                 @endif
                                 <input type="file" name="main_image" id="main_image" class="d-none" onchange="addMainImage(event)">
-                                <button type="button" class="btn btn-primary mb-2" onclick="document.getElementById('main_image').click()">+</button>
+                                <button type="button" class="btn theme-btn btn-style-two mb-2" onclick="document.getElementById('main_image').click()">+</button>
                                 @error('main_image')
                                     <span class="invalid-feedback" role="alert">{{ $message }}</span>
                                 @enderror
@@ -116,7 +116,7 @@
                             <label class="col-md-4 col-form-label text-md-end">{{ __('تصاویر جدید') }}</label>
                             <div class="col-md-6 d-flex flex-wrap">
                                 <div id="new-image-preview" class="d-flex flex-wrap mt-2"></div>
-                                <button type="button" class="btn btn-primary mb-2" onclick="document.getElementById('images').click()">+</button>
+                                <button type="button" class="btn theme-btn btn-style-two mb-2" onclick="document.getElementById('images').click()">+</button>
                                 <input type="file" id="images" name="images[]" class="d-none" multiple onchange="addImages(event)">
                                 @error('images.*')
                                     <span class="invalid-feedback" role="alert">{{ $message }}</span>
@@ -127,7 +127,7 @@
                         <!-- Submit Button -->
                         <div class="row mb-0">
                             <div class="col-md-8 offset-md-4">
-                                <button type="submit" class="btn btn-primary">{{ __('ویرایش') }}</button>
+                                <button type="submit" class="btn theme-btn btn-style-two">{{ __('ویرایش') }}</button>
                             </div>
                         </div>
                     </form>

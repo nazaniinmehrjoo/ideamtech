@@ -279,7 +279,7 @@
     <!-- Submit Button -->
     <div class="row mb-0 mt-3">
         <div class="col-md-8 offset-md-4">
-            <button type="submit" class="btn btn-primary">
+            <button type="submit" class="btn theme-btn btn-style-two">
                 {{ __('employment_form.submit_button') }}
             </button>
         </div>

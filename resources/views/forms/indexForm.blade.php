@@ -31,7 +31,7 @@
 
     <!-- Add Create New Form Button -->
     <div class="mb-3">
-        <a href="{{ route('customer.create') }}" class="btn btn-primary">ایجاد فرم جدید</a>
+        <a href="{{ route('customer.create') }}" class="btn theme-btn btn-style-two">ایجاد فرم جدید</a>
     </div>
 
     <!-- Search Box -->

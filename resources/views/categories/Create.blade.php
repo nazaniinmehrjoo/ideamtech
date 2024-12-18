@@ -123,7 +123,7 @@
                         <!-- Submit Button -->
                         <div class="row mb-0">
                             <div class="col-md-8 offset-md-4">
-                                <button type="submit" class="btn btn-primary">{{ __('categoryCreate.submit') }}</button>
+                                <button type="submit" class="btn theme-btn btn-style-two">{{ __('categoryCreate.submit') }}</button>
                             </div>
                         </div>
                     </form>

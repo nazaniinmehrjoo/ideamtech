@@ -94,7 +94,7 @@
                         <div class="row mb-3">
                             <label for="main_image" class="col-md-4 col-form-label text-md-end">{{ __('blogCreate.main_image') }}</label>
                             <div class="col-md-6 d-flex flex-wrap">
-                                <button type="button" class="btn btn-primary mb-2" onclick="document.getElementById('main_image').click()">+</button>
+                                <button type="button" class="btn theme-btn btn-style-two mb-2" onclick="document.getElementById('main_image').click()">+</button>
                                 <input type="file" id="main_image" name="main_image" class="d-none" onchange="previewMainImage(event)">
                                 <div id="main-image-preview" class="d-flex flex-wrap mt-2"></div>
                                 @error('main_image')
@@ -107,7 +107,7 @@
                         <div class="row mb-3">
                             <label for="images" class="col-md-4 col-form-label text-md-end">{{ __('blogCreate.additional_images') }}</label>
                             <div class="col-md-6 d-flex flex-wrap">
-                                <button type="button" class="btn btn-primary mb-2" onclick="document.getElementById('images').click()">+</button>
+                                <button type="button" class="btn theme-btn btn-style-two mb-2" onclick="document.getElementById('images').click()">+</button>
                                 <input type="file" id="images" name="images[]" class="d-none" multiple onchange="previewImages(event)">
                                 <div id="image-preview" class="d-flex flex-wrap mt-2"></div>
                                 @error('images')
@@ -122,7 +122,7 @@
                         <!-- Submit Button -->
                         <div class="row mb-0">
                             <div class="col-md-8 offset-md-4">
-                                <button type="submit" class="btn btn-primary">{{ __('blogCreate.submit') }}</button>
+                                <button type="submit" class="btn theme-btn btn-style-two">{{ __('blogCreate.submit') }}</button>
                             </div>
                         </div>
                     </form>
