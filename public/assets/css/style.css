@@ -3715,6 +3715,7 @@ body.light-mode .def-title-box h3 {
 ***/
 .dashboard-container {
     min-height: 100vh;
+    
 }
 .portfolio-section {
     position: relative;
@@ -8233,6 +8234,7 @@ background-color: #343a403d !important;
   }
   .category-section {
     border-radius: 10px !important;
+    text-align: right;
   }
   
   .create-object-btn {
@@ -8248,6 +8250,32 @@ background-color: #343a403d !important;
       border:2px solid #ffa87e;
       color: #212529;
   }
+  .exiteButton {
+    position: relative;
+    display: inline-block;
+    vertical-align: top;
+    font-family: "IRANSans";
+    margin: 0;
+    line-height: 26px;
+    padding: 10px 30px 14px;
+    color: #000000;
+    font-weight: 400;
+    font-size: 15px;
+    text-align: center;
+    text-transform: uppercase;
+    background: #f05928;
+    border: 2px solid #f05928;
+    border-radius: 0px;
+    -moz-transition: all 0.3s ease;
+    -webkit-transition: all 0.3s ease;
+    -ms-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+    border-radius: 18px;
+    width: 35%;
+    background: #ababab;
+    border: 2px solid #ababab;
+  }
 /* Light mode */
 
 
@@ -8261,6 +8289,9 @@ body.light-mode {
     -webkit-font-smoothing: antialiased;
     -moz-font-smoothing: antialiased;
     cursor: auto;
+}
+body.light-mode .category-section {
+    background: #f0f0f0 !important;
 }
 body.light-mode .banner-two .banner-slider {
     position: relative;
@@ -8513,13 +8544,20 @@ body.light-mode .card {
     border: 1px solid rgba(0, 0, 0, .125);
     border-radius: 18px;
 }
+body.light-mode .card-title {
+    color: #636363;
+}
 body.light-mode .card h3{
     color: #636363 !important;
 }
 body.light-mode  .card-header {
     background-color: #ffc7a2;
     border-bottom: 1px solid rgba(0, 0, 0, .125);
-    border-radius: 18px 18px 0px 0px !important;
+    border-radius: 18px 
+    18px 0px 0px !important;
+}
+body.light-mode  .card-header h5{
+    color: #fff;
 }
 body.light-mode .counter {
     color: #666666;
@@ -8697,6 +8735,12 @@ body.light-mode .accordionslider-box .block .accbox-content {
 }
 body.light-mode .accordionslider-box .block .content .text {
     color: #363636;
+}
+body.light-mode .category-section h2 {
+    color: #242424;
+}
+body.light-mode .card-body h6{
+    color: #7a7a7a;
 }
 /* Menu Language and Theme style */
 .dropdown-item:focus, .dropdown-item:hover {
