@@ -66,7 +66,7 @@
         @if ($currentPageName == 'all_services')
             <div class="tab-pane fade show active" id="all_services" role="tabpanel">
                 <div class="category-section mb-5 p-4 border rounded shadow bg-dark">
-                    <h2 class="text-primary">همه سرویس‌ها</h2>
+                    <h2 class="">همه سرویس‌ها</h2>
                     <div class="row">
                         @forelse($services as $service)
                             <div class="col-md-4 mb-4 d-flex">
@@ -112,7 +112,7 @@
             <div class="tab-pane fade {{ $currentPageName == \Str::slug($categoryName) ? 'show active' : '' }}"
                 id="{{ \Str::slug($categoryName) }}" role="tabpanel">
                 <div class="category-section mb-5 p-4 border rounded shadow bg-dark">
-                    <h2 class="text-primary">{{ $categoryName }}</h2>
+                    <h2 class="">{{ $categoryName }}</h2>
                     <div class="row">
                         @forelse($services->where($columnName, true) as $service)
                             <div class="col-md-4 mb-4 d-flex">
