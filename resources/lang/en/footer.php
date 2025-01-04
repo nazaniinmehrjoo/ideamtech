@@ -9,8 +9,8 @@ return [
     'head_office_label' => 'Tehran Head Office',
     'head_office_address' => 'Gandi Street, Corner of Alley 8, Morvarid Building, Third Floor, Unit 9',
     'contact_title' => 'Contact Us',
-    'phone' => '021 88302036-88302037',
-    'mobile' => '+09011779998',
+    'phone' => '-021 88203026',
+    'mobile' => '090117799 98+',
     'email' => 'info@brickind.com',
     'map_directions' => 'Map & Directions',
 ];

@@ -25,7 +25,7 @@
                         <div class="i-title">{{ __('footer.contact_title') }}</div>
                         <div class="text contactDetail">
                             <span class="icon fa fa-phone" style="color: #f05928;"></span> 
-                            <a href="tel:+982188302036">{{ __('footer.phone') }}</a> 
+                            <a href="tel:+9821203026">{{ __('footer.phone') }}</a> 
                             <br>
                             <span class="icon fa fa-mobile-alt" style="color: #f05928;"></span> 
                             <a href="tel:+989011779998">{{ __('footer.mobile') }}</a> 
