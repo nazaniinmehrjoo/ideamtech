@@ -99,13 +99,15 @@ class BlogController extends Controller
 
 
 
-    public function edit($id)
+    public function edit($locale, $id)
     {
         $post = Post::with('images')->findOrFail($id);
-        return view('blog.edit', compact('post'));
+
+        return view('blog.edit', compact('post'))->with('locale', $locale);
     }
 
-    public function update(Request $request, $id)
+
+    public function update(Request $request, $locale, $id)
     {
         $post = Post::findOrFail($id);
 
@@ -125,6 +127,7 @@ class BlogController extends Controller
 
         $post->update($data);
 
+        // Handle main image replacement
         if ($request->hasFile('main_image')) {
             if ($post->image) {
                 \Storage::disk('public')->delete($post->image);
@@ -132,6 +135,7 @@ class BlogController extends Controller
             $post->image = $request->file('main_image')->store('posts', 'public');
         }
 
+        // Handle additional images
         if ($request->hasFile('images')) {
             foreach ($request->file('images') as $image) {
                 $path = $image->store('posts', 'public');
@@ -139,7 +143,7 @@ class BlogController extends Controller
             }
         }
 
-        return redirect()->route('blog.index')->with('success', 'Post updated successfully!');
+        return redirect()->route('blog.index', ['locale' => $locale])->with('success', 'Post updated successfully!');
     }
 
     public function destroy(Post $post)
@@ -155,6 +159,7 @@ class BlogController extends Controller
 
         $post->delete();
 
-        return redirect()->route('blog.index')->with('success', 'Post deleted successfully!');
+        return redirect()->route('blog.index', ['locale' => app()->getLocale()])->with('success', 'Post deleted successfully!');
     }
+
 }
