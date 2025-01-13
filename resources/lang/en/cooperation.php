@@ -8,4 +8,13 @@ return [
     'address' => 'Address',
     'activity_field' => 'Activity Field',
     'submit_button' => 'Submit Form',
+    'manage_forms' => 'Manage Cooperation Forms',
+    'success_message' => 'Operation completed successfully!',
+    'create_new_form' => 'Add New Form',
+    'search_placeholder' => 'Search forms...',
+    'actions' => 'Actions',
+    'edit' => 'Edit',
+    'delete' => 'Delete',
+    'delete_confirmation' => 'Are you sure?',
+    'no_forms' => 'No cooperation forms have been registered.',
 ];

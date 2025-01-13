@@ -3,39 +3,36 @@
 @section('content')
 
 <div class="container mt-5" dir="rtl">
-    <h1 class="mb-4 text-center">مدیریت فرم‌های استخدام</h1>
+    <h1 class="mb-4 text-center">{{ __('employment_form.manage_forms', ['locale' => app()->getLocale()]) }}</h1>
 
     <!-- Success Message -->
     @if(session('success'))
         <div class="alert alert-success alert-dismissible fade show text-center" role="alert">
             {{ session('success') }}
-            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="بستن"></button>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="{{ __('employment_form.close') }}"></button>
         </div>
     @endif
 
-  
-
     <!-- Create Button -->
+    <!-- <div class="text-center mb-4">
+        <a href="{{ route('employment-forms.create', ['locale' => app()->getLocale()]) }}" class="btn create-object-btn btn-lg">{{ __('employment_form.create_new_form') }}</a>
+    </div> -->
+
+    <!-- Search Form -->
     <div class="text-center mb-4">
-        <a href="{{ route('employment-forms.create') }}" class="btn create-object-btn btn-lg">افزودن فرم جدید</a>
+        <input type="text" id="formSearch" class="form-control w-50 mx-auto" placeholder="{{ __('employment_form.search_placeholder') }}" onkeyup="searchForms()">
     </div>
 
-    <!-- Employment Forms Table -->
-       <!-- Search Form -->
-    <div class="text-center mb-4">
-        <input type="text" id="formSearch" class="form-control w-50 mx-auto" placeholder="جستجوی فرم‌ها..."
-            onkeyup="searchForms()">
-    </div>
     @if($forms->count() > 0)
         <div class="table-responsive">
             <table class="table table-bordered table-striped align-middle text-center">
                 <thead class="table-dark">
                     <tr>
-                        <th>نام</th>
-                        <th>نام خانوادگی</th>
-                        <th>ایمیل</th>
-                        <th>تلفن</th>
-                        <th>اقدامات</th>
+                        <th>{{ __('employment_form.first_name') }}</th>
+                        <th>{{ __('employment_form.last_name') }}</th>
+                        <th>{{ __('employment_form.email') }}</th>
+                        <th>{{ __('employment_form.phone') }}</th>
+                        <th>{{ __('employment_form.actions') }}</th>
                     </tr>
                 </thead>
                 <tbody id="formTable">
@@ -47,14 +44,14 @@
                             <td>{{ $form->phone }}</td>
                             <td>
                                 <div class="d-flex justify-content-center gap-2">
-                                    <a href="{{ route('employment-forms.edit', $form->id) }}"
-                                        class="btn btn-warning btn-sm">ویرایش</a>
-                                    <form action="{{ route('employment-forms.destroy', $form->id) }}" method="POST"
-                                        style="display:inline-block;">
+                                    <!-- Edit Button -->
+                                    <a href="{{ route('employment-forms.edit', ['locale' => app()->getLocale(), 'employment_form' => $form->id]) }}" class="btn btn-warning btn-sm">{{ __('employment_form.edit') }}</a>
+                                    
+                                    <!-- Delete Button -->
+                                    <form action="{{ route('employment-forms.destroy', ['locale' => app()->getLocale(), 'employment_form' => $form->id]) }}" method="POST" style="display:inline-block;">
                                         @csrf
                                         @method('DELETE')
-                                        <button type="submit" class="btn btn-danger btn-sm"
-                                            onclick="return confirm('آیا مطمئن هستید؟')">حذف</button>
+                                        <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('{{ __('employment_form.delete_confirmation') }}')">{{ __('employment_form.delete') }}</button>
                                     </form>
                                 </div>
                             </td>
@@ -66,10 +63,10 @@
 
         <!-- Pagination Links -->
         <div class="styled-pagination">
-            {{ $forms->links('vendor.pagination.default') }}
+            {{ $forms->withQueryString()->links('vendor.pagination.default') }}
         </div>
     @else
-        <p class="text-muted text-center">هیچ فرم استخدامی ثبت نشده است.</p>
+        <p class="text-muted text-center">{{ __('employment_form.no_forms') }}</p>
     @endif
 </div>
 

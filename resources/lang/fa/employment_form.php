@@ -29,4 +29,12 @@ return [
     'software_skills' => 'آشنایی با نرم افزارها',
     'about_me' => 'درباره من',
     'submit_button' => 'ارسال فرم',
+    'manage_forms' => 'مدیریت فرم‌های استخدام',
+    'create_new_form' => 'افزودن فرم جدید',
+    'search_placeholder' => 'جستجوی فرم‌ها...',
+    'actions' => 'عملیات',
+    'edit' => 'ویرایش',
+    'delete' => 'حذف',
+    'delete_confirmation' => 'آیا مطمئن هستید؟',
+    'no_forms' => 'هیچ فرم استخدامی ثبت نشده است.',
 ];

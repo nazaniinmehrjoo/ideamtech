@@ -3,24 +3,26 @@
 @section('content')
 
 <div class="container mt-5" dir="rtl">
-    <h1 class="mb-4 text-center">مدیریت فرم همکاری‌</h1>
+    <h1 class="mb-4 text-center">{{ __('cooperation.manage_forms') }}</h1>
 
     <!-- Success Message -->
     @if(session('success'))
         <div class="alert alert-success alert-dismissible fade show text-center" role="alert">
-            {{ session('success') }}
-            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="بستن"></button>
+            {{ __('cooperation.success_message') }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="{{ __('cooperation.close') }}"></button>
         </div>
     @endif
 
     <!-- Create Button -->
     <div class="text-center mb-4">
-        <a href="{{ route('cooperations.create') }}" class="btn create-object-btn btn-lg">افزودن فرم جدید</a>
+        <a href="{{ route('cooperations.create', ['locale' => app()->getLocale()]) }}" class="btn create-object-btn btn-lg">
+            {{ __('cooperation.create_new_form') }}
+        </a>
     </div>
 
     <!-- Search Form -->
     <div class="text-center mb-4">
-        <input type="text" id="formSearch" class="form-control w-50 mx-auto" placeholder="جستجوی فرم‌ها..." onkeyup="searchForms()">
+        <input type="text" id="formSearch" class="form-control w-50 mx-auto" placeholder="{{ __('cooperation.search_placeholder') }}" onkeyup="searchForms()">
     </div>
 
     <!-- Cooperation Forms Table -->
@@ -29,13 +31,13 @@
             <table class="table table-bordered table-striped align-middle text-center">
                 <thead class="table-dark">
                     <tr>
-                        <th>نام شرکت</th>
-                        <th>تلفن شرکت</th>
-                        <th>ایمیل شرکت</th>
-                        <th>کشور</th>
-                        <th>کد ملی</th>
-                        <th>زمینه فعالیت</th>
-                        <th>اقدامات</th>
+                        <th>{{ __('cooperation.company_name') }}</th>
+                        <th>{{ __('cooperation.company_phone') }}</th>
+                        <th>{{ __('cooperation.company_email') }}</th>
+                        <th>{{ __('cooperation.country') }}</th>
+                        <th>{{ __('cooperation.national_id') }}</th>
+                        <th>{{ __('cooperation.activity_field') }}</th>
+                        <th>{{ __('cooperation.actions') }}</th>
                     </tr>
                 </thead>
                 <tbody id="formTable">
@@ -49,11 +51,18 @@
                             <td>{{ $cooperation->activity_field }}</td>
                             <td>
                                 <div class="d-flex justify-content-center gap-2">
-                                    <a href="{{ route('cooperations.edit', $cooperation->id) }}" class="btn btn-warning btn-sm">ویرایش</a>
-                                    <form action="{{ route('cooperations.destroy', $cooperation->id) }}" method="POST" style="display:inline-block;">
+                                    <!-- Edit Button -->
+                                    <a href="{{ route('cooperations.edit', ['locale' => app()->getLocale(), 'cooperation' => $cooperation->id]) }}" class="btn btn-warning btn-sm">
+                                        {{ __('cooperation.edit') }}
+                                    </a>
+                                    
+                                    <!-- Delete Button -->
+                                    <form action="{{ route('cooperations.destroy', ['locale' => app()->getLocale(), 'cooperation' => $cooperation->id]) }}" method="POST" style="display:inline-block;">
                                         @csrf
                                         @method('DELETE')
-                                        <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('آیا مطمئن هستید؟')">حذف</button>
+                                        <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('{{ __('cooperation.delete_confirmation') }}')">
+                                            {{ __('cooperation.delete') }}
+                                        </button>
                                     </form>
                                 </div>
                             </td>
@@ -65,10 +74,10 @@
 
         <!-- Pagination Links -->
         <div class="styled-pagination d-flex justify-content-center mt-4">
-            {{ $cooperations->links('vendor.pagination.default') }}
+            {{ $cooperations->withQueryString()->links('vendor.pagination.default') }}
         </div>
     @else
-        <p class="text-muted text-center">هیچ فرم همکاری ثبت نشده است.</p>
+        <p class="text-muted text-center">{{ __('cooperation.no_forms') }}</p>
     @endif
 </div>
 
