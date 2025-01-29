@@ -2,40 +2,37 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\customerForm;
+use App\Models\CustomerForm;
 use Illuminate\Http\Request;
 
 class CustomerFormController extends Controller
 {
     /**
      * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($locale)
     {
-        $customers = CustomerForm::all(); 
-        return view('forms.indexForm', compact('customers'));
+        app()->setLocale($locale); // Set the application locale dynamically
+        $customers = CustomerForm::all();
+        return view('forms.indexForm', compact('customers', 'locale'));
     }
 
     /**
      * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create($locale)
     {
-        return view('forms.createForm');
+        app()->setLocale($locale);
+        return view('forms.createForm', compact('locale'));
     }
+
     /**
      * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, $locale)
     {
-        // Validate your request data
+        app()->setLocale($locale);
+
         $validatedData = $request->validate([
             'factory_code' => 'required|string',
             'factory_name' => 'required|string',
@@ -51,100 +48,51 @@ class CustomerFormController extends Controller
             'dryer_type' => 'required|string',
             'dough_count' => 'required|integer',
             'messenger' => 'array|nullable',
-            'ita_id' => 'nullable|string',
-            'telegram_id' => 'nullable|string',
-            'rubika_id' => 'nullable|string',
-            'whatsApp_id' => 'nullable|string',
-            'instagram_id' => 'nullable|string',
+            'messenger_details' => 'array|nullable',
         ]);
 
-        // Create a new instance of customerForm
-        $customer = new customerForm();
+        $customer = new CustomerForm();
+        $customer->fill($validatedData);
 
-        // Set other customer properties
-        $customer->factory_code = $request->factory_code;
-        $customer->factory_name = $request->factory_name;
-        $customer->first_name = $request->first_name;
-        $customer->last_name = $request->last_name;
-        $customer->factory_phone = $request->factory_phone;
-        $customer->mobile_phone = $request->mobile_phone;
-        $customer->province = $request->province;
-        $customer->city = $request->city;
-        $customer->address = $request->address;
-        $customer->products = $request->products; // This will be cast to array
-        $customer->kiln_type = $request->kiln_type;
-        $customer->dryer_type = $request->dryer_type;
-        $customer->dough_count = $request->dough_count;
+        // ذخیره محصولات به صورت JSON
+        $customer->products = json_encode($request->products ?? []);
 
-        // Initialize messenger as an empty array
-        $customer->messenger = []; // Initialize as an empty array
-        if ($request->has('messenger')) {
-            // Initialize an empty array to store unique messenger data
-            $messengerData = [];
-        
-            foreach ($request->messenger as $type) {
-                switch ($type) {
-                    case 'ایتا':
-                        $messengerData['ایتا'] = $request->ita_id ?? null;
-                        break;
-                    case 'تلگرام':
-                        $messengerData['تلگرام'] = $request->telegram_id ?? null; 
-                        break;
-                    case 'روبیکا':
-                        $messengerData['روبیکا'] = $request->rubika_id ?? null; 
-                        break;
-                    case 'واتس اپ':
-                        $messengerData['واتس اپ'] = $request->whatsapp_id ?? null; 
-                        break;
-                        case 'اینستاگرام': // Added case for Instagram
-                            $messengerData['اینستاگرام'] = $request->instagram_id ?? null; 
-                            break;
+        // ذخیره پیام‌رسان‌ها (فقط مواردی که مقدار دارند)
+        $messengerData = [];
+        if (!empty($request->messenger)) {
+            foreach ($request->messenger as $platform) {
+                $id = $request->messenger_details[$platform] ?? null;
+                if (!empty($id)) {
+                    $messengerData[$platform] = $id;
                 }
             }
-        
-            // Assign the constructed messenger data back to the customer model
-            $customer->messenger = $messengerData;
         }
-        
-        // Save the customer model
+
+        $customer->messenger = !empty($messengerData) ? json_encode($messengerData, JSON_UNESCAPED_UNICODE) : null;
+
         $customer->save();
-    }
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\customerForm  $customerForm
-     * @return \Illuminate\Http\Response
-     */
-    public function show(customerForm $customerForm)
-    {
-        //
+
+        return redirect()->route('customer.index', ['locale' => $locale])->with('success', __('Customer added successfully.'));
     }
 
     /**
      * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\customerForm  $customerForm
-     * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($locale, $id)
     {
-        $customer = CustomerForm::findOrFail($id); 
-        return view('forms.editForm', compact('customer')); 
+        app()->setLocale($locale);
+        $customer = CustomerForm::findOrFail($id);
+        return view('forms.editForm', compact('customer', 'locale'));
     }
+
     /**
      * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\customerForm  $customerForm
-     * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $locale, CustomerForm $customer)
     {
-        // Log the incoming request
-        \Log::info($request->all());
+        app()->setLocale($locale);
 
-        // Validate the incoming request data
-        $request->validate([
+        $validatedData = $request->validate([
             'factory_code' => 'required|string|max:255',
             'factory_name' => 'required|string|max:255',
             'first_name' => 'required|string|max:255',
@@ -153,90 +101,80 @@ class CustomerFormController extends Controller
             'mobile_phone' => 'required|string|max:255',
             'province' => 'required|string|max:255',
             'city' => 'required|string|max:255',
-            'products' => 'nullable|string',
+            'products' => 'nullable|array',
             'kiln_type' => 'required|string|max:255',
             'dryer_type' => 'required|string|max:255',
             'dough_count' => 'required|integer',
             'messenger' => 'nullable|array',
+            'messenger_details' => 'array|nullable',
         ]);
 
-         // Find the customer by ID
-    $customer = CustomerForm::findOrFail($id);
+        $customer->fill($validatedData);
 
-    // Update the customer data
-    $customer->factory_code = $request->input('factory_code');
-    $customer->factory_name = $request->input('factory_name');
-    $customer->first_name = $request->input('first_name');
-    $customer->last_name = $request->input('last_name');
-    $customer->factory_phone = $request->input('factory_phone');
-    $customer->mobile_phone = $request->input('mobile_phone');
-    $customer->province = $request->input('province');
-    $customer->city = $request->input('city');
+        // ✅ Fix products update
+        $customer->products = json_encode($request->products ?? []);
 
-    // Handle products as an array
-    $customer->products = explode(',', $request->input('products'));
-    $customer->kiln_type = $request->input('kiln_type');
-    $customer->dryer_type = $request->input('dryer_type');
-    $customer->dough_count = $request->input('dough_count');
+        // ✅ Fix messenger update (Only save messengers with values)
+        $messengerData = [];
+        if (!empty($request->messenger)) {
+            foreach ($request->messenger as $platform) {
+                $id = $request->messenger_details[$platform] ?? null;
+                if (!empty($id)) {
+                    $messengerData[$platform] = $id;
+                }
+            }
+        }
 
-    // Store messenger input directly, including Instagram
-    $messengerData = $request->input('messenger') ? $request->input('messenger') : [];
-    if (in_array('اینستاگرام', $messengerData)) {
-        $messengerData['اینستاگرام'] = $request->instagram_id ?? null; // Updated field name
-    }
-        
-        $customer->messenger = $messengerData;
+        $customer->messenger = !empty($messengerData) ? json_encode($messengerData, JSON_UNESCAPED_UNICODE) : null;
 
-        // Save the updated customer
         $customer->save();
 
-        // Redirect back with a success message
-        return redirect()->route('customer.index')->with('success', 'Customer updated successfully.');
+        return redirect()->route('customer.index', ['locale' => $locale])->with('success', __('Customer updated successfully.'));
     }
+
 
     /**
      * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\customerForm  $customerForm
-     * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($locale, $id)
     {
-        // Find the customer by ID
+        app()->setLocale($locale);
         $customer = CustomerForm::findOrFail($id);
-        
-        // Delete the customer
         $customer->delete();
-    
-        return redirect()->route('customer.index')->with('success', 'Customer deleted successfully!');
+
+        return redirect()->route('customer.index', ['locale' => $locale])->with('success', __('Customer deleted successfully.'));
     }
 
-    public function export(Request $request)
+    /**
+     * Export customer data to Excel.
+     */
+    public function export($locale)
     {
-        // Fetch all customer data from the database
+        app()->setLocale($locale);
         $customers = CustomerForm::all();
-    
-        // Start output buffering to capture the output
-        ob_start();
-    
-        // Generate the HTML table for Excel
+
+        $headers = [
+            "Content-Type" => "application/vnd.ms-excel",
+            "Content-Disposition" => "attachment; filename=customer_data.xls"
+        ];
+
         $output = '<table border="1">';
         $output .= '<tr>
-                        <th>کد</th>
-                        <th>نام کارخانه</th>
-                        <th>نام</th>
-                        <th>نام خانوادگی</th>
-                        <th>شماره کارخانه</th>
-                        <th>شماره همراه</th>
-                        <th>استان</th>
-                        <th>شهر</th>
-                        <th>محصولات</th>
-                        <th>نوع کوره</th>
-                        <th>نوع خشک کن</th>
-                        <th>تعداد قمیر</th>
-                        <th>پیام رسان‌ها</th>
+                        <th>' . __('کد') . '</th>
+                        <th>' . __('نام کارخانه') . '</th>
+                        <th>' . __('نام') . '</th>
+                        <th>' . __('نام خانوادگی') . '</th>
+                        <th>' . __('شماره کارخانه') . '</th>
+                        <th>' . __('شماره همراه') . '</th>
+                        <th>' . __('استان') . '</th>
+                        <th>' . __('شهر') . '</th>
+                        <th>' . __('محصولات') . '</th>
+                        <th>' . __('نوع کوره') . '</th>
+                        <th>' . __('نوع خشک کن') . '</th>
+                        <th>' . __('تعداد قمیر') . '</th>
+                        <th>' . __('پیام رسان‌ها') . '</th>
                     </tr>';
-    
+
         foreach ($customers as $customer) {
             $output .= '<tr>';
             $output .= '<td>' . $customer->factory_code . '</td>';
@@ -247,33 +185,22 @@ class CustomerFormController extends Controller
             $output .= '<td>' . $customer->mobile_phone . '</td>';
             $output .= '<td>' . $customer->province . '</td>';
             $output .= '<td>' . $customer->city . '</td>';
-            $output .= '<td>' . implode(', ', $customer->products) . '</td>'; 
+            $output .= '<td>' . implode(', ', json_decode($customer->products, true) ?? []) . '</td>';
             $output .= '<td>' . $customer->kiln_type . '</td>';
             $output .= '<td>' . $customer->dryer_type . '</td>';
             $output .= '<td>' . $customer->dough_count . '</td>';
-    
-            // Separate messenger platforms and IDs
-            $messengerData = $customer->messenger ?? [];
+
+            $messengerData = json_decode($customer->messenger, true) ?? [];
             $messengerOutput = [];
             foreach ($messengerData as $platform => $id) {
-                $messengerOutput[] = $platform . ': ' . ($id ?? '-');
+                $messengerOutput[] = "$platform: " . ($id ?? '-');
             }
-            
             $output .= '<td>' . implode('<br>', $messengerOutput) . '</td>';
             $output .= '</tr>';
         }
-    
+
         $output .= '</table>';
-    
-        // Set headers to force download as an Excel file
-        header("Content-Type: application/vnd.ms-excel");
-        header("Content-Disposition: attachment; filename=customer_data.xls");
-    
-        // Output the table
-        echo $output;
-    
-        // Clean the output buffer and exit
-        ob_end_flush();
-        exit;
+
+        return response($output, 200, $headers);
     }
 }
