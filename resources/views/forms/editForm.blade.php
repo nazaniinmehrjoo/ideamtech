@@ -101,6 +101,11 @@
                 value="{{ $customer->city }}" required>
         </div>
         <div class="mb-3">
+            <label for="city" class="form-label">آدرس</label>
+            <input type="text" class="form-control bg-secondary text-light" id="city" name="city"
+                value="{{ $customer->address }}" required>
+        </div>
+        <div class="mb-3">
             <label for="products" class="form-label">محصولات</label>
             <select multiple class="form-control bg-secondary text-light" id="products" name="products[]">
                 <option value="سفال 10" {{ in_array('سفال 10', $customerProducts) ? 'selected' : '' }}>سفال 10</option>

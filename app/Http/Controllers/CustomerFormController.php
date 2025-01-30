@@ -168,6 +168,7 @@ class CustomerFormController extends Controller
                         <th>' . __('شماره همراه') . '</th>
                         <th>' . __('استان') . '</th>
                         <th>' . __('شهر') . '</th>
+                        <th>' . __('آدرس') . '</th>
                         <th>' . __('محصولات') . '</th>
                         <th>' . __('نوع کوره') . '</th>
                         <th>' . __('نوع خشک کن') . '</th>
@@ -185,6 +186,7 @@ class CustomerFormController extends Controller
             $output .= '<td>' . $customer->mobile_phone . '</td>';
             $output .= '<td>' . $customer->province . '</td>';
             $output .= '<td>' . $customer->city . '</td>';
+            $output .= '<td>' . $customer->address . '</td>';
             $output .= '<td>' . implode(', ', json_decode($customer->products, true) ?? []) . '</td>';
             $output .= '<td>' . $customer->kiln_type . '</td>';
             $output .= '<td>' . $customer->dryer_type . '</td>';

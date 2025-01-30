@@ -61,6 +61,7 @@
                     <th>شماره همراه</th>
                     <th>استان</th>
                     <th>شهر</th>
+                    <th>آدرس</th>
                     <th>محصولات</th>
                     <th>نوع کوره</th>
                     <th>نوع خشک کن</th>
@@ -81,6 +82,7 @@
                                     <td>{{ $customer->mobile_phone }}</td>
                                     <td>{{ $customer->province }}</td>
                                     <td>{{ $customer->city }}</td>
+                                    <td>{{ $customer->address }}</td>
 
                                     <!-- ✅ Fix for displaying products properly -->
                                     @php
