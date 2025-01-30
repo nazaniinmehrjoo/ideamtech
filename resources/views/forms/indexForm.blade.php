@@ -52,6 +52,7 @@
         <table class="table table-bordered table-hover table-striped align-middle">
             <thead class="table-dark">
                 <tr>
+                    <th>ردیف</th>
                     <th>کد</th>
                     <th>نام کارخانه</th>
                     <th>نام</th>
@@ -71,6 +72,7 @@
             <tbody class="bg-secondary text-light">
                 @foreach($customers as $customer)
                                 <tr>
+                                    <td>{{ $customer->id }}</td>
                                     <td>{{ $customer->factory_code }}</td>
                                     <td>{{ $customer->factory_name }}</td>
                                     <td>{{ $customer->first_name }}</td>
