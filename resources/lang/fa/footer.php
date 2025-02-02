@@ -9,8 +9,9 @@ return [
     'head_office_label' => 'دفتر مرکزی تهران',
     'head_office_address' => 'خیابان گاندی، نبش کوچه 8، ساختمان مروارید، طبقه سوم، واحد 9',
     'contact_title' => 'تماس با ما',
-    'phone' => ' 88203026 021 ',
-    'mobile' => '090117799 98+',
+    'phone1' => ' 88203026 021 ',
+    'phone2' => ' 88203027 021 ',
+    'mobile' => '09011779898 98+',
     'email' => 'info@brickind.com',
     'map_directions' => 'نقشه و مسیرها',
 ];

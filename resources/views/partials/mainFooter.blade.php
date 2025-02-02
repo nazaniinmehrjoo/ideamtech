@@ -25,10 +25,13 @@
                         <div class="i-title">{{ __('footer.contact_title') }}</div>
                         <div class="text contactDetail">
                             <span class="icon fa fa-phone" style="color: #f05928;"></span> 
-                            <a href="tel:+9821203026">{{ __('footer.phone') }}</a> 
+                            <a href="tel:+9821203026">{{ __('footer.phone1') }}</a> 
+                            <br>
+                            <span class="icon fa fa-phone" style="color: #f05928;"></span> 
+                            <a href="tel:+9821203027">{{ __('footer.phone2') }}</a> 
                             <br>
                             <span class="icon fa fa-mobile-alt" style="color: #f05928;"></span> 
-                            <a href="tel:+989011779998">{{ __('footer.mobile') }}</a> 
+                            <a href="tel:+989011779898">{{ __('footer.mobile') }}</a> 
                             <br>
                             <span class="icon fa fa-envelope" style="color: #f05928;"></span> 
                             <a href="mailto:info@brickind.com">{{ __('footer.email') }}</a> 
