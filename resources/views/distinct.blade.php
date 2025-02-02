@@ -64,7 +64,7 @@
             <button class="custom-button" onclick="window.location.href='{{ url(__('distinct.link_video')) }}'" >
             {{ __('distinct.view_video') }}
             </button>
-            <button class="custom-button" onclick="window.location.href='{{ url(__('distinct.brochure-link')) }}'" >
+            <button class="custom-button" onclick="window.open('{{ url(__('distinct.brochure-link')) }}', '_blank')">
             {{ __('distinct.download_brochure') }}</button>
         </div>
     </div>
