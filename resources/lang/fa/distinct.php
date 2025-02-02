@@ -12,12 +12,12 @@ return [
     'before_execution' => 'قبل اجرا',
     'during_execution' => 'حین اجرا',
     'after_delivery' => 'بعد از تحویل',
-    'design_introduction' => 'طراحی هوشمند لیوت کارخانه',
+    'design_introduction' => 'طراحی هوشمند لی‌اوت کارخانه',
     'execution_method' => 'چگونگی اجرای پروژه',
     'sustainable_production' => 'تا رسیدن به تولید پایدار در کنار شما خواهیم بود.',
     
     // Flow Section Items
-    'before_execution_item_1' => 'در نظر گرفتن توسعه برنامه کارخانه در سال‌های آینده برای طراحی لیوت',
+    'before_execution_item_1' => 'در نظر گرفتن توسعه برنامه کارخانه در سال‌های آینده برای طراحی لی‌اوت',
     'before_execution_item_2' => 'در نظر گرفتن محل چینش گاز و برق برای کاهش هزینه‌ها',
     'before_execution_item_3' => 'در نظر گرفتن دسترسی‌ها و جاده‌ها برای تسهیل عبور ماشین‌آلات',
     'before_execution_item_4' => 'در نظر گرفتن نقشه توپوگرافی و جهت باد برای کاهش هزینه‌های انرژی',
