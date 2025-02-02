@@ -17,5 +17,8 @@ class Cooperation extends Model
         'national_id',
         'address',
         'activity_field',
+        'representative_first_name',
+        'representative_last_name',
+        'representative_phone'
     ];
 }

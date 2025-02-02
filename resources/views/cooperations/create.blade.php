@@ -1,11 +1,12 @@
 <form action="{{ route('cooperations.store', ['locale' => app()->getLocale()]) }}" method="POST"
     enctype="multipart/form-data" class="text-white p-4 rounded" style="direction: rtl;">
-    
+
     @csrf
 
     <!-- Company Name -->
     <div class="row mb-3">
-        <label for="company_name" class="col-md-4 col-form-label text-md-end">{{ __('cooperation.company_name') }}</label>
+        <label for="company_name"
+            class="col-md-4 col-form-label text-md-end">{{ __('cooperation.company_name') }}</label>
         <div class="col-md-6">
             <input type="text" name="company_name" id="company_name"
                 class="form-control bg-dark text-white @error('company_name') is-invalid @enderror" required>
@@ -19,7 +20,8 @@
 
     <!-- Company Phone -->
     <div class="row mb-3">
-        <label for="company_phone" class="col-md-4 col-form-label text-md-end">{{ __('cooperation.company_phone') }}</label>
+        <label for="company_phone"
+            class="col-md-4 col-form-label text-md-end">{{ __('cooperation.company_phone') }}</label>
         <div class="col-md-6">
             <input type="text" name="company_phone" id="company_phone"
                 class="form-control bg-dark text-white @error('company_phone') is-invalid @enderror" required>
@@ -33,7 +35,8 @@
 
     <!-- Company Email -->
     <div class="row mb-3">
-        <label for="company_email" class="col-md-4 col-form-label text-md-end">{{ __('cooperation.company_email') }}</label>
+        <label for="company_email"
+            class="col-md-4 col-form-label text-md-end">{{ __('cooperation.company_email') }}</label>
         <div class="col-md-6">
             <input type="email" name="company_email" id="company_email"
                 class="form-control bg-dark text-white @error('company_email') is-invalid @enderror" required>
@@ -89,11 +92,58 @@
 
     <!-- Activity Field -->
     <div class="row mb-3">
-        <label for="activity_field" class="col-md-4 col-form-label text-md-end">{{ __('cooperation.activity_field') }}</label>
+        <label for="activity_field"
+            class="col-md-4 col-form-label text-md-end">{{ __('cooperation.activity_field') }}</label>
         <div class="col-md-6">
             <input type="text" name="activity_field" id="activity_field"
                 class="form-control bg-dark text-white @error('activity_field') is-invalid @enderror" required>
             @error('activity_field')
+                <span class="invalid-feedback" role="alert">
+                    <strong>{{ $message }}</strong>
+                </span>
+            @enderror
+        </div>
+    </div>
+    <!-- Representative First Name -->
+    <div class="row mb-3">
+        <label for="representative_first_name"
+            class="col-md-4 col-form-label text-md-end">{{ __('cooperation.representative_first_name') }}</label>
+        <div class="col-md-6">
+            <input type="text" name="representative_first_name" id="representative_first_name"
+                class="form-control bg-dark text-white @error('representative_first_name') is-invalid @enderror"
+                required>
+            @error('representative_first_name')
+                <span class="invalid-feedback" role="alert">
+                    <strong>{{ $message }}</strong>
+                </span>
+            @enderror
+        </div>
+    </div>
+
+    <!-- Representative Last Name -->
+    <div class="row mb-3">
+        <label for="representative_last_name"
+            class="col-md-4 col-form-label text-md-end">{{ __('cooperation.representative_last_name') }}</label>
+        <div class="col-md-6">
+            <input type="text" name="representative_last_name" id="representative_last_name"
+                class="form-control bg-dark text-white @error('representative_last_name') is-invalid @enderror"
+                required>
+            @error('representative_last_name')
+                <span class="invalid-feedback" role="alert">
+                    <strong>{{ $message }}</strong>
+                </span>
+            @enderror
+        </div>
+    </div>
+
+    <!-- Representative Phone -->
+    <div class="row mb-3">
+        <label for="representative_phone"
+            class="col-md-4 col-form-label text-md-end">{{ __('cooperation.representative_phone') }}</label>
+        <div class="col-md-6">
+            <input type="text" name="representative_phone" id="representative_phone"
+                class="form-control bg-dark text-white @error('representative_phone') is-invalid @enderror" required>
+            @error('representative_phone')
                 <span class="invalid-feedback" role="alert">
                     <strong>{{ $message }}</strong>
                 </span>

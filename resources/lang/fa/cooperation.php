@@ -7,7 +7,9 @@ return [
     'national_id' => 'شناسه ملی',
     'address' => 'آدرس',
     'activity_field' => 'زمینه فعالیت',
-    'select_gender' => '-- انتخاب جنسیت --',
+    'representative_first_name' => 'نام نماینده',
+    'representative_last_name' => 'نام خانوادگی نماینده',
+    'representative_phone' => 'شماره تماس نماینده',
     'submit_button' => 'ثبت فرم',
     'manage_forms' => 'مدیریت فرم همکاری',
     'success_message' => 'عملیات با موفقیت انجام شد!',
@@ -18,5 +20,4 @@ return [
     'delete' => 'حذف',
     'delete_confirmation' => 'آیا مطمئن هستید؟',
     'no_forms' => 'هیچ فرم همکاری ثبت نشده است.',
-    
 ];
