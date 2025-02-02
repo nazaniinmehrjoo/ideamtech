@@ -2151,7 +2151,7 @@ body.light-mode .def-title-box h3 {
     direction: rtl;
     hyphens: auto;
     -webkit-hyphens: auto;
-    word-spacing: -0.05em;
+    /* word-spacing: -0.05em; */
     overflow-wrap: break-word;
 }
 
@@ -7709,17 +7709,8 @@ canvas {
     margin: 0 auto;
 }
 
-.turnKeyGridContainer h3::after {
-    content: "";
-    position: absolute;
-    bottom: 38%;
-    left: 57%;
-    transform: translateX(-50%);
-    width: 60px;
-    height: 2px;
-    background-color: #a87b5b;
-    border-radius: 1px;
-}
+
+
 
 .grid-item-center {
     margin-top: 7%;
@@ -7880,6 +7871,7 @@ canvas {
     color: #fff;
     padding: 60px 0;
     text-align: center;
+    direction: rtl;
 }
 
 .flow-explain h2 {
