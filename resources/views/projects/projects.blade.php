@@ -30,7 +30,7 @@
         <div class="col-md-4">
             <div class="card stat-box border-success">
                 <div class="card-header bg-success text-black text-center">
-                    <i class="fas fa-check-circle"></i>{{ __('projects.customerContent.finishedProjects.title') }} 
+                    <i class="fas fa-check-circle"></i>{{ __('projects.customerContent.finishedProjects.title') }}
                 </div>
                 <div class="card-body">
                     <div class="counter" id="completedProjectsCounter">{{ $completedProjects }}</div>
@@ -49,7 +49,7 @@
         <div class="col-md-4">
             <div class="card stat-box border-warning">
                 <div class="card-header bg-warning text-white text-center">
-                    <i class="fas fa-tasks"></i> {{ __('projects.customerContent.todoProjects.title') }} 
+                    <i class="fas fa-tasks"></i> {{ __('projects.customerContent.todoProjects.title') }}
                 </div>
                 <div class="card-body">
                     <div class="counter" id="ongoingProjectsCounter">{{ $ongoingProjects }}</div>
@@ -68,7 +68,7 @@
         <div class="col-md-4">
             <div class="card stat-box border-primary">
                 <div class="card-header bg-primary text-white text-center">
-                    <i class="fas fa-project-diagram"></i> {{ __('projects.customerContent.allProject.title') }} 
+                    <i class="fas fa-project-diagram"></i> {{ __('projects.customerContent.allProject.title') }}
                 </div>
                 <div class="card-body">
                     <div class="counter" id="totalProjectsCounter">{{ $totalProjects }}</div>
@@ -88,7 +88,7 @@
         <div class="col-md-6 col-sm-12">
             <div class="card">
                 <div class="card-header">
-                {{ __('projects.customerChart.title') }} 
+                    {{ __('projects.customerChart.title') }}
                 </div>
                 <div class="card-body">
                     <canvas id="projectProgressChart"></canvas>
@@ -98,11 +98,11 @@
         <div class="customerList col-md-6 col-sm-12">
             <div class="card">
                 <div class="card-header">
-                {{ __('projects.customerList.title') }} 
+                    {{ __('projects.customerList.title') }}
                 </div>
                 <div class="card-body" style="max-height:419px ; overflow-y: auto;">
-                    <input type="text" id="projectSearch" class="form-control mb-3" placeholder="  {{ __('projects.searchPlaceholder') }} ..."
-                        onkeyup="searchProjects()">
+                    <input type="text" id="projectSearch" class="form-control mb-3"
+                        placeholder="  {{ __('projects.searchPlaceholder') }} ..." onkeyup="searchProjects()">
                     <table class="cutomerListTable table table-dark table-hover">
                         <thead>
                             <tr>
@@ -128,7 +128,7 @@
         </div>
     </div>
     <br>
-<!-- Our customers' feedback -->
+    <!-- Our customers' feedback -->
     <!-- <div class="row mt-5">
         <div class="col-md-12">
             <h3 class="customerReviews" style="text-align: center;padding: 10px;">{{ __('projects.customers.Feedback') }} </h3>
@@ -276,20 +276,13 @@
             }
         });
 
-        // Dynamic chart generation for project progress
-        var completedData = [];
         var ongoingData = [];
         var labels = [];
 
         projects.forEach(function (project) {
-            labels.push(project.name);
-
-            if (project.status === 'تکمیل شده') {
-                completedData.push(1);
-                ongoingData.push(0);
-            } else if (project.status === 'در حال انجام') {
-                ongoingData.push(1);
-                completedData.push(0);
+            if (project.status === 'در حال انجام') {
+                labels.push(project.name);
+                ongoingData.push(1); 
             }
         });
 
@@ -301,17 +294,10 @@
                     label: '{{ __('projects.chartsdtl.ongoingProjects') }}',
                     backgroundColor: 'rgba(54, 162, 235, 0.5)',
                     borderColor: 'rgb(54, 162, 235)',
-                    data: completedData,
-                },
-                {
-                    label: '{{ __('projects.chartsdtl.completedProjects') }}',
-                    backgroundColor: 'rgba(255, 206, 86, 0.5)',
-                    borderColor: 'rgb(255, 206, 86)',
                     data: ongoingData,
                 }
             ]
         };
-
         const config = {
             type: 'bar',
             data: data,
