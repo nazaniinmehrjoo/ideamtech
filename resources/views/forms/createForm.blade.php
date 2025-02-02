@@ -5,46 +5,54 @@
 
     <div class="text-center mb-4">
         <img src="/assets/images/logotest2.png" alt="Logo">
-     </div>
+    </div>
 
-    <form action="{{ route('customer.store') }}" method="POST" class="needs-validation" novalidate>
+    <form action="{{ route('customer.store', ['locale' => app()->getLocale()]) }}" method="POST"
+        class="needs-validation" novalidate>
         @csrf
 
         <div class="form-row mb-3">
+
             <div class="col">
-                <label for="factory_code">کد</label>
-                <input type="text" class="form-control bg-secondary text-light" id="factory_code" name="factory_code" required>
-                <div class="invalid-feedback">Please enter a valid code.</div>
+                <label for="factory_phone">شماره کارخانه</label>
+                <input type="text" class="form-control bg-secondary text-light" id="factory_phone" name="factory_phone"
+                    required>
+                <div class="invalid-feedback">Please enter the factory phone number.</div>
             </div>
             <div class="col">
                 <label for="factory_name">نام کار خانه</label>
-                <input type="text" class="form-control bg-secondary text-light" id="factory_name" name="factory_name" required>
+                <input type="text" class="form-control bg-secondary text-light" id="factory_name" name="factory_name"
+                    required>
                 <div class="invalid-feedback">Please enter the factory name.</div>
             </div>
         </div>
 
         <div class="form-row mb-3">
             <div class="col">
-                <label for="first_name">نام</label>
-                <input type="text" class="form-control bg-secondary text-light" id="first_name" name="first_name" required>
-                <div class="invalid-feedback">Please enter your first name.</div>
+                <label for="last_name">نام خانوادگی</label>
+                <input type="text" class="form-control bg-secondary text-light" id="last_name" name="last_name"
+                    required>
+                <div class="invalid-feedback">Please enter your last name.</div>
             </div>
             <div class="col">
-                <label for="last_name">نام خانوادگی</label>
-                <input type="text" class="form-control bg-secondary text-light" id="last_name" name="last_name" required>
-                <div class="invalid-feedback">Please enter your last name.</div>
+                <label for="first_name">نام</label>
+                <input type="text" class="form-control bg-secondary text-light" id="first_name" name="first_name"
+                    required>
+                <div class="invalid-feedback">Please enter your first name.</div>
             </div>
         </div>
 
         <div class="form-row mb-3">
             <div class="col">
-                <label for="factory_phone">شماره کارخانه</label>
-                <input type="text" class="form-control bg-secondary text-light" id="factory_phone" name="factory_phone" required>
-                <div class="invalid-feedback">Please enter the factory phone number.</div>
+                <label for="factory_code">کد</label>
+                <input type="text" class="form-control bg-secondary text-light" id="factory_code" name="factory_code"
+                    required>
+                <div class="invalid-feedback">Please enter a valid code.</div>
             </div>
             <div class="col">
                 <label for="mobile_phone">شماره همراه</label>
-                <input type="text" class="form-control bg-secondary text-light" id="mobile_phone" name="mobile_phone" required>
+                <input type="text" class="form-control bg-secondary text-light" id="mobile_phone" name="mobile_phone"
+                    required>
                 <div class="invalid-feedback">Please enter your mobile phone number.</div>
             </div>
         </div>
@@ -102,7 +110,8 @@
 
         <div class="form-group mb-3">
             <label for="address">آدرس</label>
-            <textarea class="form-control bg-secondary text-light" id="address" name="address" rows="3" required></textarea>
+            <textarea class="form-control bg-secondary text-light" id="address" name="address" rows="3"
+                required></textarea>
             <div class="invalid-feedback">Please enter your address.</div>
         </div>
 
@@ -148,38 +157,25 @@
 
         <div class="form-group mb-3">
             <label for="dough_count">تعداد قمیر</label>
-            <input type="number" class="form-control bg-secondary text-light" id="dough_count" name="dough_count" required>
+            <input type="number" class="form-control bg-secondary text-light" id="dough_count" name="dough_count"
+                required>
             <div class="invalid-feedback">Please enter the dough count.</div>
         </div>
 
         <div class="form-group mb-4">
-            <label>پیام رسان ها</label>
-            <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="ایتا" id="messenger_ita" name="messenger[]" onclick="toggleInput('ita_id')">
-                <label class="form-check-label" for="messenger_ita">ایتا</label>
-                <input type="text" class="form-control mt-2 bg-secondary text-light d-none" id="ita_id" name="ita_id" placeholder="ID/Number for ایتا">
-            </div>
-            <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="تلگرام" id="messenger_telegram" name="messenger[]" onclick="toggleInput('telegram_id')">
-                <label class="form-check-label" for="messenger_telegram">تلگرام</label>
-                <input type="text" class="form-control mt-2 bg-secondary text-light d-none" id="telegram_id" name="telegram_id" placeholder="ID/Number for تلگرام">
-            </div>
-            <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="روبیکا" id="messenger_rubika" name="messenger[]" onclick="toggleInput('rubika_id')">
-                <label class="form-check-label" for="messenger_rubika">روبیکا</label>
-                <input type="text" class="form-control mt-2 bg-secondary text-light d-none" id="rubika_id" name="rubika_id" placeholder="ID/Number for روبیکا">
-            </div>
-            <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="واتس اپ" id="messenger_whatsapp" name="messenger[]" onclick="toggleInput('whatsapp_id')">
-                <label class="form-check-label" for="messenger_whatsapp">واتس اپ</label>
-                <input type="text" class="form-control mt-2 bg-secondary text-light d-none" id="whatsapp_id" name="whatsapp_id" placeholder="ID/Number for واتس اپ">
-            </div>
-            <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="اینستاگرام" id="messenger_instagram" name="messenger[]" onclick="toggleInput('instagram_id')">
-                <label class="form-check-label" for="messenger_instagram">اینستاگرام</label>
-                <input type="text" class="form-control mt-2 bg-secondary text-light d-none" id="instagram_id" name="instagram_id" placeholder="ID/Number for اینستاگرام">
-            </div>
+            <label>پیام‌رسان‌ها</label>
+            @foreach (['ایتا', 'تلگرام', 'روبیکا', 'واتس اپ', 'اینستاگرام'] as $platform)
+                <div class="form-check">
+                    <input class="form-check-input messenger-checkbox" type="checkbox" value="{{ $platform }}"
+                        id="messenger_{{ $platform }}" name="messenger[]">
+                    <label class="form-check-label" for="messenger_{{ $platform }}">{{ $platform }}</label>
+                    <input type="text" class="form-control mt-2 bg-secondary text-light d-none messenger-input"
+                        id="messenger_input_{{ $platform }}" name="messenger_details[{{ $platform }}]"
+                        placeholder="شماره {{ $platform }}">
+                </div>
+            @endforeach
         </div>
+
 
         <button type="submit" class="theme-btn btn-style-two">ثبت فرم</button>
 
@@ -190,7 +186,17 @@
 <!-- jQuery and Select2 JS Scripts -->
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
-
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        document.querySelectorAll('.messenger-checkbox').forEach(checkbox => {
+            checkbox.addEventListener('change', function () {
+                const inputField = document.getElementById(`messenger_input_${this.value}`);
+                inputField.classList.toggle('d-none', !this.checked);
+                inputField.required = this.checked;
+            });
+        });
+    });
+</script>
 <!-- Custom JS for form validation and select2 -->
 <script>
     (function () {
@@ -214,7 +220,7 @@
         allowClear: true
     });
 
-    $('#products').on('change', function() {
+    $('#products').on('change', function () {
         const selectedOptions = Array.from(this.selectedOptions);
         const selectedValues = selectedOptions.map(option => option.value);
         const productList = $('#selected-products-list');
