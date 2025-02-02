@@ -2,7 +2,9 @@
 return [
     'aftersales' => [
         'title' => 'Our Customers',
-        'description' => 'We take pride in successfully completing numerous projects across various fields for our valued customers. From engineering services to installation and commissioning, you can explore our completed and ongoing projects on this page.',
+        'description1' => 'We proudly have completed numerous projects in various fields, ranging from engineering services to installation and commissioning, for our clients.',
+        'description2' => 'On this page, you can view our completed and ongoing projects.',
+
     ],
     'customerMap' => [
         'title' => ' Project Map ',

@@ -6,7 +6,8 @@
     <!-- Introduction Section -->
     <div class="intro-section text-center">
         <h2>{{ __('projects.aftersales.title') }}</h2>
-        <p class="text-center">{{ __('projects.aftersales.description') }}</p>
+        <p class="text-center">{{ __('projects.aftersales.description1') }}</p>
+        <p class="text-center">{{ __('projects.aftersales.description2') }}</p>
     </div>
 
     <!-- Map Section -->
