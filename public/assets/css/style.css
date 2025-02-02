@@ -3593,6 +3593,7 @@ body.light-mode .def-title-box h3 {
     font-size: 20px;
     font-family: "IRANSans";
     margin-bottom: 10px;
+    direction: rtl;
 }
 
 .news-block h4 a {
