@@ -8358,6 +8358,9 @@ body.light-mode .service-block .text {
 body.light-mode p {
     color: #303336;
 }
+.panel-content .content p {
+    text-align: justify;
+}
 body.light-mode .def-tabs-box .tab-buttons .active-btn {
     background: #ffc7a2;
 }
