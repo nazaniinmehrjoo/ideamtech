@@ -191,7 +191,7 @@
 <script>
     document.addEventListener('DOMContentLoaded', function () {
         // Initialize the Leaflet map
-        var map = L.map('map').setView([35.6892, 51.3890], 6);
+        var map = L.map('map').setView([35.6892, 51.3890], 5);
 
         // Define the dark mode and light mode tile layers
         var darkTileLayer = L.tileLayer('https://tiles.stadiamaps.com/tiles/alidade_smooth_dark/{z}/{x}/{y}{r}.png?api_key=90a4bb17-ce3a-4236-affc-8efc17758dac', {
