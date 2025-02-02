@@ -8,7 +8,7 @@ return [
     'download_brochure' => 'Download Brochure',
     'brochure-link' => '/assets/catalog/katalog-E.pdf',
     'life_project_assistance' => 'We assist you for the entire life of the project and over.',
-    'project_assistance_text' => 'We cover each step of the project execution from the feasibility study and basic design to the assembly, installation, start up, and for any need after commissioning, while the plant is in operation. We still proudly offer a TAILOR MADE solution for our Customers. Optimizing investment returns means well-designed installation and innovative mechanical solutions. Our products rate best in the market in terms of energy consumption, operational costs, and pollution control, as a result of our commitment to environmental protection.',
+    'project_assistance_text' => 'We cover every stage of project execution, from feasibility studies and basic design to assembly, installation, commissioning, and any post-delivery needs, while the factory is in operation. We proudly continue to provide fully customized solutions for our clients. Optimizing return on investment means smart installation and innovative mechanical solutions. Our products are ranked the best in the market in terms of energy consumption, operational costs, and pollution control, due to our commitment to environmental protection.',
     'before_execution' => 'Before Execution',
     'during_execution' => 'During Execution',
     'after_delivery' => 'After Delivery',
@@ -18,7 +18,7 @@ return [
 
     // Flow Section Items
     'before_execution_item_1' => 'Considering future factory expansion for layout design',
-    'before_execution_item_2' => 'Considering gas and power placement for cost reduction',
+    'before_execution_item_2' => 'Considering the placement of gas and electricity inputs to reduce costs',
     'before_execution_item_3' => 'Considering access and roads for machinery movement',
     'before_execution_item_4' => 'Considering topographic maps and wind direction for energy savings',
     'before_execution_item_5' => 'Considering ease of maintenance and accessibility',
