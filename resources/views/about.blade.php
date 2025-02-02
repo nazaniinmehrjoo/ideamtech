@@ -41,40 +41,6 @@
 
 
 
-<section class="banner-six">
-    <div class="banner-container">
-        <div class="auto-container">
-            <div class="def-title-box">
-                <div class="patt"><span></span></div>
-                <div class="subtitle">{{ __('about.certificates.subtitle') }}</div>
-                <h3>{{ __('about.certificates.title') }}</h3>
-            </div>
-            <div class="banner-slider-four owl-theme owl-carousel">
-                <!-- Dynamic Slide Items -->
-                @foreach(__('about.certificates.items') as $key => $certificate)
-                    <div class="slide-item {{ $key % 2 == 1 ? 'alt' : '' }}">
-                        <div class="content-box">
-                            <div class="content">
-                                <div class="slide-count"><span>{{ str_pad($key + 1, 2, '0', STR_PAD_LEFT) }}</span></div>
-                                <div class="image-box sertificate-box">
-                                    <div class="image-layer"
-                                        style="background-image: url(/assets/images/resource/a{{ $key + 1 }}.jpg);"></div>
-                                    <div class="certificateZoomIn">
-                                        <i class="fa-sharp fa-regular fa-arrows-maximize"></i>
-                                    </div>
-                                    <div class="inner">
-                                        <h3>{{ $certificate['title'] }}</h3>
-                                        <div class="cat"><span>{{ $certificate['code'] }}</span></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                @endforeach
-            </div>
-        </div>
-    </div>
-</section>
 
 
 
@@ -117,6 +83,40 @@
 </section>
 
 
+<section class="banner-six">
+    <div class="banner-container">
+        <div class="auto-container">
+            <div class="def-title-box">
+                <div class="patt"><span></span></div>
+                <div class="subtitle">{{ __('about.certificates.subtitle') }}</div>
+                <h3>{{ __('about.certificates.title') }}</h3>
+            </div>
+            <div class="banner-slider-four owl-theme owl-carousel">
+                <!-- Dynamic Slide Items -->
+                @foreach(__('about.certificates.items') as $key => $certificate)
+                    <div class="slide-item {{ $key % 2 == 1 ? 'alt' : '' }}">
+                        <div class="content-box">
+                            <div class="content">
+                                <div class="slide-count"><span>{{ str_pad($key + 1, 2, '0', STR_PAD_LEFT) }}</span></div>
+                                <div class="image-box sertificate-box">
+                                    <div class="image-layer"
+                                        style="background-image: url(/assets/images/resource/a{{ $key + 1 }}.jpg);"></div>
+                                    <div class="certificateZoomIn">
+                                        <i class="fa-sharp fa-regular fa-arrows-maximize"></i>
+                                    </div>
+                                    <div class="inner">
+                                        <h3>{{ $certificate['title'] }}</h3>
+                                        <div class="cat"><span>{{ $certificate['code'] }}</span></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                @endforeach
+            </div>
+        </div>
+    </div>
+</section>
 <!--Services Section-->
 <section class="services-two">
     <div class="auto-container">
