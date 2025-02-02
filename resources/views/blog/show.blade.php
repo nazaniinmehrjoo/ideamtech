@@ -45,6 +45,12 @@
                                 </div>
                             </div>
                         @endif
+                        <!-- Lightbox -->
+                        <div id="lightbox" class="lightbox">
+                            <span class="close">&times;</span>
+                            <img class="lightbox-content" id="lightbox-img">
+                        </div>
+
 
                         <!-- Post Content -->
                         <div class="lower mt-4">
@@ -106,7 +112,7 @@
                         </div>
                     </div>
                     <!-- Categories -->
-                    <div class="sidebar-widget cat-widget">
+                    <!-- <div class="sidebar-widget cat-widget">
                         <div class="sidebar-title">
                             <h5>@lang('blog.categories')</h5>
                         </div>
@@ -117,12 +123,36 @@
                                 @endforeach
                             </ul>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
             </div>
         </div>
     </div>
 </div>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const lightbox = document.getElementById("lightbox");
+        const lightboxImg = document.getElementById("lightbox-img");
+        const closeBtn = document.querySelector(".close");
+
+        document.querySelectorAll(".img-container img").forEach(img => {
+            img.addEventListener("click", function () {
+                lightbox.style.display = "block";
+                lightboxImg.src = this.src;
+            });
+        });
+
+        closeBtn.addEventListener("click", function () {
+            lightbox.style.display = "none";
+        });
+
+        lightbox.addEventListener("click", function (e) {
+            if (e.target === lightbox) {
+                lightbox.style.display = "none";
+            }
+        });
+    });
+</script>
 
 <style>
     .img-container {
@@ -136,6 +166,41 @@
 
     .img-container img:hover {
         transform: scale(1.05);
+    }
+
+    .lightbox {
+        display: none;
+        position: fixed;
+        z-index: 9999;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.8);
+        text-align: center;
+    }
+
+    .lightbox-content {
+        max-width: 50%;
+        max-height: 78vh;
+        margin-top: 10%;
+        border-radius: 8px;
+        box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.2);
+    }
+
+    .close {
+        position: absolute;
+        top: 15px;
+        right: 30px;
+        color: white;
+        font-size: 40px;
+        font-weight: bold;
+        cursor: pointer;
+        transition: 0.3s;
+    }
+
+    .close:hover {
+        color: red;
     }
 </style>
 @endsection

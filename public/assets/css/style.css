@@ -8539,6 +8539,7 @@ body.light-mode .card {
     background-color: #f0f0f0 !important;
     border: 1px solid rgba(0, 0, 0, .125);
     border-radius: 18px;
+    height: 100%;
 }
 body.light-mode .card-title {
     color: #636363;

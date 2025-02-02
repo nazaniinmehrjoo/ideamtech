@@ -14,7 +14,8 @@
                 <div class="card-header text-center">{{ __('blogCreate.create_post') }}</div>
 
                 <div class="card-body">
-                    <form action="{{ route('blog.store') }}" method="POST" enctype="multipart/form-data">
+                    <!-- Updated Form Action with Locale -->
+                    <form action="{{ route('blog.store', ['locale' => app()->getLocale()]) }}" method="POST" enctype="multipart/form-data">
                         @csrf
 
                         <!-- Post Title Inputs -->
@@ -133,47 +134,47 @@
 </div>
 
 <script>
-let selectedFiles = []; // Array to hold selected additional files for preview
+    let selectedFiles = []; // Array to hold selected additional files for preview
 
-function previewMainImage(event) {
-    const file = event.target.files[0];
-    if (file) {
-        const reader = new FileReader();
-        reader.onload = function(e) {
-            const previewContainer = document.getElementById('main-image-preview');
-            previewContainer.innerHTML = `<img src="${e.target.result}" alt="Main Image" class="img-fluid preview-image">`;
-        };
-        reader.readAsDataURL(file);
+    function previewMainImage(event) {
+        const file = event.target.files[0];
+        if (file) {
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                const previewContainer = document.getElementById('main-image-preview');
+                previewContainer.innerHTML = `<img src="${e.target.result}" alt="Main Image" class="img-fluid preview-image">`;
+            };
+            reader.readAsDataURL(file);
+        }
     }
-}
 
-function previewImages(event) {
-    const newFiles = Array.from(event.target.files);
-    selectedFiles = selectedFiles.concat(newFiles);
-    renderImagePreviews();
-}
+    function previewImages(event) {
+        const newFiles = Array.from(event.target.files);
+        selectedFiles = selectedFiles.concat(newFiles);
+        renderImagePreviews();
+    }
 
-function renderImagePreviews() {
-    const previewContainer = document.getElementById('image-preview');
-    previewContainer.innerHTML = ''; // Clear existing previews
+    function renderImagePreviews() {
+        const previewContainer = document.getElementById('image-preview');
+        previewContainer.innerHTML = ''; // Clear existing previews
 
-    selectedFiles.forEach((file, index) => {
-        const reader = new FileReader();
-        reader.onload = function(e) {
-            const previewDiv = document.createElement('div');
-            previewDiv.classList.add('d-flex', 'align-items-center', 'mb-2');
-            previewDiv.innerHTML = `<img src="${e.target.result}" alt="Image" class="img-fluid preview-image">
-                <span class="text-danger large-dash" onclick="removeImage(${index})">&ndash;</span>`;
-            previewContainer.appendChild(previewDiv);
-        };
-        reader.readAsDataURL(file);
-    });
-}
+        selectedFiles.forEach((file, index) => {
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                const previewDiv = document.createElement('div');
+                previewDiv.classList.add('d-flex', 'align-items-center', 'mb-2');
+                previewDiv.innerHTML = `<img src="${e.target.result}" alt="Image" class="img-fluid preview-image">
+                    <span class="text-danger large-dash" onclick="removeImage(${index})">&ndash;</span>`;
+                previewContainer.appendChild(previewDiv);
+            };
+            reader.readAsDataURL(file);
+        });
+    }
 
-function removeImage(index) {
-    selectedFiles.splice(index, 1); // Remove the selected file
-    renderImagePreviews(); // Update the preview display
-}
+    function removeImage(index) {
+        selectedFiles.splice(index, 1); 
+        renderImagePreviews(); 
+    }
 </script>
 
 <style>

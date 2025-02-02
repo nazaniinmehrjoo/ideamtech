@@ -11,7 +11,8 @@
             <div class="card bg-dark text-white">
                 <div class="card-header text-center">{{ __('ویرایش مقاله') }}</div>
                 <div class="card-body">
-                    <form id="postForm" action="{{ route('blog.update', $post->id) }}" method="POST" enctype="multipart/form-data" style="direction: rtl;">
+                    <!-- Fixed Form Action with Locale -->
+                    <form id="postForm" action="{{ route('blog.update', ['locale' => app()->getLocale(), 'blog' => $post->id]) }}" method="POST" enctype="multipart/form-data" style="direction: rtl;">
                         @csrf
                         @method('PUT')
 
@@ -111,7 +112,7 @@
                             </div>
                         </div>
 
-                        <!-- New Images Section with Preview and Remove Option -->
+                        <!-- New Images Section -->
                         <div class="row mb-3">
                             <label class="col-md-4 col-form-label text-md-end">{{ __('تصاویر جدید') }}</label>
                             <div class="col-md-6 d-flex flex-wrap">
@@ -137,24 +138,7 @@
     </div>
 </div>
 
-
-<style>
-    .large-dash {
-        font-size: 1.5em;
-        font-weight: bold;
-        margin-left: 10px;
-        cursor: pointer;
-    }
-    .preview-image {
-        max-width: 100px;
-        margin-right: 10px;
-    }
-</style>
-
 <script>
-let selectedFiles = [];
-let mainImageFile = null;
-
 function addMainImage(event) {
     const file = event.target.files[0];
     const reader = new FileReader();
@@ -186,90 +170,18 @@ function addImages(event) {
         reader.readAsDataURL(file);
     });
 }
-
-// Function to render new images previews
-function renderNewPreviews() {
-    const previewContainer = document.getElementById('new-image-preview');
-    previewContainer.innerHTML = '';
-    selectedFiles.forEach((file, index) => {
-        const reader = new FileReader();
-        reader.onload = function(e) {
-            const previewDiv = document.createElement('div');
-            previewDiv.classList.add('d-flex', 'align-items-center', 'mb-2');
-            previewDiv.innerHTML = `<img src="${e.target.result}" alt="New Image" class="preview-image img-fluid"><span class="text-danger large-dash" onclick="removeNewImage(${index})">&ndash;</span>`;
-            previewContainer.appendChild(previewDiv);
-        };
-        reader.readAsDataURL(file);
-    });
-}
-
-// Function to remove a specific new image from the preview
-function removeNewImage(index) {
-    selectedFiles.splice(index, 1);
-    renderNewPreviews();
-}
-
-// Function to submit the form
-function submitForm() {
-    const form = document.getElementById('postForm');
-    const formData = new FormData(form);
-
-    // Append the main image if selected
-    if (mainImageFile) {
-        formData.append('main_image', mainImageFile);
-    }
-
-    // Append new images
-    selectedFiles.forEach((file, index) => {
-        formData.append(`images[${index}]`, file);
-    });
-
-    // Submit the form via AJAX
-    fetch(form.action, {
-        method: 'POST',
-        headers: {
-            'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
-        },
-        body: formData
-    })
-    .then(response => {
-        if (response.ok) {
-            return response.json();
-        } else if (response.status === 422) {
-            return response.json().then(errorData => {
-                alert("Validation error. Please check the form fields.");
-                displayValidationErrors(errorData.errors);
-                throw new Error("Validation failed");
-            });
-        } else {
-            throw new Error("Unexpected response from the server");
-        }
-    })
-    .then(data => {
-        if (data.success) {
-            alert(data.message || 'Images uploaded successfully!');
-            window.location.reload();
-        } else {
-            alert("An error occurred during the upload.");
-        }
-    })
-    .catch(error => {
-        console.error("Error during submission:", error);
-    });
-}
-
-// Function to display validation errors
-function displayValidationErrors(errors) {
-    document.querySelectorAll('.validation-error').forEach(el => el.remove());
-    Object.keys(errors).forEach(field => {
-        const fieldElement = field.startsWith('images') ? document.getElementById('images') : document.getElementsByName(field)[0];
-        if (fieldElement) {
-            const errorMessage = document.createElement('div');
-            errorMessage.className = 'validation-error text-danger';
-            errorMessage.innerText = errors[field][0];
-            fieldElement.parentNode.appendChild(errorMessage);
-        }
-    });
-}
 </script>
+
+<style>
+    .large-dash {
+        font-size: 1.5em;
+        font-weight: bold;
+        margin-left: 10px;
+        cursor: pointer;
+    }
+    .preview-image {
+        max-width: 100px;
+        margin-right: 10px;
+    }
+</style>
 @endsection

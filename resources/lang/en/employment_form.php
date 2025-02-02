@@ -29,5 +29,13 @@ return [
     'software_skills' => 'Software Skills',
     'about_me' => 'About Me',
     'submit_button' => 'Submit Form',
+    'manage_forms' => 'Manage Employment Forms',
+    'create_new_form' => 'Add New Form',
+    'search_placeholder' => 'Search forms...',
+    'actions' => 'Actions',
+    'edit' => 'Edit',
+    'delete' => 'Delete',
+    'delete_confirmation' => 'Are you sure?',
+    'no_forms' => 'No employment forms have been registered.',
 ];
 

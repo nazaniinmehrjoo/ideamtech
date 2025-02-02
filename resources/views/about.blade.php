@@ -122,8 +122,8 @@
     <div class="auto-container">
         <div class="def-title-box">
             <div class="patt"><span></span></div>
-            <div class="subtitle">{{ __('about.services_section_two.subtitle') }}</div>
-            <h3>{{ __('about.services_section_two.title') }}</h3>
+            <!-- <div class="subtitle">{{ __('about.services_section_two.subtitle') }}</div>-->
+            <h3>{{ __('about.services_section_two.title') }}</h3> 
         </div>
 
         <div class="row parent-row clearfix">

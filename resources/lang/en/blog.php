@@ -8,7 +8,8 @@ return [
     'category' => 'Category',
     'date_posted' => 'Posted',
     'pagination' => 'Showing :start to :end of :total posts',
-    
+    'blog' => 'news',
+    'latest_posts' => 'LatestPosts',
     // Actions
     'view_post' => 'View Post',
     'back_to_posts' => 'Back to Posts',
