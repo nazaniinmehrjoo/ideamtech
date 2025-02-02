@@ -59,7 +59,7 @@ return [
             ],
             'tab-3' => [
                 'title' => 'Values and mission',
-                'image' => '/assets/images/main-slider/pokht.jpg',
+                'image' => '/assets/images/main-slider/indexconsultation.png',
                 'description' =>
 
                     'Our goal is to revive the brick industry in the country and create distinctive products. 
