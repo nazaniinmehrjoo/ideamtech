@@ -8,7 +8,8 @@ return [
     'category' => 'دسته‌بندی',
     'date_posted' => 'تاریخ ارسال',
     'pagination' => 'نمایش :start تا :end از :total پست‌ها',
-
+    'blog' => 'اخبار',
+    'latest_posts' => 'آخرین آخبار',
     // Actions
     'view_post' => 'مشاهده پست',
     'back_to_posts' => 'بازگشت به پست‌ها',
