@@ -1,7 +1,7 @@
 <?php
 return [
     'alt_text' => 'Borna Gostar',
-    'title' => 'About Borna Gostar',
+    'title' => 'About Innovators Bornagostar Parsi',
     'paragraph_1' => 'Barna Gostar Parsi Innovative Company has been able to localize and optimize the equipment of the brick production line since 2005, by using capable experts and investing in research and development.
     This company meets to the various requests of customers by providing various services in consulting, designing, manufacturing, installation and implementation in the field of turnkey brick factories and similar products, from the planning stages to maintenance. Paying special attention to optimizing energy consumption and developing brick dryer designs to reduce gas and electricity consumption is one of the organization\'s competitive advantages.',
     'paragraph_2' => 'One of the most important factors that have made this company capable is the provision of various services in various sectors such as consulting, designing, manufacturing and operation in the field of installation a factory for the production of bricks and similar products such as production lines of glass wool, cement blocks, tiles and ceramics from the phase of financial estimation and technical (explanatory plan), Finding the right place, production line construction, modification and optimization of existing lines and their maintenance. The innovators of Borna Gostar Parsi co. will be committed with respectable artisans from design up to execution.',
@@ -30,7 +30,7 @@ return [
     ],
 
     'services_section' => [
-        'title' => 'Our histories and achievements',
+        'title' => 'Our projects',
         'customer_satisfaction' => [
             'title' => 'Customer satisfaction',
             'alt_text' => 'Customer Image',
@@ -41,7 +41,7 @@ return [
 
     'services_section_two' => [
         'subtitle' => 'From mission and valus up to catalogue and technical approvals',
-        'title' => 'Borna Gostar\'s achievements and values',
+        'title' => 'Borna Gostar\'s achievements',
         'tabs' => [
             'tab-1' => [
                 'title' => 'catalogue',
