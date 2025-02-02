@@ -40,7 +40,7 @@
                     </div>
                     <!--Slide Item-->
                     <div class="slide-item">
-                        <img src="/assets/images/main-slider/similatorslider2.jpg" class="image-layer" alt="{{ __('simulator.slide_3_title') }}">
+                        <img src="/assets/images/main-slider/similatornew.jpeg" class="image-layer" alt="{{ __('simulator.slide_3_title') }}">
                         <div class="auto-container">
                             <div class="content-box">
                                 <div class="content">
