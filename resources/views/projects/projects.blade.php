@@ -128,8 +128,9 @@
         </div>
     </div>
     <br>
-<!-- Our customers' feedback -->
-    <!-- <div class="row mt-5">
+    <!-- Our customer feadback -->
+<!-- 
+    <div class="row mt-5">
         <div class="col-md-12">
             <h3 class="customerReviews" style="text-align: center;padding: 10px;">{{ __('projects.customers.Feedback') }} </h3>
 
