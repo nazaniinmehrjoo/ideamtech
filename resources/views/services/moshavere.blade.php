@@ -33,7 +33,7 @@
                                                             <div class="ttl">
                                                                 <strong>{{ json_decode($service->title, true)[app()->getLocale()] }}</strong>
                                                             </div>
-                                                            <p style="text-align: right;">
+                                                            <p>
                                                                 {{ json_decode($service->content, true)[app()->getLocale()] }}
                                                             </p>
                                                         </div>
