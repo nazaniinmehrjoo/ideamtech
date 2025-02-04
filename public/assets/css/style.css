@@ -7887,6 +7887,8 @@ canvas {
     line-height: 1.8;
     max-width: 800px;
     margin: 20px auto;
+    text-align: justify;
+
 }
 /* Circular Process Flow Styling */
 .graphics {
@@ -8717,6 +8719,7 @@ body.light-mode .flow-step {
 }
 body.light-mode .flow-explain .content p {
     color: #333;
+    text-align: justify;
 }
 body.light-mode .flow-explain h2 {
     color: #333;
