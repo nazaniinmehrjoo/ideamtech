@@ -23,7 +23,7 @@ return [
     'training_courses' => 'Training Courses (Optional)',
     'training_certificate' => 'Training Certificate (Optional)',
     'work_experience' => 'Work Experience',
-    'work_experience_photo' => 'Work Experience Photo (Optional)',
+    'work_experience_photo' => 'Upload resume (Optional)',
     'foreign_language' => 'Foreign Language',
     'language_proficiency' => 'Language Proficiency (1-5)',
     'software_skills' => 'Software Skills',

@@ -30,6 +30,9 @@ class CooperationController extends Controller
             'national_id' => 'required|string|max:50',
             'address' => 'required|string',
             'activity_field' => 'required|string|max:255',
+            'representative_first_name' => 'required|string|max:255',
+            'representative_last_name' => 'required|string|max:255',
+            'representative_phone' => 'required|string|max:15',
         ]);
 
         // Create new cooperation record
@@ -59,6 +62,9 @@ class CooperationController extends Controller
             'national_id' => 'required|string|max:50',
             'address' => 'required|string',
             'activity_field' => 'required|string|max:255',
+            'representative_first_name' => 'required|string|max:255',
+            'representative_last_name' => 'required|string|max:255',
+            'representative_phone' => 'required|string|max:15',
         ]);
 
         // Find the specific cooperation record by ID

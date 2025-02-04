@@ -90,7 +90,7 @@
     <!-- Site Container -->
     <div class="site-container">
         <div class="cursor"></div>
-        <div class="preloader"></div>
+        <!-- <div class="preloader"></div> -->
         <div class="menu-backdrop"></div>
 
         <!-- Main Header -->

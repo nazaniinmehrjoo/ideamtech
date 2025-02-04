@@ -60,12 +60,24 @@
             </div>
         </div>
 
+        <!-- Button Group -->
         <div class="button-group-outside">
-            <button class="custom-button" onclick="window.location.href='{{ url(__('distinct.link_video')) }}'" >
-            {{ __('distinct.view_video') }}
+            <!-- View Video Button -->
+            <button class="custom-button" onclick="openVideoModal('{{ url(__('distinct.link_video')) }}')">
+                {{ __('distinct.view_video') }}
             </button>
+
+            <!-- Download Brochure Button -->
             <button class="custom-button" onclick="window.open('{{ url(__('distinct.brochure-link')) }}', '_blank')">
-            {{ __('distinct.download_brochure') }}</button>
+                {{ __('distinct.download_brochure') }}
+            </button>
+        </div>
+        <!-- Video Modal -->
+        <div id="videoModal" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeVideoModal()">&times;</span>
+                <iframe id="videoFrame" width="100%" height="400px" frameborder="0" allowfullscreen></iframe>
+            </div>
         </div>
     </div>
 
@@ -159,5 +171,24 @@
 
     </div>
 </section>
+<script>
+    function openVideoModal(videoUrl) {
+        let modal = document.getElementById('videoModal');
+        let iframe = document.getElementById('videoFrame');
 
+        // Ensure it's a YouTube embed link
+        let embedUrl = videoUrl.replace("watch?v=", "embed/");
+
+        iframe.src = embedUrl;
+        modal.style.display = "block";
+    }
+
+    function closeVideoModal() {
+        let modal = document.getElementById('videoModal');
+        let iframe = document.getElementById('videoFrame');
+
+        modal.style.display = "none";
+        iframe.src = ""; 
+    }
+</script>
 @endsection

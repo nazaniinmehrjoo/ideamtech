@@ -23,7 +23,7 @@ return [
     'training_courses' => 'دوره های آموزشی (اختیاری)',
     'training_certificate' => 'مدرک دوره آموزشی (اختیاری)',
     'work_experience' => 'سوابق کاری',
-    'work_experience_photo' => 'مدرک سوابق کاری (اختیاری)',
+    'work_experience_photo' => 'آپلود رزومه (اختیاری)',
     'foreign_language' => 'زبان خارجی',
     'language_proficiency' => 'تسلط به زبان خارجی (1-5)',
     'software_skills' => 'آشنایی با نرم افزارها',
