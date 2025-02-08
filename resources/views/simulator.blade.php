@@ -48,7 +48,7 @@
     }
 
     /* Modal styles */
-    .modal {
+    #similatorPdfModal  {
         position: fixed;
         top: 0;
         left: 0;
@@ -61,14 +61,14 @@
         animation: fadeIn 0.5s ease-in-out;
     }
 
-    .modal-content {
+    #similatorPdfModal .modal-content {
         border-radius: 15px;
         max-width: 90%;
         overflow-y: auto;
         position: relative;
     }
 
-    .modal iframe {
+    #similatorPdfModal .modal iframe {
         width: 100%;
         height: 500px;
         border: none;
@@ -132,11 +132,11 @@
                                         <div class="inner">
                                             <h3><span>{{ __('simulator.slide_1_title') }}</span></h3>
                                             <div class="similatorButtonContainer pager-item">
-                                    <p>مشاهده فایل تخمین مدت زمان نیاز برای خشک شدن خشت</p>
-                                    <div class="theme-btn btn-style-two" onclick="openPdfViewer()">
-                                        مشاهده
-                                    </div>
-                                </div>
+                                            <p> {{ __('simulator.similatortext') }}</p>
+                                            <button class="theme-btn btn-style-two" onclick="openPdfViewer()">
+                                                {{ __('simulator.similatorbutton') }}
+                                            </button>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -153,11 +153,11 @@
                                         <div class="inner">
                                             <h3><span>{{ __('simulator.slide_2_title') }}</span></h3>
                                             <div class="similatorButtonContainer pager-item">
-                                    <p>مشاهده فایل تخمین مدت زمان نیاز برای خشک شدن خشت</p>
-                                    <div class="theme-btn btn-style-two" onclick="openPdfViewer()">
-                                        مشاهده
-                                    </div>
-                                </div>
+                                            <p>{{ __('simulator.similatortext') }}</p>
+                                            <button class="theme-btn btn-style-two" onclick="openPdfViewer()">
+                                                {{ __('simulator.similatorbutton') }}
+                                            </button>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -174,11 +174,11 @@
                                         <div class="inner">
                                             <h3><span>{{ __('simulator.slide_3_title') }}</span></h3>
                                             <div class="similatorButtonContainer pager-item">
-                                    <p>مشاهده فایل تخمین مدت زمان نیاز برای خشک شدن خشت</p>
-                                    <div class="theme-btn btn-style-two" onclick="openPdfViewer()">
-                                        مشاهده
-                                    </div>
-                                </div>
+                                            <p>{{ __('simulator.similatortext') }}</p>
+                                            <button class="theme-btn btn-style-two" onclick="openPdfViewer()">
+                                                {{ __('simulator.similatorbutton') }}
+                                            </button>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -225,7 +225,7 @@
 <!-- End Banner Section -->
 
 <!-- Modal for PDF viewer -->
-<div id="pdfModal" class="modal">
+<div id="similatorPdfModal" class="modal">
     <div class="modal-content">
         <span class="close-btn" onclick="closePdfViewer()">&times;</span>
         <iframe src="{{ url(__('simulator.link-file')) }}" width="100%" height="500px"></iframe>
@@ -234,11 +234,11 @@
 
 <script>
     function openPdfViewer() {
-        document.getElementById('pdfModal').style.display = 'flex';
+        document.getElementById('similatorPdfModal').style.display = 'flex';
     }
 
     function closePdfViewer() {
-        document.getElementById('pdfModal').style.display = 'none';
+        document.getElementById('similatorPdfModal').style.display = 'none';
     }
 </script>
 
