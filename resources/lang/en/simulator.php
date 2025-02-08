@@ -7,4 +7,7 @@ return [
     'pager_1_text' => 'Estimate drying time of wet bricks with the highest quality',
     'pager_2_text' => 'Calculate the dryer dimensions according to the factory\'s required capacity',
     'pager_3_text' => 'Troubleshooting of the produced tiles',
+    'link-file' => '/assets/documents/similator.pdf',
+    'similatortext' => 'View the file for estimating the time required for brick drying.',
+    'similatorbutton' => 'View',
 ];

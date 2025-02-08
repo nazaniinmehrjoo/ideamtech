@@ -8,5 +8,7 @@ return [
     'pager_2_text' => 'محاسبه ابعاد خشک کن متناسب با ظرفیت درخواستی کارخانه',
     'pager_3_text' => 'عیب یابی سفال تولید شده',
     'link-file' => '/assets/documents/similator.pdf',
+    'similatortext' => 'مشاهده فایل تخمین مدت زمان نیاز برای خشک شدن خشت',
+    'similatorbutton' => 'مشاهده',
 
 ];
