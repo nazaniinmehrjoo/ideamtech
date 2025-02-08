@@ -7,4 +7,6 @@ return [
     'pager_1_text' => 'تخمین زمان خشک شدن خشت تر با بالاترین کیفیت',
     'pager_2_text' => 'محاسبه ابعاد خشک کن متناسب با ظرفیت درخواستی کارخانه',
     'pager_3_text' => 'عیب یابی سفال تولید شده',
+    'link-file' => '/assets/documents/similator.pdf',
+
 ];
