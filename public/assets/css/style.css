@@ -4506,12 +4506,12 @@ body.light-mode .def-title-box h3 {
 
 .sidebar-side .recent-post .post .inner {
     position: relative;
-    display: block;
     min-height: 88px;
+    display: flex;
+    justify-content: space-between;
 }
 
 .sidebar-side .recent-post .post .image {
-    position: absolute;
     left: 0;
     top: 0;
     width: 100px;
