@@ -92,17 +92,17 @@
                             @foreach($latestPosts as $latestPost)
                                 <div class="post">
                                     <div class="inner">
-                                        <div class="image">
+                                        <div class="image col-md-4 col-sm-4 col-xsm-4">
                                             <a
                                                 href="{{ route('blog.show', ['locale' => app()->getLocale(), 'post' => $latestPost->id]) }}">
                                                 <img src="{{ asset('storage/' . $latestPost->image) }}"
                                                     alt="{{ $latestPost->title }}">
                                             </a>
                                         </div>
-                                        <div class="date">
+                                        <div class="date col-md-4 col-sm-4 col-xsm-4">
                                             <span>{{ \Carbon\Carbon::parse($latestPost->getRawOriginal('created_at'))->format('d.m.Y') }}</span>
                                         </div>
-                                        <div class="text">
+                                        <div class="text col-md-4 col-sm-4 col-xsm-4">
                                             <a
                                                 href="{{ route('blog.show', ['locale' => app()->getLocale(), 'post' => $latestPost->id]) }}">{{ Str::limit($latestPost->title, 50) }}</a>
                                         </div>
