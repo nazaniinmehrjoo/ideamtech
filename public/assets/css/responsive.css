@@ -330,6 +330,9 @@
 	.modal-content {
 		margin: 60% 27% auto;
 	}
+	#videoModal .modal-content {
+		margin: 16%;
+	}
 	.banner-four .auto-container {
 		padding: 0px 50px;
 	}
@@ -677,11 +680,6 @@
 	/* .main-content-container {
 		padding-left: 50px;
 	} */
-	.sidebar-side .recent-post .post .inner {
-
-		padding-left: 104px;
-
-	}
 	#languageDropdown {
 		right: 8%;
 
@@ -708,6 +706,9 @@
 	.modal-content {
 		margin: 60% 25% auto;
 	}
+	#videoModal .modal-content {
+		margin: 30% 12%;
+	  }
 	.banner-four .slider-box .slide-item {
 		width: 350px !important;
 	}
@@ -1254,6 +1255,9 @@
 		padding: 15px;
 		width: 75%;
 	}
+	#videoModal .modal-content {
+		margin: 25% 12%;
+	}
 	.banner-four .banner-content {
 		padding-left: 0;
 	}
@@ -1663,9 +1667,7 @@
 		text-align: right;
 
 	}
-	.sidebar-side .recent-post .post .inner {
-		padding-left:140px;
-	}
+
 	.blog-details .lower{
 		padding: 0px 35px 5px;
 	}
