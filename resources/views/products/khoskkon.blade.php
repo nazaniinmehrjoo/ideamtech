@@ -39,7 +39,7 @@
 
             <!-- Description Box -->
             <div id="categoryDescriptionBox" class="categoryDescriptionBox" style="margin-bottom: 20px; display: none;">
-                <p id="descriptionContent" class="text-light"></p>
+                <p id="descriptionContent"></p>
             </div>
 
             <!-- Product List -->
@@ -63,7 +63,7 @@
                                     </div>
                                     <h5 id="productName">
                                         <a href="#"
-                                            class="text-light">{{ $product->name[app()->getLocale()] ?? $product->name['en'] }}</a>
+                                            >{{ $product->name[app()->getLocale()] ?? $product->name['en'] }}</a>
                                     </h5>
                                 </div>
                             </div>
@@ -72,6 +72,15 @@
                 @endforeach
             </div>
 
+            <!-- Dynamic Comparison Information Box -->
+            <div id="comparisonInfoBox" class="categoryDescriptionBox" style="margin-bottom: 20px; display: none;">
+                <p id="comparisonParagraph1">{{ __('khoskkon.comparison_desc_1') }}</p>
+                <p id="comparisonParagraph2">{{ __('khoskkon.comparison_desc_2') }}</p>
+                <p id="comparisonParagraph3">{{ __('khoskkon.comparison_desc_3') }}</p>
+                <p id="comparisonParagraph4">{{ __('khoskkon.comparison_desc_4') }}</p>
+                <p id="comparisonParagraph5">{{ __('khoskkon.comparison_desc_5') }}</p>
+                <p id="comparisonParagraph6">{{ __('khoskkon.comparison_desc_6') }}</p>
+            </div>
             <!-- Comparison Chart Container -->
             <div id="comparisonChartContainer" class="chart-container"
                 style="display: none; width: 80%; max-width: 700px; margin: 30px auto;">
@@ -126,6 +135,18 @@
         document.getElementById('category-list').style.display = 'none';
         document.getElementById('comparisonChartContainer').style.display = 'block';
         document.getElementById('categoryDescriptionBox').style.display = 'none';
+        const comparisonBox = document.getElementById('comparisonInfoBox');
+        const categoryList = document.getElementById('category-list');
+        const categoryDescriptionBox = document.getElementById('categoryDescriptionBox');
+        const comparisonChartContainer = document.getElementById('comparisonChartContainer');
+
+        // Hide product list and category description
+        categoryList.style.display = 'none';
+        categoryDescriptionBox.style.display = 'none';
+
+        // Show comparison chart and information box
+        comparisonChartContainer.style.display = 'block';
+        comparisonBox.style.display = 'block';
     }
 
     // Initialize with all categories
@@ -202,7 +223,7 @@
             const radarChart = new Chart(ctx, chartOptions);
 
             const observer = new MutationObserver(() => {
-                const updatedColors = getColors(); 
+                const updatedColors = getColors();
 
                 radarChart.options.scales.r.ticks.color = updatedColors.tickColor;
                 radarChart.options.scales.r.grid.color = updatedColors.gridColor;
@@ -215,13 +236,12 @@
 
             observer.observe(document.body, {
                 attributes: true,
-                attributeFilter: ['class'], 
+                attributeFilter: ['class'],
             });
         } else {
             console.error("Chart data is missing or empty.");
         }
     });
 </script>
-
 
 @endsection
