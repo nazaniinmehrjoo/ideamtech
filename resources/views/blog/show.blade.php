@@ -19,7 +19,7 @@
     <div class="auto-container">
         <div class="row clearfix">
             <!-- Content Side -->
-            <div class="content-side col-lg-8 col-md-8 col-sm-12">
+            <div class="content-side col-lg-8 col-md-12 col-sm-12">
                 <div class="content-inner">
                     <div class="blog-details">
                         <!-- Main Image -->
@@ -81,7 +81,7 @@
             </div>
 
             <!-- Sidebar -->
-            <div class="sidebar-side col-lg-4 col-md-4 col-sm-12">
+            <div class="sidebar-side col-lg-4 col-md-12 col-sm-12">
                 <div class="sidebar">
                     <!-- Latest Posts -->
                     <div class="sidebar-widget recent-post">
@@ -92,17 +92,17 @@
                             @foreach($latestPosts as $latestPost)
                                 <div class="post">
                                     <div class="inner">
-                                        <div class="image col-md-4 col-sm-4 col-xsm-4">
+                                        <div class="image col-lg-4 col-md-4 col-sm-4 col-xsm-12">
                                             <a
                                                 href="{{ route('blog.show', ['locale' => app()->getLocale(), 'post' => $latestPost->id]) }}">
                                                 <img src="{{ asset('storage/' . $latestPost->image) }}"
                                                     alt="{{ $latestPost->title }}">
                                             </a>
                                         </div>
-                                        <div class="date col-md-4 col-sm-4 col-xsm-4">
+                                        <div class="date col-lg-4 col-md-4 col-sm-4 col-xsm-12">
                                             <span>{{ \Carbon\Carbon::parse($latestPost->getRawOriginal('created_at'))->format('d.m.Y') }}</span>
                                         </div>
-                                        <div class="text col-md-4 col-sm-4 col-xsm-4">
+                                        <div class="text col-lg-4 col-md-4 col-sm-4 col-xsm-12">
                                             <a
                                                 href="{{ route('blog.show', ['locale' => app()->getLocale(), 'post' => $latestPost->id]) }}">{{ Str::limit($latestPost->title, 50) }}</a>
                                         </div>

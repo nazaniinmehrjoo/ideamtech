@@ -3,37 +3,19 @@
 @section('content')
 <style>
     .similatorButton {
-        padding: 12px 30px;
-        border-radius: 16px;
-        border: 2px solid #5b5a59;
-        background-color: #5b5a59;
-        color: white;
-        font-size: 16px;
-        text-align: center;
-        cursor: pointer;
-        transition: all 0.3s ease-in-out;
-        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-        margin-top: 20px;
-        width: 110px;
-        display: block;
-        margin: auto;
+
+        width: 95px;
+        font-size: 14px;
+        padding: 5px 20px 5px;
         
     }
 
-    .similatorButton:hover {
-        background-color: #ff4500;
-        border: 2px solid #ff4500;
-
-        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-        transform: translateY(-5px);
-    }
 
     .similatorButtonContainer p {
         text-align: center;
         color: #b9b9b9 !important;
-        font-size: 18px;
+        font-size: 16px;
         margin-bottom: 20px;
-        font-weight: bold;
     }
 
     .similatorButtonContainer {
@@ -133,7 +115,7 @@
                                             <h3><span>{{ __('simulator.slide_1_title') }}</span></h3>
                                             <div class="similatorButtonContainer pager-item">
                                             <p> {{ __('simulator.similatortext') }}</p>
-                                            <button class="theme-btn btn-style-two" onclick="openPdfViewer()">
+                                            <button class="similatorButton theme-btn btn-style-two" onclick="openPdfViewer()">
                                                 {{ __('simulator.similatorbutton') }}
                                             </button>
                                             </div>
@@ -154,7 +136,7 @@
                                             <h3><span>{{ __('simulator.slide_2_title') }}</span></h3>
                                             <div class="similatorButtonContainer pager-item">
                                             <p>{{ __('simulator.similatortext') }}</p>
-                                            <button class="theme-btn btn-style-two" onclick="openPdfViewer()">
+                                            <button class="similatorButton theme-btn btn-style-two" onclick="openPdfViewer()">
                                                 {{ __('simulator.similatorbutton') }}
                                             </button>
                                             </div>
@@ -175,7 +157,7 @@
                                             <h3><span>{{ __('simulator.slide_3_title') }}</span></h3>
                                             <div class="similatorButtonContainer pager-item">
                                             <p>{{ __('simulator.similatortext') }}</p>
-                                            <button class="theme-btn btn-style-two" onclick="openPdfViewer()">
+                                            <button class="similatorButton theme-btn btn-style-two" onclick="openPdfViewer()">
                                                 {{ __('simulator.similatorbutton') }}
                                             </button>
                                             </div>
