@@ -35,4 +35,7 @@ return [
         ],
      
     ],
+    "requentlyQuestions" => [
+        'title' => 'سوالات متداول',
+    ],
 ];

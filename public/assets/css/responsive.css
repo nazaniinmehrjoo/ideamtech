@@ -1,8 +1,8 @@
-@media only screen and (max-width: 7000px) {
+/* @media only screen and (max-width: 7000px) {
 	.site-container {
 		overflow: scroll;
 	}
-}
+} */
 @media only screen and (max-width: 1920px) {
 
 }
@@ -1263,6 +1263,11 @@
 
 }
 @media only screen and (max-width: 767px) {
+	.joinUsBtnContainer .joinUsbtnContent {
+		width: 150px;
+  		height: 55px;
+		font-size: 14px;
+	}
 	#similatorPdfModal .modal-content {
 		left: 10%;
 	}
@@ -2282,6 +2287,12 @@
 }
 
 @media only screen and (max-width: 430px) {
+	.joinUsBtnContainer .joinUsbtnContent {
+	  width: 113px;
+	  height: 40px;
+	  font-size: 12px;
+	}
+	
 	#videoModal .modal-content {
 		margin: 46% 2%;
 	  }
