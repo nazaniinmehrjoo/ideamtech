@@ -35,4 +35,7 @@ return [
         ],
        
     ],
+    "requentlyQuestions" => [
+        'title' => 'Frequently Asked Questions',
+    ],
 ];
