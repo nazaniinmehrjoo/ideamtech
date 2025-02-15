@@ -7489,7 +7489,7 @@ canvas {
 
 .hero {
     background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
-        url("https://via.placeholder.com/1500x600") no-repeat center
+        url("/assets/images/main-slider/garaanti.jpg") no-repeat center
             center/cover;
     color: #fff;
     padding: 80px 20px;
