@@ -1,6 +1,6 @@
 @media only screen and (max-width: 7000px) {
 	.site-container {
-		overflow: hidden;
+		overflow: scroll;
 	}
 }
 @media only screen and (max-width: 1920px) {
@@ -327,6 +327,10 @@
 	}
 }
 @media only screen and (max-width: 1199px) {
+	.sidebar-page-container .content-side {
+		max-width: 100% !important;
+  		padding-right: 0% !important;
+	}
 	.modal-content {
 		margin: 60% 27% auto;
 	}
@@ -704,6 +708,10 @@
 }
 
 @media only screen and (max-width: 991px) {
+
+	.banner-seven .slide-item  .auto-container h3 span {
+		font-size: 25px !important;
+	}
 	.main-header-bar .social-links {
 		right: 20%;
 	}
@@ -1240,6 +1248,7 @@
 }
 
 @media only screen and (max-width: 840px) {
+
 	.banner-six .slide-item .image-layer {
 		left: 0;
   		top: 0;
@@ -1257,6 +1266,7 @@
 	#similatorPdfModal .modal-content {
 		left: 10%;
 	}
+
 	.modal-content {
 		margin: 40% 25% auto;
 		padding: 15px;
@@ -1784,6 +1794,12 @@
 }
 
 @media only screen and (max-width: 599px) {
+	.sidebar-side .recent-post .post .inner {
+		display: block !important;
+	}
+	.sidebar-side .recent-post .post .text {
+		text-align: center;
+	}
 	#videoModal .modal-content{
 		margin: 30% 3% ;
 	}
@@ -2090,8 +2106,20 @@
 	}
 
 	.banner-seven .slide-item .content-box {
-		padding: 50px 0;
+		padding: 150px 0;
 	}
+	.similatorButtonContainer {
+		margin-top: 0px !important;
+	}
+	.similatorButtonContainer p {
+		font-size: 15px !important;
+	}
+	.similatorButton {
+		font-size: 13px !important;
+		width: 79px !important;
+		padding: 3px 15px 3px !important;
+	}
+
 	/* about borna responsive */
 	.plans-section .text-col .text {
 		font-size: 14px;
@@ -2459,7 +2487,7 @@
 	}
 }
 @media only screen and (max-width: 479px) {
-	
+
 	/* Nasb o rahandazi responsive */
 	.banner-ten .slide-item .bottom-content .text{
 		font-size: 12px;
@@ -2794,7 +2822,7 @@
 	/* Simulator responsive */
 
 	.banner-seven .pager-content {
-		margin-top: -20%;
+		margin-top: -5%;
 	}
 	.banner-seven .pager-content {
 		left: 25%;
