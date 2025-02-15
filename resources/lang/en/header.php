@@ -10,7 +10,7 @@ return [
     'projects' => 'Projects',
     'projects_dryer' => 'Dryer Project',
     'projects_kiln' => 'Kiln Project',
-    'projects_full_line' => 'Full Brick Line Project',
+    'projects_full_line' => 'TurnkeySolution',
     'services' => 'Services',
     'services_consulting' => 'Consulting',
     'services_parts' => 'Parts Supply',

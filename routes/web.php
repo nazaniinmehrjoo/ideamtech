@@ -80,8 +80,15 @@ Route::group(['prefix' => '{locale}', 'middleware' => 'locale'], function () {
     // Publicly Accessible Product Listings
     Route::get('/ماشین_آلات_فرآوری_و_شکل_دهی/محصولات', [ProductController::class, 'mashinAlatShekldehi'])->name('products.mashinAlatShekldehi');
     Route::get('/ماشین_آلات_و_تجهیزات/محصولات', [ProductController::class, 'mashinalatvatajhizat'])->name('products.mashinalatvatajhizat');
+
     Route::get('/خشک-کن/محصولات', [ProductController::class, 'khoskkon'])->name('products.khoskkon');
+    Route::get('/brick-dryer-types', [ProductController::class, 'khoskkon'])->name('products.khoskkon.en');
+    
     Route::get('/کوره_پخت/محصولات', [ProductController::class, 'korepokht'])->name('products.korepokht');
+    Route::get('/hoffman-kiln', [ProductController::class, 'korepokht'])->name('products.korepokht.en');
+
+    
+
 
     // Categories Resource Route
     Route::resource('categories', CategoryController::class)->parameters([
@@ -134,5 +141,5 @@ Route::group(['prefix' => '{locale}', 'middleware' => 'locale'], function () {
         $locale = request()->route('locale') ?? app()->getLocale();
         return redirect()->route('notfound', ['locale' => $locale]);
     });
-    
+
 });

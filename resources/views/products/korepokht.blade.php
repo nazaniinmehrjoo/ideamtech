@@ -35,7 +35,7 @@
 
             <!-- Description Box -->
             <div id="categoryDescriptionBox" class="categoryDescriptionBox" style="margin-bottom: 20px; display: none;">
-                <p id="descriptionContent" class="text-light"></p>
+                <p id="descriptionContent"></p>
             </div>
 
             <!-- Dynamic Product List -->
@@ -52,7 +52,7 @@
                             </div>
                             <div class="inner">
                                 <div class="cat"><span>{{ $product->category->name[app()->getLocale()] ?? $product->category->name['en'] }}</span></div>
-                                <h5 id="prodoctName"><a href="#" class="text-light">{{ $product->name[app()->getLocale()] ?? $product->name['en'] }}</a></h5>
+                                <h5 id="prodoctName"><a href="#">{{ $product->name[app()->getLocale()] ?? $product->name['en'] }}</a></h5>
                             </div>
                         </div>
                     </div>
