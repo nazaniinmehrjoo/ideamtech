@@ -58,8 +58,7 @@
 
 <!-- Hero Section -->
 <section class="hero d-flex flex-column align-items-center justify-content-center text-center">
-    <h1>{{ __('khadamat-pasazforosh.aftersales.title') }}</h1>
-    <p>{{ __('khadamat-pasazforosh.aftersales.description') }}</p>
+
     <div class="joinUsBtnContainer">
         <button class="joinUsbtnContent"
             onclick="window.location.href='{{ url(__('khadamat-pasazforosh.aftersales.button_link')) }}'">

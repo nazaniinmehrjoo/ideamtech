@@ -21,7 +21,8 @@
         <div class="mt-5">
             <div class="">
                 <div class="slider">
-                    <img src="/assets/images/main-slider/turnkeysolution.png" alt="{{ __('turnkeysolution.page_title') }}">
+                    <img src="/assets/images/main-slider/turnkeysolution.png"
+                        alt="{{ __('turnkeysolution.page_title') }}">
                 </div>
             </div>
         </div>
@@ -50,27 +51,31 @@
         <div class="row">
             <div class="grid-item large col-xl-4 col-lg-4 col-md-4 col-sm-12">
                 <div class="image">
-                    <img src="/assets/images/main-slider/khoskkon-araghi.jpg" alt="{{ __('turnkeysolution.material_preparation') }}">
+                    <img src="/assets/images/main-slider/koreh-pokhttoneli.jpg"
+                        alt="{{ __('turnkeysolution.drying') }}">
                 </div>
-                <p class="grid-item-title">{{ __('turnkeysolution.material_preparation') }}</p>
+                <p class="grid-item-title">{{ __('turnkeysolution.baking') }}</p>
                 <hr>
-                <p class="text-right">{{ __('turnkeysolution.material_preparation_desc') }}</p>
+                <p class="text-right">{{ __('turnkeysolution.baking_desc') }}</p>
             </div>
             <div class="grid-item grid-item-center large col-xl-4 col-lg-4 col-md-4 col-sm-12">
                 <div class="image-center">
-                    <img src="/assets/images/main-slider/koreh-pokhttoneli.jpg" alt="{{ __('turnkeysolution.drying') }}">
+                    <img src="/assets/images/main-slider/khoskkon22.jpg"
+                        alt="{{ __('turnkeysolution.drying') }}">
                 </div>
                 <p class="grid-item-title">{{ __('turnkeysolution.drying') }}</p>
                 <hr>
                 <p class="text-right">{{ __('turnkeysolution.drying_desc') }}</p>
             </div>
+
             <div class="grid-item large col-xl-4 col-lg-4 col-md-4 col-sm-12">
                 <div class="image">
-                    <img src="/assets/images/main-slider/14010324_robat-2.jpg" alt="{{ __('turnkeysolution.baking') }}">
+                    <img src="/assets/images/main-slider/Amadesazi.JPG"
+                        alt="{{ __('turnkeysolution.material_preparation') }}">
                 </div>
-                <p class="grid-item-title">{{ __('turnkeysolution.baking') }}</p>
+                <p class="grid-item-title">{{ __('turnkeysolution.material_preparation') }}</p>
                 <hr>
-                <p class="text-right">{{ __('turnkeysolution.baking_desc') }}</p>
+                <p class="text-right">{{ __('turnkeysolution.material_preparation_desc') }}</p>
             </div>
         </div>
     </div>
