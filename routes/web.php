@@ -10,7 +10,8 @@ use App\Http\Controllers\{
     ProductController,
     ProjectController,
     ServiceController,
-    TrackingController
+    TrackingController,
+    SitemapController
 };
 use Illuminate\Support\Facades\Route;
 
@@ -23,6 +24,7 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('/sitemap.xml', [SitemapController::class, 'index']);
 
 // Language Switching Route
 Route::get('/lang/{locale}', function ($locale) {
@@ -50,7 +52,7 @@ Route::group(['prefix' => '{locale}', 'middleware' => 'locale'], function () {
     Route::view('/join-borna-gostar-family', 'forms.form-selection')->name('join-family');
 
     Route::view('/خط-کامل-آجر/محصولات', 'products.turnkeysolution')->name('products.turnkeysolution');
-    Route::view('/contact', 'contact')->name("contact");
+    Route::view('/تماس-با-ما', 'contact')->name("contact");
     Route::view('/درباره-ما', 'about')->name("about");
 
     // Error and Access Handling
@@ -81,10 +83,10 @@ Route::group(['prefix' => '{locale}', 'middleware' => 'locale'], function () {
     Route::get('/ماشین_آلات_فرآوری_و_شکل_دهی/محصولات', [ProductController::class, 'mashinAlatShekldehi'])->name('products.mashinAlatShekldehi');
     Route::get('/ماشین_آلات_و_تجهیزات/محصولات', [ProductController::class, 'mashinalatvatajhizat'])->name('products.mashinalatvatajhizat');
 
-    Route::get('/خشک-کن/محصولات', [ProductController::class, 'khoskkon'])->name('products.khoskkon');
+    Route::get('/خشک-کن-آجر/محصولات', [ProductController::class, 'khoskkon'])->name('products.khoskkon');
     Route::get('/brick-dryer-types', [ProductController::class, 'khoskkon'])->name('products.khoskkon.en');
     
-    Route::get('/کوره_پخت/محصولات', [ProductController::class, 'korepokht'])->name('products.korepokht');
+    Route::get('/کوره_پخت-آجر/محصولات', [ProductController::class, 'korepokht'])->name('products.korepokht');
     Route::get('/hoffman-kiln', [ProductController::class, 'korepokht'])->name('products.korepokht.en');
 
     

@@ -1,11 +1,12 @@
 @extends('layouts.app', ['title' => 'ماشین آلات شکل دهی و فرآوری'])
 
 @section('content')
+<meta name="description" content="برناگستر پارسی ارائه‌دهنده‌ی تخصصی ماشین‌آلات شکل‌دهی و فرآوری آجر، با کیفیت بالا و تکنولوژی پیشرفته.">
 
 <!-- Page Title -->
 <section class="page-title text-center" id="to-top-div">
     <div class="auto-container">
-        <h1 class="text-light"><span>{{ __('mashinAlatSheklDehi.title') }}</span></h1>
+        <h2 class="text-light"><span>{{ __('mashinAlatSheklDehi.title') }}</span></h2>
         <div class="bread-crumb">
             <ul>
                 <li><a href="/" class="text-light">{{ __('mashinAlatSheklDehi.home') }}</a></li>
