@@ -1,6 +1,13 @@
 @extends('layouts.app', ['title' => __('turnkeysolution.page_title')])
 
 @section('content')
+@section('meta_tags')
+    <meta name="description" content="
+        {{ app()->getLocale() == 'fa' ? 
+        'ارائه خدمات کلید در دست برای پروژه‌های آجرسازی از طراحی تا اجرا. شامل مشاوره، تأمین تجهیزات و پیاده‌سازی کامل خط تولید.' 
+        : 
+        'Turnkey solutions for brick manufacturing projects from design to execution. Including consulting, equipment supply, and full implementation.' }}">
+@endsection
 
 <!-- Page Title -->
 <section class="page-title" id="to-top-div">
