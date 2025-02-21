@@ -1,6 +1,14 @@
 @extends('layouts.app', ['title' => __('machines_equipments.title')])
 
 @section('content')
+@section('meta_tags')
+<meta name="description"
+    content="
+        {{ app()->getLocale() == 'fa' ?
+    'معرفی و بررسی ماشین‌آلات و تجهیزات آجر با تکنولوژی روز، مناسب برای کارخانجات تولید آجر صنعتی.'
+    :
+    'Explore and review brick machinery and equipment with the latest technology, ideal for industrial brick production.' }}">
+@endsection
 <!-- Page Title -->
 <section class="page-title text-center" id="to-top-div">
     <div class="auto-container">
@@ -24,9 +32,9 @@
                 <ul class="filter-tabs filter-btns clearfix">
                     <li class="filter" data-filter="all">{{ __('machines_equipments.show_all') }}</li>
                     @foreach($categories as $category)
-                    <li class="filter" data-filter=".category-{{ $category->id }}">
-                        {{ $category->name[app()->getLocale()] ?? $category->name['en'] }}
-                    </li>
+                        <li class="filter" data-filter=".category-{{ $category->id }}">
+                            {{ $category->name[app()->getLocale()] ?? $category->name['en'] }}
+                        </li>
                     @endforeach
                 </ul>
             </div>
@@ -34,23 +42,33 @@
             <!-- Dynamic Product List -->
             <div class="filter-list row clearfix">
                 @forelse ($products as $product)
-                <div class="portfolio-block mix category-{{ $product->category_id }} col-xl-4 col-lg-4 col-md-6 col-sm-12" data-category="{{ $product->category_id }}">
-                    <div class="inner-box">
-                        <div class="image">
-                            <img src="{{ asset('storage/' . $product->image) }}" class="img-fluid" alt="{{ $product->name[app()->getLocale()] ?? $product->name['en'] }}">
-                        </div>
-                        <div class="overlay">
-                            <div class="more-link" onclick="trackAndOpenModal({{ $product->id }}, '{{ $product->name[app()->getLocale()] ?? $product->name['en'] }}', '{{ $product->description[app()->getLocale()] ?? $product->description['en'] }}')">
-                                <i class="fa-solid fa-bars-staggered theme-btn"></i>
+                            <div class="portfolio-block mix category-{{ $product->category_id }} col-xl-4 col-lg-4 col-md-6 col-sm-12"
+                                data-category="{{ $product->category_id }}">
+                                <div class="inner-box">
+                                    <div class="image">
+                                        <img src="{{ asset('storage/' . $product->image) }}" class="img-fluid" alt="{{ app()->getLocale() == 'fa'
+                    ? 'ماشین‌آلات و تجهیزات آجر مدل ' . ($product->name['fa'] ?? $product->name['en'])
+                    : 'Brick Machinery & Equipment Model ' . ($product->name['en'] ?? $product->name['fa']) }}">
+                                    </div>
+                                    <div class="overlay">
+                                        <div class="more-link"
+                                            onclick="trackAndOpenModal({{ $product->id }}, '{{ $product->name[app()->getLocale()] ?? $product->name['en'] }}', '{{ $product->description[app()->getLocale()] ?? $product->description['en'] }}')">
+                                            <i class="fa-solid fa-bars-staggered theme-btn"></i>
+                                        </div>
+                                        <div class="inner">
+                                            <div class="cat">
+                                                <span>{{ $product->category->name[app()->getLocale()] ?? $product->category->name['en'] }}</span>
+                                            </div>
+                                            <h5 id="productName"><a href="#"
+                                                    class="text-light">{{ $product->name[app()->getLocale()] ?? $product->name['en'] }}</a>
+                                            </h5>
+                                            <p class="text-light">
+                                                {{ Str::limit($product->description[app()->getLocale()] ?? $product->description['en'], 100) }}
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="inner">
-                                <div class="cat"><span>{{ $product->category->name[app()->getLocale()] ?? $product->category->name['en'] }}</span></div>
-                                <h5 id="productName"><a href="#" class="text-light">{{ $product->name[app()->getLocale()] ?? $product->name['en'] }}</a></h5>
-                                <p class="text-light">{{ Str::limit($product->description[app()->getLocale()] ?? $product->description['en'], 100) }}</p> 
-                            </div>
-                        </div>
-                    </div>
-                </div>
                 @empty
                     <p class="text-light notRegister">{{ __('machines_equipments.no_products') }}</p>
                 @endforelse
@@ -80,26 +98,26 @@
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
-                'X-CSRF-TOKEN': '{{ csrf_token() }}' 
+                'X-CSRF-TOKEN': '{{ csrf_token() }}'
             },
             body: JSON.stringify({})
         })
-        .then(response => {
-            if (!response.ok) {
-                throw new Error('Network response was not ok');
-            }
-            return response.json(); 
-        })
-        .then(data => {
-            console.log(data.message); 
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.json();
+            })
+            .then(data => {
+                console.log(data.message);
 
-            document.getElementById('productNameModal').textContent = productName;
-            document.getElementById('productDescriptionModal').textContent = productDescription;
-            document.getElementById('moreProductDtl').style.display = 'block';
-        })
-        .catch(error => {
-            console.error('Error tracking click:', error);
-        });
+                document.getElementById('productNameModal').textContent = productName;
+                document.getElementById('productDescriptionModal').textContent = productDescription;
+                document.getElementById('moreProductDtl').style.display = 'block';
+            })
+            .catch(error => {
+                console.error('Error tracking click:', error);
+            });
     }
 
     function closeModal() {
