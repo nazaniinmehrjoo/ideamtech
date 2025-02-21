@@ -1,7 +1,14 @@
-@extends('layouts.app', ['title' => 'ماشین آلات شکل دهی و فرآوری'])
+@extends('layouts.app', ['title' => 'ماشین‌آلات شکل‌دهی و فرآوری خاک | ماشین آلات  شکل دهی خاک'])
 
 @section('content')
-<meta name="description" content="برناگستر پارسی ارائه‌دهنده‌ی تخصصی ماشین‌آلات شکل‌دهی و فرآوری آجر، با کیفیت بالا و تکنولوژی پیشرفته.">
+@section('meta_tags')
+<meta name="description"
+    content="
+        {{ app()->getLocale() == 'fa' ?
+    'برناگستر پارسی ارائه‌دهنده‌ی تخصصی ماشین‌آلات شکل‌دهی و فرآوری خاک  با کیفیت بالا و تکنولوژی پیشرفته.'
+    :
+    'Borna Gostar Parsi provides high-quality brick forming and processing machinery with advanced technology.' }}">
+@endsection
 
 <!-- Page Title -->
 <section class="page-title text-center" id="to-top-div">
@@ -34,31 +41,33 @@
 
             <div class="filter-list row clearfix">
                 @forelse ($products as $product)
-                    <div class="portfolio-block mix category-{{ $product->category_id }} col-xl-4 col-lg-4 col-md-6 col-sm-12"
-                        data-category="{{ $product->category_id }}">
-                        <div class="card bg-dark text-white">
-                            <div class="card-body inner-box p-0">
-                                <div class="image">
-                                    <img src="{{ asset('storage/' . $product->image) }}" class="img-fluid"
-                                        alt="{{ $product->name[app()->getLocale()] ?? $product->name['en'] }}">
-                                </div>
-                                <div class="overlay">
-                                    <div class="more-link"
-                                        onclick="trackAndOpenModal({{ $product->id }}, '{{ $product->name[app()->getLocale()] ?? $product->name['en'] }}', '{{ $product->description[app()->getLocale()] ?? $product->description['en'] }}')">
-                                        <i class="fa-solid fa-bars-staggered theme-btn"></i>
-                                    </div>
-                                    <div class="inner">
-                                        <div class="cat">
-                                            <span>{{ $product->category->name[app()->getLocale()] ?? $product->category->name['en'] }}</span>
+                            <div class="portfolio-block mix category-{{ $product->category_id }} col-xl-4 col-lg-4 col-md-6 col-sm-12"
+                                data-category="{{ $product->category_id }}">
+                                <div class="card bg-dark text-white">
+                                    <div class="card-body inner-box p-0">
+                                        <div class="image">
+                                            <img src="{{ asset('storage/' . $product->image) }}" class="img-fluid" alt="{{ app()->getLocale() == 'fa'
+                    ? 'ماشین‌آلات شکل‌دهی آجر  ' . ($product->name['fa'] ?? $product->name['en'])
+                    : 'Brick Forming Machine  ' . ($product->name['en'] ?? $product->name['fa']) }}">
+
                                         </div>
-                                        <h5 id="productName"><a href="#"
-                                                class="text-light">{{ $product->name[app()->getLocale()] ?? $product->name['en'] }}</a>
-                                        </h5>
+                                        <div class="overlay">
+                                            <div class="more-link"
+                                                onclick="trackAndOpenModal({{ $product->id }}, '{{ $product->name[app()->getLocale()] ?? $product->name['en'] }}', '{{ $product->description[app()->getLocale()] ?? $product->description['en'] }}')">
+                                                <i class="fa-solid fa-bars-staggered theme-btn"></i>
+                                            </div>
+                                            <div class="inner">
+                                                <div class="cat">
+                                                    <span>{{ $product->category->name[app()->getLocale()] ?? $product->category->name['en'] }}</span>
+                                                </div>
+                                                <h5 id="productName"><a href="#"
+                                                        class="text-light">{{ $product->name[app()->getLocale()] ?? $product->name['en'] }}</a>
+                                                </h5>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                    </div>
                 @empty
                     <div class="notRegister">
                         <p class="text-light text-center">{{ __('mashinAlatSheklDehi.no_products') }}</p>
