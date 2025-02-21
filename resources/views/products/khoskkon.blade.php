@@ -1,4 +1,16 @@
-@extends('layouts.app', ['title' => __('خشک کن')])
+@extends('layouts.app', ['title' => __('انواع خشک‌کن آجر | مقایسه، ویژگی‌ها و مشخصات')])
+
+@section('meta_tags')
+<meta name="description"
+    content="
+        {{ app()->getLocale() == 'fa' ?
+    'خشک‌کن‌های صنعتی آجر با ویژگی‌های منحصربه‌فرد. مقایسه انواع خشک‌کن‌ها و بررسی مشخصات فنی برای انتخاب بهترین مدل.'
+    :
+    'Industrial brick dryers with unique features. Compare different dryers and check specifications to choose the best model.' }}">
+<meta name="keywords"
+    content="خشک کن آجر, مقایسه خشک کن, ویژگی‌های خشک کن, خرید خشک کن آجر, انواع خشک‌کن, brick dryer, compare dryers">
+<meta name="robots" content="index, follow">
+@endsection
 
 @section('content')
 
@@ -45,30 +57,31 @@
             <!-- Product List -->
             <div id="category-list" class="filter-list row clearfix">
                 @foreach ($products as $product)
-                    <div class="portfolio-block mix category-{{ $product->category_id }} col-xl-4 col-lg-4 col-md-6 col-sm-12"
-                        data-category="{{ $product->category_id }}">
-                        <div class="inner-box">
-                            <div class="image">
-                                <img src="{{ asset('storage/' . $product->image) }}" class="img-fluid"
-                                    alt="{{ $product->name[app()->getLocale()] ?? $product->name['en'] }}">
-                            </div>
-                            <div class="overlay">
-                                <div class="more-link"
-                                    onclick="trackAndOpenModal({{ $product->id }}, '{{ $product->name[app()->getLocale()] ?? $product->name['en'] }}', '{{ $product->description[app()->getLocale()] ?? $product->description['en'] }}')">
-                                    <i class="fa-solid fa-bars-staggered theme-btn"></i>
-                                </div>
-                                <div class="inner">
-                                    <div class="cat">
-                                        <span>{{ $product->category->name[app()->getLocale()] ?? $product->category->name['en'] }}</span>
+                            <div class="portfolio-block mix category-{{ $product->category_id }} col-xl-4 col-lg-4 col-md-6 col-sm-12"
+                                data-category="{{ $product->category_id }}">
+                                <div class="inner-box">
+                                    <div class="image">
+                                        <img src="{{ asset('storage/' . $product->image) }}" class="img-fluid" alt="{{ app()->getLocale() == 'fa'
+                    ? 'خشک‌کن آجر مدل ' . ($product->name['fa'] ?? $product->name['en'])
+                    : 'Brick Dryer Model ' . ($product->name['en'] ?? $product->name['fa']) }}">
+
                                     </div>
-                                    <h5 id="productName">
-                                        <a href="#"
-                                            >{{ $product->name[app()->getLocale()] ?? $product->name['en'] }}</a>
-                                    </h5>
+                                    <div class="overlay">
+                                        <div class="more-link"
+                                            onclick="trackAndOpenModal({{ $product->id }}, '{{ $product->name[app()->getLocale()] ?? $product->name['en'] }}', '{{ $product->description[app()->getLocale()] ?? $product->description['en'] }}')">
+                                            <i class="fa-solid fa-bars-staggered theme-btn"></i>
+                                        </div>
+                                        <div class="inner">
+                                            <div class="cat">
+                                                <span>{{ $product->category->name[app()->getLocale()] ?? $product->category->name['en'] }}</span>
+                                            </div>
+                                            <h5 id="productName">
+                                                <a href="#">{{ $product->name[app()->getLocale()] ?? $product->name['en'] }}</a>
+                                            </h5>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    </div>
                 @endforeach
             </div>
 
