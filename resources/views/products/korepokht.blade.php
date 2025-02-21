@@ -1,4 +1,13 @@
-@extends('layouts.app', ['title' => __('khoorpokht.title')])
+@extends('layouts.app', ['title' => __('انواع کوره‌های پخت آجر | بررسی ویژگی‌ها و مقایسه مدل‌ها')])
+
+@section('meta_tags')
+<meta name="description"
+    content="
+        {{ app()->getLocale() == 'fa' ?
+    'بررسی و مقایسه انواع کوره‌های پخت آجر شامل کوره هافمن . تونلی و سایر مدل‌های صنعتی.'
+    :
+    'Compare and analyze different types of brick kilns, including Hoffman and tunnel kilns for industrial use.' }}">
+@endsection
 
 @section('content')
 <!-- Page Title -->
@@ -25,10 +34,10 @@
                         {{ __('khoorpokht.show_all') }}
                     </li>
                     @foreach($categories as $category)
-                    <li class="filter" data-filter=".category-{{ $category->id }}" 
-                        onclick="showCategoryList({{ $category->id }})">
-                        {{ $category->name[app()->getLocale()] ?? $category->name['en'] }}
-                    </li>
+                        <li class="filter" data-filter=".category-{{ $category->id }}"
+                            onclick="showCategoryList({{ $category->id }})">
+                            {{ $category->name[app()->getLocale()] ?? $category->name['en'] }}
+                        </li>
                     @endforeach
                 </ul>
             </div>
@@ -41,22 +50,31 @@
             <!-- Dynamic Product List -->
             <div id="category-list" class="filter-list row clearfix">
                 @foreach ($products as $product)
-                <div class="portfolio-block mix category-{{ $product->category_id }} col-xl-4 col-lg-4 col-md-6 col-sm-12" data-category="{{ $product->category_id }}">
-                    <div class="inner-box">
-                        <div class="image">
-                            <img src="{{ asset('storage/' . $product->image) }}" class="img-fluid" alt="{{ $product->name[app()->getLocale()] ?? $product->name['en'] }}">
-                        </div>
-                        <div class="overlay">
-                            <div class="more-link" onclick="trackAndOpenModal({{ $product->id }}, '{{ $product->name[app()->getLocale()] ?? $product->name['en'] }}', '{{ $product->description[app()->getLocale()] ?? $product->description['en'] }}')">
-                                <i class="fa-solid fa-bars-staggered theme-btn"></i>
+                            <div class="portfolio-block mix category-{{ $product->category_id }} col-xl-4 col-lg-4 col-md-6 col-sm-12"
+                                data-category="{{ $product->category_id }}">
+                                <div class="inner-box">
+                                    <div class="image">
+                                        <img src="{{ asset('storage/' . $product->image) }}" class="img-fluid" alt="{{ app()->getLocale() == 'fa'
+                    ? 'کوره پخت آجر مدل ' . ($product->name['fa'] ?? $product->name['en'])
+                    : 'Brick Kiln Model ' . ($product->name['en'] ?? $product->name['fa']) }}">
+
+                                    </div>
+                                    <div class="overlay">
+                                        <div class="more-link"
+                                            onclick="trackAndOpenModal({{ $product->id }}, '{{ $product->name[app()->getLocale()] ?? $product->name['en'] }}', '{{ $product->description[app()->getLocale()] ?? $product->description['en'] }}')">
+                                            <i class="fa-solid fa-bars-staggered theme-btn"></i>
+                                        </div>
+                                        <div class="inner">
+                                            <div class="cat">
+                                                <span>{{ $product->category->name[app()->getLocale()] ?? $product->category->name['en'] }}</span>
+                                            </div>
+                                            <h5 id="prodoctName"><a
+                                                    href="#">{{ $product->name[app()->getLocale()] ?? $product->name['en'] }}</a>
+                                            </h5>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="inner">
-                                <div class="cat"><span>{{ $product->category->name[app()->getLocale()] ?? $product->category->name['en'] }}</span></div>
-                                <h5 id="prodoctName"><a href="#">{{ $product->name[app()->getLocale()] ?? $product->name['en'] }}</a></h5>
-                            </div>
-                        </div>
-                    </div>
-                </div>
                 @endforeach
             </div>
         </div>
@@ -79,9 +97,9 @@
 <script>
     // Map category descriptions with translations
     const categoryDescriptions = {!! json_encode(
-        $categories->pluck('description', 'id')->toArray(),
-        JSON_UNESCAPED_UNICODE
-    ) !!};
+    $categories->pluck('description', 'id')->toArray(),
+    JSON_UNESCAPED_UNICODE
+) !!};
 
     // Get the current locale dynamically
     const currentLocale = "{{ app()->getLocale() }}";
@@ -118,27 +136,27 @@
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
-                'X-CSRF-TOKEN': '{{ csrf_token() }}' 
+                'X-CSRF-TOKEN': '{{ csrf_token() }}'
             },
             body: JSON.stringify({})
         })
-        .then(response => {
-            if (!response.ok) {
-                throw new Error('Network response was not ok');
-            }
-            return response.json(); 
-        })
-        .then(data => {
-            console.log(data.message); 
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.json();
+            })
+            .then(data => {
+                console.log(data.message);
 
-            // Open the modal with the product information
-            document.getElementById('productNameModal').textContent = productName;
-            document.getElementById('productDescriptionModal').textContent = productDescription;
-            document.getElementById('moreProductDtl').style.display = 'block';
-        })
-        .catch(error => {
-            console.error('Error tracking click:', error);
-        });
+                // Open the modal with the product information
+                document.getElementById('productNameModal').textContent = productName;
+                document.getElementById('productDescriptionModal').textContent = productDescription;
+                document.getElementById('moreProductDtl').style.display = 'block';
+            })
+            .catch(error => {
+                console.error('Error tracking click:', error);
+            });
     }
 
     // Function to close the modal
