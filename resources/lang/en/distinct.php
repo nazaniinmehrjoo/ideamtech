@@ -34,4 +34,8 @@ return [
     'after_delivery_item_2' => 'Consultation and troubleshooting at all stages of production',
     'after_delivery_item_3' => 'Regular visits to production lines',
     'after_delivery_item_4' => 'Our clients are not only buyers but members of the Barna Gostar family',
+
+    'meta_description' => 'Enhance your projects with precision, innovation, and expert support. From concept to execution, we ensure seamless project delivery with optimized efficiency and sustainability.',
+    'meta_keywords' => 'Project Distinction, Industrial Solutions, Factory Layout, Energy Efficiency, Mechanical Innovation, Sustainable Production',
+
 ];

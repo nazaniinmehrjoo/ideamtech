@@ -1,4 +1,13 @@
 @extends('layouts.app', ['title' => __('distinct.title')])
+@section('meta')
+<meta name="description" content="{{ __('distinct.meta_description') }}">
+<meta name="keywords" content="{{ __('distinct.meta_keywords') }}">
+<meta property="og:title" content="{{ __('distinct.title') }}">
+<meta property="og:description" content="{{ __('distinct.meta_description') }}">
+<meta property="og:image" content="{{ asset('/assets/images/main-slider/Distinc.jpg') }}">
+<meta property="og:locale" content="{{ app()->getLocale() }}">
+<meta name="robots" content="index, follow">
+@endsection
 
 @section('content')
 <style>
