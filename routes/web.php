@@ -136,6 +136,10 @@ Route::group(['prefix' => '{locale}', 'middleware' => 'locale'], function () {
         Route::get('employment-forms/{id}/edit', [EmploymentFormController::class, 'edit'])->name('employment-forms.edit');
         Route::put('employment-forms/{id}', [EmploymentFormController::class, 'update'])->name('employment-forms.update');
         Route::delete('employment-forms/{id}', [EmploymentFormController::class, 'destroy'])->name('employment-forms.destroy');
+
+        Route::redirect('/خشک-کن-سریع-روتاری', '/fa/خشک-کن-آجر/محصولات', 301);
+        Route::redirect('/شبیه-ساز-خشک-کن-سریع', '/fa/شبیه-ساز', 301);
+
     });
 
     // Fallback Route for Undefined Routes
