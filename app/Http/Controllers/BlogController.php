@@ -147,20 +147,28 @@ class BlogController extends Controller
         return redirect()->route('blog.index', ['locale' => $locale])->with('success', 'Post updated successfully!');
     }
 
-    public function destroy(Post $post)
+    public function destroy(Request $request, Post $post)
     {
+        $locale = $request->route('locale') ?? app()->getLocale(); 
+
+        // Delete main image if it exists
         if ($post->image) {
             \Storage::disk('public')->delete($post->image);
         }
 
+        // Delete associated images
         foreach ($post->images as $image) {
             \Storage::disk('public')->delete($image->image_path);
             $image->delete();
         }
 
+        // Delete the post
         $post->delete();
 
-        return redirect()->route('blog.index', ['locale' => app()->getLocale()])->with('success', 'Post deleted successfully!');
+        // Redirect to blog index with correct locale
+        return redirect()->route('blog.index', ['locale' => $locale])
+            ->with('success', 'Post deleted successfully!');
     }
+
 
 }
