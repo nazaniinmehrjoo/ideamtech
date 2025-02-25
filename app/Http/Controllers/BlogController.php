@@ -7,6 +7,7 @@ use App\Models\PostImage;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 
+
 class BlogController extends Controller
 {
     public function publicIndex()
@@ -147,28 +148,29 @@ class BlogController extends Controller
         return redirect()->route('blog.index', ['locale' => $locale])->with('success', 'Post updated successfully!');
     }
 
-    public function destroy(Request $request, Post $post)
+    public function destroy($locale, Post $post)
     {
-        $locale = $request->route('locale') ?? app()->getLocale(); 
+        try {
+            // Delete main image if it exists
+            if ($post->image) {
+                \Storage::disk('public')->delete($post->image);
+            }
 
-        // Delete main image if it exists
-        if ($post->image) {
-            \Storage::disk('public')->delete($post->image);
+            // Delete additional images
+            foreach ($post->images as $image) {
+                \Storage::disk('public')->delete($image->image_path);
+                $image->delete();
+            }
+
+            // Delete the post
+            $post->delete();
+        } catch (\Exception $e) {
+            return redirect()->route('blog.index', ['locale' => $locale])
+                ->with('error', 'Error deleting post.');
         }
 
-        // Delete associated images
-        foreach ($post->images as $image) {
-            \Storage::disk('public')->delete($image->image_path);
-            $image->delete();
-        }
-
-        // Delete the post
-        $post->delete();
-
-        // Redirect to blog index with correct locale
         return redirect()->route('blog.index', ['locale' => $locale])
             ->with('success', 'Post deleted successfully!');
     }
-
 
 }

@@ -122,6 +122,8 @@ Route::group(['prefix' => '{locale}', 'middleware' => 'locale'], function () {
         // Blog Management
         Route::get('/dashboard/blog', [BlogController::class, 'index'])->name('blog.index');
         Route::resource('blog', BlogController::class)->except(['index', 'show']);
+        Route::delete('/dashboard/blog/{post}', [BlogController::class, 'destroy'])->name('blog.destroy');
+
 
         // Export Customers
         Route::post('/customer/export', [CustomerFormController::class, 'export'])->name('customer.export');
