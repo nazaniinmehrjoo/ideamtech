@@ -85,11 +85,11 @@ Route::group(['prefix' => '{locale}', 'middleware' => 'locale'], function () {
 
     Route::get('/خشک-کن-آجر/محصولات', [ProductController::class, 'khoskkon'])->name('products.khoskkon');
     Route::get('/brick-dryer-types', [ProductController::class, 'khoskkon'])->name('products.khoskkon.en');
-    
+
     Route::get('/کوره_پخت-آجر/محصولات', [ProductController::class, 'korepokht'])->name('products.korepokht');
     Route::get('/hoffman-kiln', [ProductController::class, 'korepokht'])->name('products.korepokht.en');
 
-    
+
 
 
     // Categories Resource Route
@@ -137,10 +137,15 @@ Route::group(['prefix' => '{locale}', 'middleware' => 'locale'], function () {
         Route::put('employment-forms/{id}', [EmploymentFormController::class, 'update'])->name('employment-forms.update');
         Route::delete('employment-forms/{id}', [EmploymentFormController::class, 'destroy'])->name('employment-forms.destroy');
 
-        Route::redirect('/خشک-کن-سریع-روتاری', '/fa/خشک-کن-آجر/محصولات', 301);
-        Route::redirect('/شبیه-ساز-خشک-کن-سریع', '/fa/شبیه-ساز', 301);
-
     });
+    // 301 Redirect (باید بیرون از گروه "auth" باشد)
+    Route::redirect('/خشک-کن-سریع-روتاری', '/fa/خشک-کن-آجر/محصولات', 301);
+    Route::redirect('/شبیه-ساز-خشک-کن-سریع', '/fa/شبیه-ساز', 301);
+    Route::redirect('/خشک-کن-اتاقکی', '/fa/خشک-کن/محصولات', 301);
+    Route::redirect('/کوره-پخت-آجر-تونل', '/fa/کوره_پخت-آجر/محصولات', 301);
+    Route::redirect('/en/brick-rapid-dryer-rotary', '/en/brick-dryer-types', 301);
+    Route::redirect('/en/why-clay-brick/', '/en/brick-dryer-types', 301);
+    Route::redirect('/آیتم نمونه کار/اصلاح-خشک-کن-اتاقکی/', '/en/مشاوره/خدمات', 301);
 
     // Fallback Route for Undefined Routes
     Route::fallback(function () {
