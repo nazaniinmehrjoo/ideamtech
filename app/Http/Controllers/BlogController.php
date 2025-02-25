@@ -46,7 +46,7 @@ class BlogController extends Controller
         return view('blog.create');
     }
 
-    public function store(Request $request)
+    public function store(Request $request, $locale)
     {
         $data = $request->validate([
             'title' => 'required|array',
@@ -75,7 +75,8 @@ class BlogController extends Controller
             }
         }
 
-        return redirect()->route('blog.index')->with('success', 'Post created successfully!');
+        return redirect()->route('blog.index', ['locale' => $locale])
+            ->with('success', 'Post created successfully!');
     }
     public function show($locale, Post $post)
     {
