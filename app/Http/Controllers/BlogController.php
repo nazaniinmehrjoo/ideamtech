@@ -10,21 +10,38 @@ use Illuminate\Support\Facades\Log;
 
 class BlogController extends Controller
 {
-    public function publicIndex()
+    public function publicIndex(Request $request)
     {
         $locale = app()->getLocale();
-        $posts = Post::latest()->paginate(10);
-
-        // Map translated fields (optional)
+        
+        // Get the selected category from the request (default: null = show all)
+        $selectedCategory = $request->input('category');
+    
+        // Fetch posts based on selected category
+        $query = Post::latest();
+        if (!empty($selectedCategory)) {
+            $query->where('category->en', $selectedCategory)
+                  ->orWhere('category->fa', $selectedCategory);
+        }
+        $posts = $query->paginate(10);
+    
+        // Translate fields
         $posts->getCollection()->transform(function ($post) use ($locale) {
             $post->title = $post->getTranslatedtitle($locale);
             $post->content = $post->getTranslatedcontent($locale);
             $post->category = $post->getTranslatedcategory($locale);
             return $post;
         });
-
-        return view('blog.blogs', compact('posts'));
+    
+        // Fetch distinct categories
+        $categories = Post::select('category')->distinct()->get()->map(function ($category) use ($locale) {
+            $category->category = $category->getTranslatedcategory($locale);
+            return $category->category;
+        });
+    
+        return view('blog.blogs', compact('posts', 'categories', 'selectedCategory'));
     }
+    
 
 
     public function index()
