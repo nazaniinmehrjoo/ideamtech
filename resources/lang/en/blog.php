@@ -13,7 +13,7 @@ return [
     // Actions
     'view_post' => 'View Post',
     'back_to_posts' => 'Back to Posts',
-
+    'show_all' => 'Show all',
     // Messages
     'no_posts_found' => 'No posts found.',
     'loading' => 'Loading...',

@@ -13,6 +13,7 @@ return [
     // Actions
     'view_post' => 'مشاهده پست',
     'back_to_posts' => 'بازگشت به پست‌ها',
+    'show_all' => 'نمایش همه',
 
     // Messages
     'no_posts_found' => 'هیچ پستی یافت نشد.',
