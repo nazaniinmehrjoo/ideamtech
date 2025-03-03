@@ -83,7 +83,7 @@ Route::group(['prefix' => '{locale}', 'middleware' => 'locale'], function () {
     Route::get('/ماشین_آلات_فرآوری_و_شکل_دهی/محصولات', [ProductController::class, 'mashinAlatShekldehi'])->name('products.mashinAlatShekldehi');
     Route::get('/ماشین_آلات_و_تجهیزات/محصولات', [ProductController::class, 'mashinalatvatajhizat'])->name('products.mashinalatvatajhizat');
 
-    Route::get('/خشک-کن-آجر/محصولات', [ProductController::class, 'khoskkon'])->name('products.khoskkon');
+    Route::get('/خشک-کن/محصولات', [ProductController::class, 'khoskkon'])->name('products.khoskkon');
     Route::get('/brick-dryer-types', [ProductController::class, 'khoskkon'])->name('products.khoskkon.en');
 
     Route::get('/کوره_پخت-آجر/محصولات', [ProductController::class, 'korepokht'])->name('products.korepokht');
@@ -141,7 +141,7 @@ Route::group(['prefix' => '{locale}', 'middleware' => 'locale'], function () {
 
     });
     // 301 Redirect (باید بیرون از گروه "auth" باشد)
-    Route::redirect('/خشک-کن-سریع-روتاری', '/fa/خشک-کن-آجر/محصولات', 301);
+    Route::redirect('/خشک-کن-سریع-روتاری', '/fa/خشک-کن/محصولات', 301);
     Route::redirect('/شبیه-ساز-خشک-کن-سریع', '/fa/شبیه-ساز', 301);
     Route::redirect('/خشک-کن-اتاقکی', '/fa/خشک-کن/محصولات', 301);
     Route::redirect('/کوره-پخت-آجر-تونل', '/fa/کوره_پخت-آجر/محصولات', 301);
