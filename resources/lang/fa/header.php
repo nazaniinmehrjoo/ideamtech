@@ -18,7 +18,7 @@ return [
     'services_engineering' => 'خدمات مهندسی',
     'services_installation' => 'نصب‌و راه اندازی',
     'services_after_sales' => 'خدمات پس از فروش',
-    'about_us' => 'درباره‌ی برناگستر',
+    'about_us' => 'درباره برناگستر پارسی',
     'contact_us' => 'ارتباط با‌ما',
     'project-list' => 'لیست پروژه‌ها',
 
