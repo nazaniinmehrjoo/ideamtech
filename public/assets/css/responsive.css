@@ -708,7 +708,10 @@
 }
 
 @media only screen and (max-width: 991px) {
-
+	#countryVisitsChart {
+		height: 300px;
+  		width: 601px;
+	}
 	.banner-seven .slide-item  .auto-container h3 span {
 		font-size: 25px !important;
 	}
@@ -1263,6 +1266,12 @@
 
 }
 @media only screen and (max-width: 767px) {
+	.dashboard-header h2 {
+		margin-top: 6rem !important;
+	}
+	.dashboard-grid {
+		grid-template-columns: inherit;
+	}
 	.joinUsBtnContainer .joinUsbtnContent {
 		width: 150px;
   		height: 55px;
@@ -1799,6 +1808,7 @@
 }
 
 @media only screen and (max-width: 599px) {
+
 	.sidebar-side .recent-post .post .inner {
 		display: block !important;
 	}
@@ -2434,7 +2444,7 @@
 		display: block !important;
 	  }
 	  .def-tabs-box .tab-buttons .tab-btn {
-		width: 115%;
+		width: 100%;
 	  }
 	  .def-tabs-box .image-col .image img {
 		width: 100%;
@@ -2496,9 +2506,35 @@
 	.customerContent  {
 		margin-top: 45% !important;
 	}
+	.adminDashboardBoxes h5 {
+		font-size: 15px;
+	}
+	.service-block .inner-box {
+		padding: 30px 0px !important;
+	}
+	.adminDashboardBoxes  {
+		padding-right: 0px !important;
+	}
+	.service-block .icon-box {
+		width: 60px;
+		height: 67px;
+    	line-height: 72px;
+    	font-size: 23px;
+	}
+	.action-btns .btn {
+		flex: inherit;
+		height: 43px;
+		width: 75px;
+	  }
 }
 @media only screen and (max-width: 479px) {
 
+	.adminDashboardBoxes h5 {
+		font-size: 18px;
+	}
+	.action-btns .btn {
+		height: 40px;
+	}
 	/* Nasb o rahandazi responsive */
 	.banner-ten .slide-item .bottom-content .text{
 		font-size: 12px;
@@ -2578,17 +2614,17 @@
 	}
 
 	.service-block .inner {
-		padding-left: 0;
+		/* padding-left: 0; */
 		padding-right: 0;
 	}
 
-	.service-block .icon-box {
+	/* .service-block .icon-box {
 		position: relative;
 		left: 0;
 		top: 0;
 		margin-bottom: 30px;
 		border-radius: 10px;
-	}
+	} */
 
 	.team-block .name {
 		padding-top: 20px;
@@ -2791,9 +2827,9 @@
 	  .service-block .customerInner {
 		display: block !important;
 	  }
-	  .def-tabs-box .tab-buttons .tab-btn {
+	  /* .def-tabs-box .tab-buttons .tab-btn {
 		width: 98%;
-	  }
+	  } */
 	  .def-tabs-box .image-col .image img {
 		width: 100%;
 	  }
