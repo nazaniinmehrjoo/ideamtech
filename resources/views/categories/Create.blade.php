@@ -1,14 +1,24 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container dashboard-container" style="padding: 3%;">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <!-- Logo -->
-            <div class="text-center mb-4">
-                <img src="/assets/images/logotest2.png" alt="Logo">
-            </div>
 
+<style>
+    html, body {
+        height: 100%;
+        margin: 0;
+    }
+
+    .dashboard-container.create-category {
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+</style>
+<div class=" create-category" style="padding: 20%; ">
+    <div class="row justify-content-center ">
+        <div class="col-md-12">
+   
             <!-- Dark Card -->
             <div class="card bg-dark text-white">
                 <div class="card-header text-center">{{ __('categoryCreate.create_category') }}</div>
@@ -121,7 +131,7 @@
                         </div>
 
                         <!-- Submit Button -->
-                        <div class="row mb-0">
+                        <div class="row mb-0 text-right">
                             <div class="col-md-8 offset-md-4">
                                 <button type="submit" class="btn theme-btn btn-style-two">{{ __('categoryCreate.submit') }}</button>
                             </div>

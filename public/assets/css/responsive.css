@@ -1808,7 +1808,9 @@
 }
 
 @media only screen and (max-width: 599px) {
-
+	.btn-style-two {
+		width: auto;
+	}
 	.sidebar-side .recent-post .post .inner {
 		display: block !important;
 	}
@@ -2529,6 +2531,15 @@
 }
 @media only screen and (max-width: 479px) {
 
+	.col-form-label {
+		font-size: 14px;
+	}
+	.create-category {
+		padding: 5% !important;
+		margin-top: 40%;
+		margin-bottom: 40%;
+
+	}
 	.adminDashboardBoxes h5 {
 		font-size: 18px;
 	}

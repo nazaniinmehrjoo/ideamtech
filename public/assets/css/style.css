@@ -6902,8 +6902,11 @@ body.light-mode .def-title-box h3 {
     border: 1px solid #ced4da;
     /* padding: 10px; */
     font-size: 16px;
+    border-radius: 10px;
 }
-
+.col-form-label {
+    text-align: right;
+}
 .form-group label {
     font-weight: 500;
     color: white;
@@ -7070,7 +7073,9 @@ textarea:focus {
     margin-bottom: 10px;
     gap: 10px;
 }
-
+.card {
+    border-radius: 1.25rem;
+}
 .card-header {
     text-align: right;
 }
