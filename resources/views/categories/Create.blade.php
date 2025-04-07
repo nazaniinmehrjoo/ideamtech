@@ -18,7 +18,10 @@
 <div class=" create-category" style="padding: 20%; ">
     <div class="row justify-content-center ">
         <div class="col-md-12">
-   
+         <!-- Logo -->
+         <div class="text-center mb-4">
+                <img src="/assets/images/logotest2.png" alt="Logo">
+            </div>
             <!-- Dark Card -->
             <div class="card bg-dark text-white">
                 <div class="card-header text-center">{{ __('categoryCreate.create_category') }}</div>

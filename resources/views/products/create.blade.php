@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container" style="padding: 3%;">
+<div class="product" style="padding: 10%;">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <!-- Logo -->
@@ -118,7 +118,7 @@
                         </div>
 
                         <!-- Submit Button -->
-                        <div class="row mb-0">
+                        <div class="row mb-0 text-right">
                             <div class="col-md-8 offset-md-4">
                                 <button type="submit" class="btn theme-btn btn-style-two">{{ __('productCreate.submit') }}</button>
                             </div>

@@ -1277,6 +1277,10 @@
 		margin-top: 20%;
 		margin-bottom: 20%;
 	}
+	.product {
+		margin-top: 20%;
+		margin-bottom: 20%;
+	}
 	.dashboard-header h2 {
 		margin-top: 6rem !important;
 	}
@@ -1820,6 +1824,10 @@
 
 @media only screen and (max-width: 599px) {
 	.category {
+		margin-top: 30%;
+		margin-bottom: 30%;
+	}
+	.product {
 		margin-top: 30%;
 		margin-bottom: 30%;
 	}
@@ -2389,6 +2397,10 @@
 }
 @media only screen and (max-width: 367px) {
 	.category {
+		margin-top: 60%;
+		margin-bottom: 60%;
+	}
+	.product {
 		margin-top: 60%;
 		margin-bottom: 60%;
 	}
