@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container dashboard-container" style="padding: 3%;">
+<div class="category container dashboard-container" style="padding: 3%;">
     <div class="row justify-content-center">
         <div class="col-md-10" style="direction: rtl;">
             <!-- Main Box Container -->
@@ -88,81 +88,102 @@
 @if ($filter === 'khoskkon')
 <script>
     document.addEventListener("DOMContentLoaded", function () {
-        const labels = {!! json_encode($criteriaLabels) !!};
-        const datasets = {!! json_encode($categoryDatasets) !!};
+    const labels = {!! json_encode($criteriaLabels) !!};
+    const datasets = {!! json_encode($categoryDatasets) !!};
 
-        if (!labels.length || !datasets.length) {
-            console.error("No data available for the chart.");
-            return;
-        }
+    if (!labels.length || !datasets.length) {
+        console.error("No data available for the chart.");
+        return;
+    }
 
-        const getColorConfig = () => {
-            const isLightMode = document.body.classList.contains('light-mode');
-            return {
-                textColor: isLightMode ? '#000000' : '#ffffff',
-                gridColor: isLightMode ? 'rgba(0, 0, 0, 0.2)' : 'rgba(255, 255, 255, 0.2)',
-                angleLineColor: isLightMode ? 'rgba(0, 0, 0, 0.5)' : 'rgba(255, 255, 255, 0.5)',
-            };
+    const getColorConfig = () => {
+        const isLightMode = document.body.classList.contains('light-mode');
+        return {
+            textColor: isLightMode ? '#000000' : '#ffffff',
+            gridColor: isLightMode ? 'rgba(0, 0, 0, 0.2)' : 'rgba(255, 255, 255, 0.2)',
+            angleLineColor: isLightMode ? 'rgba(0, 0, 0, 0.5)' : 'rgba(255, 255, 255, 0.5)',
         };
+    };
 
-        // Initialize chart with dynamic color settings
-        const ctx = document.getElementById('khoskkonChart').getContext('2d');
-        const colorConfig = getColorConfig();
+    const getLegendPosition = () => {
+        return window.innerWidth < 768 ? 'bottom' : 'right';
+    };
 
-        const khoskkonChart = new Chart(ctx, {
-            type: 'radar',
-            data: {
-                labels: labels,
-                datasets: datasets,
+    const getLegendFontSize = () => {
+        return window.innerWidth < 768 ? 14 : 12;
+    };
+
+    const ctx = document.getElementById('khoskkonChart').getContext('2d');
+    const colorConfig = getColorConfig();
+
+    const khoskkonChart = new Chart(ctx, {
+        type: 'radar',
+        data: {
+            labels: labels,
+            datasets: datasets,
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            scales: {
+                r: {
+                    beginAtZero: true,
+                    ticks: {
+                        color: colorConfig.textColor,
+                        backdropColor: 'transparent',
+                    },
+                    grid: {
+                        color: colorConfig.gridColor,
+                    },
+                    angleLines: {
+                        color: colorConfig.angleLineColor,
+                    },
+                    pointLabels: {
+                        color: colorConfig.textColor,
+                    },
+                },
             },
-            options: {
-                scales: {
-                    r: {
-                        beginAtZero: true,
-                        ticks: {
-                            color: colorConfig.textColor,
-                            backdropColor: 'transparent',
-                        },
-                        grid: {
-                            color: colorConfig.gridColor,
-                        },
-                        angleLines: {
-                            color: colorConfig.angleLineColor,
-                        },
-                        pointLabels: {
-                            color: colorConfig.textColor,
+            plugins: {
+                legend: {
+                    display: true,
+                    position: getLegendPosition(),
+                    labels: {
+                        color: colorConfig.textColor,
+                        font: {
+                            size: getLegendFontSize(),
                         },
                     },
                 },
-                plugins: {
-                    legend: {
-                        display: true,
-                        position: 'right',
-                        labels: {
-                            color: colorConfig.textColor,
-                        },
-                    },
-                },
             },
-        });
-
-        // Update chart colors when mode changes
-        const updateChartColors = () => {
-            const colorConfig = getColorConfig();
-            khoskkonChart.options.scales.r.ticks.color = colorConfig.textColor;
-            khoskkonChart.options.scales.r.grid.color = colorConfig.gridColor;
-            khoskkonChart.options.scales.r.angleLines.color = colorConfig.angleLineColor;
-            khoskkonChart.options.scales.r.pointLabels.color = colorConfig.textColor;
-            khoskkonChart.options.plugins.legend.labels.color = colorConfig.textColor;
-            khoskkonChart.update();
-        };
-
-        // Watch for light-mode toggle
-        const observer = new MutationObserver(() => {
-            updateChartColors();
-        });
-        observer.observe(document.body, { attributes: true, attributeFilter: ['class'] });
+        },
     });
+
+    const updateChartColors = () => {
+        const colorConfig = getColorConfig();
+        khoskkonChart.options.scales.r.ticks.color = colorConfig.textColor;
+        khoskkonChart.options.scales.r.grid.color = colorConfig.gridColor;
+        khoskkonChart.options.scales.r.angleLines.color = colorConfig.angleLineColor;
+        khoskkonChart.options.scales.r.pointLabels.color = colorConfig.textColor;
+        khoskkonChart.options.plugins.legend.labels.color = colorConfig.textColor;
+        khoskkonChart.update();
+    };
+
+    const updateLegendPosition = () => {
+        khoskkonChart.options.plugins.legend.position = getLegendPosition();
+        khoskkonChart.options.plugins.legend.labels.font.size = getLegendFontSize();
+        khoskkonChart.update();
+    };
+
+    // تغییرات بر اساس تغییر اندازه صفحه
+    window.addEventListener('resize', updateLegendPosition);
+
+    // تغییرات بر اساس مد تاریک/روشن
+    const observer = new MutationObserver(() => {
+        updateChartColors();
+    });
+    observer.observe(document.body, { attributes: true, attributeFilter: ['class'] });
+});
+
 </script>
 
 @endif

@@ -137,6 +137,9 @@
 		overflow-y: scroll;
 		scrollbar-width: thin; 
 	} */
+	.category {
+		margin-top: 10%;
+	}
 	.banner-four .pager-outer {
 		width: 515px;
 	}
@@ -708,6 +711,10 @@
 }
 
 @media only screen and (max-width: 991px) {
+	.category {
+		margin-top: 20%;
+		margin-bottom: 20%;
+	}
 	#countryVisitsChart {
 		height: 300px;
   		width: 601px;
@@ -1266,6 +1273,10 @@
 
 }
 @media only screen and (max-width: 767px) {
+	.category {
+		margin-top: 20%;
+		margin-bottom: 20%;
+	}
 	.dashboard-header h2 {
 		margin-top: 6rem !important;
 	}
@@ -1808,6 +1819,10 @@
 }
 
 @media only screen and (max-width: 599px) {
+	.category {
+		margin-top: 30%;
+		margin-bottom: 30%;
+	}
 	.btn-style-two {
 		width: auto;
 	}
@@ -2373,6 +2388,10 @@
 
 }
 @media only screen and (max-width: 367px) {
+	.category {
+		margin-top: 60%;
+		margin-bottom: 60%;
+	}
 	#videoModal .modal-content {
 		margin: 46% 0%;
 	  }
@@ -2530,7 +2549,9 @@
 	  }
 }
 @media only screen and (max-width: 479px) {
-
+	.category {
+		margin-top: 30%;
+	}
 	.col-form-label {
 		font-size: 14px;
 	}
