@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Facades\Log;
+
 
 class ChatController extends Controller
 {
@@ -17,9 +19,10 @@ class ChatController extends Controller
         $question = $request->input('question');
         $apiKey = env('OPENAI_API_KEY');
 
+        // Send the request to OpenAI API
         $response = Http::withHeaders([
             'Authorization' => 'Bearer ' . $apiKey,
-        ])->withoutVerifying()  
+        ])->withoutVerifying()
             ->post('https://api.openai.com/v1/chat/completions', [
                 'model' => 'gpt-3.5-turbo',
                 'messages' => [
@@ -28,8 +31,18 @@ class ChatController extends Controller
                 ],
             ]);
 
-        $answer = $response->json()['choices'][0]['message']['content'];
+        // Log the response for debugging purposes
+        Log::info('OpenAI Response: ', $response->json());
+
+        // Check if the 'choices' key exists and handle the response accordingly
+        if (isset($response->json()['choices'][0]['message']['content'])) {
+            $answer = $response->json()['choices'][0]['message']['content'];
+        } else {
+            // Handle the error if the 'choices' key is not present
+            $answer = "Sorry, I couldn't get a response from the AI. Please try again.";
+        }
 
         return response()->json(['answer' => $answer]);
     }
+
 }
