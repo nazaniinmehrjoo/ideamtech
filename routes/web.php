@@ -15,6 +15,7 @@ use App\Http\Controllers\{
 };
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ChatController;
+use App\Http\Controllers\DocumentController;
 
 /*
 |---------------------------------------------------------------------------
@@ -40,6 +41,7 @@ Route::get('/lang/{locale}', function ($locale) {
 Route::get('/', function () {
     return redirect(app()->getLocale()); // Redirect to the app's default locale
 });
+Route::get('/documents/{id}/edit', [DocumentController::class, 'edit'])->name('documents.edit');
 
 // Routes with locale prefix
 Route::group(['prefix' => '{locale}', 'middleware' => 'locale'], function () {
@@ -141,7 +143,13 @@ Route::group(['prefix' => '{locale}', 'middleware' => 'locale'], function () {
         Route::put('employment-forms/{id}', [EmploymentFormController::class, 'update'])->name('employment-forms.update');
         Route::delete('employment-forms/{id}', [EmploymentFormController::class, 'destroy'])->name('employment-forms.destroy');
 
+        // Route::get('/upload', [DocumentController::class, 'showForm'])->name('documents.form');
+        Route::post('/upload', [DocumentController::class, 'upload'])->name('documents.upload');
+        Route::get('/documents', [DocumentController::class, 'index'])->name('documents.index');
+        Route::put('/documents/{id}', [DocumentController::class, 'update'])->name('documents.update');
+
     });
+    // موقتاً بیار بیرون برای تست
     // 301 Redirect (باید بیرون از گروه "auth" باشد)
     Route::redirect('/خشک-کن-سریع-روتاری', '/fa/خشک-کن/محصولات', 301);
     Route::redirect('/شبیه-ساز-خشک-کن-سریع', '/fa/شبیه-ساز', 301);
