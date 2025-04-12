@@ -14,3 +14,4 @@
 [19-Nov-2024 08:29:03 UTC] PHP Warning:  Module 'openssl' already loaded in Unknown on line 0
 [19-Nov-2024 08:29:14 UTC] PHP Warning:  PHP Startup: Unable to load dynamic library 'pdo_sqlsrv' (tried: C:\wamp64\bin\php\php7.4.33\ext\pdo_sqlsrv (The specified module could not be found.), C:\wamp64\bin\php\php7.4.33\ext\php_pdo_sqlsrv.dll (The specified module could not be found.)) in Unknown on line 0
 [19-Nov-2024 08:29:14 UTC] PHP Warning:  Module 'openssl' already loaded in Unknown on line 0
+[12-Apr-2025 19:11:48 UTC] PHP Warning:  PHP Startup: Unable to load dynamic library 'pdo_sqlsrv' (tried: C:\wamp64\bin\php\php7.4.33\ext\pdo_sqlsrv (The specified module could not be found.), C:\wamp64\bin\php\php7.4.33\ext\php_pdo_sqlsrv.dll (The specified module could not be found.)) in Unknown on line 0

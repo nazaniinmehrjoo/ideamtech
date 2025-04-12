@@ -143,8 +143,8 @@ Route::group(['prefix' => '{locale}', 'middleware' => 'locale'], function () {
         Route::put('employment-forms/{id}', [EmploymentFormController::class, 'update'])->name('employment-forms.update');
         Route::delete('employment-forms/{id}', [EmploymentFormController::class, 'destroy'])->name('employment-forms.destroy');
 
-        // Route::get('/upload', [DocumentController::class, 'showForm'])->name('documents.form');
-        Route::post('/upload', [DocumentController::class, 'upload'])->name('documents.upload');
+         Route::get('/upload', [DocumentController::class, 'showForm'])->name('documents.form');
+        Route::post('/upload', [DocumentController::class, 'store'])->name('documents.upload');
         Route::get('/documents', [DocumentController::class, 'index'])->name('documents.index');
         Route::put('/documents/{id}', [DocumentController::class, 'update'])->name('documents.update');
 

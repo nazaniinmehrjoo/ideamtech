@@ -23,7 +23,7 @@ class DocumentController extends Controller
         }
 
         if ($request->filled('created_at')) {
-            $query->whereDate('created_at', $request->created_at);
+            $query->whereDate('created_at', $request->created_شییat);
         }
 
         if ($request->filled('code')) {
@@ -39,7 +39,40 @@ class DocumentController extends Controller
 
         return view('fileUpload.index', compact('documents'));
     }
+    public function store(Request $request)
+    {
+        $request->validate([
+            'owner_code' => 'required|string|max:10',
+            'doc_type_code' => 'required|string|max:10',
+            'file' => 'required|file|max:10240', 
+        ]);
 
+    
+        $latestDoc = Document::where('owner_code', $request->owner_code)
+            ->where('doc_type_code', $request->doc_type_code)
+            ->orderByDesc('serial_number')
+            ->first();
+
+        $newSerial = $latestDoc ? $latestDoc->serial_number + 1 : 1;
+        $serialStr = str_pad($newSerial, 3, '0', STR_PAD_LEFT);
+        $revisionNumber = 1;
+
+        $extension = $request->file('file')->getClientOriginalExtension();
+        $fileName = "{$request->owner_code}-{$request->doc_type_code}-{$serialStr}-{$revisionNumber}.{$extension}";
+
+        $filePath = $request->file('file')->storeAs('documents', $fileName, 'public');
+
+        Document::create([
+            'owner_code' => $request->owner_code,
+            'doc_type_code' => $request->doc_type_code,
+            'serial_number' => $newSerial,
+            'revision_number' => $revisionNumber,
+            'file_path' => $filePath,
+        ]);
+
+        return redirect()->route('documents.index', ['locale' => app()->getLocale()])
+            ->with('success', "سند جدید با موفقیت آپلود شد: $fileName");
+    }
 
     public function showForm()
     {
