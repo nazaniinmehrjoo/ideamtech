@@ -42,6 +42,9 @@ Route::get('/', function () {
     return redirect(app()->getLocale()); // Redirect to the app's default locale
 });
 Route::get('/documents/{id}/edit', [DocumentController::class, 'edit'])->name('documents.edit');
+Route::put('/documents/{id}', [DocumentController::class, 'update'])->name('documents.update');
+Route::get('/documents/create', [DocumentController::class, 'showForm'])->name('documents.showForm');
+Route::delete('/documents/{id}', [DocumentController::class, 'destroy'])->name('documents.destroy');
 
 // Routes with locale prefix
 Route::group(['prefix' => '{locale}', 'middleware' => 'locale'], function () {
@@ -143,10 +146,8 @@ Route::group(['prefix' => '{locale}', 'middleware' => 'locale'], function () {
         Route::put('employment-forms/{id}', [EmploymentFormController::class, 'update'])->name('employment-forms.update');
         Route::delete('employment-forms/{id}', [EmploymentFormController::class, 'destroy'])->name('employment-forms.destroy');
 
-         Route::get('/upload', [DocumentController::class, 'showForm'])->name('documents.form');
         Route::post('/upload', [DocumentController::class, 'store'])->name('documents.upload');
         Route::get('/documents', [DocumentController::class, 'index'])->name('documents.index');
-        Route::put('/documents/{id}', [DocumentController::class, 'update'])->name('documents.update');
 
     });
     // موقتاً بیار بیرون برای تست

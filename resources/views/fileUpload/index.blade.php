@@ -88,6 +88,12 @@
     <div class="container py-5">
         <h2 class="mb-4 text-center">{{ __('documents.title') }}</h2>
 
+        <div class="text-end mb-4">
+            <a href="{{ route('documents.showForm', ['locale' => app()->getLocale()]) }}" class="btn btn-success">
+                 +
+            </a>
+        </div>
+
         {{-- Filter Form --}}
         <form method="GET" action="{{ route('documents.index', ['locale' => app()->getLocale()]) }}" class="mb-5">
             <div class="row g-3 align-items-end">
@@ -137,7 +143,7 @@
             </div>
         </form>
 
-        {{-- Document Cards --}}
+
         <div class="doc-grid">
             @forelse($documents as $group => $versions)
                     <div class="doc-card">
@@ -156,7 +162,6 @@
                         <div>
                             <div class="doc-icon">📄</div>
 
-                            {{-- عنوان، کد و اطلاعات اصلی آخرین نسخه --}}
                             <div class="doc-title">{{ $badgeText }}</div>
                             <div class="doc-code">{{ $fullFileName }}</div>
 
@@ -168,21 +173,25 @@
 
                             <span class="doc-badge {{ $badgeClass }}">{{ $badgeText }}</span>
 
-                            {{-- دکمه دانلود آخرین نسخه --}}
                             <a href="{{ asset('storage/' . $latest->file_path) }}" class="btn btn-sm btn-outline-primary mt-3 w-100"
                                 target="_blank">
                                 {{ __('documents.download') }}
                             </a>
 
-                            {{-- دکمه ویرایش / افزودن نسخه جدید --}}
-                            @auth
-                                <a href="{{ route('documents.edit', ['locale' => app()->getLocale(), 'id' => $latest->id]) }}"
-                                    class="btn btn-sm btn-warning mt-2 w-100">
-                                    ✏️ {{ __('documents.edit_version') ?? 'افزودن نسخه جدید' }}
-                                </a>
-                            @endauth
+                            <a href="{{ route('documents.edit', ['locale' => app()->getLocale(), 'id' => $latest->id]) }}"
+                                class="btn btn-sm btn-warning mt-2 w-100">
+                                ✏️ {{ __('documents.edit_version') ?? 'افزودن نسخه جدید' }}
+                            </a>
 
-                            {{-- لیست نسخه‌ها --}}
+                            <form action="{{ route('documents.destroy', ['locale' => app()->getLocale(), 'id' => $latest->id]) }}"
+                                method="POST" class="mt-2">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="btn btn-sm btn-danger w-100">
+                                    🗑️ {{ __('documents.delete') }}
+                                </button>
+                            </form>
+
                             @if($versions->count() > 1)
                                 <hr>
                                 <strong class="small d-block mb-1">{{ __('documents.revision') }}‌های قبلی:</strong>

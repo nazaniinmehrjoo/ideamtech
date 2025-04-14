@@ -21,9 +21,8 @@ class DocumentController extends Controller
         if ($request->filled('revision_number')) {
             $query->where('revision_number', $request->revision_number);
         }
-
         if ($request->filled('created_at')) {
-            $query->whereDate('created_at', $request->created_شییat);
+            $query->whereDate('created_at', $request->created_at);
         }
 
         if ($request->filled('code')) {
@@ -44,10 +43,10 @@ class DocumentController extends Controller
         $request->validate([
             'owner_code' => 'required|string|max:10',
             'doc_type_code' => 'required|string|max:10',
-            'file' => 'required|file|max:10240', 
+            'file' => 'required|file|max:10240',
         ]);
 
-    
+
         $latestDoc = Document::where('owner_code', $request->owner_code)
             ->where('doc_type_code', $request->doc_type_code)
             ->orderByDesc('serial_number')
@@ -55,7 +54,7 @@ class DocumentController extends Controller
 
         $newSerial = $latestDoc ? $latestDoc->serial_number + 1 : 1;
         $serialStr = str_pad($newSerial, 3, '0', STR_PAD_LEFT);
-        $revisionNumber = 1;
+        $revisionNumber = 0;
 
         $extension = $request->file('file')->getClientOriginalExtension();
         $fileName = "{$request->owner_code}-{$request->doc_type_code}-{$serialStr}-{$revisionNumber}.{$extension}";
@@ -121,5 +120,13 @@ class DocumentController extends Controller
     {
         $document = Document::findOrFail($id);
         return view('fileUpload.edit', compact('document'));
+    }
+    public function destroy($id)
+    {
+        $document = Document::findOrFail($id);  
+        $document->delete();
+
+        return redirect()->route('documents.index', ['locale' => app()->getLocale()])
+            ->with('success', 'سند با موفقیت حذف شد.');
     }
 }
