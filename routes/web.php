@@ -45,6 +45,8 @@ Route::get('/documents/{id}/edit', [DocumentController::class, 'edit'])->name('d
 Route::put('/documents/{id}', [DocumentController::class, 'update'])->name('documents.update');
 Route::get('/documents/create', [DocumentController::class, 'showForm'])->name('documents.showForm');
 Route::delete('/documents/{id}', [DocumentController::class, 'destroy'])->name('documents.destroy');
+Route::delete('/documents/destroy-version/{id}', [DocumentController::class, 'destroyVersion'])->name('documents.destroyVersion');
+
 
 // Routes with locale prefix
 Route::group(['prefix' => '{locale}', 'middleware' => 'locale'], function () {

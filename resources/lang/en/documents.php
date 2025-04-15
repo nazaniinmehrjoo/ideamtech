@@ -10,6 +10,9 @@ return [
     'date' => 'Upload Date',
     'download' => '📥 Download',
     'not_found' => 'No documents found.',
+    'view_all_versions'=>'ViewAllVersions',
+    'delete'=>'delete',
+    'edit_document'=>'EditDocument',
     'all' => 'All',
     'edit_version' => 'Add New Version',
     'labels' => [

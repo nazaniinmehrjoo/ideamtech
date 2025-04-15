@@ -9347,3 +9347,107 @@ body.light-mode .card-body h6 {
 .portfolio-block .blog-link-box a:hover {
     color: #f05928;
 }
+/* ====================================================================DSM */
+.doc-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 20px;
+    direction:rtl ;
+}
+
+body.light-mode .doc-card {
+    background: #f0f0f0;
+
+}
+.doc-card{
+    background-color: #292c30;
+    border-radius: 8px;
+    padding: 15px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+    transition: all 0.2s ease-in-out;
+    font-family: 'Segoe UI', sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    direction: rtl;
+    text-align: center;
+}
+
+.doc-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+}
+
+.doc-icon {
+    font-size: 32px;
+    color: #6c757d;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.doc-title {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #333;
+    text-align: center;
+}
+
+.doc-code {
+    text-align: center;
+    font-size: 12px;
+    color: #dcdcdc;;
+    margin-bottom: 10px;
+}
+body.light-mode .doc-code {
+    color: #303336;
+}
+body.light-mode .doc-meta {
+    color: #303336;
+}
+.doc-meta {
+    font-size: 12px;
+    color: #dcdcdc;
+    margin-bottom: 5px;
+}
+
+.doc-badge {
+    font-size: 11px;
+    font-weight: bold;
+    padding: 4px 10px;
+    border-radius: 4px;
+    display: inline-block;
+    margin-top: 8px;
+    align-self: flex-start;
+}
+
+.badge-PS,
+.badge-PR,
+.badge-IN,
+.badge-FR {
+    background-color: #0d6efd;
+    color: white;
+}
+
+.badge-ST,
+.badge-RE,
+.badge-CH,
+.badge-JD {
+    background-color: #ffc107;
+    color: black;
+}
+
+.badge-default {
+    background-color: #6c757d;
+    color: white;
+}
+
+#versionList{
+    padding: 10px;
+    border-radius: 18px;
+    background: rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur( 4px );
+    direction: rtl;
+    text-align: right;
+}

@@ -2,8 +2,6 @@
 
 @section('content')
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@400&display=swap');
-
         #drop-area {
             border: 2px dashed #aaa;
             padding: 20px;
@@ -133,7 +131,7 @@
                             @method('PUT')
 
                             <!-- Owner Code -->
-                            <div class="row mb-3">
+                            <!-- <div class="row mb-3">
                                 <label for="owner_code"
                                     class="col-md-4 col-form-label text-md-end">{{ __('documentUpload.owner_code') }}</label>
                                 <div class="col-md-6">
@@ -151,10 +149,10 @@
                                         <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>
                                     @enderror
                                 </div>
-                            </div>
+                            </div> -->
 
                             <!-- Doc Type -->
-                            <div class="row mb-3">
+                            <!-- <div class="row mb-3">
                                 <label for="doc_type_code"
                                     class="col-md-4 col-form-label text-md-end">{{ __('documentUpload.doc_type_code') }}</label>
                                 <div class="col-md-6">
@@ -181,18 +179,19 @@
                                         <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>
                                     @enderror
                                 </div>
-                            </div>
+                            </div> -->
 
                             <!-- File Input (new version) -->
-                            <div class="row mb-3">
-                                <label for="file"
-                                    class="col-md-4 col-form-label text-md-end">{{ __('documentUpload.file_input') }}</label>
-                                <div class="col-md-6">
+                            <div class="row mb-12">
+                                <!-- <label for="file"
+                                    class="col-md-4 col-form-label text-md-end">{{ __('documentUpload.file_input') }}</label> -->
+                                <div class="col-md-12">
                                     <div class="file-drop-area" id="drop-area">
                                         <span class="label">{{ __('documentUpload.drop_here_or_click') }}</span>
                                         <input type="file" name="file" id="file" required
                                             class="@error('file') is-invalid @enderror">
                                     </div>
+                                    <br>
                                     @error('file')
                                         <span class="invalid-feedback d-block mt-2"
                                             role="alert"><strong>{{ $message }}</strong></span>
@@ -244,7 +243,6 @@
             }
         });
 
-        // Also handle manual selection via input
         fileInput.addEventListener('change', e => {
             if (fileInput.files.length > 0) {
                 label.textContent = fileInput.files[0].name;

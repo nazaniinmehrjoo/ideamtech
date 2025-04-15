@@ -10,7 +10,7 @@ return [
     'system_docs' => 'System Documents',
     'org_docs' => 'Organizational Documents',
     'drop_here_or_click' => 'Drop file here or click to upload',
-
+    'choose_option'=>'choseoption',
     'units' => [
         'MNG' => 'CEO Office',
         'SYS' => 'Systems & Processes',

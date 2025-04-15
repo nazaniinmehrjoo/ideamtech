@@ -185,7 +185,7 @@
                             <div class="row mb-3">
                                 <label for="file"
                                     class="col-md-4 col-form-label text-md-end">{{ __('documentUpload.file_input') }}</label>
-                                <div class="col-md-6">
+                                <div class="col-md-12">
                                     <div class="file-drop-area" id="drop-area">
                                         <span class="label">{{ __('documentUpload.drop_here_or_click') }}</span>
                                         <input type="file" name="file" id="file" required
