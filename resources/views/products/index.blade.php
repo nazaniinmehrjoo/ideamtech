@@ -65,7 +65,7 @@
                 @if($pageProducts->count() > 0)
                     <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4">
                         @foreach($pageProducts as $product)
-                            <div class="col">
+                            <div class="col mb-3">
                                 <div class="card border-0 shadow-sm h-100">
                                     <!-- Product Image -->
                                     <img src="{{ $product->image ? asset('storage/' . $product->image) : '/assets/images/default-product.png' }}" 
