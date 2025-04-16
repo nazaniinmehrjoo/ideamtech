@@ -10,12 +10,21 @@ class CustomerFormController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index($locale)
+    public function index(Request $request, $locale)
     {
-        app()->setLocale($locale); // Set the application locale dynamically
-        $customers = CustomerForm::all();
-        return view('forms.indexForm', compact('customers', 'locale'));
+        app()->setLocale($locale);
+    
+        $cities = CustomerForm::select('city')->distinct()->pluck('city');
+    
+        $customers = CustomerForm::query()
+            ->when($request->filled('city'), function ($query) use ($request) {
+                $query->where('city', $request->city);
+            })
+            ->get();
+    
+        return view('forms.indexForm', compact('customers', 'locale', 'cities'));
     }
+    
 
     /**
      * Show the form for creating a new resource.
