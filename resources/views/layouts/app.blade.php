@@ -1,6 +1,47 @@
 <!DOCTYPE html>
 <html lang="{{ app()->getLocale() }}">
+    <style>
+.theme-switcher {
+    position: absolute;
+    top: 45px;
+    right: 20px;
+    display: flex;
+    gap: 12px;
+    z-index: 1000;
+    float: right;
+}
 
+.theme-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 22px;
+    color: inherit;
+    transition: transform 0.2s ease, color 0.2s ease;
+}
+.theme-btn i {
+    font-size: 18px;
+}
+.theme-btn:hover {
+    transform: scale(1.2);
+}
+
+.theme-btn.active {
+    color: #007bff; 
+    
+}
+
+body.light-mode {
+    background-color: #ffffff;
+    color: #000000;
+}
+
+body.dark-mode {
+    background-color: #121212;
+    color: #ffffff;
+}
+
+    </style>
 <head>
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>
@@ -46,19 +87,18 @@
     <!-- Language and Theme Switchers -->
     <div class="menuDropdown">
         <!-- Theme Switcher -->
-        <div class="dropdown">
-            <div class="btn toggle-icon" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
-                <i class="fa-regular fa-moon-stars"></i>
-            </div>
-            <ul class="dropdown-menu dropdownMenuButtonItems" aria-labelledby="dropdownMenuButton">
-                <li><a class="dropdown-item" href="#" data-theme="light"><i class="fa-regular fa-brightness"></i>
-                        Light</a></li>
-                <li><a class="dropdown-item" href="#" data-theme="dark"><i class="fa-regular fa-moon-stars"></i>
-                        Dark</a></li>
-                <li><a class="dropdown-item" href="#" data-theme="system"><i class="fa-regular fa-display"></i>
-                        System</a></li>
-            </ul>
+        <div class="theme-switcher">
+            <button class="theme-btn" data-theme="light" title="Light Mode">
+                <i class="fa-thin fa-sun-bright"></i>
+            </button>
+            <button class="theme-btn" data-theme="dark" title="Dark Mode">
+                <i class="fa-light fa-moon-stars"></i>
+            </button>
+            <button class="theme-btn" data-theme="system" title="System Default">
+                <i class="fa-regular fa-display"></i>
+            </button>
         </div>
+
         <!-- Language Switcher -->
         <div class="dropdown">
             <div class="btn toggle-icon dropdown-toggle" id="languageDropdown" data-bs-toggle="dropdown"
@@ -126,33 +166,50 @@
 
     <!-- Theme and Language Scripts -->
     <script>
-        // Theme Change Functions
-        function changeTheme(theme) {
-            localStorage.setItem('selectedTheme', theme); // Save theme in localStorage
-            applyTheme(theme);
-        }
 
-        function applyTheme(theme) {
-            document.body.classList.remove('light-mode', 'dark-mode'); // Remove existing theme classes
-            const themeButtonIcon = document.querySelector('#dropdownMenuButton i'); // Theme icon
+    function changeTheme(theme) {
+        localStorage.setItem('selectedTheme', theme);
+        applyTheme(theme);
+    }
 
-            if (theme === 'light') {
-                document.body.classList.add('light-mode');
-                themeButtonIcon.setAttribute('class', 'fa-regular fa-brightness');
-            } else if (theme === 'dark') {
+    function applyTheme(theme) {
+        document.body.classList.remove('light-mode', 'dark-mode');
+
+        if (theme === 'light') {
+            document.body.classList.add('light-mode');
+        } else if (theme === 'dark') {
+            document.body.classList.add('dark-mode');
+        } else {
+            const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            if (prefersDark) {
                 document.body.classList.add('dark-mode');
-                themeButtonIcon.setAttribute('class', 'fa-regular fa-moon-stars');
-            } else { // System preference
-                const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)').matches;
-                if (prefersDarkScheme) {
-                    document.body.classList.add('dark-mode');
-                    themeButtonIcon.setAttribute('class', 'fa-regular fa-moon-stars');
-                } else {
-                    document.body.classList.add('light-mode');
-                    themeButtonIcon.setAttribute('class', 'fa-regular fa-brightness');
-                }
+            } else {
+                document.body.classList.add('light-mode');
             }
         }
+
+        document.querySelectorAll('.theme-btn').forEach(btn => {
+            const btnTheme = btn.getAttribute('data-theme');
+            if (btnTheme === theme) {
+                btn.classList.add('active');
+            } else {
+                btn.classList.remove('active');
+            }
+        });
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        const savedTheme = localStorage.getItem('selectedTheme') || 'system';
+        applyTheme(savedTheme);
+
+        document.querySelectorAll('.theme-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const selectedTheme = btn.getAttribute('data-theme');
+                changeTheme(selectedTheme);
+            });
+        });
+    });
+
 
         // Language Change Functions
         function changeLanguage(lang) {
