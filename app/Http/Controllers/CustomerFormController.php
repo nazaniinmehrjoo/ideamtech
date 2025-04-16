@@ -13,18 +13,20 @@ class CustomerFormController extends Controller
     public function index(Request $request, $locale)
     {
         app()->setLocale($locale);
-    
+
+        $query = CustomerForm::latest();
         $cities = CustomerForm::select('city')->distinct()->pluck('city');
-    
+
         $customers = CustomerForm::query()
             ->when($request->filled('city'), function ($query) use ($request) {
                 $query->where('city', $request->city);
             })
             ->get();
-    
+
+        $customers = $query->paginate(10);
         return view('forms.indexForm', compact('customers', 'locale', 'cities'));
     }
-    
+
 
     /**
      * Show the form for creating a new resource.

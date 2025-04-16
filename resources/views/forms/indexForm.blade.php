@@ -148,13 +148,15 @@
                 align-items: center;
 
             }
+
             .card-titles {
                 display: flex;
                 justify-content: space-between;
                 text-align: center;
                 direction: rtl;
-                
+
             }
+
             .card-titleitem {
                 width: 60px;
                 text-align: center;
@@ -189,28 +191,28 @@
             </form>
         </div>
         <div class="card-titles">
-                        <div class="card-titleitem">شناسه</div>
-                        <div class="card-titleitem">کد</div>
-                        <div class="card-titleitem customerFactoryName">نام کارخانه</div>
-                        <div class="card-titleitem customerName">نام</div>
-                        <div class="card-titleitem">شماره کارخانه</div>
-                        <div class="card-titleitem">شماره همراه</div>
-                        <div class="card-titleitem customerCity">شهر</div>
-                        <div class="card-titleitem customerAddress">آدرس</div>
-                        <div class="card-titleitem">محصولات</div>
-                        <div class="card-titleitem">نوع کوره</div>
-                        <div class="card-titleitem">نوع خشک‌کن</div>
-                        <div class="card-titleitem">تعداد قمیر</div>
-                        <div class="card-titleitem">پیام‌رسان</div>
-                        <div class="card-titleitem">عملیات</div>
+            <div class="card-titleitem">شناسه</div>
+            <div class="card-titleitem">کد</div>
+            <div class="card-titleitem customerFactoryName">نام کارخانه</div>
+            <div class="card-titleitem customerName">نام</div>
+            <div class="card-titleitem">شماره کارخانه</div>
+            <div class="card-titleitem">شماره همراه</div>
+            <div class="card-titleitem customerCity">شهر</div>
+            <div class="card-titleitem customerAddress">آدرس</div>
+            <div class="card-titleitem">محصولات</div>
+            <div class="card-titleitem">نوع کوره</div>
+            <div class="card-titleitem">نوع خشک‌کن</div>
+            <div class="card-titleitem">تعداد قمیر</div>
+            <div class="card-titleitem">پیام‌رسان</div>
+            <div class="card-titleitem">عملیات</div>
 
 
 
 
-                    </div>
+        </div>
         <div class="customer-cards">
             @foreach($customers as $customer)
-              
+
                     <div class="card-row">
                         <div class="card-item">{{ $customer->id }}</div>
                         <div class="card-item">{{ $customer->factory_code }}</div>
@@ -264,6 +266,11 @@
                     </div>
             @endforeach
         </div>
+        <!-- Pagination -->
+        <div class="d-flex justify-content-center mt-4">
+            {{ $customers->links('vendor.pagination.default') }}
+        </div>
+
 
         <form action="{{ route('customer.export', ['locale' => app()->getLocale()]) }}" method="POST" class="mt-4">
             @csrf
