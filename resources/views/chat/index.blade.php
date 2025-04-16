@@ -176,6 +176,7 @@
                 font-style: italic;
                 text-align: center;
             }
+
             .typing-indicator {
                 font-size: 14px;
                 color: #888;
@@ -197,133 +198,131 @@
     </head>
 
     <body>
-    <body>
 
-        <div class="container">
-            <h1>برناچت</h1>
-        <div class="container">
-            <h1>برناچت</h1>
+        <body>
 
-            <div id="chat-container" class="scroll-to-bottom"></div>
-            <div id="chat-container" class="scroll-to-bottom"></div>
 
-            <div class="questionBox">
-                <div class="chatAlert" id="chatAlert">
-                    <h1>چطور می‌تونم کمکتون کنم؟</h1>
+            <div class="container">
+                <h1>برناچت</h1>
+
+                <div id="chat-container" class="scroll-to-bottom"></div>
+                <div id="chat-container" class="scroll-to-bottom"></div>
+
+                <div class="questionBox">
+                    <div class="chatAlert" id="chatAlert">
+                        <h1>چطور می‌تونم کمکتون کنم؟</h1>
+                    </div>
+                    <form id="chat-form">
+                        <input type="text" id="user-question" placeholder="سوال خود را وارد کنید..." required>
+                        <button type="submit" class="submit-button" disabled><i class="fa-solid fa-arrow-up"></i></button>
+                    </form>
                 </div>
-                <form id="chat-form">
-                    <input type="text" id="user-question" placeholder="سوال خود را وارد کنید..." required>
-                    <button type="submit" class="submit-button" disabled><i class="fa-solid fa-arrow-up"></i></button>
-                </form>
+
+                <div class="typing-indicator" id="typing-indicator" style="display: none;">برناچت در حال تایپ...</div>
             </div>
+            <script>
+                let formFixed = false;
 
-            <div class="typing-indicator" id="typing-indicator" style="display: none;">برناچت در حال تایپ...</div>
-        </div>
-            <div class="typing-indicator" id="typing-indicator" style="display: none;">برناچت در حال تایپ...</div>
-        </div>
-
-        <script>
-            let formFixed = false;
-
-            $('#user-question').on('input', function () {
-                $('.submit-button').prop('disabled', $(this).val().trim() === '');
-            });
-
-            function getTimeNow() {
-                const now = new Date();
-                return now.getHours() + ':' + String(now.getMinutes()).padStart(2, '0');
-            }
-
-            function typeWriter(text, targetElement, callback) {
-                let i = 0;
-                const speed = 15;
-                function typing() {
-                    if (i < text.length) {
-                        targetElement.append(text.charAt(i));
-                        i++;
-                        setTimeout(typing, speed);
-                    } else {
-                        if (callback) callback();
-                    }
-                }
-                typing();
-            }
-
-            function createMessage(message, isUser = false) {
-                const time = getTimeNow();
-                const messageDiv = $('<div class="chat-message ' + (isUser ? 'user-message' : 'ai-message') + '"></div>');
-                const text = $('<div></div>');
-                const timestamp = $('<span class="timestamp">' + time + '</span>');
-
-                if (isUser) {
-                    text.text(message);
-                    messageDiv.append(text).append(timestamp);
-                    $('#chat-container').append(messageDiv);
-                } else {
-                    text.text(message); 
-                    const copyButton = $('<button class="copy-button"><i class="fa-regular fa-clone"></i></button>');
-
-                    copyButton.on('click', function () {
-                        navigator.clipboard.writeText(text.text()).then(() => {
-                            copyButton.html(`<i class="fa-regular fa-check"></i>`);
-                            setTimeout(() => copyButton.html(`<i class="fa-regular fa-clone"></i>`), 1500);
-                        }).catch(() => {
-                            copyButton.text('خطا!');
-                        });
-                    });
-
-                    messageDiv.append(text).append(timestamp).append(copyButton);
-                    $('#chat-container').append(messageDiv.hide());
-                    messageDiv.fadeIn(300);
-
-                    text.text(''); 
-                    typeWriter(message, text);
-                }
-
-                $('#chat-container').scrollTop($('#chat-container')[0].scrollHeight);
-            }
-
-            $('#chat-form').on('submit', function (e) {
-                e.preventDefault();
-
-                const question = $('#user-question').val().trim();
-                if (question === '') return;
-
-                $('#chatAlert').fadeOut();
-
-                if (!formFixed) {
-                    $('#chat-form').addClass('form-fixed');
-                    formFixed = true;
-                }
-
-                $('#chat-container').show();
-                createMessage(question, true);
-                $('#user-question').val('');
-                $('.submit-button').prop('disabled', true);
-                $('#typing-indicator').show();
-
-                $.ajax({
-                    url: '/ask-question',
-                    method: 'POST',
-                    data: {
-                        question: question,
-                        _token: '{{ csrf_token() }}'
-                    },
-                    success: function (response) {
-                        $('#typing-indicator').hide();
-                        createMessage(response.answer, false);
-                    },
-                    error: function () {
-                        $('#typing-indicator').hide();
-                        createMessage('مشکلی پیش آمد. لطفاً دوباره تلاش کنید.', false);
-                    }
+                $('#user-question').on('input', function () {
+                    $('.submit-button').prop('disabled', $(this).val().trim() === '');
                 });
-            });
-        </script>
 
-    </body>
+                function getTimeNow() {
+                    const now = new Date();
+                    return now.getHours() + ':' + String(now.getMinutes()).padStart(2, '0');
+                }
+
+                function typeWriter(text, targetElement, callback) {
+                    let i = 0;
+                    const speed = 15;
+                    function typing() {
+                        if (i < text.length) {
+                            targetElement.append(text.charAt(i));
+                            i++;
+                            setTimeout(typing, speed);
+                        } else {
+                            if (callback) callback();
+                        }
+                    }
+                    typing();
+                }
+
+                function createMessage(message, isUser = false) {
+                    const time = getTimeNow();
+                    const messageDiv = $('<div class="chat-message ' + (isUser ? 'user-message' : 'ai-message') + '"></div>');
+                    const text = $('<div></div>');
+                    const timestamp = $('<span class="timestamp">' + time + '</span>');
+
+                    if (isUser) {
+                        text.text(message);
+                        messageDiv.append(text).append(timestamp);
+                        $('#chat-container').append(messageDiv);
+                    } else {
+                        text.text(message);
+                        const copyButton = $('<button class="copy-button"><i class="fa-regular fa-clone"></i></button>');
+
+                        copyButton.on('click', function () {
+                            navigator.clipboard.writeText(text.text()).then(() => {
+                                copyButton.html(`<i class="fa-regular fa-check"></i>`);
+                                setTimeout(() => copyButton.html(`<i class="fa-regular fa-clone"></i>`), 1500);
+                            }).catch(() => {
+                                copyButton.text('خطا!');
+                            });
+                        });
+
+                        messageDiv.append(text).append(timestamp).append(copyButton);
+                        $('#chat-container').append(messageDiv.hide());
+                        messageDiv.fadeIn(300);
+
+                        text.text('');
+                        typeWriter(message, text);
+                    }
+
+                    $('#chat-container').scrollTop($('#chat-container')[0].scrollHeight);
+                }
+
+                $('#chat-form').on('submit', function (e) {
+                    e.preventDefault();
+
+                    const question = $('#user-question').val().trim();
+                    if (question === '') return;
+
+                    $('#chatAlert').fadeOut();
+
+                    if (!formFixed) {
+                        $('#chat-form').addClass('form-fixed');
+                        formFixed = true;
+                    }
+
+                    $('#chat-container').show();
+                    createMessage(question, true);
+                    $('#user-question').val('');
+                    $('.submit-button').prop('disabled', true);
+                    $('#typing-indicator').show();
+
+                    $.ajax({
+                        url: '/ask-question',
+                        method: 'POST',
+                        data: {
+                            question: question,
+                            _token: '{{ csrf_token() }}'
+                        },
+                        success: function (response) {
+                            $('#typing-indicator').hide();
+                            createMessage(response.answer, false);
+                        },
+                        error: function () {
+                            $('#typing-indicator').hide();
+                            createMessage('مشکلی پیش آمد. لطفاً دوباره تلاش کنید.', false);
+                        }
+                    });
+                });
+            </script>
+
+        </body>
     </body>
 
     </html>
+
     </html>
 @endsection
