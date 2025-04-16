@@ -14,6 +14,7 @@ use App\Http\Controllers\{
     SitemapController
 };
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ChatController;
 
 /*
 |---------------------------------------------------------------------------
@@ -89,6 +90,8 @@ Route::group(['prefix' => '{locale}', 'middleware' => 'locale'], function () {
     Route::get('/کوره_پخت-آجر/محصولات', [ProductController::class, 'korepokht'])->name('products.korepokht');
     Route::get('/hoffman-kiln', [ProductController::class, 'korepokht'])->name('products.korepokht.en');
 
+    Route::get('/chat', [ChatController::class, 'index']);
+    Route::post('/ask-question', [ChatController::class, 'askQuestion']);
 
 
 
