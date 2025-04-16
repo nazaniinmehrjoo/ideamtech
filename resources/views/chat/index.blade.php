@@ -2,6 +2,8 @@
 @section('content')
     <!DOCTYPE html>
     <html lang="fa">
+    <!DOCTYPE html>
+    <html lang="fa">
 
     <head>
         <meta charset="UTF-8">
@@ -174,6 +176,12 @@
                 font-style: italic;
                 text-align: center;
             }
+            .typing-indicator {
+                font-size: 14px;
+                color: #888;
+                font-style: italic;
+                text-align: center;
+            }
 
             .chatAlert {
                 top: 654px;
@@ -189,10 +197,14 @@
     </head>
 
     <body>
+    <body>
 
         <div class="container">
             <h1>برناچت</h1>
+        <div class="container">
+            <h1>برناچت</h1>
 
+            <div id="chat-container" class="scroll-to-bottom"></div>
             <div id="chat-container" class="scroll-to-bottom"></div>
 
             <div class="questionBox">
@@ -205,6 +217,8 @@
                 </form>
             </div>
 
+            <div class="typing-indicator" id="typing-indicator" style="display: none;">برناچت در حال تایپ...</div>
+        </div>
             <div class="typing-indicator" id="typing-indicator" style="display: none;">برناچت در حال تایپ...</div>
         </div>
 
@@ -308,6 +322,8 @@
         </script>
 
     </body>
+    </body>
 
+    </html>
     </html>
 @endsection

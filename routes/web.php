@@ -15,6 +15,7 @@ use App\Http\Controllers\{
 };
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ChatController;
+use App\Http\Controllers\DocumentController;
 
 /*
 |---------------------------------------------------------------------------
@@ -40,6 +41,12 @@ Route::get('/lang/{locale}', function ($locale) {
 Route::get('/', function () {
     return redirect(app()->getLocale()); // Redirect to the app's default locale
 });
+Route::get('/documents/{id}/edit', [DocumentController::class, 'edit'])->name('documents.edit');
+Route::put('/documents/{id}', [DocumentController::class, 'update'])->name('documents.update');
+Route::get('/documents/create', [DocumentController::class, 'showForm'])->name('documents.showForm');
+Route::delete('/documents/{id}', [DocumentController::class, 'destroy'])->name('documents.destroy');
+Route::delete('/documents/destroy-version/{id}', [DocumentController::class, 'destroyVersion'])->name('documents.destroyVersion');
+
 
 // Routes with locale prefix
 Route::group(['prefix' => '{locale}', 'middleware' => 'locale'], function () {
@@ -90,8 +97,7 @@ Route::group(['prefix' => '{locale}', 'middleware' => 'locale'], function () {
     Route::get('/کوره_پخت-آجر/محصولات', [ProductController::class, 'korepokht'])->name('products.korepokht');
     Route::get('/hoffman-kiln', [ProductController::class, 'korepokht'])->name('products.korepokht.en');
 
-    Route::get('/chat', [ChatController::class, 'index']);
-    Route::post('/ask-question', [ChatController::class, 'askQuestion']);
+
 
 
 
@@ -142,7 +148,11 @@ Route::group(['prefix' => '{locale}', 'middleware' => 'locale'], function () {
         Route::put('employment-forms/{id}', [EmploymentFormController::class, 'update'])->name('employment-forms.update');
         Route::delete('employment-forms/{id}', [EmploymentFormController::class, 'destroy'])->name('employment-forms.destroy');
 
+        Route::post('/upload', [DocumentController::class, 'store'])->name('documents.upload');
+        Route::get('/documents', [DocumentController::class, 'index'])->name('documents.index');
+
     });
+    // موقتاً بیار بیرون برای تست
     // 301 Redirect (باید بیرون از گروه "auth" باشد)
     Route::redirect('/خشک-کن-سریع-روتاری', '/fa/خشک-کن/محصولات', 301);
     Route::redirect('/شبیه-ساز-خشک-کن-سریع', '/fa/شبیه-ساز', 301);
@@ -157,5 +167,7 @@ Route::group(['prefix' => '{locale}', 'middleware' => 'locale'], function () {
         $locale = request()->route('locale') ?? app()->getLocale();
         return redirect()->route('notfound', ['locale' => $locale]);
     });
+    Route::get('/chat', [ChatController::class, 'index']);
+    Route::post('/ask-question', [ChatController::class, 'askQuestion']);
 
 });
