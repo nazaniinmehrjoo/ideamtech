@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="{{ app()->getLocale() }}">
-    <style>
+<!-- <style>
 .theme-switcher {
     position: absolute;
     top: 45px;
@@ -41,7 +41,8 @@ body.dark-mode {
     color: #ffffff;
 }
 
-    </style>
+    </style> -->
+
 <head>
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>
@@ -87,18 +88,19 @@ body.dark-mode {
     <!-- Language and Theme Switchers -->
     <div class="menuDropdown">
         <!-- Theme Switcher -->
-        <div class="theme-switcher">
-            <button class="theme-btn" data-theme="light" title="Light Mode">
-                <i class="fa-thin fa-sun-bright"></i>
-            </button>
-            <button class="theme-btn" data-theme="dark" title="Dark Mode">
-                <i class="fa-light fa-moon-stars"></i>
-            </button>
-            <button class="theme-btn" data-theme="system" title="System Default">
-                <i class="fa-regular fa-display"></i>
-            </button>
+        <div class="dropdown">
+            <div class="btn toggle-icon" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                <i class="fa-regular fa-moon-stars"></i>
+            </div>
+            <ul class="dropdown-menu dropdownMenuButtonItems" aria-labelledby="dropdownMenuButton">
+                <li><a class="dropdown-item" href="#" data-theme="light"><i class="fa-regular fa-brightness"></i>
+                        Light</a></li>
+                <li><a class="dropdown-item" href="#" data-theme="dark"><i class="fa-regular fa-moon-stars"></i>
+                        Dark</a></li>
+                <li><a class="dropdown-item" href="#" data-theme="system"><i class="fa-regular fa-display"></i>
+                        System</a></li>
+            </ul>
         </div>
-
         <!-- Language Switcher -->
         <div class="dropdown">
             <div class="btn toggle-icon dropdown-toggle" id="languageDropdown" data-bs-toggle="dropdown"
@@ -126,7 +128,6 @@ body.dark-mode {
             </ul>
         </div>
     </div>
-
     <!-- Site Container -->
     <div class="site-container">
         <div class="cursor"></div>
@@ -167,48 +168,48 @@ body.dark-mode {
     <!-- Theme and Language Scripts -->
     <script>
 
-    function changeTheme(theme) {
-        localStorage.setItem('selectedTheme', theme);
-        applyTheme(theme);
-    }
-
-    function applyTheme(theme) {
-        document.body.classList.remove('light-mode', 'dark-mode');
-
-        if (theme === 'light') {
-            document.body.classList.add('light-mode');
-        } else if (theme === 'dark') {
-            document.body.classList.add('dark-mode');
-        } else {
-            const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-            if (prefersDark) {
-                document.body.classList.add('dark-mode');
-            } else {
-                document.body.classList.add('light-mode');
-            }
+        function changeTheme(theme) {
+            localStorage.setItem('selectedTheme', theme);
+            applyTheme(theme);
         }
 
-        document.querySelectorAll('.theme-btn').forEach(btn => {
-            const btnTheme = btn.getAttribute('data-theme');
-            if (btnTheme === theme) {
-                btn.classList.add('active');
+        function applyTheme(theme) {
+            document.body.classList.remove('light-mode', 'dark-mode');
+
+            if (theme === 'light') {
+                document.body.classList.add('light-mode');
+            } else if (theme === 'dark') {
+                document.body.classList.add('dark-mode');
             } else {
-                btn.classList.remove('active');
+                const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+                if (prefersDark) {
+                    document.body.classList.add('dark-mode');
+                } else {
+                    document.body.classList.add('light-mode');
+                }
             }
-        });
-    }
 
-    document.addEventListener('DOMContentLoaded', () => {
-        const savedTheme = localStorage.getItem('selectedTheme') || 'system';
-        applyTheme(savedTheme);
+            document.querySelectorAll('.theme-btn').forEach(btn => {
+                const btnTheme = btn.getAttribute('data-theme');
+                if (btnTheme === theme) {
+                    btn.classList.add('active');
+                } else {
+                    btn.classList.remove('active');
+                }
+            });
+        }
 
-        document.querySelectorAll('.theme-btn').forEach(btn => {
-            btn.addEventListener('click', () => {
-                const selectedTheme = btn.getAttribute('data-theme');
-                changeTheme(selectedTheme);
+        document.addEventListener('DOMContentLoaded', () => {
+            const savedTheme = localStorage.getItem('selectedTheme') || 'system';
+            applyTheme(savedTheme);
+
+            document.querySelectorAll('.theme-btn').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const selectedTheme = btn.getAttribute('data-theme');
+                    changeTheme(selectedTheme);
+                });
             });
         });
-    });
 
 
         // Language Change Functions
