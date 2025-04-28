@@ -1,21 +1,21 @@
 @extends('layouts.app')
 @section('content')
-<div class="container main-content">
-  <!-- Dashboard Header -->
-  <div class="dashboard-header text-center">
+  <div class="container main-content">
+    <!-- Dashboard Header -->
+    <div class="dashboard-header text-center">
     <h2 class="text-light mb-3">{{ __('dashboard.title') }}</h2>
     <p>{{ __('dashboard.download_guide') }}</p>
     <button class="download-btn" onclick="startSpin(this, '/assets/documents/adminDashboard.pdf')">
       <i class="fa-light fa-download download" id="download"></i>
       <div class="spinner"></div>
     </button>
-  </div>
+    </div>
 
-  <!-- Dashboard Grid -->
-  <div class="dashboard-grid">
+    <!-- Dashboard Grid -->
+    <div class="dashboard-grid">
 
     @php
-    $sections = [
+      $sections = [
       [
       'icon' => 'fa-tags',
       'title' => __('dashboard.sections.categories'),
@@ -56,30 +56,36 @@
       'title' => __('dashboard.sections.cooperation_forms'),
       'route_index' => 'cooperations.index',
       ],
-    ];
+      [
+      'icon' => 'fa-file-alt', 
+      'title' => __('dashboard.sections.documents'),
+      'route_create' => 'documents.showForm', 
+      'route_index' => 'documents.index', 
+      ],
+      ];
   @endphp
 
     @foreach ($sections as $section)
     <div class="adminDashboardBoxes service-block col-xl-12 col-lg-12 col-md-12 col-sm-12">
       <div class="inner-box">
       <div class="inner">
-        <div class="icon-box"><span class="fas {{ $section['icon'] }}"></span></div>
-        <h5>{{ $section['title'] }}</h5>
-        <div class="text">
-            <p></p>
-        </div>
-        <div class="action-btns d-flex justify-content-center gap-2">
-        @isset($section['route_create'])
+      <div class="icon-box"><span class="fas {{ $section['icon'] }}"></span></div>
+      <h5>{{ $section['title'] }}</h5>
+      <div class="text">
+      <p></p>
+      </div>
+      <div class="action-btns d-flex justify-content-center gap-2">
+      @isset($section['route_create'])
       <a href="{{ route($section['route_create'], ['locale' => app()->getLocale()]) }}"
-        class="btn dashboardBtn btn-sm" title="{{ __('dashboard.create_new') }}">
-        <i class="fas fa-plus"></i>
+      class="btn dashboardBtn btn-sm" title="{{ __('dashboard.create_new') }}">
+      <i class="fas fa-plus"></i>
       </a>
     @endisset
-        <a href="{{ route($section['route_index'], ['locale' => app()->getLocale()]) }}"
-          class="btn dashboardBtn btn-sm" title="{{ __('dashboard.view') }}">
-          <i class="fas fa-eye"></i>
-        </a>
-        </div>
+      <a href="{{ route($section['route_index'], ['locale' => app()->getLocale()]) }}"
+        class="btn dashboardBtn btn-sm" title="{{ __('dashboard.view') }}">
+        <i class="fas fa-eye"></i>
+      </a>
+      </div>
       </div>
       </div>
     </div>
@@ -88,31 +94,31 @@
     <!-- Charts -->
     <div class="adminDashboardBoxes service-block">
       <div class="inner-box">
-        <div class="inner">
-          <div class="icon-box"><span class="fas fa-chart-bar"></span></div>
-          <h5>{{ __('dashboard.most_clicked_products') }}</h5>
-          <div class="text">
-            <p></p>
-          </div>
+      <div class="inner">
+        <div class="icon-box"><span class="fas fa-chart-bar"></span></div>
+        <h5>{{ __('dashboard.most_clicked_products') }}</h5>
+        <div class="text">
+        <p></p>
         </div>
-        <div class="chart-container">
-          <canvas id="mostClickedProductsChart"></canvas>
-        </div>
+      </div>
+      <div class="chart-container">
+        <canvas id="mostClickedProductsChart"></canvas>
+      </div>
       </div>
     </div>
 
     <div class="adminDashboardBoxes service-block">
       <div class="inner-box">
-        <div class="inner">
-          <div class="icon-box"><span class="fas fa-globe"></span></div>
-          <h5>{{ __('dashboard.country_visits') }}</h5>
-          <div class="text">
-            <p></p>
-          </div>
+      <div class="inner">
+        <div class="icon-box"><span class="fas fa-globe"></span></div>
+        <h5>{{ __('dashboard.country_visits') }}</h5>
+        <div class="text">
+        <p></p>
         </div>
-        <div class="chart-container">
-          <canvas id="countryVisitsChart"></canvas>
-        </div>
+      </div>
+      <div class="chart-container">
+        <canvas id="countryVisitsChart"></canvas>
+      </div>
       </div>
     </div>
 
@@ -124,12 +130,12 @@
       var productNames = mostClickedProducts.map(product => product.name);
       var productClicks = mostClickedProducts.map(product => product.clicks);
       new Chart(document.getElementById('mostClickedProductsChart').getContext('2d'), {
-        type: 'bar',
-        data: {
-          labels: productNames,
-          datasets: [{ label: '{{ __("dashboard.clicks") }}', data: productClicks, backgroundColor: 'rgba(75, 192, 192, 0.5)' }]
-        },
-        options: { plugins: { legend: { display: false } } }
+      type: 'bar',
+      data: {
+        labels: productNames,
+        datasets: [{ label: '{{ __("dashboard.clicks") }}', data: productClicks, backgroundColor: 'rgba(75, 192, 192, 0.5)' }]
+      },
+      options: { plugins: { legend: { display: false } } }
       });
 
       // Visits by Country Chart
@@ -137,15 +143,15 @@
       var countries = visitsData.map(data => data.country);
       var visitCounts = visitsData.map(data => data.visit_count);
       new Chart(document.getElementById('countryVisitsChart').getContext('2d'), {
-        type: 'bar',
-        data: {
-          labels: countries,
-          datasets: [{ label: '{{ __("dashboard.visits") }}', data: visitCounts, backgroundColor: 'rgba(54, 162, 235, 0.5)' }]
-        },
-        options: { plugins: { legend: { display: false } } }
+      type: 'bar',
+      data: {
+        labels: countries,
+        datasets: [{ label: '{{ __("dashboard.visits") }}', data: visitCounts, backgroundColor: 'rgba(54, 162, 235, 0.5)' }]
+      },
+      options: { plugins: { legend: { display: false } } }
       });
     </script>
 
+    </div>
   </div>
-</div>
 @endsection

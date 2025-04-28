@@ -16,5 +16,6 @@ return [
         'articles' => 'Articles',
         'employment_forms' => 'Employment Forms',
         'cooperation_forms' => 'Cooperation Forms',
+        'documents' => 'DocumentSystemManagment'
     ],
 ];

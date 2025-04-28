@@ -16,5 +16,6 @@ return [
         'articles' => 'مقالات',
         'employment_forms' => 'فرم‌های استخدام',
         'cooperation_forms' => 'فرم‌های همکاری',
+        'documents' => 'ماژول مدیریت اسناد'
     ],
 ];
