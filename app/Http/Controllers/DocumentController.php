@@ -8,36 +8,44 @@ class DocumentController extends Controller
 {
     public function index(Request $request)
     {
+        // Load owners and doc types for filter dropdowns
+        $owners = Document::select('owner_code')->distinct()->pluck('owner_code');
+        $docTypes = Document::select('doc_type_code')->distinct()->pluck('doc_type_code');
+
+        // Start query
         $query = Document::query();
 
+        // Apply filters
         if ($request->filled('doc_type_code')) {
             $query->where('doc_type_code', $request->doc_type_code);
         }
-
         if ($request->filled('owner_code')) {
             $query->where('owner_code', $request->owner_code);
         }
-
         if ($request->filled('revision_number')) {
             $query->where('revision_number', $request->revision_number);
         }
         if ($request->filled('created_at')) {
             $query->whereDate('created_at', $request->created_at);
         }
-
         if ($request->filled('code')) {
             $query->whereRaw("CONCAT(owner_code, '-', doc_type_code, '-', LPAD(serial_number, 3, '0'), '-', revision_number) LIKE ?", ["%{$request->code}%"]);
         }
 
-        $documents = $query->orderBy('serial_number')
+        // Paginate results BEFORE grouping
+        $documentsRaw = $query->orderBy('serial_number')
             ->orderByDesc('revision_number')
-            ->get()
-            ->groupBy(function ($doc) {
-                return "{$doc->owner_code}-{$doc->doc_type_code}-" . str_pad($doc->serial_number, 3, '0', STR_PAD_LEFT);
-            });
+            ->paginate(12);
 
-        return view('fileUpload.index', compact('documents'));
+        // Group documents for display
+        $documents = $documentsRaw->getCollection()->groupBy(function ($doc) {
+            return "{$doc->owner_code}-{$doc->doc_type_code}-" . str_pad($doc->serial_number, 3, '0', STR_PAD_LEFT);
+        });
+
+        // Return both paginated and grouped results
+        return view('fileUpload.index', compact('documents', 'documentsRaw', 'owners', 'docTypes'));
     }
+
     public function store(Request $request)
     {
         $request->validate([
@@ -123,7 +131,7 @@ class DocumentController extends Controller
     }
     public function destroy($id)
     {
-        $document = Document::findOrFail($id);  
+        $document = Document::findOrFail($id);
         $document->delete();
 
         return redirect()->route('documents.index', ['locale' => app()->getLocale()])

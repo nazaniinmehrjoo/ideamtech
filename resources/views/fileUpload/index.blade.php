@@ -24,15 +24,26 @@
 
                         <div class="col-md-4">
                             <label for="owner_code" class="form-label text-end d-block">👤 کد مالک</label>
-                            <input type="text" name="owner_code" id="owner_code" value="{{ request('owner_code') }}"
-                                class="form-control text-end" placeholder="مثال: OWN">
+                            <select name="owner_code" id="owner_code" class="form-select text-end">
+                                <option value="">-- انتخاب مالک --</option>
+                                @foreach($owners as $owner)
+                                    <option value="{{ $owner }}" {{ request('owner_code') == $owner ? 'selected' : '' }}>
+                                        {{ $owner }}
+                                    </option>
+                                @endforeach
+                            </select>
                         </div>
 
                         <div class="col-md-4">
                             <label for="doc_type_code" class="form-label text-end d-block">📄 کد نوع سند</label>
-                            <input type="text" name="doc_type_code" id="doc_type_code"
-                                value="{{ request('doc_type_code') }}" class="form-control text-end"
-                                placeholder="مثال: DOC">
+                            <select name="doc_type_code" id="doc_type_code" class="form-select text-end">
+                                <option value="">-- انتخاب نوع سند --</option>
+                                @foreach($docTypes as $docType)
+                                    <option value="{{ $docType }}" {{ request('doc_type_code') == $docType ? 'selected' : '' }}>
+                                        {{ $docType }}
+                                    </option>
+                                @endforeach
+                            </select>
                         </div>
 
                         <div class="col-md-4">
@@ -109,13 +120,13 @@
                             </a>
 
                             <!-- <form action="{{ route('documents.destroy', ['locale' => app()->getLocale(), 'id' => $latest->id]) }}"
-                                                                                                        method="POST" class="mt-2">
-                                                                                                        @csrf
-                                                                                                        @method('DELETE')
-                                                                                                        <button type="submit" class="btn btn-sm btn-danger w-100">
-                                                                                                            🗑️ {{ __('documents.delete') }}
-                                                                                                        </button>
-                                                                                                    </form> -->
+                                                                                                                                            method="POST" class="mt-2">
+                                                                                                                                            @csrf
+                                                                                                                                            @method('DELETE')
+                                                                                                                                            <button type="submit" class="btn btn-sm btn-danger w-100">
+                                                                                                                                                🗑️ {{ __('documents.delete') }}
+                                                                                                                                            </button>
+                                                                                                                                        </form> -->
 
                             <button class="btn btn-sm btn-outline-info mt-3 w-100"
                                 onclick="trackAndOpenModal('{{ $latest->id }}', '{{ $badgeText }} - {{ $fullFileName }}', {{ json_encode($versions) }})">
@@ -126,6 +137,9 @@
             @empty
                 <p class="text-center w-100 mt-4">{{ __('documents.not_found') }}</p>
             @endforelse
+        </div>
+        <div class="mt-4 d-flex justify-content-center">
+            {{ $documentsRaw->appends(request()->query())->links() }}
         </div>
     </div>
 
@@ -157,11 +171,11 @@
 
                 const listItem = document.createElement('li');
                 listItem.innerHTML = `<h5 href="${version.file_path}" target="_blank">
-                                                            📥 شماره ویرایش ${version.revision_number} - ${fileName} (${formattedDate})
-                                                          </h5>
-                                                          <a href="{{ asset('storage/${version.file_path}') }}" class="compare-button" style="padding:1px 2px;border-radius:14px" download>
-                                                            Download Version ${version.revision_number}
-                                                          </a>`;
+                                                                        📥 شماره ویرایش ${version.revision_number} - ${fileName} (${formattedDate})
+                                                                      </h5>
+                                                                      <a href="{{ asset('storage/${version.file_path}') }}" class="compare-button" style="padding:1px 2px;border-radius:14px" download>
+                                                                        Download Version ${version.revision_number}
+                                                                      </a>`;
                 versionList.appendChild(listItem);
             });
             document.getElementById('moreProductDtl').style.display = 'block';
