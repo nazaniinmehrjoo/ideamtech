@@ -19,7 +19,7 @@
                         <div class="col-md-4">
                             <label for="code" class="form-label text-end d-block">🔎 کد کامل سند</label>
                             <input type="text" name="code" id="code" value="{{ request('code') }}"
-                                class="form-control text-end" placeholder="مثال: OWN-DOC-001-0">
+                                class="form-control text-end" placeholder="مثال: OWN-DOC-01-01">
                         </div>
 
                         <div class="col-md-4">
@@ -47,14 +47,6 @@
 
                             </select>
                         </div>
-
-                        <div class="col-md-4">
-                            <label for="revision_number" class="form-label text-end d-block">🔢 شماره ویرایش</label>
-                            <input type="number" name="revision_number" id="revision_number"
-                                value="{{ request('revision_number') }}" class="form-control text-end"
-                                placeholder="مثال: 0">
-                        </div>
-
                         <div class="col-md-4">
                             <label for="created_at" class="form-label text-end d-block">🗓️ تاریخ ایجاد</label>
                             <input type="date" name="created_at" id="created_at" value="{{ request('created_at') }}"
@@ -103,8 +95,10 @@
                             $badgeText = __('documents.labels.default');
                         }
                         $badgeClass = array_key_exists($code, __('documents.labels')) ? 'badge-' . $code : 'badge-default';
-                        $fileNameBase = "{$latest->owner_code}-{$latest->doc_type_code}-" . str_pad($latest->serial_number, 3, '0', STR_PAD_LEFT);
-                        $fullFileName = "{$fileNameBase}-{$latest->revision_number}";
+                        $serialStr = str_pad($latest->serial_number, 2, '0', STR_PAD_LEFT);
+                        $revisionStr = str_pad($latest->revision_number, 2, '0', STR_PAD_LEFT);
+                        $fileNameBase = "{$latest->owner_code}-{$latest->doc_type_code}-{$serialStr}";
+                        $fullFileName = "{$fileNameBase}-{$revisionStr}";
                     @endphp
 
                     <div>
@@ -137,13 +131,13 @@
                         </a>
 
                         <!-- <form action="{{ route('documents.destroy', ['locale' => app()->getLocale(), 'id' => $latest->id]) }}"
-                                                                                                                                                                                                        method="POST" class="mt-2">
-                                                                                                                                                                                                        @csrf
-                                                                                                                                                                                                        @method('DELETE')
-                                                                                                                                                                                                        <button type="submit" class="btn btn-sm btn-danger w-100">
-                                                                                                                                                                                                            🗑️ {{ __('documents.delete') }}
-                                                                                                                                                                                                        </button>
-                                                                                                                                                                                                    </form> -->
+                                                                                                                                                                                                                                method="POST" class="mt-2">
+                                                                                                                                                                                                                                @csrf
+                                                                                                                                                                                                                                @method('DELETE')
+                                                                                                                                                                                                                                <button type="submit" class="btn btn-sm btn-danger w-100">
+                                                                                                                                                                                                                                    🗑️ {{ __('documents.delete') }}
+                                                                                                                                                                                                                                </button>
+                                                                                                                                                                                                                            </form> -->
 
                         <button class="btn btn-sm btn-outline-info mt-3 w-100"
                             onclick="trackAndOpenModal('{{ $latest->id }}', '{{ $badgeText }} - {{ $fullFileName }}', {{ json_encode($versions) }})">
@@ -188,11 +182,11 @@
 
                 const listItem = document.createElement('li');
                 listItem.innerHTML = `<h5 href="${version.file_path}" target="_blank">
-                                                                                                    📥 شماره ویرایش ${version.revision_number} - ${fileName} (${formattedDate})
-                                                                                                  </h5>
-                                                                                                  <a href="{{ asset('storage/${version.file_path}') }}" class="compare-button" style="padding:1px 2px;border-radius:14px" download>
-                                                                                                    Download Version ${version.revision_number}
-                                                                                                  </a>`;
+                                                                                                                📥 شماره ویرایش ${version.revision_number} - ${fileName} (${formattedDate})
+                                                                                                              </h5>
+                                                                                                              <a href="{{ asset('storage/${version.file_path}') }}" class="compare-button" style="padding:1px 2px;border-radius:14px" download>
+                                                                                                                Download Version ${version.revision_number}
+                                                                                                              </a>`;
                 versionList.appendChild(listItem);
             });
             document.getElementById('moreProductDtl').style.display = 'block';
@@ -235,7 +229,6 @@
             return `${jy}/${String(jm + 1).padStart(2, '0')}/${String(jd).padStart(2, '0')}`;
         }
 
-        // Auto-convert all elements with class .persian-date
         document.querySelectorAll('.persian-date').forEach(function (el) {
             const gDate = el.dataset.gregorian;
             const [gy, gm, gd] = gDate.split('-').map(Number);

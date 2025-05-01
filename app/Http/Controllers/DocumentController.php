@@ -90,22 +90,25 @@ class DocumentController extends Controller
             'file' => 'required|file|max:10240',
         ]);
 
-
+        // Get the latest document with same owner and type
         $latestDoc = Document::where('owner_code', $request->owner_code)
             ->where('doc_type_code', $request->doc_type_code)
             ->orderByDesc('serial_number')
             ->first();
 
         $newSerial = $latestDoc ? $latestDoc->serial_number + 1 : 1;
-        $serialStr = str_pad($newSerial, 3, '0', STR_PAD_LEFT);
-        $revisionNumber = 0;
+        $revisionNumber = 1;
+
+        // Format serial and revision to 2 digits
+        $serialStr = str_pad($newSerial, 2, '0', STR_PAD_LEFT);
+        $revisionStr = str_pad($revisionNumber, 2, '0', STR_PAD_LEFT);
 
         $extension = $request->file('file')->getClientOriginalExtension();
-        $fileName = "{$request->owner_code}-{$request->doc_type_code}-{$serialStr}-{$revisionNumber}.{$extension}";
+        $fileName = "{$request->owner_code}-{$request->doc_type_code}-{$serialStr}-{$revisionStr}.{$extension}";
 
         $filePath = $request->file('file')->storeAs('documents', $fileName, 'public');
 
-        Document::create([
+        $document = Document::create([
             'owner_code' => $request->owner_code,
             'doc_type_code' => $request->doc_type_code,
             'serial_number' => $newSerial,
@@ -113,13 +116,12 @@ class DocumentController extends Controller
             'file_path' => $filePath,
         ]);
 
-        $createdDoc = Document::latest()->first();
-
-        session()->flash('undo_document_id', $createdDoc->id);
+        session()->flash('undo_document_id', $document->id);
 
         return redirect()->route('documents.index', ['locale' => app()->getLocale()])
             ->with('success', "سند جدید با موفقیت آپلود شد: $fileName");
     }
+
     public function undo(Request $request)
     {
         $doc = Document::find($request->id);
@@ -156,6 +158,7 @@ class DocumentController extends Controller
         $type = $oldDocument->doc_type_code;
         $serial = $oldDocument->serial_number;
 
+        // Get the latest revision for the same serial
         $latestRevision = Document::where('owner_code', $owner)
             ->where('doc_type_code', $type)
             ->where('serial_number', $serial)
@@ -164,9 +167,12 @@ class DocumentController extends Controller
 
         $newRevision = $latestRevision ? $latestRevision->revision_number + 1 : 1;
 
-        $serialStr = str_pad($serial, 3, '0', STR_PAD_LEFT);
+        // Format both serial and revision as 2 digits
+        $serialStr = str_pad($serial, 2, '0', STR_PAD_LEFT);
+        $revisionStr = str_pad($newRevision, 2, '0', STR_PAD_LEFT);
+
         $extension = $request->file('file')->getClientOriginalExtension();
-        $fileName = "{$owner}-{$type}-{$serialStr}-{$newRevision}.{$extension}";
+        $fileName = "{$owner}-{$type}-{$serialStr}-{$revisionStr}.{$extension}";
 
         $filePath = $request->file('file')->storeAs('documents', $fileName, 'public');
 
@@ -181,6 +187,7 @@ class DocumentController extends Controller
         return redirect()->route('documents.index', ['locale' => app()->getLocale()])
             ->with('success', "نسخه جدید آپلود شد: $fileName");
     }
+
 
     public function edit($id)
     {
