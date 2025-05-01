@@ -77,9 +77,31 @@ class DocumentController extends Controller
             'file_path' => $filePath,
         ]);
 
+        $createdDoc = Document::latest()->first();
+
+        session()->flash('undo_document_id', $createdDoc->id);
+
         return redirect()->route('documents.index', ['locale' => app()->getLocale()])
             ->with('success', "سند جدید با موفقیت آپلود شد: $fileName");
     }
+    public function undo(Request $request)
+    {
+        $doc = Document::find($request->id);
+
+        if ($doc) {
+            // Optionally delete the physical file too
+            \Storage::disk('public')->delete($doc->file_path);
+
+            $doc->delete();
+
+            return redirect()->route('documents.index', ['locale' => app()->getLocale()])
+                ->with('success', 'آپلود آخرین سند لغو شد.');
+        }
+
+        return redirect()->route('documents.index', ['locale' => app()->getLocale()])
+            ->with('error', 'سندی برای لغو یافت نشد.');
+    }
+
 
     public function showForm()
     {

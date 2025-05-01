@@ -74,7 +74,17 @@
                 </div>
             </div>
         </form>
-
+        @if(session('undo_document_id'))
+            <div class="alert alert-warning mt-3">
+                <span>📝 سند جدید با موفقیت آپلود شد.</span>
+                <form action="{{ route('documents.undo', ['locale' => app()->getLocale()]) }}" method="POST"
+                    style="display:inline;">
+                    @csrf
+                    <input type="hidden" name="id" value="{{ session('undo_document_id') }}">
+                    <button type="submit" class="btn btn-sm btn-danger ms-2">↩️ بازگرداندن</button>
+                </form>
+            </div>
+        @endif
 
 
 
@@ -120,13 +130,13 @@
                             </a>
 
                             <!-- <form action="{{ route('documents.destroy', ['locale' => app()->getLocale(), 'id' => $latest->id]) }}"
-                                                                                                                                            method="POST" class="mt-2">
-                                                                                                                                            @csrf
-                                                                                                                                            @method('DELETE')
-                                                                                                                                            <button type="submit" class="btn btn-sm btn-danger w-100">
-                                                                                                                                                🗑️ {{ __('documents.delete') }}
-                                                                                                                                            </button>
-                                                                                                                                        </form> -->
+                                                                                                                                                        method="POST" class="mt-2">
+                                                                                                                                                        @csrf
+                                                                                                                                                        @method('DELETE')
+                                                                                                                                                        <button type="submit" class="btn btn-sm btn-danger w-100">
+                                                                                                                                                            🗑️ {{ __('documents.delete') }}
+                                                                                                                                                        </button>
+                                                                                                                                                    </form> -->
 
                             <button class="btn btn-sm btn-outline-info mt-3 w-100"
                                 onclick="trackAndOpenModal('{{ $latest->id }}', '{{ $badgeText }} - {{ $fullFileName }}', {{ json_encode($versions) }})">
@@ -171,11 +181,11 @@
 
                 const listItem = document.createElement('li');
                 listItem.innerHTML = `<h5 href="${version.file_path}" target="_blank">
-                                                                        📥 شماره ویرایش ${version.revision_number} - ${fileName} (${formattedDate})
-                                                                      </h5>
-                                                                      <a href="{{ asset('storage/${version.file_path}') }}" class="compare-button" style="padding:1px 2px;border-radius:14px" download>
-                                                                        Download Version ${version.revision_number}
-                                                                      </a>`;
+                                                                            📥 شماره ویرایش ${version.revision_number} - ${fileName} (${formattedDate})
+                                                                          </h5>
+                                                                          <a href="{{ asset('storage/${version.file_path}') }}" class="compare-button" style="padding:1px 2px;border-radius:14px" download>
+                                                                            Download Version ${version.revision_number}
+                                                                          </a>`;
                 versionList.appendChild(listItem);
             });
             document.getElementById('moreProductDtl').style.display = 'block';

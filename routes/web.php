@@ -39,13 +39,14 @@ Route::get('/lang/{locale}', function ($locale) {
 
 // Redirect to default locale if no locale is provided
 Route::get('/', function () {
-    return redirect(app()->getLocale()); // Redirect to the app's default locale
+    return redirect(app()->getLocale()); 
 });
 Route::get('/documents/{id}/edit', [DocumentController::class, 'edit'])->name('documents.edit');
 Route::put('/documents/{id}', [DocumentController::class, 'update'])->name('documents.update');
 Route::get('/documents/create', [DocumentController::class, 'showForm'])->name('documents.showForm');
 Route::delete('/documents/{id}', [DocumentController::class, 'destroy'])->name('documents.destroy');
 Route::delete('/documents/destroy-version/{id}', [DocumentController::class, 'destroyVersion'])->name('documents.destroyVersion');
+Route::post('/{locale}/documents/undo', [DocumentController::class, 'undo'])->name('documents.undo');
 
 
 // Routes with locale prefix
