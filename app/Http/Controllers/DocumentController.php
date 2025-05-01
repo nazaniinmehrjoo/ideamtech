@@ -8,9 +8,38 @@ class DocumentController extends Controller
 {
     public function index(Request $request)
     {
-        // Load owners and doc types for filter dropdowns
+
         $owners = Document::select('owner_code')->distinct()->pluck('owner_code');
         $docTypes = Document::select('doc_type_code')->distinct()->pluck('doc_type_code');
+
+        $ownerNames = [
+            'MNG' => 'حوزه مدیرعامل',
+            'SYS' => 'سیستم‌ها و فرآیندها',
+            'COM' => 'بازرگانی',
+            'INA' => 'حسابرسی داخلی',
+            'FIN' => 'مالی و اقتصادی',
+            'LAW' => 'حقوقی',
+            'STR' => 'انبار',
+            'GUR' => 'خدمات پس از فروش',
+            'EXE' => 'اجرایی تولید',
+            'QAL' => 'کنترل کیفیت',
+            'SAL' => 'بازاریابی و فروش',
+            'ENG' => 'طراحی و مهندسی',
+            'HUR' => 'سرمایه انسانی',
+            'PRJ' => 'پروژه‌ها',
+        ];
+
+        $docTypeNames = [
+            'PS' => 'فرآیند',
+            'PR' => 'روش اجرایی',
+            'IN' => 'دستورالعمل',
+            'FR' => 'فرم',
+            'ST' => 'استراتژی',
+            'RE' => 'آیین‌نامه',
+            'CH' => 'چارت',
+            'JD' => 'شرح وظایف',
+            'default' => 'سایر',
+        ];
 
         // Start query
         $query = Document::query();
@@ -42,8 +71,15 @@ class DocumentController extends Controller
             return "{$doc->owner_code}-{$doc->doc_type_code}-" . str_pad($doc->serial_number, 3, '0', STR_PAD_LEFT);
         });
 
-        // Return both paginated and grouped results
-        return view('fileUpload.index', compact('documents', 'documentsRaw', 'owners', 'docTypes'));
+        // Return all necessary data to the view
+        return view('fileUpload.index', compact(
+            'documents',
+            'documentsRaw',
+            'owners',
+            'docTypes',
+            'ownerNames',
+            'docTypeNames'
+        ));
     }
 
     public function store(Request $request)

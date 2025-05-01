@@ -28,9 +28,10 @@
                                 <option value="">-- انتخاب مالک --</option>
                                 @foreach($owners as $owner)
                                     <option value="{{ $owner }}" {{ request('owner_code') == $owner ? 'selected' : '' }}>
-                                        {{ $owner }}
+                                        {{ $ownerNames[$owner] ?? $owner }}
                                     </option>
                                 @endforeach
+
                             </select>
                         </div>
 
@@ -40,9 +41,10 @@
                                 <option value="">-- انتخاب نوع سند --</option>
                                 @foreach($docTypes as $docType)
                                     <option value="{{ $docType }}" {{ request('doc_type_code') == $docType ? 'selected' : '' }}>
-                                        {{ $docType }}
+                                        {{ $docTypeNames[$docType] ?? $docType }}
                                     </option>
                                 @endforeach
+
                             </select>
                         </div>
 
@@ -92,58 +94,63 @@
 
         <div class="doc-grid">
             @forelse($documents as $group => $versions)
-                    <div class="doc-card">
-                        @php
-                            $latest = $versions->first();
-                            $code = strtoupper($latest->doc_type_code);
-                            $badgeText = __('documents.labels.' . $code);
-                            if ($badgeText === 'documents.labels.' . $code) {
-                                $badgeText = __('documents.labels.default');
-                            }
-                            $badgeClass = array_key_exists($code, __('documents.labels')) ? 'badge-' . $code : 'badge-default';
-                            $fileNameBase = "{$latest->owner_code}-{$latest->doc_type_code}-" . str_pad($latest->serial_number, 3, '0', STR_PAD_LEFT);
-                            $fullFileName = "{$fileNameBase}-{$latest->revision_number}";
-                        @endphp
+                <div class="doc-card">
+                    @php
+                        $latest = $versions->first();
+                        $code = strtoupper($latest->doc_type_code);
+                        $badgeText = __('documents.labels.' . $code);
+                        if ($badgeText === 'documents.labels.' . $code) {
+                            $badgeText = __('documents.labels.default');
+                        }
+                        $badgeClass = array_key_exists($code, __('documents.labels')) ? 'badge-' . $code : 'badge-default';
+                        $fileNameBase = "{$latest->owner_code}-{$latest->doc_type_code}-" . str_pad($latest->serial_number, 3, '0', STR_PAD_LEFT);
+                        $fullFileName = "{$fileNameBase}-{$latest->revision_number}";
+                    @endphp
 
-                        <div>
-                            <div class="doc-icon">📄</div>
-                            <!-- <div class="doc-title">{{ $badgeText }}</div> -->
-                            <div class="doc-code">{{ $fullFileName }}</div>
+                    <div>
+                        <div class="doc-icon">📄</div>
+                        <!-- <div class="doc-title">{{ $badgeText }}</div> -->
+                        <div class="doc-code">{{ $fullFileName }}</div>
 
-                            <div class="doc-meta">
-                                <strong>{{ __('documents.date') }}:</strong>{{ $latest->created_at->format('Y-m-d') }}
-                            </div>
-                            <div class="doc-meta"><strong>{{ __('documents.revision') }}:</strong> {{ $latest->revision_number }}
-                            </div>
-                            <div class="doc-meta"><strong>{{ __('documents.owner') }}:</strong> {{ $latest->owner_code }}</div>
-
-                            <span class="doc-badge {{ $badgeClass }}">{{ $badgeText }}</span>
-
-                            <a href="{{ asset('storage/' . $latest->file_path) }}" class="btn btn-sm btn-outline-primary mt-3 w-100"
-                                target="_blank">
-                                {{ __('documents.download') }}
-                            </a>
-
-                            <a href="{{ route('documents.edit', ['locale' => app()->getLocale(), 'id' => $latest->id]) }}"
-                                class="btn btn-sm btn-warning mt-2 w-100">
-                                ✏️ {{ __('documents.edit_version') ?? 'افزودن نسخه جدید' }}
-                            </a>
-
-                            <!-- <form action="{{ route('documents.destroy', ['locale' => app()->getLocale(), 'id' => $latest->id]) }}"
-                                                                                                                                                        method="POST" class="mt-2">
-                                                                                                                                                        @csrf
-                                                                                                                                                        @method('DELETE')
-                                                                                                                                                        <button type="submit" class="btn btn-sm btn-danger w-100">
-                                                                                                                                                            🗑️ {{ __('documents.delete') }}
-                                                                                                                                                        </button>
-                                                                                                                                                    </form> -->
-
-                            <button class="btn btn-sm btn-outline-info mt-3 w-100"
-                                onclick="trackAndOpenModal('{{ $latest->id }}', '{{ $badgeText }} - {{ $fullFileName }}', {{ json_encode($versions) }})">
-                                {{ __('documents.view_all_versions') ?? 'مشاهده تمامی نسخه‌ها' }}
-                            </button>
+                        <div class="doc-meta">
+                            <strong>{{ __('documents.date') }}:</strong>
+                            <span class="persian-date" data-gregorian="{{ $latest->created_at->format('Y-m-d') }}"></span>
                         </div>
+
+                        <div class="doc-meta"><strong>{{ __('documents.revision') }}:</strong> {{ $latest->revision_number }}
+                        </div>
+                        <div class="doc-meta">
+                            <strong>{{ __('documents.owner') }}:</strong>
+                            {{ $ownerNames[$latest->owner_code] ?? $latest->owner_code }}
+                        </div>
+
+                        <span class="doc-badge {{ $badgeClass }}">{{ $badgeText }}</span>
+
+                        <a href="{{ asset('storage/' . $latest->file_path) }}" class="btn btn-sm btn-outline-primary mt-3 w-100"
+                            target="_blank">
+                            {{ __('documents.download') }}
+                        </a>
+
+                        <a href="{{ route('documents.edit', ['locale' => app()->getLocale(), 'id' => $latest->id]) }}"
+                            class="btn btn-sm btn-warning mt-2 w-100">
+                            ✏️ {{ __('documents.edit_version') ?? 'افزودن نسخه جدید' }}
+                        </a>
+
+                        <!-- <form action="{{ route('documents.destroy', ['locale' => app()->getLocale(), 'id' => $latest->id]) }}"
+                                                                                                                                                                                                        method="POST" class="mt-2">
+                                                                                                                                                                                                        @csrf
+                                                                                                                                                                                                        @method('DELETE')
+                                                                                                                                                                                                        <button type="submit" class="btn btn-sm btn-danger w-100">
+                                                                                                                                                                                                            🗑️ {{ __('documents.delete') }}
+                                                                                                                                                                                                        </button>
+                                                                                                                                                                                                    </form> -->
+
+                        <button class="btn btn-sm btn-outline-info mt-3 w-100"
+                            onclick="trackAndOpenModal('{{ $latest->id }}', '{{ $badgeText }} - {{ $fullFileName }}', {{ json_encode($versions) }})">
+                            {{ __('documents.view_all_versions') ?? 'مشاهده تمامی نسخه‌ها' }}
+                        </button>
                     </div>
+                </div>
             @empty
                 <p class="text-center w-100 mt-4">{{ __('documents.not_found') }}</p>
             @endforelse
@@ -181,17 +188,58 @@
 
                 const listItem = document.createElement('li');
                 listItem.innerHTML = `<h5 href="${version.file_path}" target="_blank">
-                                                                            📥 شماره ویرایش ${version.revision_number} - ${fileName} (${formattedDate})
-                                                                          </h5>
-                                                                          <a href="{{ asset('storage/${version.file_path}') }}" class="compare-button" style="padding:1px 2px;border-radius:14px" download>
-                                                                            Download Version ${version.revision_number}
-                                                                          </a>`;
+                                                                                                    📥 شماره ویرایش ${version.revision_number} - ${fileName} (${formattedDate})
+                                                                                                  </h5>
+                                                                                                  <a href="{{ asset('storage/${version.file_path}') }}" class="compare-button" style="padding:1px 2px;border-radius:14px" download>
+                                                                                                    Download Version ${version.revision_number}
+                                                                                                  </a>`;
                 versionList.appendChild(listItem);
             });
             document.getElementById('moreProductDtl').style.display = 'block';
         }
 
     </script>
+    <script>
+        function toJalali(g_y, g_m, g_d) {
+            const g_days_in_month = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+            const j_days_in_month = [31, 31, 31, 31, 31, 31, 30, 30, 30, 30, 30, 29];
 
+            let gy = g_y - 1600;
+            let gm = g_m - 1;
+            let gd = g_d - 1;
 
+            let g_day_no = 365 * gy + Math.floor((gy + 3) / 4) - Math.floor((gy + 99) / 100) + Math.floor((gy + 399) / 400);
+            for (let i = 0; i < gm; ++i) g_day_no += g_days_in_month[i];
+            if (gm > 1 && ((g_y % 4 === 0 && g_y % 100 !== 0) || (g_y % 400 === 0))) g_day_no++;
+
+            g_day_no += gd;
+
+            let j_day_no = g_day_no - 79;
+            const j_np = Math.floor(j_day_no / 12053);
+            j_day_no %= 12053;
+
+            let jy = 979 + 33 * j_np + 4 * Math.floor(j_day_no / 1461);
+            j_day_no %= 1461;
+
+            if (j_day_no >= 366) {
+                jy += Math.floor((j_day_no - 1) / 365);
+                j_day_no = (j_day_no - 1) % 365;
+            }
+
+            let jm = 0;
+            for (; jm < 11 && j_day_no >= j_days_in_month[jm]; jm++) {
+                j_day_no -= j_days_in_month[jm];
+            }
+            const jd = j_day_no + 1;
+
+            return `${jy}/${String(jm + 1).padStart(2, '0')}/${String(jd).padStart(2, '0')}`;
+        }
+
+        // Auto-convert all elements with class .persian-date
+        document.querySelectorAll('.persian-date').forEach(function (el) {
+            const gDate = el.dataset.gregorian;
+            const [gy, gm, gd] = gDate.split('-').map(Number);
+            el.textContent = toJalali(gy, gm, gd);
+        });
+    </script>
 @endsection
