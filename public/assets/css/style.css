@@ -8710,7 +8710,7 @@ body.light-mode .card-header {
 }
 
 body.light-mode .card-header h5 {
-    color: #fff;
+    color: #070708;
 }
 
 body.light-mode .counter {
@@ -9480,6 +9480,24 @@ body.light-mode .filter-card .btn-outline-secondary {
     color: #6c757d;
     border-color: #6c757d;
 }
+body.light-mode .table thead th{
+    color: #282828;
+    direction: rtl;
+    text-align: center;
+}
+.table thead th{
+    color: white;
+}
+.table-bordered td, .table-bordered th{
+    direction: rtl;
+    text-align: center;
+}
+
+body.light-mode .table-bordered td, .table-bordered th{
+    color: #282828;
+    direction: rtl;
+    text-align: center;
+}
 
 /* Dark Mode Styling */
 body.dark-mode .filter-card {
@@ -9515,4 +9533,27 @@ body.dark-mode .form-select {
     background-color: #2c2c2c;
     color: #e0e0e0;
     border: 1px solid #444444;
+}
+body.light-mode table.table {
+    background-color: #fdfdfd;
+    color: #212529;
+}
+
+body.light-mode table.table thead {
+    background-color: #f8f9fa;
+    color: #000;
+}
+
+body.dark-mode table.table {
+    background-color: #1e1e1e;
+    color: #ddd;
+}
+
+body.dark-mode table.table thead {
+    background-color: #2b2b2b;
+    color: #fff;
+}
+
+body.dark-mode table.table tr {
+    border-color: #444;
 }

@@ -3,24 +3,38 @@
 @section('content')
     <div class="container py-5">
         <h2 class="mb-4 text-center">{{ __('documents.title') }}</h2>
+        @php
+            $isAdmin = auth()->check() && (auth()->user()->is_admin ?? false);
+        @endphp
+        @if($isAdmin)
+            <div class="mb-3 d-flex justify-content-start" dir="rtl">
+                <a href="{{ route('documents.showForm', ['locale' => app()->getLocale()]) }}" class="btn btn-success">
+                    اصافه کردن سند جدید
+                </a>
+            </div>
+        @endif
 
-        <div class="text-end mb-4">
-            <a href="{{ route('documents.showForm', ['locale' => app()->getLocale()]) }}" class="btn btn-success">
-                +
-            </a>
+        <div class="mb-3 d-flex justify-content-start" dir="rtl">
+            <button class="btn btn-outline-primary ms-2" onclick="switchView('grid')">نمای کارت</button>
+            <button class="btn btn-outline-secondary" onclick="switchView('table')">نمای جدول</button>
         </div>
-        <form method="GET" action="{{ route('documents.index', ['locale' => app()->getLocale()]) }}" class="mb-5" dir="rtl">
+
+
+        <form method="GET" action="{{ route('documents.index', ['locale' => app()->getLocale()]) }}" class="mb-5" dir="rtl"
+            style="text-align: center;">
             <div class="card filter-card shadow-sm border-0">
                 <div class="card-header">
                     <h5 class="mb-0 text-end">🎯 فیلتر اسناد</h5>
                 </div>
                 <div class="card-body">
                     <div class="row g-4">
+
                         <div class="col-md-4">
                             <label for="code" class="form-label text-end d-block">🔎 کد کامل سند</label>
                             <input type="text" name="code" id="code" value="{{ request('code') }}"
                                 class="form-control text-end" placeholder="مثال: OWN-DOC-01-01">
                         </div>
+
 
                         <div class="col-md-4">
                             <label for="owner_code" class="form-label text-end d-block">👤 کد مالک</label>
@@ -31,7 +45,6 @@
                                         {{ $ownerNames[$owner] ?? $owner }}
                                     </option>
                                 @endforeach
-
                             </select>
                         </div>
 
@@ -45,9 +58,9 @@
                                         {{ $docTypeNames[$docType] ?? $docType }}
                                     </option>
                                 @endforeach
-
                             </select>
                         </div>
+
 
                         <div class="col-md-4">
                             <label for="file_name" class="form-label text-end d-block">📁 نام فایل</label>
@@ -55,21 +68,19 @@
                                 class="form-control text-end" placeholder="مثال: MNG-PS-01-01.pdf">
                         </div>
 
-                        <div class="col-md-4">
-                            <label for="created_at" class="form-label text-end d-block">🗓️ تاریخ ایجاد</label>
-                            <input type="date" name="created_at" id="created_at" value="{{ request('created_at') }}"
-                                class="form-control text-end">
-                        </div>
+
+                        <!-- <div class="col-md-4">
+                                    <label for="created_at" class="form-label text-end d-block">🗓️ تاریخ ایجاد</label>
+                                    <input type="date" name="created_at" id="created_at" value="{{ request('created_at') }}"
+                                        class="form-control text-end">
+                                </div> -->
+
 
                         <div class="col-md-4 d-flex align-items-end">
                             <div class="d-grid gap-2 w-100">
-                                <button type="submit" class="btn btn-success">
-                                    🔎 اعمال فیلتر
-                                </button>
+                                <button type="submit" class="btn btn-success">🔎 اعمال فیلتر</button>
                                 <a href="{{ route('documents.index', ['locale' => app()->getLocale()]) }}"
-                                    class="btn btn-outline-secondary">
-                                    ♻️ ریست فیلتر
-                                </a>
+                                    class="btn btn-outline-secondary">♻️ ریست فیلتر</a>
                             </div>
                         </div>
                     </div>
@@ -88,83 +99,107 @@
             </div>
         @endif
 
+        @php
+            $isAdmin = auth()->check() && (auth()->user()->is_admin ?? false);
+        @endphp
 
-
-
-
-        <div class="doc-grid">
+        <div id="gridView" class="doc-grid" dir="rtl">
             @forelse($documents as $group => $versions)
+                @php
+                    $latest = $versions->first();
+                    $code = strtoupper($latest->doc_type_code);
+                    $badgeText = __('documents.labels.' . $code);
+                    if ($badgeText === 'documents.labels.' . $code) {
+                        $badgeText = __('documents.labels.default');
+                    }
+                    $badgeClass = array_key_exists($code, __('documents.labels')) ? 'badge-' . $code : 'badge-default';
+                    $serialStr = str_pad($latest->serial_number, 2, '0', STR_PAD_LEFT);
+                    $revisionStr = str_pad($latest->revision_number, 2, '0', STR_PAD_LEFT);
+                    $fullFileName = "{$latest->owner_code}-{$latest->doc_type_code}-{$serialStr}-{$revisionStr}";
+                @endphp
                 <div class="doc-card">
-                    @php
-                        $latest = $versions->first();
-                        $code = strtoupper($latest->doc_type_code);
-                        $badgeText = __('documents.labels.' . $code);
-                        if ($badgeText === 'documents.labels.' . $code) {
-                            $badgeText = __('documents.labels.default');
-                        }
-                        $badgeClass = array_key_exists($code, __('documents.labels')) ? 'badge-' . $code : 'badge-default';
-                        $serialStr = str_pad($latest->serial_number, 2, '0', STR_PAD_LEFT);
-                        $revisionStr = str_pad($latest->revision_number, 2, '0', STR_PAD_LEFT);
-                        $fileNameBase = "{$latest->owner_code}-{$latest->doc_type_code}-{$serialStr}";
-                        $fullFileName = "{$fileNameBase}-{$revisionStr}";
-                    @endphp
-
                     <div>
                         <div class="doc-icon">📄</div>
-                        <!-- <div class="doc-title">{{ $badgeText }}</div> -->
                         <div class="doc-code">{{ $fullFileName }}</div>
+
                         @if($latest->file_name && $latest->file_name !== $fullFileName)
-                            <div class="doc-meta">
-                                <strong>عنوان سند:</strong> {{ $latest->file_name }}
-                            </div>
+                            <div class="doc-meta"><strong>عنوان سند:</strong> {{ $latest->file_name }}</div>
                         @endif
-                        <div class="doc-meta">
-                            <strong>{{ __('documents.date') }}:</strong>
+
+                        <div class="doc-meta"><strong>{{ __('documents.date') }}:</strong>
                             <span class="persian-date" data-gregorian="{{ $latest->created_at->format('Y-m-d') }}"></span>
                         </div>
-
                         <div class="doc-meta"><strong>{{ __('documents.revision') }}:</strong> {{ $latest->revision_number }}
                         </div>
-                        <div class="doc-meta">
-                            <strong>{{ __('documents.owner') }}:</strong>
-                            {{ $ownerNames[$latest->owner_code] ?? $latest->owner_code }}
-                        </div>
+                        <div class="doc-meta"><strong>{{ __('documents.owner') }}:</strong>
+                            {{ $ownerNames[$latest->owner_code] ?? $latest->owner_code }}</div>
 
                         <span class="doc-badge {{ $badgeClass }}">{{ $badgeText }}</span>
 
                         <a href="{{ asset('storage/' . $latest->file_path) }}" class="btn btn-sm btn-outline-primary mt-3 w-100"
-                            target="_blank">
-                            {{ __('documents.download') }}
-                        </a>
+                            target="_blank">{{ __('documents.download') }}</a>
 
-                        <a href="{{ route('documents.edit', ['locale' => app()->getLocale(), 'id' => $latest->id]) }}"
-                            class="btn btn-sm btn-warning mt-2 w-100">
-                            ✏️ {{ __('documents.edit_version') ?? 'افزودن نسخه جدید' }}
-                        </a>
+                        @if($isAdmin)
+                            <a href="{{ route('documents.edit', ['locale' => app()->getLocale(), 'id' => $latest->id]) }}"
+                                class="btn btn-sm btn-warning mt-2 w-100">✏️ {{ __('documents.edit_version') }}</a>
 
-                        <!-- <form action="{{ route('documents.destroy', ['locale' => app()->getLocale(), 'id' => $latest->id]) }}"
-                                                                                                                                                                                                                                                method="POST" class="mt-2">
-                                                                                                                                                                                                                                                @csrf
-                                                                                                                                                                                                                                                @method('DELETE')
-                                                                                                                                                                                                                                                <button type="submit" class="btn btn-sm btn-danger w-100">
-                                                                                                                                                                                                                                                    🗑️ {{ __('documents.delete') }}
-                                                                                                                                                                                                                                                </button>
-                                                                                                                                                                                                                                            </form> -->
-
-                        <button class="btn btn-sm btn-outline-info mt-3 w-100"
-                            onclick="trackAndOpenModal('{{ $latest->id }}', '{{ $badgeText }} - {{ $fullFileName }}', {{ json_encode($versions) }})">
-                            {{ __('documents.view_all_versions') ?? 'مشاهده تمامی نسخه‌ها' }}
-                        </button>
+                            <button class="btn btn-sm btn-outline-info mt-3 w-100"
+                                onclick="trackAndOpenModal('{{ $latest->id }}', '{{ $badgeText }} - {{ $fullFileName }}', {{ json_encode($versions) }})">
+                                {{ __('documents.view_all_versions') }}
+                            </button>
+                        @endif
                     </div>
                 </div>
             @empty
                 <p class="text-center w-100 mt-4">{{ __('documents.not_found') }}</p>
             @endforelse
         </div>
+
+        <div id="tableView" class="table-responsive" style="display: none;" dir="rtl">
+            <table class="table table-bordered text-end">
+                <thead>
+                    <tr>
+                        <th>کد سند</th>
+                        <th>عنوان فایل</th>
+                        <th>مالک</th>
+                        <th>تاریخ</th>
+                        <th>ویرایش</th>
+                        <th>عملیات</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach($documents as $group => $versions)
+                        @php $latest = $versions->first(); @endphp
+                        <tr>
+                            <td>{{ $latest->owner_code }}-{{ $latest->doc_type_code }}-{{ str_pad($latest->serial_number, 2, '0', STR_PAD_LEFT) }}-{{ str_pad($latest->revision_number, 2, '0', STR_PAD_LEFT) }}
+                            </td>
+                            <td>{{ $latest->file_name }}</td>
+                            <td>{{ $ownerNames[$latest->owner_code] ?? $latest->owner_code }}</td>
+                            <td><span class="persian-date" data-gregorian="{{ $latest->created_at->format('Y-m-d') }}"></span>
+                            </td>
+                            <td>{{ $latest->revision_number }}</td>
+                            <td>
+                                <a href="{{ asset('storage/' . $latest->file_path) }}" class="btn btn-sm btn-outline-primary"
+                                    target="_blank">📥</a>
+
+                                @if($isAdmin)
+                                    <a href="{{ route('documents.edit', ['locale' => app()->getLocale(), 'id' => $latest->id]) }}"
+                                        class="btn btn-sm btn-warning">✏️</a>
+                                @endif
+                            </td>
+                        </tr>
+                    @endforeach
+                </tbody>
+            </table>
+        </div>
+
+
         <div class="mt-4 d-flex justify-content-center">
             {{ $documentsRaw->appends(request()->query())->links() }}
         </div>
     </div>
+
+
 
     <div id="moreProductDtl" class="modal">
         <div class="modal-content">
@@ -178,7 +213,12 @@
             </ul>
         </div>
     </div>
-
+    <script>
+        function switchView(view) {
+            document.getElementById('gridView').style.display = (view === 'grid') ? 'flex' : 'none';
+            document.getElementById('tableView').style.display = (view === 'table') ? 'block' : 'none';
+        }
+    </script>
     <script>
         function trackAndOpenModal(productId, productName, versions) {
             document.getElementById('productNameModal').textContent = productName;
@@ -194,11 +234,11 @@
 
                 const listItem = document.createElement('li');
                 listItem.innerHTML = `<h5 href="${version.file_path}" target="_blank">
-                                                                                                                        📥 شماره ویرایش ${version.revision_number} - ${fileName} (${formattedDate})
-                                                                                                                      </h5>
-                                                                                                                      <a href="{{ asset('storage/${version.file_path}') }}" class="compare-button" style="padding:1px 2px;border-radius:14px" download>
-                                                                                                                        Download Version ${version.revision_number}
-                                                                                                                      </a>`;
+                                                                                                                                                📥 شماره ویرایش ${version.revision_number} - ${fileName} (${formattedDate})
+                                                                                                                                              </h5>
+                                                                                                                                              <a href="{{ asset('storage/${version.file_path}') }}" class="compare-button" style="padding:1px 2px;border-radius:14px" download>
+                                                                                                                                                Download Version ${version.revision_number}
+                                                                                                                                              </a>`;
                 versionList.appendChild(listItem);
             });
             document.getElementById('moreProductDtl').style.display = 'block';

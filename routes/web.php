@@ -39,7 +39,7 @@ Route::get('/lang/{locale}', function ($locale) {
 
 // Redirect to default locale if no locale is provided
 Route::get('/', function () {
-    return redirect(app()->getLocale()); 
+    return redirect(app()->getLocale());
 });
 Route::get('/documents/{id}/edit', [DocumentController::class, 'edit'])->name('documents.edit');
 Route::put('/documents/{id}', [DocumentController::class, 'update'])->name('documents.update');
@@ -150,11 +150,12 @@ Route::group(['prefix' => '{locale}', 'middleware' => 'locale'], function () {
         Route::delete('employment-forms/{id}', [EmploymentFormController::class, 'destroy'])->name('employment-forms.destroy');
 
         Route::post('/upload', [DocumentController::class, 'store'])->name('documents.upload');
-        Route::get('/documents', [DocumentController::class, 'index'])->name('documents.index');
 
     });
-    // موقتاً بیار بیرون برای تست
-    // 301 Redirect (باید بیرون از گروه "auth" باشد)
+    Route::middleware(['auth', 'isAdminOrViewer'])->group(function () {
+        Route::get('/documents', [DocumentController::class, 'index'])->name('documents.index');
+    });
+
     Route::redirect('/خشک-کن-سریع-روتاری', '/fa/خشک-کن/محصولات', 301);
     Route::redirect('/شبیه-ساز-خشک-کن-سریع', '/fa/شبیه-ساز', 301);
     Route::redirect('/خشک-کن-اتاقکی', '/fa/خشک-کن/محصولات', 301);
