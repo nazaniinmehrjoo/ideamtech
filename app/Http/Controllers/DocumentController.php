@@ -60,6 +60,9 @@ class DocumentController extends Controller
         if ($request->filled('code')) {
             $query->whereRaw("CONCAT(owner_code, '-', doc_type_code, '-', LPAD(serial_number, 3, '0'), '-', revision_number) LIKE ?", ["%{$request->code}%"]);
         }
+        if ($request->filled('file_name')) {
+            $query->where('file_name', 'LIKE', "%{$request->file_name}%");
+        }
 
         // Paginate results BEFORE grouping
         $documentsRaw = $query->orderBy('serial_number')
@@ -88,6 +91,7 @@ class DocumentController extends Controller
             'owner_code' => 'required|string|max:10',
             'doc_type_code' => 'required|string|max:10',
             'file' => 'required|file|max:10240',
+            'file_name' => 'nullable|string|max:255',
         ]);
 
         // Get the latest document with same owner and type
@@ -114,6 +118,8 @@ class DocumentController extends Controller
             'serial_number' => $newSerial,
             'revision_number' => $revisionNumber,
             'file_path' => $filePath,
+            'file_name' => $request->file_name ?? $fileName,
+
         ]);
 
         session()->flash('undo_document_id', $document->id);
@@ -182,7 +188,9 @@ class DocumentController extends Controller
             'serial_number' => $serial,
             'revision_number' => $newRevision,
             'file_path' => $filePath,
+            'file_name' => $fileName,
         ]);
+
 
         return redirect()->route('documents.index', ['locale' => app()->getLocale()])
             ->with('success', "نسخه جدید آپلود شد: $fileName");

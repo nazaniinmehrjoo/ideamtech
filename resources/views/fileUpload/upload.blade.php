@@ -180,6 +180,17 @@
                                     @enderror
                                 </div>
                             </div>
+                            <div class="row mb-3">
+                                <label for="file_name" class="col-md-4 col-form-label text-md-end"> نام فایل</label>
+                                <div class="col-md-6">
+                                    <input type="text" name="file_name" id="file_name"
+                                        class="form-control bg-dark text-white @error('file_name') is-invalid @enderror"
+                                        value="{{ old('file_name') }}">
+                                    @error('file_name')
+                                        <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>
+                                    @enderror
+                                </div>
+                            </div>
 
                             <!-- File Input -->
                             <div class="row mb-3">
@@ -197,6 +208,8 @@
                                     @enderror
                                 </div>
                             </div>
+
+
 
                             <!-- Submit Button -->
                             <div class="row mb-0">

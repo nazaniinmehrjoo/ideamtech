@@ -35,6 +35,7 @@
                             </select>
                         </div>
 
+
                         <div class="col-md-4">
                             <label for="doc_type_code" class="form-label text-end d-block">📄 کد نوع سند</label>
                             <select name="doc_type_code" id="doc_type_code" class="form-select text-end">
@@ -47,6 +48,13 @@
 
                             </select>
                         </div>
+
+                        <div class="col-md-4">
+                            <label for="file_name" class="form-label text-end d-block">📁 نام فایل</label>
+                            <input type="text" name="file_name" id="file_name" value="{{ request('file_name') }}"
+                                class="form-control text-end" placeholder="مثال: MNG-PS-01-01.pdf">
+                        </div>
+
                         <div class="col-md-4">
                             <label for="created_at" class="form-label text-end d-block">🗓️ تاریخ ایجاد</label>
                             <input type="date" name="created_at" id="created_at" value="{{ request('created_at') }}"
@@ -105,7 +113,11 @@
                         <div class="doc-icon">📄</div>
                         <!-- <div class="doc-title">{{ $badgeText }}</div> -->
                         <div class="doc-code">{{ $fullFileName }}</div>
-
+                        @if($latest->file_name && $latest->file_name !== $fullFileName)
+                            <div class="doc-meta">
+                                <strong>عنوان سند:</strong> {{ $latest->file_name }}
+                            </div>
+                        @endif
                         <div class="doc-meta">
                             <strong>{{ __('documents.date') }}:</strong>
                             <span class="persian-date" data-gregorian="{{ $latest->created_at->format('Y-m-d') }}"></span>
@@ -131,13 +143,13 @@
                         </a>
 
                         <!-- <form action="{{ route('documents.destroy', ['locale' => app()->getLocale(), 'id' => $latest->id]) }}"
-                                                                                                                                                                                                                                method="POST" class="mt-2">
-                                                                                                                                                                                                                                @csrf
-                                                                                                                                                                                                                                @method('DELETE')
-                                                                                                                                                                                                                                <button type="submit" class="btn btn-sm btn-danger w-100">
-                                                                                                                                                                                                                                    🗑️ {{ __('documents.delete') }}
-                                                                                                                                                                                                                                </button>
-                                                                                                                                                                                                                            </form> -->
+                                                                                                                                                                                                                                                method="POST" class="mt-2">
+                                                                                                                                                                                                                                                @csrf
+                                                                                                                                                                                                                                                @method('DELETE')
+                                                                                                                                                                                                                                                <button type="submit" class="btn btn-sm btn-danger w-100">
+                                                                                                                                                                                                                                                    🗑️ {{ __('documents.delete') }}
+                                                                                                                                                                                                                                                </button>
+                                                                                                                                                                                                                                            </form> -->
 
                         <button class="btn btn-sm btn-outline-info mt-3 w-100"
                             onclick="trackAndOpenModal('{{ $latest->id }}', '{{ $badgeText }} - {{ $fullFileName }}', {{ json_encode($versions) }})">
@@ -182,11 +194,11 @@
 
                 const listItem = document.createElement('li');
                 listItem.innerHTML = `<h5 href="${version.file_path}" target="_blank">
-                                                                                                                📥 شماره ویرایش ${version.revision_number} - ${fileName} (${formattedDate})
-                                                                                                              </h5>
-                                                                                                              <a href="{{ asset('storage/${version.file_path}') }}" class="compare-button" style="padding:1px 2px;border-radius:14px" download>
-                                                                                                                Download Version ${version.revision_number}
-                                                                                                              </a>`;
+                                                                                                                        📥 شماره ویرایش ${version.revision_number} - ${fileName} (${formattedDate})
+                                                                                                                      </h5>
+                                                                                                                      <a href="{{ asset('storage/${version.file_path}') }}" class="compare-button" style="padding:1px 2px;border-radius:14px" download>
+                                                                                                                        Download Version ${version.revision_number}
+                                                                                                                      </a>`;
                 versionList.appendChild(listItem);
             });
             document.getElementById('moreProductDtl').style.display = 'block';

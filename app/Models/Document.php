@@ -13,5 +13,6 @@ class Document extends Model
         'serial_number',
         'revision_number',
         'file_path',
+        'file_name',
     ];
 }
