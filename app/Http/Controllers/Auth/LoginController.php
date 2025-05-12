@@ -42,7 +42,7 @@ class LoginController extends Controller
         $locale = app()->getLocale(); 
 
         if ($user->is_admin) {
-            return redirect("/{$locale}/dashboard");
+            return redirect("/{$locale}/documents");
         }
 
         return redirect("/{$locale}/");
