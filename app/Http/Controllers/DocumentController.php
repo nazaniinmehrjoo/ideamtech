@@ -100,14 +100,13 @@ class DocumentController extends Controller
             ->orderByDesc('serial_number')
             ->first();
 
-        // Start from 0 instead of 1
-        $newSerial = $latestDoc ? $latestDoc->serial_number + 1 : 0;
-        $revisionNumber = 1;
+        $newSerial = $latestDoc ? $latestDoc->serial_number + 1 : 1;
+        $revisionNumber = 0;
 
         // Format serial and revision to 2 digits
         $serialStr = str_pad($newSerial, 2, '0', STR_PAD_LEFT);
         $revisionStr = str_pad($revisionNumber, 2, '0', STR_PAD_LEFT);
-        
+
         $extension = $request->file('file')->getClientOriginalExtension();
         $fileName = "{$request->owner_code}-{$request->doc_type_code}-{$serialStr}-{$revisionStr}.{$extension}";
 
@@ -172,7 +171,7 @@ class DocumentController extends Controller
             ->orderByDesc('revision_number')
             ->first();
 
-        $newRevision = $latestRevision ? $latestRevision->revision_number + 1 : 1;
+        $newRevision = $latestRevision ? $latestRevision->revision_number + 1 : 0;
 
         // Format both serial and revision as 2 digits
         $serialStr = str_pad($serial, 2, '0', STR_PAD_LEFT);
