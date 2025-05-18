@@ -100,7 +100,7 @@ class DocumentController extends Controller
             ->orderByDesc('serial_number')
             ->first();
 
-        $newSerial = $latestDoc ? $latestDoc->serial_number + 1 : 1;
+        $newSerial = $latestDoc ? $latestDoc->serial_number + 1 : 0;
         $revisionNumber = 0;
 
         // Format serial and revision to 2 digits
