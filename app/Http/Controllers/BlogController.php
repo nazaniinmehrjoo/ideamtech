@@ -14,10 +14,10 @@ class BlogController extends Controller
     {
         $locale = app()->getLocale();
         
-        // Get the selected category from the request (default: null = show all)
+        
         $selectedCategory = $request->input('category');
     
-        // Fetch posts based on selected category
+        
         $query = Post::latest();
         if (!empty($selectedCategory)) {
             $query->where('category->en', $selectedCategory)
@@ -47,9 +47,8 @@ class BlogController extends Controller
     public function index()
     {
         $locale = app()->getLocale();
-        $posts = Post::latest()->paginate(6); // 6 posts per page
+        $posts = Post::latest()->paginate(6); 
 
-        // Map translated fields (optional)
         $posts->getCollection()->transform(function ($post) use ($locale) {
             $post->title = $post->getTranslatedtitle($locale);
             $post->content = $post->getTranslatedcontent($locale);
