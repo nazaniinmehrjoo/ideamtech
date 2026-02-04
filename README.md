@@ -1,64 +1,151 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
+# راه‌اندازی پروژه «برناگستر پارسی» (Laravel 8)
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+این پروژه یک وب‌سایت چندزبانه (fa/en) بر پایه Laravel 8 است. آدرس اصلی به صورت خودکار به زبان پیش‌فرض هدایت می‌شود و مسیرها با پیشوند `{locale}` تعریف شده‌اند.
 
-## About Laravel
+## پیش‌نیازها
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+- PHP 7.3+ یا 8.x
+- Composer
+- Node.js 14+ و npm
+- پایگاه‌داده (پیش‌فرض MySQL/MariaDB)
+- افزونه‌های رایج PHP: `pdo_mysql`, `openssl`, `mbstring`, `tokenizer`, `xml`, `ctype`, `json`, `curl`
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## نصب و اجرای سریع
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+در ریشه پروژه:
 
-## Learning Laravel
+1) نصب وابستگی‌های PHP
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+```
+composer install
+```
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+2) ساخت فایل تنظیمات محیطی (`.env`)
 
-## Laravel Sponsors
+این پروژه فایل `.env.example` ندارد. یک فایل `.env` بسازید و حداقل مقادیر زیر را قرار دهید:
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+```
+APP_NAME="برناگستر پارسی"
+APP_ENV=local
+APP_KEY=
+APP_DEBUG=true
+APP_URL=http://localhost:8000
 
-### Premium Partners
+APP_LOCALE=fa
+APP_FALLBACK_LOCALE=en
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=ideamtech
+DB_USERNAME=root
+DB_PASSWORD=
 
-## Contributing
+FILESYSTEM_DRIVER=public
+SESSION_DRIVER=file
+CACHE_DRIVER=file
+QUEUE_CONNECTION=sync
+```
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+3) تولید کلید اپلیکیشن
 
-## Code of Conduct
+```
+php artisan key:generate
+```
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+4) اجرای مایگریشن‌ها
 
-## Security Vulnerabilities
+```
+php artisan migrate
+```
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+5) ساخت لینک استوریج (برای دسترسی به فایل‌های آپلودی)
 
-## License
+```
+php artisan storage:link
+```
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+6) نصب و ساخت فایل‌های فرانت‌اند (در صورت توسعه رابط کاربری)
+
+```
+npm install
+npm run dev
+```
+
+7) اجرای سرور توسعه
+
+```
+php artisan serve
+```
+
+آدرس‌های قابل دسترسی:
+
+- `http://localhost:8000/fa`
+- `http://localhost:8000/en`
+
+## نکات دیتابیس
+
+- اتصال پیش‌فرض روی MySQL تنظیم شده است.
+- اگر می‌خواهید از SQLite استفاده کنید، فایل `database/database.sqlite` بسازید و در `.env` مقدار `DB_CONNECTION=sqlite` را قرار دهید.
+- در صورت نیاز به داده آزمایشی، می‌توانید Seederها را به صورت دستی اجرا کنید:
+
+```
+php artisan db:seed --class=ProductSeeder
+php artisan db:seed --class=ServiceSeeder
+php artisan db:seed --class=ProjectSeeder
+```
+
+## دسترسی ادمین و پنل
+
+قابلیت‌های مدیریتی با فیلد `is_admin` در جدول `users` کنترل می‌شود. برای اکانت ادمین:
+
+1) از مسیر ثبت‌نام، یک کاربر بسازید.
+2) مقدار `is_admin` کاربر را در دیتابیس به `1` تغییر دهید.
+
+بعد از ورود، ادمین به مسیر `/fa/documents` هدایت می‌شود و به داشبورد دسترسی دارد:
+
+- `/fa/dashboard`
+- `/fa/documents`
+
+## ثبت‌نام و ورود
+
+صفحات احراز هویت داخل گروه مسیرهای دارای پیشوند زبان هستند. برای ثبت‌نام و ورود از این مسیرها استفاده کنید:
+
+- ثبت‌نام: `/{locale}/register` (مثال: `/fa/register`)
+- ورود: `/{locale}/login` (مثال: `/fa/login`)
+
+بعد از ثبت‌نام، اگر `is_admin=1` باشد کاربر به صفحه اسناد هدایت می‌شود، و در غیر این صورت به صفحه اصلی زبان مربوطه منتقل می‌شود.
+
+## راهنمای کار با داشبورد
+
+بعد از ورود به عنوان ادمین، از مسیر `/fa/dashboard` به داشبورد دسترسی دارید. بخش‌های اصلی داشبورد:
+
+- مدیریت محصولات: `/fa/products`
+- مدیریت خدمات: `/fa/services`
+- مدیریت پروژه‌ها: `/fa/projects`
+- مدیریت مشتریان (فرم‌ها): `/fa/customer`
+- مدیریت مقالات: `/fa/dashboard/blog`
+- اسناد و فایل‌ها: `/fa/documents`
+
+نکته‌ها:
+
+- برای مشاهده لیست اسناد، نقش ادمین یا ویوئر نیاز است.
+- برای ایجاد/ویرایش محتوا، نقش ادمین لازم است.
+
+## دستورات مفید
+
+```
+php artisan config:clear
+php artisan cache:clear
+php artisan view:clear
+```
+
+## خطاهای رایج
+
+- **ارور دسترسی به پوشه‌ها**: مطمئن شوید پوشه‌های `storage` و `bootstrap/cache` قابل نوشتن هستند.
+- **عدم نمایش فایل‌های آپلودی**: دستور `php artisan storage:link` را اجرا کرده باشید.
+- **خطای اتصال دیتابیس**: مقادیر `DB_*` در `.env` را بررسی کنید.
+
+## ساختار زبان‌ها
+
+ترجمه‌ها در مسیر `resources/lang/fa` و `resources/lang/en` قرار دارند. زبان پیش‌فرض در تنظیمات `config/app.php` مقدار `fa` است.
